@@ -1,5 +1,7 @@
 val scala3Version = "3.0.0"
 
+lazy val utils = RootProject(file("/home/jm/Lib/Scala/Utils"))
+
 lazy val root = project
   .in(file("."))
   .settings(
@@ -9,4 +11,4 @@ lazy val root = project
     scalaVersion := scala3Version,
 
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
-  )
+  ).dependsOn(utils)

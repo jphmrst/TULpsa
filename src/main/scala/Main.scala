@@ -1,5 +1,7 @@
-@main def hello: Unit = 
-  println("Hello world!")
-  println(msg)
+package org.maraist.wtulrosters
 
-def msg = "I was compiled by Scala 3. :)"
+@main def hello: Unit =
+  Spots.init()
+  println()
+  println(Spot.size.toString() + " spots")
+  println()

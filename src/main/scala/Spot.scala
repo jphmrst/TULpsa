@@ -2,7 +2,7 @@
 package org.maraist.wtulrosters
 import java.time.LocalDate
 
-case class Spot(
+class Spot(
   val tag: String,
   val group: Group,
   val text: String,
@@ -16,10 +16,8 @@ case class Spot(
   val groupWeight: Int = 1,
   val variantGroup: Int = Spot.nextVariantGroup
 ) {
-
   if (Spot.tags.contains(tag))
     then throw new IllegalArgumentException("Duplicate tag " + tag)
-
   Spot.inventory += this
   Spot.tags += ((tag, this))
 }
@@ -27,6 +25,9 @@ case class Spot(
 object Spot {
   private val inventory = new scala.collection.mutable.HashSet[Spot]
   private val tags = new scala.collection.mutable.HashMap[String,Spot]
+
+  def all: Iterable[Spot] = inventory
+  def size: Int = inventory.size
 
   private var nextVariantCounter: Int = 1
   def nextVariantGroup: Int = {
@@ -42,6 +43,8 @@ class SpotWriters {
       def apply(a: A): Option[A] = Some(a)
   given singletonSeq[A]: Conversion[A, Seq[A]] with
       def apply(a: A): Seq[A] = Seq(a)
+
+  def init(): Unit = { }
 }
 
 object Spots extends SpotWriters {
@@ -52,7 +55,7 @@ object Spots extends SpotWriters {
     "VoteDotOrg",
     Volunteer,
     "Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?  You can find out more about voter and election information at \\online{vote dot O R G}. Quick links will connect you to every state! For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker. More information is available at \\online{vote dot O R G}.",
-    start = "2021-6-22",
+    start = "2021-06-22",
     alert = "2021-07-23",
     sourceNote = "Local"
   )
@@ -856,26 +859,8 @@ object Spots extends SpotWriters {
     sourceNote = "## [tweets through Aug. '10]"
   )
 
-  Spot(
-    "NationalSuicidePrev",
-    Health,
-    "The National Suicide Prevention crisis counseling hotline is 800/273-8255.  This number is available both for people who are having suicidal thoughts, and who are concerned about others.  That number again is 800/273-8255.",
-    start = "2021-06-22",
-    alert = "2022-07-15",
-    sourceNote = "## (phone number only, last called to check 8/2006)"
-  )
-
 //    ## live meetings, pull COVID # 'NoAidsTesting',
 //    # 'TargetsAdultBullying',  ## live meetings, pull COVID
-
-  Spot(
-    "BehavioralHealthCrisisLine",
-    Health,
-    "If you or someone you know is in a behavioral health crisis, the Metropolitan Crisis Response Team can help.  A behavioral health crisis could mean: being in danger of hurting themselves or others; being in need of emergency housing; having an alcohol or drug crisis; or when a person with mental illness feels overwhelmed or unstable. The New Orleans Health Department runs a 24-hour hotline for Orleans, Plaquemines and Saint Bernard Parishes. Their number is 504/826-2675. For individuals in crisis in Jefferson Parish, the number is 504/832-5123.",
-    start = "2021-06-22",
-    alert = "2022-07-15",
-    sourceURL = "http://new.nola.gov/health-department/behavioral-health/behavioral-health-resources/"
-  )
 
   Spot(
     "BloodCenterOne",
@@ -903,7 +888,8 @@ object Spots extends SpotWriters {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "the Greater New Orleans Center for Women and Children",
-    sourceNote = "## [tweets through June 10]"
+    sourceNote = "## [tweets through June 10]",
+    groupWeight = 2
   )
 
   Spot(
@@ -922,7 +908,8 @@ object Spots extends SpotWriters {
     "The Louisiana Domestic Violence Hotline is 888/411-1333. The hotline is free, confidential and available 24-hours-a-day. They can help your family, or help you to help others. Their number again is 888/411-1333.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceContacts = "Alex Juan <alex.juan@lcadv.org>"
+    sourceContacts = "Alex Juan <alex.juan@lcadv.org>",
+    groupWeight = 2
   )
 
   Spot(
@@ -934,16 +921,6 @@ object Spots extends SpotWriters {
     copresent = "Odyssey House Louisiana",
     sourceNote = "## confirmed August 2009 - atucker@ohlinc.org",
     sourceContacts = "atucker@ohlinc.org"
-  )
-
-  Spot(
-    "BehavioralHealthCrisisLine",
-    Health,
-    "If you or someone you know is in a behavioral health crisis, the Metropolitan Crisis Response Team can help.  A behavioral health crisis could mean: being in danger of hurting themselves or others; being in need of emergency housing; having an alcohol or drug crisis; or when a person with mental illness feels overwhelmed or unstable. The New Orleans Health Department runs a 24-hour hotline for Orleans, Plaquemines and Saint Bernard Parishes. Their number is 504/826-2675. For individuals in crisis in Jefferson Parish, the number is 504/832-5123.",
-    start = "2021-06-22",
-    alert = "2022-07-15",
-    sourceURL = "http://new.nola.gov/health-department/behavioral-health/behavioral-health-resources/",
-    sourceNote = "## added March 2013"
   )
 
   Spot(
@@ -1065,35 +1042,8 @@ object Spots extends SpotWriters {
     "If you or someone you know is in a behavioral health crisis, the Metropolitan Crisis Response Team can help.  A behavioral health crisis could mean: being in danger of hurting themselves or others; being in need of emergency housing; having an alcohol or drug crisis; or when a person with mental illness feels overwhelmed or unstable. The New Orleans Health Department runs a 24-hour hotline for Orleans, Plaquemines and Saint Bernard Parishes. Their number is 504/826-2675. For individuals in crisis in Jefferson Parish, the number is 504/832-5123.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceURL = "http://new.nola.gov/health-department/behavioral-health/behavioral-health-resources/"
-  )
-
-  Spot(
-    "RapeCrisis",
-    Mental,
-    "The Greater New Orleans Center for Women and Children operates programs to assist victims of domestic violence and sexual assault. Services include a 24 hour confidential crisis line, shelter for victims of domestic violence, limited legal assistance (including referrals), and counseling and advocacy services.  All services are confidential and are provided at no cost by specially trained staff members.  Help is provided both for victims, and for people who want to stop committing violent acts.  Assistance is available by calling 504/837-5400.",
-    start = "2021-06-22",
-    alert = "2022-07-15",
-    sourceNote = "## [tweets through June 10]",
-    copresent = "the Greater New Orleans Center for Women and Children"
-  )
-
-  Spot(
-    "LouisianaCoalitionDomesticViolence",
-    Mental,
-    "The Louisiana Domestic Violence Hotline is 888/411-1333. The hotline is free, confidential and available 24-hours-a-day. They can help your family, or help you to help others. Their number again is 888/411-1333.",
-    start = "2021-06-22",
-    alert = "2022-07-15",
-    sourceContacts = "Alex Juan <alex.juan@lcadv.org>"
-  )
-
-  Spot(
-    "BehavioralHealthCrisisLine",
-    Mental,
-    "If you or someone you know is in a behavioral health crisis, the Metropolitan Crisis Response Team can help.  A behavioral health crisis could mean: being in danger of hurting themselves or others; being in need of emergency housing; having an alcohol or drug crisis; or when a person with mental illness feels overwhelmed or unstable. The New Orleans Health Department runs a 24-hour hotline for Orleans, Plaquemines and Saint Bernard Parishes. Their number is 504/826-2675. For individuals in crisis in Jefferson Parish, the number is 504/832-5123.",
-    start = "2021-06-22",
-    alert = "2022-07-15",
-    sourceURL = "http://new.nola.gov/health-department/behavioral-health/behavioral-health-resources/"
+    sourceURL = "http://new.nola.gov/health-department/behavioral-health/behavioral-health-resources/",
+    groupWeight = 2
   )
 
   Spot(
@@ -1933,6 +1883,5 @@ object Spots extends SpotWriters {
     start = "2021-06-22",
     alert = "2022-07-15"
   )
-
 }
 
