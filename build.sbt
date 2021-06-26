@@ -9,5 +9,6 @@ lazy val root = project
     version := "0.1.0",
     scalaVersion := scala3Version,
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
-  ).dependsOn(RootProject(file("/home/jm/Lib/Scala/Utils")))
-
+  )
+  // .dependsOn(RootProject(file("/home/jm/Lib/Scala/Utils")))
+  .dependsOn(RootProject(file("/home/jm/Lib/Scala/LaTeX")))
