@@ -51,7 +51,7 @@ object Spots extends SpotWriters {
   import Group.*
   import scala.language.implicitConversions
 
-  Spot(
+  val voteDotOrg = Spot(
     "VoteDotOrg",
     Volunteer,
     "Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?  You can find out more about voter and election information at \\online{vote dot O R G}. Quick links will connect you to every state! For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker. More information is available at \\online{vote dot O R G}.",
@@ -60,7 +60,7 @@ object Spots extends SpotWriters {
     sourceNote = "Local"
   )
 
-  Spot(
+  val hnoc = Spot(
     "HnocVolunteersTwelve",
     Volunteer,
     "The Historic New Orleans Collection is a museum, research center, and publisher in the French Quarter. They are looking for weekend volunteers to help greet visitors, monitor exhibitions, and lead tours. \\MoreWeb{H N O C dot O R G}",
