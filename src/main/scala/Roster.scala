@@ -19,7 +19,7 @@ abstract class Roster(
   }
 
   def toLaTeX(doc: LaTeXdoc): Unit = {
-    ???
+    doc ++= "TODO"
   }
 }
 
