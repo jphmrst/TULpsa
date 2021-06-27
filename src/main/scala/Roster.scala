@@ -19,7 +19,31 @@ abstract class Roster(
   }
 
   def toLaTeX(doc: LaTeXdoc): Unit = {
-    doc ++= "TODO"
+    doc ++= "TODO\n"
+  }
+
+  def write(dir: String = "./") = {
+    val doc = openDoc
+    toLaTeX(doc)
+    closeDoc(doc)
+  }
+
+  def fileTitle: String = startDate.toString()
+
+  def openDoc: LaTeXdoc = {
+    val doc = new LaTeXdoc(fileTitle)
+    doc.setClass("book")
+    doc.setClassOptions("12pt")
+    // doc.addPackage("rosters")
+    doc.addPackage("times")
+    // doc.addPackage("psa")
+    // doc.addPackage("logs5")
+    doc.open()
+    doc
+  }
+
+  def closeDoc(doc: LaTeXdoc) = {
+    doc.close()
   }
 }
 

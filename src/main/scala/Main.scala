@@ -1,6 +1,6 @@
 package org.maraist.wtulrosters
 
-@main def hello: Unit = {
+@main def testRun: Unit = {
   Spots.init()
   println()
   println(Spot.size.toString() + " spots")
@@ -29,13 +29,6 @@ package org.maraist.wtulrosters
   )
   println("Created roster")
 
-  import org.maraist.latex.LaTeXdoc
-  val doc = new LaTeXdoc("2021-06-20")
-  doc.open()
-  println("Opened output")
-
-  roster.toLaTeX(doc)
+  roster.write()
   println("Written")
-
-  println("Closed\n")
 }
