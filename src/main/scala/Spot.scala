@@ -2,6 +2,8 @@
 package org.maraist.wtulrosters
 import java.time.LocalDate
 
+/** One PSA spot
+  */
 class Spot(
   val tag: String,
   val group: Group,
@@ -13,7 +15,7 @@ class Spot(
   val sourceContacts: Seq[String] = Seq(),
   val sourceURL: Seq[String] = Seq(),
   val sourceNote: Option[String] = None,
-  val groupWeight: Int = 1,
+  val groupGainMultiplier: Double = 1.0,
   val variantGroup: Int = Spot.nextVariantGroup
 ) {
   import Spot.{getWeekOfCentury, EPSILON}
@@ -28,6 +30,7 @@ class Spot(
   // Register this instance in the various Spot tables.
   Spot.inventory += this
   Spot.tags += ((tag, this))
+  Spot.grouped.put(group, this :: Spot.grouped.getOrElse(group, Nil))
 
   // End of instance creation.
   // -----------------------------------------------------------------
@@ -66,9 +69,11 @@ class Spot(
 object Spot {
   private val inventory = new scala.collection.mutable.HashSet[Spot]
   private val tags = new scala.collection.mutable.HashMap[String,Spot]
+  private val grouped = new scala.collection.mutable.HashMap[Group,List[Spot]]
 
   def all: Iterable[Spot] = inventory
   def size: Int = inventory.size
+  def ofGroup(g: Group): List[Spot] = grouped(g)
 
   private var nextVariantCounter: Int = 1
   def nextVariantGroup: Int = {
@@ -942,7 +947,7 @@ object Spots extends SpotWriters {
     alert = "2022-07-15",
     copresent = "the Greater New Orleans Center for Women and Children",
     sourceNote = "## [tweets through June 10]",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -962,7 +967,7 @@ object Spots extends SpotWriters {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Alex Juan <alex.juan@lcadv.org>",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1096,7 +1101,7 @@ object Spots extends SpotWriters {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://new.nola.gov/health-department/behavioral-health/behavioral-health-resources/",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1750,7 +1755,7 @@ object Spots extends SpotWriters {
     "Thousands of New Orleanians may need help evacuating this hurricane season.  You can assist by volunteering with Evacuteer, to help get people out of harm's way in case of an evacuation.  Evacuteer hosts one-hour volunteer trainings at libraries and community spaces throughout the city.  \\MoreWeb[More information, and registration for training, are]{evacuteer dot O R G} That's \\online{E V A C U T E E R dot O R G}.  ",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1759,7 +1764,7 @@ object Spots extends SpotWriters {
     "New Orleans' City-Assisted Evacuation provides residents with a free ride to a shelter during a mandatory evacuation. They also provide a ride home once it is safe to return. Evacuteer volunteers will help residents and make sure that families, including pets, stay together.  \\MoreWeb{ready dot nola dot gov} ",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 4
+    groupGainMultiplier = 1.5
   )
 
   Spot(
@@ -1768,7 +1773,7 @@ object Spots extends SpotWriters {
     "Do you know the way out of town in a hurricane evacuation?  When a storm is approaching, our interstate highways are rerouted for \\emph{contraflow}, where all lanes head away from the coast.  During contraflow it's important to know where you're going, because there may be few exits from the highway once you enter.  More information about contraflow routes is available on the Evacuation Guide for Southeast Louisiana, available from the Governor's Office of Homeland Security and Emergency Preparedness website, \\textsl{get a game plan dot O R G}.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1777,7 +1782,7 @@ object Spots extends SpotWriters {
     "People with disabilities can reduce the fear, panic, and inconvenience that comes with hurricane evacuation by planning ahead.   The website of the Governor's Office of Homeland Security and Emergency Preparedness, at \\online{get a game plan dot O R G}, has a list of precautions and preparations.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1786,7 +1791,7 @@ object Spots extends SpotWriters {
     "You may have a hurricane evacuation plan, but can your pet come along?   The website of the Governor's Office of Homeland Security and Emergency Preparedness has information about planning for your pets as a storm approaches.  \\MoreWeb{get a game plan dot O R G}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1795,7 +1800,7 @@ object Spots extends SpotWriters {
     "Do you have somewhere to go when a hurricane approaches?  Just because you can't afford a hotel, doesn't mean you have to ride out a storm.  For information about shelter options, get the Evacuation Guide for Southeast Louisiana from the Governor's Office of Homeland Security and Emergency Preparedness.  You can download it from their website, \textsl{get a game plan dot O R G}.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 2
+    groupGainMultiplier = 1.2
   )
 
   Spot(
@@ -1812,7 +1817,7 @@ object Spots extends SpotWriters {
     "NOLA Ready is the City of New Orleans's online Emergency Alert System.  Its web site \\online{ready dot NOLA dot G O V} helps the citizens of New Orleans get themselves, their homes and their businesses prepared for hurricane season. Information includes supplies citizens should have on hand, how to form an emergency plan, what to include in an emergency kit and to-go bag, how to get out of town, and resources for pet-owners and business owners. In the event of emergency, \\online{ready dot NOLA dot G O V} will provide fast, accurate updates.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    groupWeight = 6
+    groupGainMultiplier = 1.65
   )
 
   Spot(

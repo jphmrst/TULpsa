@@ -46,4 +46,3 @@ object Group {
   object Summer extends Group("Summer season", SEASONAL_PERIOD)
   object Voter extends Group("Voter information")
 }
-

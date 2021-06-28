@@ -43,4 +43,21 @@ import java.time.LocalDate
   }
 
   priorityln(hnoc, "2021-06-26")
+  println()
+
+  def topSpots(date: LocalDate) = {
+    print(date.toString + ": ")
+    for (spot <- Assortment.getSortedList(date).take(12)) {
+      print(" " + spot.tag)
+    }
+    println()
+  }
+  topSpots("2021-06-05")
+  topSpots("2021-06-12")
+  topSpots("2021-06-19")
+  topSpots("2021-06-26")
+  topSpots("2021-07-05")
+  topSpots("2021-07-12")
+  topSpots("2021-07-19")
+  topSpots("2021-07-26")
 }
