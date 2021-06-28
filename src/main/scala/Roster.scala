@@ -1,7 +1,8 @@
 
 package org.maraist.wtulrosters
 import java.util.Locale.US
-import java.time.LocalDate
+import java.time.{LocalDate,LocalDateTime}
+import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle.FULL
 import org.maraist.latex.{LaTeXRenderable, LaTeXdoc}
 
@@ -13,7 +14,8 @@ abstract class Roster(
   val groupLead: String,
   val footer: String,
   val indexFormatter: Int => String,
-  val preamble: String
+  val preamble: String,
+  val timestamper: DateTimeFormatter
 ) extends LaTeXRenderable {
   if (slots.size != size) {
     throw new IllegalArgumentException(
@@ -71,6 +73,10 @@ abstract class Roster(
       doc ++= group.spot.text
       doc ++= "\n\\end{minipage}\n"
     }
+    doc ++= "\\vspace*{\\fill}\n"
+    doc ++= "\\par\\textcolor{black!50}{\\emph{\\hspace*{\\fill}Generated "
+    doc ++= LocalDateTime.now().format(timestamper)
+    doc ++= ".}}"
   }
 
   def write(dir: String = "./") = {
@@ -242,7 +248,8 @@ class PsaRoster(startDate: LocalDate, slots: Array[Spot])
       "PSA \\#",
       "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
       (x: Int) => (1 + x).toString(),
-      commonPreamble) {
+      commonPreamble,
+      DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'")) {
   override def fileTitle: String = "PSAs-" + super.fileTitle
 }
 
