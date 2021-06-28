@@ -20,6 +20,12 @@ class Spot(
     then throw new IllegalArgumentException("Duplicate tag " + tag)
   Spot.inventory += this
   Spot.tags += ((tag, this))
+
+  def introText: String = {
+    "This public service announcement is brought to you by "
+    + copresent.map(_ + " and ").getOrElse("")
+    + "WTUL New Orleans."
+  }
 }
 
 object Spot {
