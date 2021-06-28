@@ -1,6 +1,8 @@
 
 package org.maraist.wtulrosters
+import java.util.Locale.US
 import java.time.LocalDate
+import java.time.format.TextStyle.FULL
 import org.maraist.latex.{LaTeXRenderable, LaTeXdoc}
 
 abstract class Roster(
@@ -17,6 +19,15 @@ abstract class Roster(
     throw new IllegalArgumentException(
       "Expected " + size.toString() + " spots, but array has length "
         + slots.size.toString())
+  }
+
+  def weekDates: String = {
+    val endDate = startDate.plusDays(6)
+    if (startDate.getYear() < endDate.getYear())
+      then startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + ", " + startDate.getYear().toString() + "--" + endDate.getMonth().getDisplayName(FULL, US) + " " + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
+    else if (startDate.getMonth() != endDate.getMonth())
+      then startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + "--" + endDate.getMonth().getDisplayName(FULL, US) + " " + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
+      else startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + "--" + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
   }
 
   def insertBetween[A](x: A, xs: List[A]): List[A] = xs match {
@@ -47,7 +58,7 @@ abstract class Roster(
       doc ++= "\\addtolength{\\nextPsaBlockWrap}{2\\psaBlockSep}\n"
       doc ++= "\\begin{minipage}{\\textwidth}\n"
       doc ++= "\\begin{wrapfigure}{l}{\\nextPsaBlockWrap}\n"
-      doc ++= """\begin{tikzpicture}[every node/.style={fill,text=white,text width=\nextPsaBlock,inner sep=\psaBlockSep, outer sep=0pt}] \node {"""
+      doc ++= """\begin{tikzpicture}[every node/.style={fill,text=yellow,text width=\nextPsaBlock,inner sep=\psaBlockSep, outer sep=0pt}] \node {"""
       doc ++= blockText
       doc ++= "};\\end{tikzpicture}\n"
       doc ++= "\\end{wrapfigure}\n"
@@ -81,8 +92,7 @@ abstract class Roster(
     doc.addPackage("geometry", "left=0.5in, right=0.5in, top=0.7in, bottom=0.7in")
     doc.addPackage("wrapfig")
     doc.addPreamble(preamble)
-    doc.addPreamble("""\def\rosterDates{FILL IN dates}
-""")
+    doc.addPreamble(s"\\def\\rosterDates{$weekDates}\n")
     doc.open()
     doc ++= commonStart
     doc
@@ -104,13 +114,13 @@ val commonPreamble: String = """
 \headheight 12pt
 \headsep 1em
 \newlength{\psaBlockSep}
-\setlength{\psaBlockSep}{2.5mm}
+\setlength{\psaBlockSep}{3mm}
 \setlength\intextsep{0pt} % Squashes extra space around labels
 \newlength{\nextPsaBlock}
 \newlength{\nextPsaBlockWrap}
 
 \parindent 0pt
-\parskip 10pt
+\parskip 14pt
 
 \def\misprintsTo{{\small Please report typos, expired spots, or other problems with PSAs to \textsl{wtul-psa@gmail.com}\,.}}
 
@@ -232,7 +242,9 @@ class PsaRoster(startDate: LocalDate, slots: Array[Spot])
       "PSA \\#",
       "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
       (x: Int) => (1 + x).toString(),
-      commonPreamble)
+      commonPreamble) {
+  override def fileTitle: String = "PSAs-" + super.fileTitle
+}
 
 
 case class SpotGroup(
