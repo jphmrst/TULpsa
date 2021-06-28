@@ -1,5 +1,7 @@
 package org.maraist.wtulrosters
 
+import java.time.LocalDate
+
 @main def testRun: Unit = {
   Spots.init()
   println()
@@ -31,4 +33,14 @@ package org.maraist.wtulrosters
 
   roster.write()
   println("Written")
+
+  def priorityln(spot: Spot, start: LocalDate) = {
+    for(i <- 0 to 10) {
+      val when = start.plusDays(7 * i)
+      println(
+        spot.tag + " " + when.toString + ": " + spot.priority(when).toString())
+    }
+  }
+
+  priorityln(hnoc, "2021-06-26")
 }

@@ -16,11 +16,46 @@ class Spot(
   val groupWeight: Int = 1,
   val variantGroup: Int = Spot.nextVariantGroup
 ) {
+  import Spot.{getWeekOfCentury, EPSILON}
+
+  // -----------------------------------------------------------------
+  // Instance creation.
+
+  // Correctness checks --- make sure each spot has a unique tag.
   if (Spot.tags.contains(tag))
     then throw new IllegalArgumentException("Duplicate tag " + tag)
+
+  // Register this instance in the various Spot tables.
   Spot.inventory += this
   Spot.tags += ((tag, this))
 
+  // End of instance creation.
+  // -----------------------------------------------------------------
+
+  /** We will use the hash code of the text several times, so store it
+    * here.
+    */
+  private val testHash: Int = text.hashCode()
+
+  /** Calculate a small, unique, persistent "wiggle" for the period of
+    * every spot, so that it has at least a slightly unique pattern.
+    */
+  private val periodWiggle: Double = Math.sin(testHash.toDouble) / 4.0
+
+  /** The period (in weeks) of the rise and fall of this spot's priority
+    * ranking.
+    */
+  val period: Double = group.period + periodWiggle
+
+  /** Calculate the spot's priority on a given date.
+    */
+  def priority(date: LocalDate): Double =
+    Math.sin(date.getWeekOfCentury().toDouble / period * 2.0 * Math.PI)
+    / (2.0 - 2 * EPSILON) + 0.5 + EPSILON
+
+  /** Assemble the introductory text (excluding the "optional" or
+    * "required" prefix) for this spot.
+    */
   def introText: String = {
     "This public service announcement is brought to you by "
     + copresent.map(_ + " and ").getOrElse("")
@@ -41,6 +76,18 @@ object Spot {
     nextVariantCounter = nextVariantCounter + 1
     result
   }
+
+  /** Calculate the week number of a date with its century, under the
+    * simplifying assumptions that each year has exactly 52 weeks, and
+    * January 1 always starts a new week.
+    */
+  extension (localDate: LocalDate)
+      def getWeekOfCentury(): Int =
+        (localDate.getYear() % 100) * 52 + localDate.getDayOfYear() / 7
+
+  /** A very small number, used to return non-zero priorities.
+    */
+  val EPSILON: Double = 0.0000001
 }
 
 class SpotWriters {
