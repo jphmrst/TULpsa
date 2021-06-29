@@ -1,9 +1,16 @@
 package org.maraist.wtulrosters
 
 import java.time.LocalDate
+import org.maraist.latex.LaTeXdoc
 
 @main def testRun: Unit = {
   Spots.init()
+  Assortment.init()
+
+  print("Writing report...")
+  writeReport()
+  println("finished")
+
   println()
   println(Spot.size.toString() + " spots")
 
@@ -60,4 +67,24 @@ import java.time.LocalDate
   topSpots("2021-07-12")
   topSpots("2021-07-19")
   topSpots("2021-07-26")
+
+  println(Assortment.assortmentSet.size.toString())
 }
+
+def writeReport() = {
+  val doc = new LaTeXdoc("report")
+  doc.addPackage("times")
+  doc.addPackage("supertabular")
+
+  doc.open()
+
+  doc ++=/ """\begin{supertabular}{lll|}"""
+  doc ++=/ """ Tag & Start & End \\ \hline"""
+  for(spot <- Spot.all) {
+    doc ++=/ s" ${spot.tag} & ${spot.start.toString()} & ${spot.end.map(_.toString()).getOrElse("-")} \\\\ \\hline"
+  }
+  doc ++=/ """\end{supertabular}"""
+
+  doc.close()
+}
+
