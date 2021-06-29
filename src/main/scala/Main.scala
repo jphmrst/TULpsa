@@ -5,6 +5,9 @@ import org.maraist.latex.LaTeXdoc
 import java.time.Period
 
 @main def testRun: Unit = {
+  import Spots.stringToLocalDate
+  import scala.language.implicitConversions
+
   Spots.init()
   Assortment.init()
 
@@ -12,8 +15,15 @@ import java.time.Period
   writeReport()
   println("finished")
 
-  println()
-  println(Spot.size.toString() + " spots")
+  print("Creating roster...")
+  val builder = new PsaRosterBuilder("2021-06-28")
+  builder.completeWith(Assortment.getSortedList("2021-06-28"))
+  builder.result().write()
+
+  print("Creating roster2...")
+  val builder2 = new PsaRosterBuilder("2021-07-05")
+  builder2.completeWith(Assortment.getSortedList("2021-07-05"))
+  builder2.result().write()
 }
 
 def restRun: Unit = {

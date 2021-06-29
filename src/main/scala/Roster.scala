@@ -240,9 +240,15 @@ val commonPreamble: String = """
 % their phone number is #3, and their email address is \online{#4}.}
 
 \makeatother
+
+\newcommand{\AM}{\textsc{AM}}
+\newcommand{\PM}{\textsc{PM}}
 """
 
-class PsaRoster(startDate: LocalDate, slots: Array[Spot])
+/** @deprecated Really for interim prototyping only; use
+  * [[PsaRosterBuilder]].
+  */
+@Deprecated class PsaRoster(startDate: LocalDate, slots: Array[Spot])
     extends Roster(startDate, slots, 78,
       "WTUL 91.5\\textsc{fm} --- PSA roster",
       "PSA \\#",
@@ -252,7 +258,6 @@ class PsaRoster(startDate: LocalDate, slots: Array[Spot])
       DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'")) {
   override def fileTitle: String = "PSAs-" + super.fileTitle
 }
-
 
 case class SpotGroup(
   val spot: Spot, val firstIndex: Int, val count: Int = 1) {

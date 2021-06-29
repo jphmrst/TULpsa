@@ -1395,10 +1395,12 @@ object Spots extends SpotWriters {
     sourceNote = "kathy fleming <kathylee1145@yahoo.com>"
   )
 
+  val nomuseumsdotcomblurb: String = """The New Orleans Tourism Marketing Corporation maintains a directory of city and area museums online at \textsl{New Orleans Museums dot com}."""
+
   Spot(
     "TulaneSpecialCollectionsRegular",
     Museum,
-    "Tulane University's Howard-Tilton Memorial Library offers a Special Collections Division for student and professional research. The Hogan Jazz Archive preserves oral histories, recordings, sheet music, and images, about Jazz in New Orleans.  The Louisiana Collection contains books, pamphlets, maps, sheet music, newspapers, photographs and other historical printed materials from French explorations to the present. The special collections also include the manuscripts department, university archives, rare books and the architectural archives.  \\MorePhoneWeb{504/865-5685}{special collections dot tulane dot edu}\\ \\nomuseumsdotcomblurb",
+    "Tulane University's Howard-Tilton Memorial Library offers a Special Collections Division for student and professional research. The Hogan Jazz Archive preserves oral histories, recordings, sheet music, and images, about Jazz in New Orleans.  The Louisiana Collection contains books, pamphlets, maps, sheet music, newspapers, photographs and other historical printed materials from French explorations to the present. The special collections also include the manuscripts department, university archives, rare books and the architectural archives.  \\MorePhoneWeb{504/865-5685}{special collections dot tulane dot edu}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1407,7 +1409,7 @@ object Spots extends SpotWriters {
   Spot(
     "PrcRegular",
     Museum,
-    "The Preservation Resource Center features both permanent and rotating exhibits on New Orleans architecture and historic neighborhoods.  The ``Living With History'' exhibit features hundreds of professional and amateur photographs of New Orleans residents going about their daily lives in several of New Orleans' fascinating neighborhoods.  The center also provides walking tour brochures highlighting neighborhood restaurants, churches, theaters and more.  The Preservation Resource Center is located at 923 Tchoupitoulas Street in the Warehouse District.  \\MorePhoneWeb{504/581-7032}{www dot P R C N O dot org}\\ \\nomuseumsdotcomblurb",
+    "The Preservation Resource Center features both permanent and rotating exhibits on New Orleans architecture and historic neighborhoods.  The ``Living With History'' exhibit features hundreds of professional and amateur photographs of New Orleans residents going about their daily lives in several of New Orleans' fascinating neighborhoods.  The center also provides walking tour brochures highlighting neighborhood restaurants, churches, theaters and more.  The Preservation Resource Center is located at 923 Tchoupitoulas Street in the Warehouse District.  \\MorePhoneWeb{504/581-7032}{www dot P R C N O dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "Kathy Fleming <kathylee1145@yahoo.com>"
@@ -1416,7 +1418,7 @@ object Spots extends SpotWriters {
   Spot(
     "BeauregardKeyesRegular",
     Museum,
-    "The Beauregard-Keyes (``BO-regard'') House, built in 1826 and named for two of its former tenants, is a fine example of a raised center hall house.  Visitors can explore the original furnishing of General Beauregard, and Mrs.\\ Keyes' collections of antiques.  \\MorePhone{504/523-7275}\\ \\nomuseumsdotcomblurb",
+    "The Beauregard-Keyes (``BO-regard'') House, built in 1826 and named for two of its former tenants, is a fine example of a raised center hall house.  Visitors can explore the original furnishing of General Beauregard, and Mrs.\\ Keyes' collections of antiques.  \\MorePhone{504/523-7275}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1425,7 +1427,7 @@ object Spots extends SpotWriters {
   Spot(
     "DegasHouseRegular",
     Museum,
-    "The Edgar Degas House was the home of the impressionist painter during his time in New Orleans, and is the only known home or studio of Degas that is open to the public. Tours of the home are conducted by appointment only, include a viewing of the award-winning documentary \\emph{Degas in New Orleans, A Creole Sojourn}, and support the Edgar Degas Foundation.  \\MorePhoneWeb{504/821-5009}{www dot degas house dot com}\\ \\nomuseumsdotcomblurb",
+    "The Edgar Degas House was the home of the impressionist painter during his time in New Orleans, and is the only known home or studio of Degas that is open to the public. Tours of the home are conducted by appointment only, include a viewing of the award-winning documentary \\emph{Degas in New Orleans, A Creole Sojourn}, and support the Edgar Degas Foundation.  \\MorePhoneWeb{504/821-5009}{www dot degas house dot com}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1434,7 +1436,7 @@ object Spots extends SpotWriters {
   Spot(
     "PitotHouseRegular",
     Museum,
-    "The Pitot House Museum on Bayou (``BUY-you'') Saint John is an eighteenth-century Creole colonial building, and was the home of New Orleans first mayor.  The museum has been restored to highlight its distinctive construction and roof, and is furnished with Louisiana and American antiques from the early 1800s.  Visitors do need an appointment to tour the home. \\MorePhoneWeb[More information and appointments are]{504/482-0312}{www dot P I T O T house dot org}\\ \\nomuseumsdotcomblurb",
+    "The Pitot House Museum on Bayou (``BUY-you'') Saint John is an eighteenth-century Creole colonial building, and was the home of New Orleans first mayor.  The museum has been restored to highlight its distinctive construction and roof, and is furnished with Louisiana and American antiques from the early 1800s.  Visitors do need an appointment to tour the home. \\MorePhoneWeb[More information and appointments are]{504/482-0312}{www dot P I T O T house dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1443,7 +1445,7 @@ object Spots extends SpotWriters {
   Spot(
     "JazzParkRegular",
     Museum,
-    "In a city famous for jazz halls and great music, there is a place we can go to learn how New Orleans came to be the birthplace of jazz.  The New Orleans Jazz National Historical Park preserves information and resources related to the beginnings and progressions of jazz in New Orleans. The visitor center is located at 916 North Peters Street is the French Quarter.  \\MorePhoneWeb{504/589-4806}{www dot N P S dot gov slash jazz}\\ \\nomuseumsdotcomblurb",
+    "In a city famous for jazz halls and great music, there is a place we can go to learn how New Orleans came to be the birthplace of jazz.  The New Orleans Jazz National Historical Park preserves information and resources related to the beginnings and progressions of jazz in New Orleans. The visitor center is located at 916 North Peters Street is the French Quarter.  \\MorePhoneWeb{504/589-4806}{www dot N P S dot gov slash jazz}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1452,7 +1454,7 @@ object Spots extends SpotWriters {
   Spot(
     "DDayMuseumRegular",
     Museum,
-    "New Orleans is home to the country's official World War II Museum.  Permanent exhibits tell the story of both fronts of the war from both the military and civilian points of view. Temporary exhibits and lectures delve more deeply into aspect of that era.  \\MorePhoneWeb{504/527-6012}{www dot national w w 2 museum dot org}\\ \\nomuseumsdotcomblurb",
+    "New Orleans is home to the country's official World War II Museum.  Permanent exhibits tell the story of both fronts of the war from both the military and civilian points of view. Temporary exhibits and lectures delve more deeply into aspect of that era.  \\MorePhoneWeb{504/527-6012}{www dot national w w 2 museum dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1461,7 +1463,7 @@ object Spots extends SpotWriters {
   Spot(
     "AmericanItalianMuseumRegular",
     Museum,
-    "The American-Italian Renaissance Foundation's Museum tells the story of the cultural contributions of one of New Orleans' more often-overlooked immigrant groups --- from procedures in anesthesiology which are still in use today, to the tradition of the Saint Joseph's Day altar.  The Museum is located at 537 South Peters in the Warehouse District.  \\MorePhoneWeb{504/522-7294}{www dot A I R F dot org}\\ \\nomuseumsdotcomblurb",
+    "The American-Italian Renaissance Foundation's Museum tells the story of the cultural contributions of one of New Orleans' more often-overlooked immigrant groups --- from procedures in anesthesiology which are still in use today, to the tradition of the Saint Joseph's Day altar.  The Museum is located at 537 South Peters in the Warehouse District.  \\MorePhoneWeb{504/522-7294}{www dot A I R F dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1470,7 +1472,7 @@ object Spots extends SpotWriters {
   Spot(
     "PharmacyMuseumRegular",
     Museum,
-    "The New Orleans Pharmacy Museum is the largest and finest pharmaceutical collection in the United States.  Housed in the French QUarter, in the 1823 apothecary of America's first licensed pharmacist, the Museum contains a collection of 19th-century pharmacy and medical artifacts including an exhibition on epidemics in New Orleans. \\MorePhoneWeb{504/565-8027}{www dot pharmacy museum dot org}\\ \\nomuseumsdotcomblurb",
+    "The New Orleans Pharmacy Museum is the largest and finest pharmaceutical collection in the United States.  Housed in the French QUarter, in the 1823 apothecary of America's first licensed pharmacist, the Museum contains a collection of 19th-century pharmacy and medical artifacts including an exhibition on epidemics in New Orleans. \\MorePhoneWeb{504/565-8027}{www dot pharmacy museum dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1479,7 +1481,7 @@ object Spots extends SpotWriters {
   Spot(
     "LongueVueHouseRegular",
     Museum,
-    "Longue Vue (``long view'' or ``long voo'') House in one of the few surviving examples of Country Era Place homes in the south, and has been restored in the style of the early 20th Century.  The house and its extensive gardens, as well as the home's Discovery Gardens, a hands-on learning environment for children, are part of the home's public tour.  \\MorePhoneWeb{504/488-5488}{www dot L O N G U E V U E dot com}\\ \\nomuseumsdotcomblurb",
+    "Longue Vue (``long view'' or ``long voo'') House in one of the few surviving examples of Country Era Place homes in the south, and has been restored in the style of the early 20th Century.  The house and its extensive gardens, as well as the home's Discovery Gardens, a hands-on learning environment for children, are part of the home's public tour.  \\MorePhoneWeb{504/488-5488}{www dot L O N G U E V U E dot com}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1497,7 +1499,7 @@ object Spots extends SpotWriters {
   Spot(
     "AmistadRegular",
     Museum,
-    "The Amistad Research Center houses the country's largest collection of manuscripts about African Americans, race relations and civil rights.  This center is a research resource for historians, novelists, and individual pursuing information about their family's history.  Guided tours are availabel, but must be scheduled at least two weeks in advance.  \\MorePhoneWeb{504/865-5535}{www dot tulane dot edu slash tilde amistad}\\ \\nomuseumsdotcomblurb",
+    "The Amistad Research Center houses the country's largest collection of manuscripts about African Americans, race relations and civil rights.  This center is a research resource for historians, novelists, and individual pursuing information about their family's history.  Guided tours are availabel, but must be scheduled at least two weeks in advance.  \\MorePhoneWeb{504/865-5535}{www dot tulane dot edu slash tilde amistad}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1515,7 +1517,7 @@ object Spots extends SpotWriters {
   Spot(
     "HistoricNewOrleansRegular",
     Museum,
-    "The Historic New Orleans Collection houses primary sources including manuscripts and documents, literary and artistic treasures, and other artifacts showcasing the numerous cultures that shaped New Orleans from the 18th century to the present.  Along with public exhibition galleries and a museum shop, the Collection offers A research guide and photocopying services for scholarly and historic research. \\MorePhoneWeb{504/523-4662}{www dot H N O C dot org}\\ \\nomuseumsdotcomblurb",
+    "The Historic New Orleans Collection houses primary sources including manuscripts and documents, literary and artistic treasures, and other artifacts showcasing the numerous cultures that shaped New Orleans from the 18th century to the present.  Along with public exhibition galleries and a museum shop, the Collection offers A research guide and photocopying services for scholarly and historic research. \\MorePhoneWeb{504/523-4662}{www dot H N O C dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1524,7 +1526,7 @@ object Spots extends SpotWriters {
   Spot(
     "OgdenAfterHours",
     Museum,
-    "Every Thursday evening, The Ogden Museum of Southern Art presents \\emph{Ogden After Hours}, music in the atrium of the museum.  During these concerts, the museum also offers art activities for kids.  \\MorePhoneWeb{504/539-9600}{www dot ogden museum dot org}\\ \\nomuseumsdotcomblurb",
+    "Every Thursday evening, The Ogden Museum of Southern Art presents \\emph{Ogden After Hours}, music in the atrium of the museum.  During these concerts, the museum also offers art activities for kids.  \\MorePhoneWeb{504/539-9600}{www dot ogden museum dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1533,7 +1535,7 @@ object Spots extends SpotWriters {
   Spot(
     "JeanLafitteRegular",
     Museum,
-    "The Jean Lafitte National Historical Park and Preserve consists of six sites in Louisiana, three of which are in the metropolitan New Orleans area: the Laura C. Hudson Visitor Center in the French Quarter, the Barataria Preserve, and the Chalmette Battlefield and National Cemetery. \\MorePhoneWeb[More information about any of these sites is] {504/589-3882}{www dot N P S dot gov slash J E L A}\\ \\nomuseumsdotcomblurb",
+    "The Jean Lafitte National Historical Park and Preserve consists of six sites in Louisiana, three of which are in the metropolitan New Orleans area: the Laura C. Hudson Visitor Center in the French Quarter, the Barataria Preserve, and the Chalmette Battlefield and National Cemetery. \\MorePhoneWeb[More information about any of these sites is] {504/589-3882}{www dot N P S dot gov slash J E L A}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1542,7 +1544,7 @@ object Spots extends SpotWriters {
   Spot(
     "CabildoRegular",
     Museum,
-    "The Cabildo is one of the most historically significant buildings in America.  It was the seat of the Spanish Colonial government, the site of the Louisiana Purchase transfer in 1803, and a home to the Louisiana State Supreme Court.  Now, the Cabildo is a public museum showcasing the rich and colorful textures of Louisiana's history.  \\MorePhoneWeb{800/568-6968}{L S M dot C R T dot state dot L A dot U S}\\ \\nomuseumsdotcomblurb",
+    "The Cabildo is one of the most historically significant buildings in America.  It was the seat of the Spanish Colonial government, the site of the Louisiana Purchase transfer in 1803, and a home to the Louisiana State Supreme Court.  Now, the Cabildo is a public museum showcasing the rich and colorful textures of Louisiana's history.  \\MorePhoneWeb{800/568-6968}{L S M dot C R T dot state dot L A dot U S}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1551,7 +1553,7 @@ object Spots extends SpotWriters {
   Spot(
     "ChildrensMuseumRegular",
     Museum,
-    "The Louisiana Children's Museum offers more than 30,000 square feet of hands-on, interactive exhibits that invite and engage children and families as they explore art, music, science, math, and health, and role-playing environments. The museum is located at 420 Julia Street in the Warehouse District, is open seven days a week in the summer, and closes Mondays during the school year.  \\MorePhoneWeb{504/523-1357}{www dot L C M dot org}\\ \\nomuseumsdotcomblurb",
+    "The Louisiana Children's Museum offers more than 30,000 square feet of hands-on, interactive exhibits that invite and engage children and families as they explore art, music, science, math, and health, and role-playing environments. The museum is located at 420 Julia Street in the Warehouse District, is open seven days a week in the summer, and closes Mondays during the school year.  \\MorePhoneWeb{504/523-1357}{www dot L C M dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1560,7 +1562,7 @@ object Spots extends SpotWriters {
   Spot(
     "BackstreetRegular",
     Museum,
-    "The Backstreet Cultural Museum is home to an amazing assortment of memorabilia of Mardi Gras, jazz funerals and other traditions found only in New Orleans, including the city's largest collection of Mardi Gras Indian costumes. \\MorePhoneWeb[Directions to the museum and more information are]{504/522-4806}{www dot back street museum dot org}\\ \\nomuseumsdotcomblurb",
+    "The Backstreet Cultural Museum is home to an amazing assortment of memorabilia of Mardi Gras, jazz funerals and other traditions found only in New Orleans, including the city's largest collection of Mardi Gras Indian costumes. \\MorePhoneWeb[Directions to the museum and more information are]{504/522-4806}{www dot back street museum dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1569,7 +1571,7 @@ object Spots extends SpotWriters {
   Spot(
     "AfAmMuseumRegular",
     Museum,
-    "The New Orleans African American Museum is dedicated to protecting, preserving, and promoting through education the history, art, and communities of African Americans in New Orleans and the African diaspora.  Five restored building over a full city block in the Tr\\`eme (``TREHM-ay'') host permanent and changing exhibits, and a serene garden.  Tour groups, school groups and individuals are welcomed by appointment only.  \\MorePhoneWeb[Information and appointments are]{504/566-1136}{www dot N O A A M dot org}\\ \\nomuseumsdotcomblurb",
+    "The New Orleans African American Museum is dedicated to protecting, preserving, and promoting through education the history, art, and communities of African Americans in New Orleans and the African diaspora.  Five restored building over a full city block in the Tr\\`eme (``TREHM-ay'') host permanent and changing exhibits, and a serene garden.  Tour groups, school groups and individuals are welcomed by appointment only.  \\MorePhoneWeb[Information and appointments are]{504/566-1136}{www dot N O A A M dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1578,7 +1580,7 @@ object Spots extends SpotWriters {
   Spot(
     "SculptureGardenRegular",
     Museum,
-    "The Besthoff Sculpture Garden occupies five acres of City Park, and is open to the public five days a week, Wednesdays through Sundays.  The collection includes work by some of the great master sculptors of the twentieth century, as well as younger, contemporary sculptors.  \\MoreWeb{www dot N O M A dot org}\\ \\nomuseumsdotcomblurb",
+    "The Besthoff Sculpture Garden occupies five acres of City Park, and is open to the public five days a week, Wednesdays through Sundays.  The collection includes work by some of the great master sculptors of the twentieth century, as well as younger, contemporary sculptors.  \\MoreWeb{www dot N O M A dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1587,7 +1589,7 @@ object Spots extends SpotWriters {
   Spot(
     "OgdenRegular",
     Museum,
-    "The Ogden Museum of Southern Art is home to the most comprehensive collection of southern art in the world, spanning fifteen states and four centuries.  The Ogden features special programming for visitors of all ages, plus weekly evening gallery openings and music performances.  \\MorePhoneWeb{504/539-9600}{www dot ogden museum dot org}\\ \\nomuseumsdotcomblurb",
+    "The Ogden Museum of Southern Art is home to the most comprehensive collection of southern art in the world, spanning fifteen states and four centuries.  The Ogden features special programming for visitors of all ages, plus weekly evening gallery openings and music performances.  \\MorePhoneWeb{504/539-9600}{www dot ogden museum dot org}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1596,7 +1598,7 @@ object Spots extends SpotWriters {
   Spot(
     "NOMAregular",
     Museum,
-    "The New Orleans Museum of Art is the premier art museum of the Gulf South region.  NOMA's broad collection includes a notable collection of Faberg\\'e\\ eggs and treasures, and the Latin American Colonial collection.   \\MoreWebPhone{www dot N O M A dot org}{504/488-2631}\\ \\nomuseumsdotcomblurb",
+    "The New Orleans Museum of Art is the premier art museum of the Gulf South region.  NOMA's broad collection includes a notable collection of Faberg\\'e\\ eggs and treasures, and the Latin American Colonial collection.   \\MoreWebPhone{www dot N O M A dot org}{504/488-2631}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1605,7 +1607,7 @@ object Spots extends SpotWriters {
   Spot(
     "DibollRegular",
     Museum,
-    "The Collins C.\\ Diboll Art Gallery is a small museum dedicated to artifacts of Belgian Congo plus rotating exhibits, including exhibits of Loyola student and faculty work.  The gallery is located in the Monroe Library on Loyola's campus. \\MoreWebPhone{www dot L O Y N O dot edu}{504/861-5456}\\ \\nomuseumsdotcomblurb",
+    "The Collins C.\\ Diboll Art Gallery is a small museum dedicated to artifacts of Belgian Congo plus rotating exhibits, including exhibits of Loyola student and faculty work.  The gallery is located in the Monroe Library on Loyola's campus. \\MoreWebPhone{www dot L O Y N O dot edu}{504/861-5456}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1614,7 +1616,7 @@ object Spots extends SpotWriters {
   Spot(
     "NewcombArtRegular",
     Museum,
-    "The Newcomb Art Gallery showcases a permanent collection of nineteenth- and twentieth-century pieces produced at Newcomb College, in addition to hosting quarterly traveling exhibitions featuring mostly contemporary artists.  The world-renowned Newcomb Pottery section represents the largest area of holdings at the museum and features several rare exhibition-only and early experimental pieces. \\MoreWebPhone{www dot newcomb art gallery dot com}{504/865-5328}\\ \\nomuseumsdotcomblurb",
+    "The Newcomb Art Gallery showcases a permanent collection of nineteenth- and twentieth-century pieces produced at Newcomb College, in addition to hosting quarterly traveling exhibitions featuring mostly contemporary artists.  The world-renowned Newcomb Pottery section represents the largest area of holdings at the museum and features several rare exhibition-only and early experimental pieces. \\MoreWebPhone{www dot newcomb art gallery dot com}{504/865-5328}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1623,7 +1625,7 @@ object Spots extends SpotWriters {
   Spot(
     "CACregular",
     Museum,
-    "The Contemporary Arts Center is a multidisciplinary arts center presenting an array of programs encompassing the visual arts, music, dance and drama, all celebrating the arts of our time.  \\MoreWebPhone{www dot C A C N O dot org}{504/528-3805}\\ \\nomuseumsdotcomblurb",
+    "The Contemporary Arts Center is a multidisciplinary arts center presenting an array of programs encompassing the visual arts, music, dance and drama, all celebrating the arts of our time.  \\MoreWebPhone{www dot C A C N O dot org}{504/528-3805}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1632,7 +1634,7 @@ object Spots extends SpotWriters {
   Spot(
     "HermannGrimaHouseRegular",
     Museum,
-    "Located in the heart of the historic French Quarter, the Hermann-Grima House is thought to be the finest example of American architecture in the area.  The mansion has accurately restored to depict the gracious lifestyle of a wealthy Creole family from 1830 to 1860. Visitors can tour the original stables, the outdoor kitchen with the open hearth for cooking, and a meticulously restored courtyard with citrus trees and antique roses.  \\MoreWebPhone{www dot H G G H H dot org}{504/525-5661}\\ \\nomuseumsdotcomblurb",
+    "Located in the heart of the historic French Quarter, the Hermann-Grima House is thought to be the finest example of American architecture in the area.  The mansion has accurately restored to depict the gracious lifestyle of a wealthy Creole family from 1830 to 1860. Visitors can tour the original stables, the outdoor kitchen with the open hearth for cooking, and a meticulously restored courtyard with citrus trees and antique roses.  \\MoreWebPhone{www dot H G G H H dot org}{504/525-5661}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1641,7 +1643,7 @@ object Spots extends SpotWriters {
   Spot(
     "GallierHouseRegular",
     Museum,
-    "Gallier (``GAL-yer'') House, built in 1857, was described as ``one of thebest small museums in the country'' by the \\emph{New York Times}.  The house is a well-preserved example of progressive design, and is decorated throughout the year to reflect period seasonal styles.  \\MoreWebPhone[More information about Gallier (``GAL-yer'') House is]{www dot H G G H H dot org}{504/525-5661}\\ \\nomuseumsdotcomblurb",
+    "Gallier (``GAL-yer'') House, built in 1857, was described as ``one of thebest small museums in the country'' by the \\emph{New York Times}.  The house is a well-preserved example of progressive design, and is decorated throughout the year to reflect period seasonal styles.  \\MoreWebPhone[More information about Gallier (``GAL-yer'') House is]{www dot H G G H H dot org}{504/525-5661}  " + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://www.neworleansmuseums.com/"
