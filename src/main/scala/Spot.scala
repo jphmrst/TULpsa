@@ -16,7 +16,8 @@ class Spot(
   val sourceURL: Seq[String] = Seq(),
   val sourceNote: Option[String] = None,
   val groupGainMultiplier: Double = 1.0,
-  val variantGroup: Int = Spot.nextVariantGroup
+  val variantGroup: Int = Spot.nextVariantGroup,
+  val boost: Double = 0.0
 ) {
   import Spot.{getWeekOfCentury, EPSILON}
 
@@ -26,6 +27,10 @@ class Spot(
   // Correctness checks --- make sure each spot has a unique tag.
   if (Spot.tags.contains(tag))
     then throw new IllegalArgumentException("Duplicate tag " + tag)
+
+  if boost >= 1.0 || boost < 0.0 then
+    throw new IllegalArgumentException
+      ("boost must be at least 0.0 and below 1.0")
 
   // Register this instance in the various Spot tables.
   Spot.inventory += this
@@ -43,7 +48,8 @@ class Spot(
   /** Calculate a small, unique, persistent "wiggle" for the period of
     * every spot, so that it has at least a slightly unique pattern.
     */
-  private val periodWiggle: Double = Math.sin(testHash.toDouble) / 4.0
+  private[wtulrosters]
+  val periodWiggle: Double = Math.sin(testHash.toDouble) / 4.0
 
   /** The period (in weeks) of the rise and fall of this spot's priority
     * ranking.
@@ -52,9 +58,14 @@ class Spot(
 
   /** Calculate the spot's priority on a given date.
     */
-  def priority(date: LocalDate): Double =
-    Math.sin(date.getWeekOfCentury().toDouble / period * 2.0 * Math.PI)
-    / (2.0 - 2 * EPSILON) + 0.5 + EPSILON
+  def priority(date: LocalDate): Double = {
+    val curvePoint =
+      Math.sin(date.getWeekOfCentury().toDouble / period * 2.0 * Math.PI)
+    val inUnit = curvePoint / (2.0 - 2 * EPSILON) + 0.5 + EPSILON
+    val withSpotBoost = (inUnit * (1 - boost)) + boost
+    val withGroupBoost = (withSpotBoost * (1 - group.boost)) + group.boost
+    withGroupBoost
+  }
 
   /** Assemble the introductory text (excluding the "optional" or
     * "required" prefix) for this spot.
@@ -73,7 +84,7 @@ object Spot {
 
   def all: Iterable[Spot] = inventory
   def size: Int = inventory.size
-  def ofGroup(g: Group): List[Spot] = grouped(g)
+  def ofGroup(g: Group): List[Spot] = grouped.getOrElse(g, Nil)
 
   private var nextVariantCounter: Int = 1
   def nextVariantGroup: Int = {
@@ -905,7 +916,8 @@ object Spots extends SpotWriters {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "Planned Parenthood",
-    sourceNote = "## (no contact info)"
+    sourceNote = "## (no contact info)",
+    boost = 0.6
   )
 
   Spot(
@@ -914,7 +926,8 @@ object Spots extends SpotWriters {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "Planned Parenthood",
-    sourceNote = "## [tweets through Aug. '10]"
+    sourceNote = "## [tweets through Aug. '10]",
+    boost = 0.6
   )
 
 //    ## live meetings, pull COVID # 'NoAidsTesting',
@@ -947,7 +960,8 @@ object Spots extends SpotWriters {
     alert = "2022-07-15",
     copresent = "the Greater New Orleans Center for Women and Children",
     sourceNote = "## [tweets through June 10]",
-    groupGainMultiplier = 1.2
+    groupGainMultiplier = 1.2,
+    boost = 0.65
   )
 
   Spot(
@@ -1010,7 +1024,8 @@ object Spots extends SpotWriters {
       "TUSAPHE@gmail.com",
       "Cory J Cole <ccole5@tulane.edu>",
       "Margaret M Mullins <mmullin5@tulane.edu>"
-    )
+    ),
+    boost = 0.45
   )
 
   Spot(
@@ -1899,7 +1914,8 @@ object Spots extends SpotWriters {
     Carnival,
     "The National Suicide Prevention crisis counseling hotline is 800/273-8255.  This number is available both for people who are having suicidal thoughts, and who are concerned about others.  That number again is 800/273-8255.",
     start = "2021-06-22",
-    alert = "2022-07-15"
+    alert = "2022-07-15",
+    boost = 0.45
   )
 
   Spot(
@@ -1907,7 +1923,8 @@ object Spots extends SpotWriters {
     Carnival,
     "The Greater New Orleans Center for Women and Children operates programs to assist victims of domestic violence and sexual assault. Services include a 24 hour confidential crisis line, shelter for victims of domestic violence, limited legal assistance (including referrals), and counseling and advocacy services.  All services are confidential and are provided at no cost by specially trained staff members.  Help is provided both for victims, and for people who want to stop committing violent acts.  Assistance is available by calling 504/837-5400.",
     start = "2021-06-22",
-    alert = "2022-07-15"
+    alert = "2022-07-15",
+    boost = 0.54
   )
 
   Spot(
@@ -1915,7 +1932,8 @@ object Spots extends SpotWriters {
     Carnival,
     "SAPHE (``safe''), Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call SAPHE's student-operated, confidential hotline at 504/654-9543. Again, the hotline's number is 504/654-9543.",
     start = "2021-06-22",
-    alert = "2022-07-15"
+    alert = "2022-07-15",
+    boost = 0.45
   )
 
   Spot(

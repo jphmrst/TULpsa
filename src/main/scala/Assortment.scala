@@ -16,6 +16,16 @@ case class Assortment(
 ) {
   Assortment.assortmentSet.add(this)
 
+  def spotPriority(spot: Spot, date: LocalDate): Double = {
+    val basePriority = spot.priority(date)
+    groups.get(spot.group) match {
+      case None => 0.0
+      case Some(groupGain) => {
+        val spotGain = groupGain * spot.groupGainMultiplier
+        Math.pow(basePriority, Math.exp(- spotGain))
+      }
+    }
+  }
 }
 
 object Assortment {
@@ -46,31 +56,28 @@ object Assortment {
 
   val always = (date: LocalDate) => true
 
-  val HIGH_GAIN = 0.6
-  val MED_GAIN = 0.4
-  val MED_HIGH_GAIN = (HIGH_GAIN + MED_GAIN) / 2.0
-  val LOW_GAIN = 0.1
-  val MED_LOW_GAIN = (LOW_GAIN + MED_GAIN) / 2.0
+  val HIGH_HIGH_GAIN = 25.0
+  val HIGH_GAIN = 18.0
+  val MED_HIGH_GAIN = 8.0
+  val MED_GAIN = 6.0
+  val MED_LOW_GAIN = 5.0
+  val LOW_GAIN = 3.0
   val NO_GAIN = 0.0
-  val NEG_GAIN = -0.3
+  val NEG_GAIN = -2.0
 
   // Default assortment when nothing else applies
-  private val DEFAULT_ASSORTMENT =
-    Assortment(LocalDate.MIN, always, Map(
-      Volunteer -> NO_GAIN, Edu -> NO_GAIN, Services -> NO_GAIN, Eco -> NO_GAIN,
-      Health -> NO_GAIN, Mental -> NO_GAIN, Civic -> NO_GAIN, Animal -> NO_GAIN,
-      Museum -> NO_GAIN, Rare -> NEG_GAIN
-    ),
-    LocalDate.MAX)
-
   private val baseWeights = Map(
-    Volunteer -> MED_HIGH_GAIN, Health -> MED_HIGH_GAIN,
-    Mental -> MED_GAIN,    Civic -> MED_GAIN,  Services -> MED_GAIN,
-    Voter -> MED_LOW_GAIN, Edu -> MED_LOW_GAIN,
-    Eco -> MED_LOW_GAIN,   Animal -> MED_LOW_GAIN,
-    TaxAlways -> LOW_GAIN,
-    Rare -> NO_GAIN
+    Volunteer -> MED_LOW_GAIN,  Health -> MED_LOW_GAIN,
+    Mental -> LOW_GAIN, Services -> LOW_GAIN,
+    Voter -> NO_GAIN, Civic -> NO_GAIN,
+    Eco -> NO_GAIN,    Animal -> NO_GAIN, Edu -> NO_GAIN,
+    TaxAlways -> NO_GAIN, Museum -> NO_GAIN,
+    Rare -> NEG_GAIN
   )
+
+  private val DEFAULT_ASSORTMENT =
+    Assortment(LocalDate.MIN, always, baseWeights,
+    LocalDate.MAX)
 
   import java.time.Month.*
 
@@ -88,28 +95,28 @@ object Assortment {
   val isDecember = (date: LocalDate) => date.getMonth() == DECEMBER
 
   Assortment("2021-01-01", isJanuary,
-    baseWeights + (Taxtime -> MED_HIGH_GAIN) - TaxAlways + (Carnival -> MED_HIGH_GAIN))
+    baseWeights + (Taxtime -> MED_HIGH_GAIN) - TaxAlways + (Carnival -> HIGH_HIGH_GAIN))
   Assortment("2021-02-01", isFebruary,
-    baseWeights + (Taxtime -> MED_HIGH_GAIN) - TaxAlways)
+    baseWeights + (Taxtime -> HIGH_GAIN) - TaxAlways)
   Assortment("2021-03-01", isMarch,
-    baseWeights + (Taxtime -> MED_HIGH_GAIN) + (Voter -> MED_HIGH_GAIN) - TaxAlways)
+    baseWeights + (Taxtime -> MED_HIGH_GAIN) + (Voter -> HIGH_GAIN) - TaxAlways)
   Assortment("2021-04-01", isApril,
-    baseWeights + (Taxtime -> MED_HIGH_GAIN) + (Voter -> MED_HIGH_GAIN) - TaxAlways)
-  Assortment("2021-05-01", isMay, baseWeights + (Summer -> MED_LOW_GAIN))
+    baseWeights + (Taxtime -> MED_HIGH_GAIN) + (Voter -> HIGH_GAIN) - TaxAlways)
+  Assortment("2021-05-01", isMay, baseWeights + (Summer -> HIGH_GAIN))
   Assortment("2021-06-01", isJune,
-    baseWeights + (Summer -> MED_LOW_GAIN) + (StormPrep -> HIGH_GAIN))
+    baseWeights + (Summer -> HIGH_GAIN) + (StormPrep -> HIGH_HIGH_GAIN))
   Assortment("2021-07-01", isJuly,
-    baseWeights + (Summer -> LOW_GAIN) + (StormPrep -> MED_LOW_GAIN))
+    baseWeights + (Summer -> MED_HIGH_GAIN) + (StormPrep -> HIGH_GAIN))
   Assortment("2021-08-01", isAugust,
-    baseWeights + (StormPrep -> MED_LOW_GAIN) + (Voter -> MED_GAIN))
-  Assortment("2021-09-01", isSeptember, baseWeights + (Voter -> MED_HIGH_GAIN))
-  Assortment("2021-10-01", isOctober, baseWeights + (Voter -> MED_GAIN))
+    baseWeights + (StormPrep -> MED_HIGH_GAIN) + (Voter -> MED_HIGH_GAIN))
+  Assortment("2021-09-01", isSeptember, baseWeights + (Voter -> HIGH_GAIN))
+  Assortment("2021-10-01", isOctober, baseWeights + (Voter -> HIGH_GAIN))
   Assortment("2021-11-01", isNovember, baseWeights)
   Assortment("2021-12-01", isDecember,
-    baseWeights - Services + (Services -> MED_HIGH_GAIN)
-      - Health + (Health -> MED_HIGH_GAIN)
-      - Mental + (Mental -> MED_HIGH_GAIN)
-      + (Holiday -> HIGH_GAIN))
+    baseWeights - Services + (Services -> HIGH_HIGH_GAIN)
+      - Health + (Health -> HIGH_HIGH_GAIN)
+      - Mental + (Mental -> HIGH_HIGH_GAIN)
+      + (Holiday -> HIGH_HIGH_GAIN))
 
   def apply(when: LocalDate): Assortment = returning {
     for (assortment <- assortmentSet) {
@@ -121,7 +128,7 @@ object Assortment {
     DEFAULT_ASSORTMENT
   }
 
-  def getSortedList(date: LocalDate): List[Spot] = {
+  def getSortedPairsList(date: LocalDate): List[(Spot, Double)] = {
     val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)](
       new Ordering[(Spot, Double)] {
         def compare(p1: (Spot, Double), p2: (Spot, Double)) = p1 match {
@@ -133,18 +140,24 @@ object Assortment {
     )
 
     for ((group, groupGain) <- Assortment(date).groups) {
-      print("\n\t*** " + groupGain.toString() + "  " + group.title)
+      // print("\n\t*** " + groupGain.toString() + "  " + group.title)
       for (spot <- Spot.ofGroup(group)) {
-        val basePriority = spot.priority(date)
-        val spotGain = groupGain * spot.groupGainMultiplier / 10.0
-        val finalPriority = Math.pow(basePriority, Math.exp(- spotGain))
-        acc += ((spot, finalPriority))
-        printf("\n  %s\t%f\t%f\t%f",
-          spot.tag, basePriority, spotGain, finalPriority)
+        if spot.start.compareTo(date) <= 0
+           && spot.end.map(date.compareTo(_) <= 0).getOrElse(true)
+        then {
+          val basePriority = spot.priority(date)
+          val spotGain = groupGain * spot.groupGainMultiplier / 10.0
+          val finalPriority = Math.pow(basePriority, Math.exp(- spotGain))
+          acc += ((spot, finalPriority))
+          // printf("\n  %s\t%f\t%f\t%f", spot.tag, basePriority, spotGain, finalPriority)
+        }
       }
     }
-    println()
+    // println()
 
-    List.from(acc.result()).map({ case (s, _) => s})
+    List.from(acc.result())
   }
+
+  def getSortedList(date: LocalDate): List[Spot] =
+    getSortedPairsList(date).map({ case (s, _) => s})
 }
