@@ -17,3 +17,19 @@ to some other server, you will need `rsync`:
 
 ### Usage
 
+#### Generating PSAs via `sbt`
+
+  FILL IN
+
+#### Adding long-term PSAs
+
+  FILL IN
+
+#### Adding short-term PSAs
+
+  FILL IN
+
+#### Setting up file uploads
+
+  FILL IN
+
