@@ -96,8 +96,12 @@ class PsaRosterBuilder(startDate: LocalDate)
       commonPreamble,
       DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'"),
       "PSA-",
-      (first, last) => if first + 3 < last
-        then 4
-      else last - first + 1
+      (first, last) => {
+        if first + 2 <= last && first < 14 then 3 else
+          if first + 4 <= last && first < 29 then 5 else
+            if first + 2 <= last && first < 46 then 3 else
+              if first + 4 <= last then 5 else
+                last - first + 1
+      }
 
 )

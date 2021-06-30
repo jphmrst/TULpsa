@@ -15,15 +15,15 @@ import java.time.Period
   writeReport()
   println("finished")
 
-  print("Creating roster...")
-  val builder = new PsaRosterBuilder("2021-06-28")
-  builder.completeWith(Assortment.getSortedList("2021-06-28"))
-  builder.result().write()
-
-  print("Creating roster2...")
-  val builder2 = new PsaRosterBuilder("2021-07-05")
-  builder2.completeWith(Assortment.getSortedList("2021-07-05"))
-  builder2.result().write()
+  val startDate = LocalDate.parse("2021-07-05")
+  for (i <- 0 until 6) {
+    val thisDate = startDate.plusDays(7 * i)
+    print(s"Creating roster for $thisDate...")
+    val builder = new PsaRosterBuilder(thisDate)
+    builder.completeWith(Assortment.getSortedList(thisDate))
+    builder.result().write()
+    println("written")
+  }
 }
 
 def restRun: Unit = {
