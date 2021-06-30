@@ -3,7 +3,7 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import org.maraist.latex.LaTeXdoc
 
-def writeInternalReport() = {
+def writeInternalReport(bank: SpotBank) = {
   val startDate = LocalDate.parse("2022-01-15")
   val doc = new LaTeXdoc("report")
   doc.addPackage("times")
@@ -34,7 +34,7 @@ def writeInternalReport() = {
   doc ++=/ """  & \multicolumn{1}{c}{Wiggle}"""
   doc ++=/ """  & \multicolumn{1}{c}{Period}"""
   doc ++=/ """  \\ \hline"""
-  for(spot <- Spot.all) {
+  for(spot <- bank.all) {
     doc ++=/ s" \\textsc{\\small ${spot.tag}}"
     doc ++=/ s"  & \\textsc{\\small ${spot.group.tag}}"
     doc ++=/ s"  & ${spot.start.toString()}"
@@ -97,7 +97,7 @@ def writeInternalReport() = {
   doc ++=/ """  \multicolumn{1}{l}{}"""
   for(i <- 0 until 12) { doc ++=/ """  & Gn & \multicolumn{1}{l}{Pr} """ }
   doc ++=/ """  \\ \hline"""
-  for(spot <- Spot.all) {
+  for(spot <- bank.all) {
     doc ++=/ s" \\multicolumn{25}{|l|}{${spot.tag} (${spot.group.tag})}"
     doc ++=/ """  \\"""
     for(i <- 0 until 12) {
@@ -123,7 +123,7 @@ def writeInternalReport() = {
     doc ++=/ """  & \multicolumn{1}{c}{Priority}"""
     doc ++=/ """  \\ \hline"""
     var lastBase = 1.0
-    for(pair <- Assortment.getSortedPairsList(thisDate).take(20)) pair match {
+    for(pair <- bank.getSortedPairsList(thisDate).take(20)) pair match {
       case (spot, priority) => {
         doc ++=/ f" ${spot.tag}%s"
         doc ++=/ f" & ${spot.group.tag}%s"

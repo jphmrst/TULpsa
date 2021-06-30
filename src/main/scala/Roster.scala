@@ -95,7 +95,8 @@ abstract class Roster(
     doc.addPackage("times")
     doc.addPackage("tikz")
     doc.addPackage("color")
-    doc.addPackage("geometry", "left=0.5in, right=0.5in, top=0.7in, bottom=0.7in")
+    doc.addPackage(
+      "geometry", "left=0.5in, right=0.5in, top=0.7in, bottom=0.7in")
     doc.addPackage("wrapfig")
     doc.addPreamble(preamble)
     doc.addPreamble(s"\\def\\rosterDates{$weekDates}\n")

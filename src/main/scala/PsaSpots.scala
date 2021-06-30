@@ -2,7 +2,7 @@
 package org.maraist.wtulrosters
 import java.time.LocalDate
 
-object PsaSpots extends SpotWriters {
+object PsaSpots extends SpotBank {
   import Group.*
   import scala.language.implicitConversions
 
