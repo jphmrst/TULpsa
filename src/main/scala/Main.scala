@@ -3,6 +3,43 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import org.maraist.latex.LaTeXdoc
 import java.time.Period
+import java.time.DayOfWeek.*
+import scala.sys.process.*
+
+@main def batch: Unit = {
+  Spots.init()
+  Assortment.init()
+  val today = LocalDate.now
+  val todayDay = today.getDayOfWeek
+  val startDate = todayDay match {
+    case MONDAY => today.minusWeeks(1)
+    case TUESDAY => today.minusDays(1)
+    case WEDNESDAY => today.minusDays(2)
+    case THURSDAY => today.minusDays(3)
+    case FRIDAY => today.minusDays(4)
+    case SATURDAY => today.minusDays(5)
+    case SUNDAY => today.minusDays(6)
+  }
+
+  val out = Seq.newBuilder[String]
+  for (i <- 0 until 5) {
+    val thisDate = startDate.plusDays(7 * i)
+    generateFor(thisDate)
+    out += s"PSA-${thisDate}.pdf"
+  }
+
+  scala.util.Properties.envOrNone("WTUL_ROSTERS_UPLOAD") match {
+    case None => {}
+    case Some(hostPath) => {
+      import scala.language.postfixOps
+      print(s"Uploading to ${hostPath}...")
+      val options =
+        scala.util.Properties.envOrElse("WTUL_ROSTERS_RSYNC_OPTS", "")
+      (s"rsync --delete-excluded --recursive $options ${out.result().fold("")(_ + " " + _)} $hostPath" !)
+      println("written")
+    }
+  }
+}
 
 @main def testRun: Unit = {
   import Spots.stringToLocalDate
@@ -15,15 +52,19 @@ import java.time.Period
   writeReport()
   println("finished")
 
-  val startDate = LocalDate.parse("2021-07-05")
+  val startDate = LocalDate.parse("2021-06-28")
   for (i <- 0 until 6) {
     val thisDate = startDate.plusDays(7 * i)
-    print(s"Creating roster for $thisDate...")
-    val builder = new PsaRosterBuilder(thisDate)
-    builder.completeWith(Assortment.getSortedList(thisDate))
-    builder.result().write()
-    println("written")
+    generateFor(thisDate)
   }
+}
+
+def generateFor(thisDate: LocalDate) = {
+  print(s"Creating roster for $thisDate...")
+  val builder = new PsaRosterBuilder(thisDate)
+  builder.completeWith(Assortment.getSortedList(thisDate))
+  builder.result().write()
+  println("written")
 }
 
 def restRun: Unit = {
