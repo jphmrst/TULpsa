@@ -1,0 +1,226 @@
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{color}
+\usepackage{array}
+\usepackage{graphics}
+\usepackage{tightlist}
+\advance \oddsidemargin  by -14mm
+\advance \evensidemargin by -14mm
+\advance \topmargin by -14mm
+\advance \textheight by 4cm
+\advance \textwidth by 100pt
+\definecolor{light}{gray}{.8}
+
+\def\readingsline{\rule{0mm}{5.8mm}&&&&\\ \hline}
+\def\transmitterline{\rule{0mm}{6mm}&&&&&&&\\ \hline}
+\def\EASline{\rule{0mm}{6mm}\rule{12mm}{0mm}&\rule{12mm}{0mm}&\rule{12mm}{0mm}&\rule{12mm}{0mm}&\rule{12mm}{0mm}&\rule{12mm}{0mm}\\ \hline}
+
+\parindent 0pt
+\def\signline#1{\textsc{#1}
+	& \rule{0mm}{6mm}\rule{15mm}{0mm}
+	& \rule{0mm}{6mm}\rule{40mm}{0mm}
+	& \rule{0mm}{6mm}\rule{40mm}{0mm}}
+\def\online{\signline{on}
+	&&&&&&&& \\ \cline{1-3}\cline{5-12}}
+\newcommand\offline[1][\rule{69mm}{5mm}]{\signline{off}
+	& \multicolumn{8}{@{}c@{}|}{#1} \\ \hline}
+\def\slanter#1{\makebox[5mm][r]{\rotatebox{-45}{\makebox[0mm][r]{#1}}}}
+
+\def\TitleBar#1{\colorbox{light}{\makebox[\textwidth]{\textbf{\large WTUL 91.5 FM $\bullet$ Transmitter Operations/Control Room Log}}}
+\\ \colorbox{black}{\makebox[\textwidth]{\textcolor{white}{\huge #1}}}}
+\def\TitleBar#1{
+  \begin{tabular}{|@{}l@{}|@{~~}p{5.25in}|}\hline
+    \colorbox{black}{
+      \textcolor{white}{
+        \normalsize \begin{tabular}[b]{l}
+          WTUL 91.5 FM
+          \\ Transmitter Operations Log
+          \\ Control Room Log
+        \end{tabular}}}
+    &
+    Date: {\Large #1} \\ \hline
+  \end{tabular}}
+
+
+\def\TransmitterLog#1{
+\clearpage
+\def\logDate{#1}
+\TitleBar{#1}
+\par
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
+\multicolumn{4}{l}{
+\begin{minipage}[b]{3.5in}
+\rule{0mm}{1.2in}\textbf{\Large Control room operator on duty}
+\\ \colorbox{light}{Detail any problems on other side of page.}
+\end{minipage}}
+ & \multicolumn{1}{c}{}
+ & \multicolumn{1}{c}{}
+ & \multicolumn{1}{c}{}
+ & \multicolumn{1}{c}{\slanter{Listening station}}
+ & \multicolumn{1}{c}{\slanter{Turntable left}}
+ & \multicolumn{1}{c}{\slanter{Turntable right}}
+ & \multicolumn{1}{c}{\slanter{CD players}}
+ & \multicolumn{1}{c}{\slanter{Studio use computer}}
+\\ \cline{8-12}
+   \multicolumn{1}{c}{}
+ & \multicolumn{1}{c}{Time}
+ & \multicolumn{1}{c}{Signature}
+ & \multicolumn{1}{c}{Legibly print name}
+ & \multicolumn{1}{c}{\slanter{Codec computers left alone?}}
+ & \multicolumn{1}{c}{\slanter{Music put away?}}
+ & \multicolumn{1}{c|}{\slanter{Studio clean?}}
+ & \multicolumn{5}{c|}{Functioning normally?} 
+\\ \hline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline
+\online
+\offline[This log must not end at a time after 2400.]
+\end{tabular}
+\clearpage
+\TitleBar{#1}
+\vspace{2pt}
+\par
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{\Large Meter readings}
+\\
+\begin{tabular}{@{}|b{13mm}|b{14mm}|b{14mm}|b{14mm}|b{16mm}|}
+\multicolumn{5}{@{}p{91mm}@{}}{Transmitter readings should be taken at least once every two (2)
+hours.  Detail any problems below.}
+\\ \hline 
+  Local time
+& Plate voltage (Ch.~1)
+& Plate current (Ch.~2)
+& Output power (Ch.~3)
+& Initials
+\\ \hline\hline 
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline
+\readingsline\hline 
+% \multicolumn{1}{|l}{\small} &
+%    \multicolumn{1}{c}{} & \multicolumn{1}{c|}{}
+%    & \multicolumn{2}{c|}{\textbf{\small 105\% --- Max.\ allowed}}
+% \\ \cline{4-5}
+\multicolumn{1}{|r}{\small Normal:} &
+   \multicolumn{1}{@{}c@{}}{\small 37.5--38.5}
+   & \multicolumn{1}{@{}c@{}}{\small 13.5--14.5}
+   & \multicolumn{1}{@{}c@{}}{\small 90--105\%}
+   & \multicolumn{1}{b{16mm}|}{}
+\\ \hline
+\multicolumn{5}{|b{90mm}|}{\small If Ch.\ 1 or 2 are out-of-range, or if Ch.\ 3 is below range, log below.  \textbf{If Ch.\ 3 is above the maximum, call the GM, advisor and/or engineer immediately, and shut down if the overage cannot be corrected within three minutes.}}
+\\ \hline
+\end{tabular}
+\end{minipage}
+\hspace{\fill}
+\begin{minipage}[t]{0.51\textwidth}
+\colorbox{light}{
+\begin{minipage}[t]{0.9\textwidth}
+\hspace*{\fill}\textbf{\large Transmitter operations}\hspace*{\fill}
+\\ Use the \underline{in-studio remote unit} whenever possible.
+\begin{tightlist}
+\item Select a channel with the white buttons.
+\item Use Ch.\ 1 only for transmitter on/off.
+\item Press green button to raise selected channel.
+\item Press red button to lower selected channel.
+\end{tightlist}
+Otherwise use the \underline{phone-in remote}.
+\begin{tightlist}
+\item Call \textbf{504/862-8000}.  At the recording dial \textbf{1328}.
+\\ At the electronic noise dial \textbf{9150}.
+\item Key in the two-digit channel number to select.
+\item Press \textbf{\#} to raise selected channel; \textbf{*} to lower.
+\end{tightlist}
+\end{minipage}
+}
+~\vspace{3pt}
+\par
+\textbf{\Large Transmitter start/stop}
+\\
+\begin{tabular}{|@{~}c@{~}|@{~}c@{~}|@{~}c@{~}|@{~}c@{~}||@{~}c@{~}|@{~}c@{~}|@{~}c@{~}|@{~}c@{~}|}
+\multicolumn{4}{c}{{\large Deactivation}}
+ & \multicolumn{4}{c}{{\large Activation}}
+\\ \hline Prog. & Xmitr. & &
+	& Xmitr. & Prog. &  & 
+\\ OFF &  OFF & Chan. & Initial
+ & ON &  ON & Chan. & Initial
+\\ \hline
+\transmitterline
+\transmitterline
+\transmitterline
+\multicolumn{8}{c}{}
+\end{tabular}
+\\[-3mm] \textbf{\Large Emergency alert system (EAS)}
+\\
+\begin{tabular}{|c|c|c||c|c|c|}
+\multicolumn{3}{c}{{\large Received}}
+ & \multicolumn{3}{c}{{\large Relayed}}
+\\ \hline
+ Time & From & Initial & Time & From & Initial
+\\ \hline
+\EASline
+\EASline
+\EASline
+\EASline
+\multicolumn{6}{c}{}
+\end{tabular}
+\\[-3mm] \textbf{\Large Review of logs}
+\\
+\begin{tabular}{|r|c|l|}
+  \multicolumn{1}{l}{Reviewed by:}
+& \multicolumn{1}{l}{Date}
+& \multicolumn{1}{l}{Signature}
+\\ \hline
+General Manager & \rule{0mm}{8.75mm}\rule{15mm}{0mm} & \rule{40mm}{0mm}
+\\ \hline
+Chief Engineer & \rule{0mm}{8.75mm}\rule{15mm}{0mm} & \rule{40mm}{0mm}
+\\ \hline
+\end{tabular}
+\end{minipage}
+\\[3pt]
+\textbf{\Large Details of transmitter or equipment issues}
+\\
+\begin{tabular}{|p{1cm}|p{1cm}|l|}
+  \multicolumn{1}{c}{Time}
+& \multicolumn{1}{c}{Initials}
+& \multicolumn{1}{l}{Details (attach additional pages if necessary)}
+\\ \hline
+\rule{0pt}{1.75in}&&\rule{6.15in}{0pt}
+\\ \hline
+\end{tabular}
+\clearpage
+}

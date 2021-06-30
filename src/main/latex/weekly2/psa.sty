@@ -1,0 +1,560 @@
+
+\def\onMon#1#2#3#4#5#6#7{#1}
+\def\onTue#1#2#3#4#5#6#7{#2}
+\def\onWed#1#2#3#4#5#6#7{#3}
+\def\onThu#1#2#3#4#5#6#7{#4}
+\def\onFri#1#2#3#4#5#6#7{#5}
+\def\onSat#1#2#3#4#5#6#7{#6}
+\def\onSun#1#2#3#4#5#6#7{#7}
+
+\def\withPromo#1#2{#2{#1}{Promo}}
+\def\noPromo#1{#1{}{}}
+\def\promoTag#1#2{#2}
+\def\promoArg#1#2{#1}
+\def\withTix{Tix}
+\def\noTix{}
+\def\withCal{Cal}
+\def\noCal{}
+\def\NoPrem{}
+\def\PledgeInfo{Pledgeinfo}
+\def\PledgeAndPremium{PledgeAndPremium}
+\def\PremiumThenPledge{PremiumThenPledge}
+\def\PremiumOnly{PremiumOnly}
+\def\ShortPremiumThenPledge{ShortPremiumThenPledge}
+\def\ShortPremiumOnly{ShortPremiumOnly}
+
+%% -----------------------------------------------------------------
+
+\def\dumpPSA#1{
+\par#1 --- \csname psaNum@#1\endcsname
+\\ \csname #1\endcsname\vspace{1em}
+}
+
+\def\debugPSA{
+\psaBy@AAAAAA
+\\ \psaContact@AAAAAA
+\\ \psaText@AAAAAA
+\par
+\dumpPSA{Aa@a}
+\dumpPSA{Ab@a}
+\dumpPSA{Ba@a}
+\dumpPSA{Bb@a}
+}
+
+%% -----------------------------------------------------------------
+
+\def\defPSAnoPresent#1#2#3{%
+\expandafter\def\csname psaBy@#1\endcsname{WTUL New Orleans}%
+\expandafter\def\csname psaContact@#1\endcsname{#2}%
+\expandafter\def\csname psaText@#1\endcsname{#3}%
+}
+
+\def\defPSA#1#2#3#4{%
+\expandafter\def\csname psaBy@#1\endcsname{#2 and WTUL New Orleans}%
+\expandafter\def\csname psaContact@#1\endcsname{#3}%
+\expandafter\def\csname psaText@#1\endcsname{#4}%
+}
+
+%% -----------------------------------------------------------------
+
+\def\psaSlot#1#2#3%
+	{\expandafter\def\csname#1\endcsname{#2}%
+         \expandafter\def\csname psaNum@#1\endcsname{#3}}
+
+\def\psaAa#1#2#3#4#5#6#7{%
+  \psaSlot{Aa@a}{#1}{1}%
+  \psaSlot{Aa@b}{#2}{2}%
+  \psaSlot{Aa@c}{#3}{3}%
+  \psaSlot{Aa@d}{#4}{4}%
+  \psaSlot{Aa@e}{#5}{5}%
+  \psaSlot{Aa@f}{#6}{6}%
+  \psaSlot{Aa@g}{#7}{7}}
+
+\def\psaAb#1#2#3#4#5#6#7{%
+  \psaSlot{Ab@a}{#1}{8}%
+  \psaSlot{Ab@b}{#2}{9}%
+  \psaSlot{Ab@c}{#3}{10}%
+  \psaSlot{Ab@d}{#4}{11}%
+  \psaSlot{Ab@e}{#5}{12}%
+  \psaSlot{Ab@f}{#6}{13}%
+  \psaSlot{Ab@g}{#7}{14}}
+
+\def\psaBa#1#2#3#4#5#6#7{%
+  \psaSlot{Ba@a}{#1}{15}%
+  \psaSlot{Ba@b}{#2}{16}%
+  \psaSlot{Ba@c}{#3}{17}%
+  \psaSlot{Ba@d}{#4}{18}%
+  \psaSlot{Ba@e}{#5}{19}%
+  \psaSlot{Ba@f}{#6}{20}%
+  \psaSlot{Ba@g}{#7}{21}}
+
+\def\psaBb#1#2#3#4#5#6#7{%
+  \psaSlot{Bb@a}{#1}{22}%
+  \psaSlot{Bb@b}{#2}{23}%
+  \psaSlot{Bb@c}{#3}{24}%
+  \psaSlot{Bb@d}{#4}{25}%
+  \psaSlot{Bb@e}{#5}{26}%
+  \psaSlot{Bb@f}{#6}{27}%
+  \psaSlot{Bb@g}{#7}{28}}
+
+\def\psaCa#1#2#3#4#5{%
+  \psaSlot{Ca@a}{#1}{29}%
+  \psaSlot{Ca@b}{#2}{30}%
+  \psaSlot{Ca@c}{#3}{31}%
+  \psaSlot{Ca@d}{#4}{32}%
+  \psaSlot{Ca@e}{#5}{33}}
+
+\def\psaCb#1#2#3#4#5{%
+  \psaSlot{Cb@a}{#1}{34}%
+  \psaSlot{Cb@b}{#2}{35}%
+  \psaSlot{Cb@c}{#3}{36}%
+  \psaSlot{Cb@d}{#4}{37}%
+  \psaSlot{Cb@e}{#5}{38}}
+
+\def\psaDa#1#2#3#4{%
+  \psaSlot{Da@a}{#1}{39}%
+  \psaSlot{Da@b}{#2}{40}%
+  \psaSlot{Da@c}{#3}{41}%
+  \psaSlot{Da@d}{#4}{42}}
+
+\def\psaDb#1#2#3#4{%
+  \psaSlot{Db@a}{#1}{43}%
+  \psaSlot{Db@b}{#2}{44}%
+  \psaSlot{Db@c}{#3}{45}%
+  \psaSlot{Db@d}{#4}{46}}
+
+\def\defEpsa#1#2#3#4#5#6#7{
+  \psaSlot{E#1@a}{#2}{#5}%
+  \psaSlot{E#1@b}{#3}{#6}%
+  \psaSlot{E#1@c}{#4}{#7}}
+
+\def\psaEa#1#2#3{\defEpsa{a}{#1}{#2}{#3}{47}{48}{49}}
+\def\psaEb#1#2#3{\defEpsa{b}{#1}{#2}{#3}{50}{51}{52}}
+\def\psaEc#1#2#3{\defEpsa{c}{#1}{#2}{#3}{53}{54}{55}}
+\def\psaEe#1#2#3{\defEpsa{d}{#1}{#2}{#3}{56}{57}{58}}
+\def\psaEd#1#2#3{\defEpsa{e}{#1}{#2}{#3}{59}{60}{61}}
+\def\psaEf#1#2#3{\defEpsa{f}{#1}{#2}{#3}{62}{63}{64}}
+\def\psaEg#1#2#3{\defEpsa{g}{#1}{#2}{#3}{65}{66}{67}}
+\def\psaEh#1#2#3{\defEpsa{h}{#1}{#2}{#3}{68}{69}{70}}
+\def\psaEi#1#2#3{\defEpsa{i}{#1}{#2}{#3}{71}{72}{73}}
+\def\psaEj#1#2#3{\defEpsa{j}{#1}{#2}{#3}{74}{75}{76}}
+
+\def\psaFa#1{\psaSlot{Fa@a}{#1}{77}}%
+\def\psaFb#1{\psaSlot{Fb@a}{#1}{78}}%
+
+%% -----------------------------------------------------------------
+
+\def\psaHourA#1{#1{Aa@a}{Ec@a}{Ba@c}{Aa@d}{Ei@c}{Ba@e}{Ab@g}}
+\def\psaHourB#1{#1{Da@a}{Aa@b}{Ef@a}{Cb@c}{Ab@e}{Aa@f}{Eb@c}}
+\def\psaHourC#1{#1{Ea@a}{Eg@a}{Bb@c}{Ei@b}{Eh@c}{Ed@c}{Aa@g}}
+\def\psaHourD#1{#1{Eb@a}{Ei@a}{Ej@b}{Db@b}{Ee@b}{Fb@a}{Ei@c}}
+\def\psaHourE#1{#1{Ec@a}{Da@a}{Ed@b}{Eb@b}{Eg@b}{Ec@c}{Fa@a}}
+\def\psaHourF#1{#1{Ba@a}{Ea@a}{Eh@b}{Bb@d}{Db@b}{Ef@c}{Ba@e}}
+\def\psaHourG#1{#1{Ed@a}{Ab@b}{Aa@c}{Ee@b}{Cb@d}{Bb@e}{Ed@c}}
+\def\psaHourH#1{#1{Ab@a}{Aa@b}{Eg@a}{Ab@d}{Aa@e}{Eg@c}{Ec@c}}
+\def\psaHourI#1{#1{Aa@a}{Cb@a}{Ab@c}{Ec@b}{Bb@e}{Ab@f}{Bb@e}}
+\def\psaHourJ#1{#1{Ee@a}{Ba@b}{Ca@b}{Ba@d}{Da@b}{Ca@e}{Ej@c}}
+\def\psaHourK#1{#1{Ca@a}{Eb@a}{Da@a}{Ea@b}{Ab@e}{Db@b}{Aa@g}}
+\def\psaHourL#1{#1{Bb@a}{Ab@b}{Ba@c}{Aa@d}{Ea@c}{Bb@e}{Eg@c}}
+\def\psaHourM#1{#1{Db@a}{Eh@a}{Ea@b}{Ef@b}{Ba@e}{Cb@d}{Ca@e}}
+\def\psaHourN#1{#1{Cb@a}{Ca@b}{Ei@b}{Bb@d}{Ca@d}{Aa@f}{Ab@g}}
+\def\psaHourO#1{#1{Ab@a}{Bb@b}{Aa@c}{Cb@c}{Ef@b}{Da@b}{Db@b}}
+\def\psaHourP#1{#1{Ba@a}{Db@a}{Eb@b}{Ab@d}{Aa@e}{Eh@c}{Ba@e}}
+\def\psaHourQ#1{#1{Ca@a}{Ba@b}{Ab@c}{Da@a}{Ed@b}{Ab@f}{Ee@c}}
+\def\psaHourR#1{#1{Aa@a}{Cb@b}{Ca@c}{Ba@d}{Ab@e}{Ea@c}{Aa@g}}
+\def\psaHourS#1{#1{Ef@a}{Ej@a}{Bb@c}{Aa@d}{Bb@e}{Ba@e}{Cb@e}}
+\def\psaHourT#1{#1{Bb@a}{Ab@b}{Db@a}{Eh@b}{Eb@c}{Ee@c}{Bb@e}}
+\def\psaHourU#1{#1{Eh@a}{Aa@b}{Ab@c}{Ca@c}{Ba@e}{Ab@f}{Ef@c}}
+\def\psaHourV#1{#1{Ab@a}{Ed@a}{Ec@b}{Ab@d}{Fa@a}{Aa@f}{Ab@g}}
+\def\psaHourW#1{#1{Ei@a}{Bb@b}{Aa@c}{Ej@b}{Aa@e}{Cb@e}{Da@b}}
+\def\psaHourX#1{#1{Ej@a}{Ee@a}{Cb@b}{Eg@b}{Ca@d}{Ej@c}{Fb@a}}
+
+%% -----------------------------------------------------------------
+
+
+%% --------------------------------------------------
+
+\newlength{\psaintroboxlen}
+\setlength{\psaintroboxlen}{7.083in}
+\newlength{\psaintrotextlen}
+\setlength{\psaintrotextlen}{5.349in}
+
+\def\psaBlock#1{\blockitem{PSA}{\parbox[t]{\psaintroboxlen}{\textit{Optional introduction:} $\left\lbrace~~\parbox{\psaintrotextlen}{This public service announcement is brought to you by \csname psaBy@#1\endcsname.}\right.$}\par\csname psaText@#1\endcsname}}
+
+\def\psaEvent#1{\blockitem{PSA}{\parbox[t]{\psaintroboxlen}{\textit{Optional introduction:} $\left\lbrace~~\parbox{\psaintrotextlen}{Community event announcements are brought to you as a public service by \csname psaBy@#1\endcsname.}\right.$}\par\csname psaText@#1\endcsname}}
+\def\psaEventTwo#1#2{\blockitem{PSA}{\parbox[t]{\psaintroboxlen}{\textit{Optional introduction:} $\left\lbrace~~\parbox{\psaintrotextlen}{Community event announcements are brought to you as a public service by WTUL New Orleans.}\right.$}\par\csname psaText@#1\endcsname~~---~~\csname psaText@#2\endcsname}}
+
+\def\debugPSA#1{\textit{Code}: \textbf{#1}\\\textit{Optional intro.}: Brought to you by \csname psaBy@#1\endcsname.\\\textit{Body}: \csname psaText@#1\endcsname\\\textit{Contact/status}: \csname psaText@Contact#1\endcsname\vspace{1em}\vspace{1em}\par}
+
+\newwrite\proofpsa\immediate\openout\proofpsa proof-psa.tex\relax
+\@temptokena{\documentclass[11pt]{article}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\usepackage{tallpage}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\usepackage{tightlist}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\usepackage{multicol}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\usepackage{logs3}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\usepackage{psa}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\begin{document}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\title{WTUL 91.5\textsc{fm} PSA proof sheet}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\author{Generated from the WTUL traffic logs}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\date{\today\ --- make sure you have a current copy of this document!}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\maketitle}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\section{Protocol}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{How to make updates to the PSAs:}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\begin{itemize}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Make sure you have a current copy of this document!  It's automatically generated every time we update the logs, so just ask John for a recent copy, \textsl{jm@wtul.fm}\enspace.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item You may need to dig up contact information for some of the PSAs; we didn't always write this down.  Make sure you send the contact information back to John along with any updates.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Call or write the contact for the PSAs that need updating (or that you're asked to do, if someone else is coordinating the updates), and update the announcements.  Sometimes our notes will tell you to look for specific information; otherwise you're just making sure the information is still current.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item There's just a contact name with no email address or phone number, then check the staff list.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Send John any information you get --- let him know even if you don't get a reply, so that our notes can be updated.  Be sure to include the ``code'' for each PSA.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\end{itemize}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\section{Guidelines}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{These are the guidelines we follow for writing PSAs}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\begin{itemize}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item The only email address we tell members of the general public for PSAs is \textsl{psa@wtul.fm}\enspace.  Do not give out any individual's email address; the \textsl{psa} email address is always forwarded to the right person.  If people have any questions about what we'll announce, they can send them to the \textsl{psa} email address.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Announcements should be sent as plain text in the body of the email.  People should \emph{not} send announcements as an attachment, and should send only plain-text email (no HTML message bodies).  Attachments often carry viruses, and are usually discarded.  Non-text formats make it hard for us to copy-and-paste your announcement text.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Announcements regarding an event or other dated material should be sent at least two weeks prior to the event.  Our log of announcements is prepared and printed about 10 days ahead of time.  We will not be able to reprint the announcement schedule because of last-minute announcements.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item All announcements must contain email, web-based or phone contact information where listeners may find more information.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Announcements should be sent ready-to-read over the air: they should be written in complete sentences, with standard spellings.  Any words or names with unusual pronunciations should be followed immediately with a phonetic spelling in parentheses.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item Announcements should avoid subjective or hyperbolic claims, and should use plain wording appropriate for any time of day, and any format of show on WTUL.  Public service announcements should be an absolute maximum of 75 words, and are usually shorter.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\item WTUL reserves the right to reject and/or edit announcements not conforming to these guidelines, or as otherwise deemed necessary.}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\end{itemize}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\section{Current rotation}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\input{proof-psa-current}}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{}\immediate\write\proofpsa{\the\@temptokena}
+\@temptokena{\section{The PSAs}}\immediate\write\proofpsa{\the\@temptokena}
+
+\let\oldenddoc\enddocument
+\def\enddocument{%
+\@temptokena{\end{document}}\immediate\write\proofpsa{\the\@temptokena}%
+\oldenddoc}
+
+\defPSA{Blank}{NAME}{This blank PSA is included for technical reasons.}{TEXT\typeout{***************************}\typeout{**** Blank PSA emitted ****}\typeout{***************************}}
+
+% \def\psaNameMon#1#2#3#4#5#6#7{\csname#1\endcsname}
+% \def\psaNameTue#1#2#3#4#5#6#7{\csname#2\endcsname}
+% \def\psaNameWed#1#2#3#4#5#6#7{\csname#3\endcsname}
+% \def\psaNameThu#1#2#3#4#5#6#7{\csname#4\endcsname}
+% \def\psaNameFri#1#2#3#4#5#6#7{\csname#5\endcsname}
+% \def\psaNameSat#1#2#3#4#5#6#7{\csname#6\endcsname}
+% \def\psaNameSun#1#2#3#4#5#6#7{\csname#7\endcsname}
+% 
+% \def\psaTextMon#1#2#3#4#5#6#7{\csname psaText@\csname#1\endcsname\endcsname}
+% \def\psaTextTue#1#2#3#4#5#6#7{\csname psaText@\csname#2\endcsname\endcsname}
+% \def\psaTextWed#1#2#3#4#5#6#7{\csname psaText@\csname#3\endcsname\endcsname}
+% \def\psaTextThu#1#2#3#4#5#6#7{\csname psaText@\csname#4\endcsname\endcsname}
+% \def\psaTextFri#1#2#3#4#5#6#7{\csname psaText@\csname#5\endcsname\endcsname}
+% \def\psaTextSat#1#2#3#4#5#6#7{\csname psaText@\csname#6\endcsname\endcsname}
+% \def\psaTextSun#1#2#3#4#5#6#7{\csname psaText@\csname#7\endcsname\endcsname}
+% 
+% \def\psaBlockMon#1#2#3#4#5#6#7{\psaBlock{\csname#1\endcsname}}
+% \def\psaBlockTue#1#2#3#4#5#6#7{\psaBlock{\csname#2\endcsname}}
+% \def\psaBlockWed#1#2#3#4#5#6#7{\psaBlock{\csname#3\endcsname}}
+% \def\psaBlockThu#1#2#3#4#5#6#7{\psaBlock{\csname#4\endcsname}}
+% \def\psaBlockFri#1#2#3#4#5#6#7{\psaBlock{\csname#5\endcsname}}
+% \def\psaBlockSat#1#2#3#4#5#6#7{\psaBlock{\csname#6\endcsname}}
+% \def\psaBlockSun#1#2#3#4#5#6#7{\psaBlock{\csname#7\endcsname}}
+% 
+% \def\psaNumMon#1#2#3#4#5#6#7{\csname psaNum@#1\endcsname}
+% \def\psaNumTue#1#2#3#4#5#6#7{\csname psaNum@#2\endcsname}
+% \def\psaNumWed#1#2#3#4#5#6#7{\csname psaNum@#3\endcsname}
+% \def\psaNumThu#1#2#3#4#5#6#7{\csname psaNum@#4\endcsname}
+% \def\psaNumFri#1#2#3#4#5#6#7{\csname psaNum@#5\endcsname}
+% \def\psaNumSat#1#2#3#4#5#6#7{\csname psaNum@#6\endcsname}
+% \def\psaNumSun#1#2#3#4#5#6#7{\csname psaNum@#7\endcsname}
+% 
+% \def\psaWeek#1#2#3#4#5#6#7{\blockitem{PSA}
+% 		{Mon.\ \#\csname psaNum@#1\endcsname\ $\bullet$\ 
+%                  Tue.\ \#\csname psaNum@#2\endcsname\ $\bullet$\ 
+%                  Wed.\ \#\csname psaNum@#3\endcsname\ $\bullet$\ 
+%                  Thu.\ \#\csname psaNum@#4\endcsname\ $\bullet$\ 
+%                  Fri.\ \#\csname psaNum@#5\endcsname\ $\bullet$\ 
+%                  Sat.\ \#\csname psaNum@#6\endcsname\ $\bullet$\ 
+%                  Sun.\ \#\csname psaNum@#7\endcsname}}
+% \def\psaNewWeek#1#2#3#4#5#6#7{
+%   \begin{tabular}{@{}l@{~~}l@{}}
+%     {PSA:} & \mbox{Mon.\ \#\csname psaNum@#1\endcsname}\ $\bullet$\ 
+%                          \mbox{Tue.\ \#\csname psaNum@#2\endcsname}\ $\bullet$\ 
+%                          \mbox{Wed.\ \#\csname psaNum@#3\endcsname}
+%     \\                & \mbox{Thu.\ \#\csname psaNum@#4\endcsname}\ $\bullet$\ 
+%                          \mbox{Fri.\ \#\csname psaNum@#5\endcsname}\ $\bullet$\ 
+%                          \mbox{Sat.\ \#\csname psaNum@#6\endcsname}\ $\bullet$\ 
+%                          \mbox{Sun.\ \#\csname psaNum@#7\endcsname}
+%   \end{tabular}}
+
+
+\def\psaItemRaw#1#2#3#4{
+\begin{minipage}{\textwidth}
+\parbox[t]{\psaintroboxlen}{\colorbox{black}{\textcolor{white}{\LARGE PSA #1}}~~\parbox[b]{#4}{\emph{{\small Optional introduction:}\\ This public service announcement is brought to you by #2.}}}\\ #3\end{minipage}\vspace{0.75em}}
+
+
+
+
+\newlength{\psaIntroWidthOne}
+\setlength{\psaIntroWidthOne}{380pt}
+\newcommand{\psaItem}[2][\psaIntroWidthOne]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthTwo}
+\setlength{\psaIntroWidthTwo}{340pt}
+\newcommand{\psaItemTwo}[3][\psaIntroWidthTwo]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthThree}
+\setlength{\psaIntroWidthThree}{300pt}
+\newcommand{\psaItemThree}[4][\psaIntroWidthThree]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#4\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthFour}
+\setlength{\psaIntroWidthFour}{260pt}
+\newcommand{\psaItemFour}[5][\psaIntroWidthFour]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#4\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#5\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthFive}
+\setlength{\psaIntroWidthFive}{220pt}
+\newcommand{\psaItemFive}[6][\psaIntroWidthFive]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#4\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#5\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#6\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthSix}
+\setlength{\psaIntroWidthSix}{190pt}
+\newcommand{\psaItemSix}[7][\psaIntroWidthSix]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#4\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#5\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#6\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#7\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthSeven}
+\setlength{\psaIntroWidthSeven}{160pt}
+\newcommand{\psaItemSeven}[8][\psaIntroWidthSeven]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#4\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#5\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#6\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#7\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#8\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthEight}
+\setlength{\psaIntroWidthEight}{130pt}
+\newcommand{\psaItemEight}[9][\psaIntroWidthEight]{%
+  \psaItemRaw{\#\textbf{\csname psaNum@#2\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#3\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#4\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#5\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#6\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#7\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#8\endcsname}
+              $\cdot$ \textbf{\csname psaNum@#9\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthNine}
+\setlength{\psaIntroWidthNine}{340pt}
+\newcommand{\psaItemNine}[9][\psaIntroWidthNine]{%
+  \psaItemNineA{#1}{#2}}
+\newcommand{\psaItemNineA}[3]{
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#3\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthTen}
+\setlength{\psaIntroWidthTen}{340pt}
+\newcommand{\psaItemTen}[9][\psaIntroWidthTen]{%
+  \psaItemTenA{#1}{#2}}
+\newcommand{\psaItemTenA}[4]{
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#4\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthEleven}
+\setlength{\psaIntroWidthEleven}{340pt}
+\newcommand{\psaItemEleven}[9][\psaIntroWidthEleven]{%
+  \psaItemElevenA{#1}{#2}}
+\newcommand{\psaItemElevenA}[5]{
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#5\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthTwelve}
+\setlength{\psaIntroWidthTwelve}{340pt}
+\newcommand{\psaItemTwelve}[9][\psaIntroWidthTwelve]{%
+  \psaItemTwelveA{#1}{#2}}
+\newcommand{\psaItemTwelveA}[6]{
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#6\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthThirteen}
+\setlength{\psaIntroWidthThirteen}{340pt}
+\newcommand{\psaItemThirteen}[9][\psaIntroWidthThirteen]{%
+  \psaItemThirteenA{#1}{#2}}
+\newcommand{\psaItemThirteenA}[7]{
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#7\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthFourteen}
+\setlength{\psaIntroWidthFourteen}{340pt}
+\newcommand{\psaItemFourteen}[9][\psaIntroWidthFourteen]{%
+  \psaItemFourteenA{#1}{#2}}
+\newcommand{\psaItemFourteenA}[8]{
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#8\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+\newlength{\psaIntroWidthRange}
+\setlength{\psaIntroWidthRange}{340pt}
+\newcommand{\psaItemRange}[3][\psaIntroWidthRange]{%
+  \psaItemRaw{\textbf{\#\csname psaNum@#2\endcsname%
+              \,--\,\csname psaNum@#3\endcsname}}%
+             {\csname psaBy@\csname#2\endcsname\endcsname}%
+             {\csname psaText@\csname#2\endcsname\endcsname}%
+             {#1}}
+
+% \def\psaRegLowRoster{
+% \par\psaItem{@reg@a}
+% \par\psaItem{@reg@b}
+% \par\psaItem{@reg@c}
+% \par\psaItem{@reg@d}
+% \par\psaItem{@reg@e}
+% \par\psaItem{@reg@f}
+% \par\psaItem{@reg@g}
+% \par\psaItem{@reg@h}
+% \par\psaItem{@reg@i}
+% \par\psaItem{@reg@j}
+% \par\psaItem{@reg@k}
+% \par\psaItem{@reg@l}
+% \par\psaItem{@reg@m}
+% \par\psaItem{@reg@n}
+% \par\psaItem{@reg@o}
+% \par\psaItem{@reg@p}
+% \par\psaItem{@reg@q}
+% \par\psaItem{@reg@r}
+% \par\psaItem{@reg@s}
+% \par\psaItem{@reg@t}
+% \par\psaItem{@reg@u}
+% \par\psaItem{@low@a}
+% \par\psaItem{@low@b}
+% \par\psaItem{@low@c}
+% \par\psaItem{@low@d}
+% \par\psaItem{@low@e}
+% \par\psaItem{@low@f}
+% \par\psaItem{@low@g}
+% \par\psaItem{@low@h}
+% \par\psaItem{@low@i}
+% \par\psaItem{@low@j}
+% \par\psaItem{@low@k}
+% \par\psaItem{@low@l}
+% \par\psaItem{@low@m}
+% \par\psaItem{@low@n}}
+% 
+% \def\psaHiRoster{
+% \par\psaItem{@hi@a}
+% \par\psaItem{@hi@b}
+% \par\psaItem{@hi@c}
+% \par\psaItem{@hi@d}
+% \par\psaItem{@hi@e}
+% \par\psaItem{@hi@f}
+% \par\psaItem{@hi@g}
+% \par\psaItem{@hi@h}
+% \par\psaItem{@hi@i}
+% \par\psaItem{@hi@j}
+% \par\psaItem{@hi@k}
+% \par\psaItem{@hi@l}
+% \par\psaItem{@hi@m}
+% \par\psaItem{@hi@n}
+% \par\psaItem{@hi@o}
+% \par\psaItem{@hi@p}
+% \par\psaItem{@hi@q}
+% \par\psaItem{@hi@r}
+% \par\psaItem{@hi@s}
+% \par\psaItem{@hi@t}
+% \par\psaItem{@hi@u}
+% \par\psaItem{@hi@v}
+% \par\psaItem{@hi@w}
+% \par\psaItem{@hi@x}
+% \par\psaItem{@hi@y}
+% \par\psaItem{@hi@z}
+% \par\psaItem{@hi@A}
+% \par\psaItem{@hi@B}}
+% 
+% \def\psaMedRoster{
+% \par\psaItem{@med@a}
+% \par\psaItem{@med@b}
+% \par\psaItem{@med@c}
+% \par\psaItem{@med@d}
+% \par\psaItem{@med@e}
+% \par\psaItem{@med@f}
+% \par\psaItem{@med@g}
+% \par\psaItem{@med@h}
+% \par\psaItem{@med@i}
+% \par\psaItem{@med@j}
+% \par\psaItem{@med@k}
+% \par\psaItem{@med@l}
+% \par\psaItem{@med@m}
+% \par\psaItem{@med@n}
+% \par\psaItem{@med@o}
+% \par\psaItem{@med@p}
+% \par\psaItem{@med@q}
+% \par\psaItem{@med@r}
+% \par\psaItem{@med@s}
+% \par\psaItem{@med@t}
+% \par\psaItem{@med@u}}
+% 
+% \def\psaHiRosterCompress{
+% \par\psaItemSeven{@hi@a}{@hi@b}{@hi@c}{@hi@d}{@hi@e}{@hi@f}{@hi@g}
+% \par\psaItemSeven{@hi@h}{@hi@i}{@hi@j}{@hi@k}{@hi@l}{@hi@m}{@hi@n}
+% \par\psaItemSeven{@hi@o}{@hi@p}{@hi@q}{@hi@r}{@hi@s}{@hi@t}{@hi@u}
+% \par\psaItemSeven{@hi@v}{@hi@w}{@hi@x}{@hi@y}{@hi@z}{@hi@A}{@hi@B}}
+% 
+% \def\psaMedRosterCompress{
+% \par\psaItemSix{@med@a}{@med@b}{@med@c}{@med@d}{@med@e}{@med@f}
+% \par\psaItemSix{@med@g}{@med@h}{@med@i}{@med@j}{@med@k}{@med@l}
+% \par\psaItemSix{@med@m}{@med@n}{@med@o}{@med@p}{@med@q}{@med@r}
+% \par\psaItemThree{@med@s}{@med@t}{@med@u}}

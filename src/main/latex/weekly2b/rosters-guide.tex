@@ -1,0 +1,50 @@
+
+\documentclass{article}
+\usepackage{times}
+\parindent 0pt
+\parskip 1em
+\begin{document}
+\begin{center}
+\Large Promos slots guide
+\end{center}
+
+Single-letter promos correspond to a part of a single day.  Each
+single-letter appears three times on the log.  Double-letter promos
+fall in a particular kind of show or time of day across several days
+of the week.  Each double-letter appears 5--7 times through the week.
+
+\begin{center}
+\def\bothl#1#2#3{#1 & #2 & #1#1 & #3 \\ \hline}
+\def\dayl#1#2{#1 & #2 \\ \cline{1-2}}
+\begin{tabular}{|c|l||c|l|}
+\hline \multicolumn{2}{|c||}{Promos by day} & \multicolumn{2}{c|}{Promos by group} \\ \hline\hline
+\bothl A{Monday before evening}{Late specialty/late night}
+\bothl B{Monday daytime}{Late night}
+\bothl C{Monday after midmorning}{Classical/jazz}
+\bothl D{Tuesday before evening}{Mornings/evenings}
+\bothl E{Tuesday daytime}{Mid-mornings}
+\bothl F{Tuesday after midmorning}{Middays}
+\bothl G{Wednesday before evening}{Afternoons}
+\bothl H{Wednesday daytime}{Afternoons}
+\bothl I{Wednesday after midmorning}{Evenings}
+\bothl J{Thursday before evening}{Late evenngs}
+\bothl K{Thursday daytime}{Late nights}
+\bothl L{Thursday after midmorning}{Weekday mixed}
+\bothl M{Friday before evening}{Weekday late nights}
+\bothl N{Friday daytime}{Around midnight}
+\dayl  O{Friday after midmorning}
+\dayl  P{Saturday before evening}
+\dayl  Q{Saturday daytime}
+\dayl  R{Saturday after midmorning}
+\dayl  S{Sunday before evening}
+\dayl  T{Sunday daytime}
+\dayl  U{Sunday after midmorning}
+\end{tabular}
+\end{center}
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

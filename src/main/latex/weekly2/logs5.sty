@@ -1,0 +1,2379 @@
+
+
+% --------------------------------------------------
+
+\def\timeinitspacer{\rule{0pt}{8mm}\rule{10mm}{0mm}}
+\def\sponsorspacer{\rule{0pt}{10mm}}
+\newlength{\logItemWidth}
+\setlength{\logItemWidth}{2.4in}
+\newlength{\tixWidth}
+\setlength{\tixWidth}{3.4in}
+
+\newcommand{\hourGrid}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}}
+
+\newcommand{\hourGridPromo}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}}
+
+\newcommand{\hourGridTix}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}}
+
+\newcommand{\hourGridPromoTix}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}}
+
+\newcommand{\hourGridCal}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}}
+
+\newcommand{\hourGridCalPromo}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}}
+
+\newcommand{\hourGridCalTix}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}}
+
+\newcommand{\hourGridCalPromoTix}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}}
+
+\def\pledgeLevelsUnit{
+  \begin{tabular}[t]{>{\bfseries}l@{~}l}%
+    \multicolumn{2}{>{\bfseries\scshape}l}{Basic pledge levels} %
+    \\ \pledgeLevelsColumns
+  \end{tabular}}
+\def\pledgeLevelsColumns{
+	    \$25 & membership, card \& CD %
+	\\ \$50 & plus the logo t-shirt
+	\\ \$100 & plus the Marathon t-shirt
+}
+\def\pledgeRequestsUnit{
+  \begin{tabular}[t]{>{\bfseries}l@{~}l}%
+    \multicolumn{2}{>{\bfseries\scshape}l}{Pledge requests} %
+    \\ \pledgeRequestsColumns
+  \end{tabular}}
+\def\pledgeRequestsColumns{
+	    \$10 & one song %
+	\\ \$40 & five songs or one vinyl side
+	\\ \$100 & whole album
+}
+\def\pledgeRequestsNarrowColumns{
+	    \$10 & one song %
+	\\ \$40 & five songs, or %
+        \\      & one vinyl side
+	\\ \$100 & whole album
+}
+
+\def\pledgeInfoBar{
+\begin{tabular}{@{}>{\bfseries\$}r>{\raggedright}ll@{}}
+\multicolumn{1}{@{}c@{\,}}{\emph{Pledge}} & \emph{Requests played}
+& \emph{Premiums sent with paid pledge}
+\\ 10 & one song & ---
+\\ 25 & two songs & The compilation CD, membership card, bumper sticker, button
+\\ 50 & 5 songs, or one LP side & This year's Marathon shirt, plus the CD/card/sticker/button
+\\ 100 & 10 songs, or an entire \mbox{LP/CD} & WTUL logo shirt, plus the Marathon shirt/CD/card/sticker/button
+\end{tabular}
+}
+
+\def\shortPremiumLines{\vspace{1mm}\par
+\textbf{\large Premiums to offer this hour}
+\\ \begin{tabular}{|l|l|l||c|l|}
+  \multicolumn{3}{c}{\emph{Premium item information}}
+& \multicolumn{2}{c}{\emph{Winning pledge information}}
+\\ \hline
+Premium \# & Description & Min.\ pledge & Name & Time pledged
+\\ \hline\hline \rule{0mm}{12mm}%
+ & \rule{68mm}{0mm} & \rule{1cm}{0mm} & \rule{40mm}{0mm} & \rule{20mm}{0mm}
+\\ \hline \rule{0mm}{12mm}&&&&
+\\ \hline
+\end{tabular}}
+
+\def\premiumLines{\vspace{1mm}\par
+\textbf{\large Premiums to offer this hour}
+\\ \begin{tabular}{|l|l|l||c|l|}
+  \multicolumn{3}{c}{\emph{Premium item information}}
+& \multicolumn{2}{c}{\emph{Winning pledge information}}
+\\ \hline
+Premium \# & Description & Min.\ pledge & Name & Time pledged
+\\ \hline\hline \rule{0mm}{12mm}%
+ & \rule{68mm}{0mm} & \rule{1cm}{0mm} & \rule{40mm}{0mm} & \rule{20mm}{0mm}
+\\ \hline \rule{0mm}{12mm}&&&&
+\\ \hline \rule{0mm}{12mm}&&&&
+\\ \hline \rule{0mm}{12mm}&&&&
+\\ \hline
+\end{tabular}}
+
+\newcommand{\hourGridPledgeinfo}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+  \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+  \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridPromoPledgeinfo}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+  \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+  \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridTixPledgeinfo}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular} 
+}
+
+\newcommand{\hourGridPromoTixPledgeinfo}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridCalPledgeinfo}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+    \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridCalPromoPledgeinfo}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+  \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+  \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridCalTixPledgeinfo}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridCalPromoTixPledgeinfo}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}}
+
+\newcommand{\hourGridPledgeAndPremium}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+  \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+  \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridPromoPledgeAndPremium}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+  \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+  \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridTixPledgeAndPremium}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular} 
+  \premiumLines}
+
+\newcommand{\hourGridPromoTixPledgeAndPremium}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalPledgeAndPremium}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+    \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalPromoPledgeAndPremium}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace{4pt}
+  \\[4pt]\hline \multicolumn{2}{|l|}{\pledgeInfoBar}
+  \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalTixPledgeAndPremium}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalPromoTixPledgeAndPremium}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-6pt}}
+    \\ \hline
+    \multicolumn{5}{|l|}{\pledgeInfoBar}
+    \\ \hline
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace*{-12pt}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridPromoPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace*{-12pt}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridTixPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-14pt}}
+  \end{tabular} 
+  \premiumLines}
+
+\newcommand{\hourGridPromoTixPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-14pt}}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalPromoPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalTixPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridCalPromoTixPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \premiumLines}
+
+\newcommand{\hourGridPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}\vspace*{-12pt}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}
+}
+
+\newcommand{\hourGridPromoPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace*{-12pt}
+  \end{tabular}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridTixPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular} 
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridPromoTixPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalPromoPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalTixPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalPromoTixPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \premiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridShortPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}\vspace*{-12pt}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}
+}
+
+\newcommand{\hourGridPromoShortPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace*{-12pt}
+  \end{tabular}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridTixShortPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular} 
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridPromoTixShortPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalShortPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalPromoShortPremiumThenPledge}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalTixShortPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridCalPromoTixShortPremiumThenPledge}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \shortPremiumLines \\
+  \begin{center}
+    \begin{tabular}{@{}|l|@{}}
+      \hline \pledgeInfoBar \\ \hline
+    \end{tabular}
+  \end{center}}
+
+\newcommand{\hourGridShortPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace*{-12pt}
+  \end{tabular}
+  \shortPremiumLines}
+
+\newcommand{\hourGridPromoShortPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}\vspace*{-12pt}
+  \end{tabular}
+  \shortPremiumLines}
+
+\newcommand{\hourGridTixShortPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-14pt}}
+  \end{tabular} 
+  \shortPremiumLines}
+
+\newcommand{\hourGridPromoTixShortPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5} \multicolumn{5}{c}{\vspace*{-14pt}}
+  \end{tabular}
+  \shortPremiumLines}
+
+\newcommand{\hourGridCalShortPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \shortPremiumLines}
+
+\newcommand{\hourGridCalPromoShortPremiumOnly}[4]%
+{\colorbox{black}{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}
+  \\
+  \begin{tabular}{@{}ll@{}}
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+      & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} 
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large Calendar} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small Anytime in the hour}} 
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{} &&
+      \\ \cline{1-3}
+    \end{tabular}
+    &
+    \begin{tabular}[t]{|p{\logItemWidth}|>{\timeinitspacer}c|>{\timeinitspacer}c|}
+      \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}}
+      \\ \cline{1-3}
+      {\Large Legal ID} &&
+      \\ \cline{1-3}
+      {\small Sponsor:}\sponsorspacer &&
+      \\ \cline{1-3}
+      {\Large PSA \##3} &&
+      \\ \cline{1-3}
+      \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}}
+      \\ \cline{1-3}
+      \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&
+      \\ \cline{1-3}
+    \end{tabular}
+  \end{tabular}
+  \shortPremiumLines}
+
+\newcommand{\hourGridCalTixShortPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \shortPremiumLines}
+
+\newcommand{\hourGridCalPromoTixShortPremiumOnly}[4]%
+{\begin{tabular}{|p{\logItemWidth}|>{\timeinitspacer}c|c|l|p{\tixWidth}|}
+    \multicolumn{1}{l}{\colorbox{black}{{\textcolor{white}{\textbf{\LARGE #1\,00-#2\,00}}}}}
+    & \multicolumn{2}{c}{}
+    & \multicolumn{1}{l}{}
+    & \multicolumn{1}{c}{Ticket giveaways this hour}
+    \\\cline{5-5}
+    \multicolumn{1}{c}{\emph{\bfseries\small At the top of the hour (#1\,00)}}
+    & \multicolumn{1}{c}{\small Time} & \multicolumn{1}{c}{\small Initials} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large Calendar} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the first half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small At the half-hour (#1\,30)}} &&
+    \\ \cline{1-3}
+    {\Large Legal ID} &&&&
+    \\ \cline{1-3}
+    {\small Sponsor:}\sponsorspacer &&&&
+    \\ \cline{1-3}
+    {\Large PSA \##3} &&&&
+    \\ \cline{1-3}
+    \multicolumn{3}{c}{\emph{\bfseries\small In the second half-hour}} &&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{\Large Promo \##4} &&&&
+    \\ \cline{1-3}
+    \multicolumn{1}{|p{\logItemWidth}|}{} &&&&
+    \\ \cline{1-3}\cline{5-5}
+  \end{tabular}
+  \shortPremiumLines}
+
+%% -----------------------------------------------------------------
+
+%% -----------------------------------------------------------------
+
+\def\debugHour#1#2#3#4#5#6#7{
+%% 1 Start hour
+%% 2 End hour
+%% 3 PSA code
+%% 4 \withCal or \noCal
+%% 5 \withPromo{\promoSlot} or \noPromo
+%% 6 \withTix or \noTix
+{\large #1 #2\,00 PSA \#\csname psaNum@#4\endcsname - Promo #7} (PSA #4, Calendar: ``#5'', tickets: ``#6'') \\
+}
+
+\def\debugDay#1#2#3#4#5{
+%% 1 Day name
+%% 2 Day selector --- \onMon, \onTue, etc.
+%% 3 \promoDayCode
+%% 4 Calendar command for 00 and 01
+%% 5 Calendar command for 21 and 23
+\debugHour{#1}{00}{01}{\psaHourA#2}{#4}{\noTix}{\promoHourA#2}
+\debugHour{#1}{01}{02}{\psaHourB#2}{#4}{\noTix}{\promoHourB#2}
+\debugHour{#1}{02}{03}{\psaHourC#2}{\withCal}{\noTix}{\promoHourC#2}
+\debugHour{#1}{03}{04}{\psaHourD#2}{\withCal}{\noTix}{\promoHourD#2}
+\debugHour{#1}{04}{05}{\psaHourE#2}{\withCal}{\noTix}{\promoHourE#2}
+\debugHour{#1}{05}{06}{\psaHourF#2}{\withCal}{\noTix}{\promoHourF#2}
+\debugHour{#1}{06}{07}{\psaHourG#2}{\withCal}{\noTix}{\promoHourG#2}
+\debugHour{#1}{07}{08}{\psaHourH#2}{\withCal}{\withTix}{\promoHourH#2}
+\debugHour{#1}{08}{09}{\psaHourI#2}{\withCal}{\withTix}{\promoHourI#2}
+\debugHour{#1}{09}{10}{\psaHourJ#2}{\withCal}{\withTix}{\promoHourJ#2}
+\debugHour{#1}{10}{11}{\psaHourK#2}{\withCal}{\withTix}{\promoHourK#2}
+\debugHour{#1}{11}{12}{\psaHourL#2}{\withCal}{\withTix}{\promoHourL#2}
+\debugHour{#1}{12}{13}{\psaHourM#2}{\withCal}{\withTix}{\promoHourM#2}
+\debugHour{#1}{13}{14}{\psaHourN#2}{\withCal}{\withTix}{\promoHourN#2}
+\debugHour{#1}{14}{15}{\psaHourO#2}{\withCal}{\withTix}{\promoHourO#2}
+\debugHour{#1}{15}{16}{\psaHourP#2}{\withCal}{\withTix}{\promoHourP#2}
+\debugHour{#1}{16}{17}{\psaHourQ#2}{\withCal}{\withTix}{\promoHourQ#2}
+\debugHour{#1}{17}{18}{\psaHourR#2}{\withCal}{\noTix}{\promoHourR#2}
+\debugHour{#1}{18}{19}{\psaHourS#2}{\withCal}{\noTix}{\promoHourS#2}
+\debugHour{#1}{19}{20}{\psaHourT#2}{\withCal}{\noTix}{\promoHourT#2}
+\debugHour{#1}{20}{21}{\psaHourU#2}{\withCal}{\noTix}{\promoHourU#2}
+\debugHour{#1}{21}{22}{\psaHourV#2}{#5}{\noTix}{\promoHourV#2}
+\debugHour{#1}{22}{23}{\psaHourW#2}{\withCal}{\noTix}{\promoHourW#2}
+\debugHour{#1}{23}{00}{\psaHourX#2}{#5}{\noTix}{\promoHourX#2}
+\cleardoublepage}
+
+\def\makeHour#1#2#3#4#5#6{
+%% 1 Start hour
+%% 2 End hour
+%% 3 PSA code
+%% 4 \withCal or \noCal
+%% 5 \withTix or \noTix
+%% 6 \withPromo{\promoSlot} or \noPromo
+\begin{minipage}{\textwidth}
+\csname hourGrid#4Promo#5\endcsname{#1}{#2}{\csname psaNum@#3\endcsname}{#6}
+\end{minipage}\vspace*{\fill}\par
+}
+
+\def\makePledgeHour#1#2#3#4#5#6#7{
+%% 1 Start hour
+%% 2 End hour
+%% 3 PSA code
+%% 4 \withCal or \noCal
+%% 5 \withPromo{\promoSlot} or \noPromo
+%% 6 \withTix or \noTix
+%% 7 pledge drive something or other
+\begin{minipage}{\textwidth}
+\csname hourGrid#4Promo#5#7\endcsname{#1}{#2}{\csname psaNum@#3\endcsname}{#6}
+\end{minipage}\vspace*{\fill}\par
+}
+
+\def\trafficHeader{\clearpage
+  \begin{tabular}{|@{}l@{}|@{~~}p{5.25in}|}\hline
+    \colorbox{black}{
+      \textcolor{white}{
+        \normalsize \begin{tabular}[b]{l}
+          WTUL 91.5 FM
+          \\ Transmitter Operations Log
+          \\ Control Room Log
+        \end{tabular}}}
+    & Date: {\Large\logDate} \\ \hline
+  \end{tabular}\vspace{1em}\par}
+
+\def\makeDay#1#2#3#4#5{
+%% 1 Day name
+%% 2 Day selector --- \onMon, \onTue, etc.
+%% 3 \promoDayCode
+%% 4 Calendar command for 00 and 01
+%% 5 Calendar command for 21 and 23
+\TransmitterLog{#1, \underline{\hspace*{4cm}}\,, 20\underline{\hspace*{1cm}}}
+\trafficHeader
+\makeHour{00}{01}{\psaHourA#2}{#4}{\noTix}{\promoHourA#2}
+\makeHour{01}{02}{\psaHourB#2}{#4}{\noTix}{\promoHourB#2}
+\makeHour{02}{03}{\psaHourC#2}{\withCal}{\noTix}{\promoHourC#2}
+\trafficHeader
+\makeHour{03}{04}{\psaHourD#2}{\withCal}{\noTix}{\promoHourD#2}
+\makeHour{04}{05}{\psaHourE#2}{\withCal}{\noTix}{\promoHourE#2}
+\makeHour{05}{06}{\psaHourF#2}{\withCal}{\noTix}{\promoHourF#2}
+\trafficHeader
+\makeHour{06}{07}{\psaHourG#2}{\withCal}{\noTix}{\promoHourG#2}
+\makeHour{07}{08}{\psaHourH#2}{\withCal}{\withTix}{\promoHourH#2}
+\trafficHeader
+\makeHour{08}{09}{\psaHourI#2}{\withCal}{\withTix}{\promoHourI#2}
+\makeHour{09}{10}{\psaHourJ#2}{\withCal}{\withTix}{\promoHourJ#2}
+\trafficHeader
+\makeHour{10}{11}{\psaHourK#2}{\withCal}{\withTix}{\promoHourK#2}
+\makeHour{11}{12}{\psaHourL#2}{\withCal}{\withTix}{\promoHourL#2}
+\trafficHeader
+\makeHour{12}{13}{\psaHourM#2}{\withCal}{\withTix}{\promoHourM#2}
+\makeHour{13}{14}{\psaHourN#2}{\withCal}{\withTix}{\promoHourN#2}
+\trafficHeader
+\makeHour{14}{15}{\psaHourO#2}{\withCal}{\withTix}{\promoHourO#2}
+\makeHour{15}{16}{\psaHourP#2}{\withCal}{\withTix}{\promoHourP#2}
+\trafficHeader
+\makeHour{16}{17}{\psaHourQ#2}{\withCal}{\withTix}{\promoHourQ#2}
+\makeHour{17}{18}{\psaHourR#2}{\withCal}{\noTix}{\promoHourR#2}
+\makeHour{18}{19}{\psaHourS#2}{\withCal}{\noTix}{\promoHourS#2}
+\trafficHeader
+\makeHour{19}{20}{\psaHourT#2}{\withCal}{\noTix}{\promoHourT#2}
+\makeHour{20}{21}{\psaHourU#2}{\withCal}{\noTix}{\promoHourU#2}
+\makeHour{21}{22}{\psaHourV#2}{#5}{\noTix}{\promoHourV#2}
+\trafficHeader
+\makeHour{22}{23}{\psaHourW#2}{\withCal}{\noTix}{\promoHourW#2}
+\makeHour{23}{00}{\psaHourX#2}{#5}{\noTix}{\promoHourX#2}
+\cleardoublepage}
+
+\def\pledgeAirbreaks{
+\par\hspace*{\fill}\fbox{\begin{minipage}{6in}
+    \begin{center}{\large Announce during every hour:}
+    \\That it's Marathon!\ $\bullet$ The new website: \textsl{WTUL new orleans dot org} $\bullet$ The webcast
+    \\ Ask for pledges $\bullet$ Upcoming Marathon shows $\bullet$ The membership card
+  \end{center}\end{minipage}}\hspace*{\fill}\vspace{4mm}\par}
+
+\def\makePledgeDay#1#2#3#4#5{
+%% 1 Day name
+%% 2 Day selector --- \onMon, \onTue, etc.
+%% 3 \promoDayCode
+%% 4 Calendar command for 00 and 01
+%% 5 Calendar command for 21 and 23
+\TransmitterLog{#1, \underline{\hspace*{4cm}}\,, 20\underline{\hspace*{1cm}}}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{00}{01}{\psaHourA#2}{#4}{\noTix}{\promoHourA#2}{\ShortPremiumThenPledge}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{01}{02}{\psaHourB#2}{#4}{\noTix}{\promoHourB#2}{\ShortPremiumThenPledge}
+\makePledgeHour{02}{03}{\psaHourC#2}{\withCal}{\noTix}{\promoHourC#2}{}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{03}{04}{\psaHourD#2}{\withCal}{\noTix}{\promoHourD#2}{\PledgeInfo}
+\makePledgeHour{04}{05}{\psaHourE#2}{\withCal}{\noTix}{\promoHourE#2}{}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{05}{06}{\psaHourF#2}{\withCal}{\noTix}{\promoHourF#2}{\PledgeInfo}
+\makePledgeHour{06}{07}{\psaHourG#2}{\withCal}{\noTix}{\promoHourG#2}{\PremiumOnly}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{07}{08}{\psaHourH#2}{\withCal}{\withTix}{\promoHourH#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{08}{09}{\psaHourI#2}{\withCal}{\withTix}{\promoHourI#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{09}{10}{\psaHourJ#2}{\withCal}{\withTix}{\promoHourJ#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{10}{11}{\psaHourK#2}{\withCal}{\withTix}{\promoHourK#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{11}{12}{\psaHourL#2}{\withCal}{\withTix}{\promoHourL#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{12}{13}{\psaHourM#2}{\withCal}{\withTix}{\promoHourM#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{13}{14}{\psaHourN#2}{\withCal}{\withTix}{\promoHourN#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{14}{15}{\psaHourO#2}{\withCal}{\withTix}{\promoHourO#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{15}{16}{\psaHourP#2}{\withCal}{\withTix}{\promoHourP#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{16}{17}{\psaHourQ#2}{\withCal}{\withTix}{\promoHourQ#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{17}{18}{\psaHourR#2}{\withCal}{\noTix}{\promoHourR#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{18}{19}{\psaHourS#2}{\withCal}{\noTix}{\promoHourS#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{19}{20}{\psaHourT#2}{\withCal}{\noTix}{\promoHourT#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{20}{21}{\psaHourU#2}{\withCal}{\noTix}{\promoHourU#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{21}{22}{\psaHourV#2}{#5}{\noTix}{\promoHourV#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{22}{23}{\psaHourW#2}{\withCal}{\noTix}{\promoHourW#2}{\PledgeAndPremium}
+\trafficHeader
+\pledgeAirbreaks
+\makePledgeHour{23}{00}{\psaHourX#2}{#5}{\noTix}{\promoHourX#2}{\PledgeAndPremium}
+\cleardoublepage}

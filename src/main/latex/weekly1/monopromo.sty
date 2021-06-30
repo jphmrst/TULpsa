@@ -1,0 +1,230 @@
+
+% --------------------------------------------------
+
+\def\defPromo#1#2#3#4#5#6#7{
+\expandafter\def\csname @promoShortName#1\endcsname{#2}
+\expandafter\def\csname @promoAbsoluteTime#1\endcsname{#3}
+\expandafter\def\csname @promoClockTime#1\endcsname{#4}
+\expandafter\def\csname @promoDayIfLaterToday#1\endcsname{#5}
+\expandafter\def\csname @promoDayIfTomorrow#1\endcsname{#6}
+\expandafter\def\csname @promoText#1\endcsname{#7}
+%
+\expandafter\def\csname promo#1\endcsname{\showPromo{#7}{#3}{#2}}
+\expandafter\def\csname promo#1At\endcsname{\whenAtShowPromo{#7}{#4}{#2}}
+\expandafter\def\csname promo#1Today\endcsname{\csname promo#1At\endcsname{#5}}
+\expandafter\def\csname promo#1Tomorrow\endcsname{\csname promo#1At\endcsname{#6}}
+\expandafter\def\csname promo#1Next\endcsname{\atUpNext{\csname promo#1At\endcsname}}
+}
+
+% --------------------------------------------------
+
+%%  a  1
+%%  b  7
+%%  c  11
+%%  d  17
+%%  e  19
+%%  f  21
+%%  g  23
+
+\def\makePromo#1#2#3{%
+  \expandafter\def\csname @promo@#1\endcsname{#3}%
+  \expandafter\def\csname num@promo@#1\endcsname{#2}}
+
+\def\setPromos#1#2#3#4#5#6#7#8#9{
+  \makePromo{Ma}{A}{#1}
+  \makePromo{Mb}{AA}{#2}
+  \makePromo{Mc}{B}{#3}
+  \makePromo{Md}{BB}{#4}
+  \makePromo{Me}{C}{#5}
+  \makePromo{Mf}{CC}{#6}
+  \makePromo{Mg}{D}{#7}
+  \makePromo{Ta}{DD}{#8}
+  \makePromo{Tb}{E}{#9}
+  \promos@B}
+\def\promos@B#1#2#3#4#5#6#7#8#9{
+  \makePromo{Tc}{EE}{#1}
+  \makePromo{Td}{F}{#2}
+  \makePromo{Te}{FF}{#3}
+  \makePromo{Tf}{G}{#4}
+  \makePromo{Tg}{GG}{#5}
+  \makePromo{Wa}{H}{#6}
+  \makePromo{Wb}{HH}{#7}
+  \makePromo{Wc}{I}{#8}
+  \makePromo{Wd}{II}{#9}
+  \promos@C}
+\def\promos@C#1#2#3#4#5#6#7#8#9{
+  \makePromo{We}{J}{#1}
+  \makePromo{Wf}{JJ}{#2}
+  \makePromo{Wg}{K}{#3}
+  \makePromo{Ra}{KK}{#4}
+  \makePromo{Rb}{L}{#5}
+  \makePromo{Rc}{LL}{#6}
+  \makePromo{Rd}{M}{#7}
+  \makePromo{Re}{MM}{#8}
+  \makePromo{Rf}{N}{#9}
+  \promos@D}
+\def\promos@D#1#2#3#4#5#6#7#8#9{
+  \makePromo{Rg}{NN}{#1}
+  \makePromo{Fa}{O}{#2}
+  \makePromo{Fb}{OO}{#3}
+  \makePromo{Fc}{P}{#4}
+  \makePromo{Fd}{PP}{#5}
+  \makePromo{Fe}{Q}{#6}
+  \makePromo{Ff}{QQ}{#7}
+  \makePromo{Fg}{R}{#8}
+  \makePromo{Sa}{RR}{#9}
+  \promos@E}
+\def\promos@E#1#2#3#4#5#6#7#8#9{
+  \makePromo{Sb}{S}{#1}
+  \makePromo{Sc}{SS}{#2}
+  \makePromo{Sd}{T}{#3}
+  \makePromo{Se}{TT}{#4}
+  \makePromo{Sf}{U}{#5}
+  \makePromo{Sg}{UU}{#6}
+  \makePromo{Ua}{V}{#7}
+  \makePromo{Ub}{VV}{#8}
+  \makePromo{Uc}{W}{#9}
+  \promos@F}
+\def\promos@F#1#2#3#4{
+  \makePromo{Ud}{WW}{#1}
+  \makePromo{Ue}{X}{#2}
+  \makePromo{Uf}{XX}{#3}
+  \makePromo{Ug}{Y}{#4}
+}
+
+\def\@dumpPromo#1{\par\textbf{#1} (\csname num@promo@#1\endcsname) --- \csname @promo@#1\endcsname}
+\def\promosDump{%
+\@dumpPromo{Ma}
+\@dumpPromo{Mb}
+\@dumpPromo{Mc}
+\@dumpPromo{Md}
+\@dumpPromo{Me}
+\@dumpPromo{Mf}
+\@dumpPromo{Mg}
+\@dumpPromo{Ta}
+\@dumpPromo{Tb}
+\@dumpPromo{Tc}
+\@dumpPromo{Td}
+\@dumpPromo{Te}
+\@dumpPromo{Tf}
+\@dumpPromo{Tg}
+\@dumpPromo{Wa}
+\@dumpPromo{Wb}
+\@dumpPromo{Wc}
+\@dumpPromo{Wd}
+\@dumpPromo{We}
+\@dumpPromo{Wf}
+\@dumpPromo{Wg}
+\@dumpPromo{Ra}
+\@dumpPromo{Rb}
+\@dumpPromo{Rc}
+\@dumpPromo{Rd}
+\@dumpPromo{Re}
+\@dumpPromo{Rf}
+\@dumpPromo{Rg}
+\@dumpPromo{Fa}
+\@dumpPromo{Fb}
+\@dumpPromo{Fc}
+\@dumpPromo{Fd}
+\@dumpPromo{Fe}
+\@dumpPromo{Ff}
+\@dumpPromo{Fg}
+\@dumpPromo{Sa}
+\@dumpPromo{Sb}
+\@dumpPromo{Sc}
+\@dumpPromo{Sd}
+\@dumpPromo{Se}
+\@dumpPromo{Sf}
+\@dumpPromo{Sg}
+\@dumpPromo{Ua}
+\@dumpPromo{Ub}
+\@dumpPromo{Uc}
+\@dumpPromo{Ud}
+\@dumpPromo{Ue}
+\@dumpPromo{Uf}
+\@dumpPromo{Ug}
+}
+
+\def\@promoNum#1{\csname num@promo@#1\endcsname}
+\def\promoWeek#1{\blockitem{Announcement}
+  { Promo: Mon.\ \#\@promoNum{M#1} $\bullet$\ 
+    Tue.\ \#\@promoNum{T#1} $\bullet$\ 
+    Wed.\ \#\@promoNum{W#1} $\bullet$\ 
+    Thu.\ \#\@promoNum{R#1} $\bullet$\ 
+    Fri.\ \#\@promoNum{F#1} $\bullet$\ 
+    Sat.\ \#\@promoNum{S#1} $\bullet$\ 
+    Sun.\ \#\@promoNum{U#1}}}
+
+\def\newPromoWeek#1{
+  \begin{tabular}{@{}l@{}}
+    {Promo:}
+    Mon.\ \#\@promoNum{M#1} $\bullet$\ 
+    Tue.\ \#\@promoNum{T#1} $\bullet$\ 
+    Wed.\ \#\@promoNum{W#1}
+    \\
+    \multicolumn{1}{@{}r@{}}
+    {\hspace*{12mm}Thu.\ \#\@promoNum{R#1} $\bullet$\ 
+      Fri.\ \#\@promoNum{F#1} $\bullet$\ 
+      Sat.\ \#\@promoNum{S#1} $\bullet$\ 
+      Sun.\ \#\@promoNum{U#1}}
+  \end{tabular}}
+
+
+\def\promoItemRaw#1{
+\begin{minipage}{\textwidth}
+\colorbox{black}{\textcolor{white}{\LARGE Promo \csname num@promo@#1\endcsname}}
+\\ \csname @promo@#1\endcsname\end{minipage}\vspace{0.75em}}
+
+\def\promosRoster{
+\def\rosterName{Promos roster}
+\promoItemRaw{Ma}
+\promoItemRaw{Mb}
+\promoItemRaw{Mc}
+\promoItemRaw{Md}
+\promoItemRaw{Me}
+\promoItemRaw{Mf}
+\promoItemRaw{Mg}
+\promoItemRaw{Ta}
+\promoItemRaw{Tb}
+\promoItemRaw{Tc}
+\promoItemRaw{Td}
+\promoItemRaw{Te}
+\promoItemRaw{Tf}
+\promoItemRaw{Tg}
+\promoItemRaw{Wa}
+\promoItemRaw{Wb}
+\promoItemRaw{Wc}
+\promoItemRaw{Wd}
+\promoItemRaw{We}
+\promoItemRaw{Wf}
+\promoItemRaw{Wg}
+\promoItemRaw{Ra}
+\promoItemRaw{Rb}
+\promoItemRaw{Rc}
+\promoItemRaw{Rd}
+\promoItemRaw{Re}
+\promoItemRaw{Rf}
+\promoItemRaw{Rg}
+\promoItemRaw{Fa}
+\promoItemRaw{Fb}
+\promoItemRaw{Fc}
+\promoItemRaw{Fd}
+\promoItemRaw{Fe}
+\promoItemRaw{Ff}
+\promoItemRaw{Fg}
+\promoItemRaw{Sa}
+\promoItemRaw{Sb}
+\promoItemRaw{Sc}
+\promoItemRaw{Sd}
+\promoItemRaw{Se}
+\promoItemRaw{Sf}
+\promoItemRaw{Sg}
+\promoItemRaw{Ua}
+\promoItemRaw{Ub}
+\promoItemRaw{Uc}
+\promoItemRaw{Ud}
+\promoItemRaw{Ue}
+\promoItemRaw{Uf}
+\promoItemRaw{Ug}
+\def\rosterName{FILL IN ROSTERNAME}
+}
