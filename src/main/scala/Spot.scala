@@ -2,7 +2,32 @@
 package org.maraist.wtulrosters
 import java.time.LocalDate
 
-/** One PSA spot
+/** Class representing one announcement.
+  *
+  * @param tag A short [[String]] naming this announcement.
+  * @param group The [[Group]] which includes this spot.
+  * @param text The body of the announcement to be read.
+  * @param copresent If present, a string representing the group or
+  * person which should be credited as a co-presenter of the
+  * announcement.
+  * @param start Start date of the this announcement.
+  * @param alert Date when we should see a reminder for updating this
+  * announcement.
+  * @param end If present, gives the end date of this announcement
+  * (the last day on which it should be aired).
+  * @param sourceContacts A list of names or email addresses of the
+  * contact people at the organization associated with this event.
+  * @param sourceURL A list of URLs associated with the sourcing of
+  * this announcement.
+  * @param sourceNote If present, a note about the sourcing of this
+  * spot.
+  * @param groupGainMultiplier A factor to be applied to the gain
+  * taken from the group when applied to this spot.
+  * @param variantGroup An identification number to be shared among
+  * announcements of the same source.
+  * @param boost An upwards compression factor to be applied to this
+  * spot in any [[Assortment]].
+  * @param bank The [[SpotBank]] in which this spot is contained.
   */
 class Spot(
   val tag: String,
@@ -77,6 +102,7 @@ class Spot(
   }
 }
 
+/** Utilities for [[Spot]]s. */
 object Spot {
   /** Calculate the week number of a date with its century, under the
     * simplifying assumptions that each year has exactly 52 weeks, and
@@ -91,64 +117,13 @@ object Spot {
   val EPSILON: Double = 0.0000001
 
   private var nextVariantCounter: Int = 1
+
+  /** Returns the next value available for identifying spots which
+    * arising from the multi-announcement specification.
+    */
   def nextVariantGroup: Int = {
     val result = nextVariantCounter
     nextVariantCounter = nextVariantCounter + 1
     result
   }
-}
-
-class SpotBank {
-  given stringToLocalDate: Conversion[String, LocalDate] = LocalDate.parse(_)
-  given optionPresent[A]: Conversion[A, Option[A]] with
-      def apply(a: A): Option[A] = Some(a)
-  given singletonSeq[A]: Conversion[A, Seq[A]] with
-      def apply(a: A): Seq[A] = Seq(a)
-  given SpotBank = this
-
-  private[wtulrosters] val inventory =
-    new scala.collection.mutable.HashSet[Spot]
-  private[wtulrosters] val tags =
-    new scala.collection.mutable.HashMap[String,Spot]
-  private[wtulrosters] val grouped =
-    new scala.collection.mutable.HashMap[Group,List[Spot]]
-
-  def all: Iterable[Spot] = inventory
-  def size: Int = inventory.size
-  def ofGroup(g: Group): List[Spot] = grouped.getOrElse(g, Nil)
-
-  def init(): Unit = { }
-
-  def getSortedPairsList(date: LocalDate): List[(Spot, Double)] = {
-    val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)](
-      new Ordering[(Spot, Double)] {
-        def compare(p1: (Spot, Double), p2: (Spot, Double)) = p1 match {
-          case (_, d1) => p2 match {
-            case (_, d2) => d2 compare d1
-          }
-        }
-      }
-    )
-
-    for ((group, groupGain) <- Assortment(date).groups) {
-      // print("\n\t*** " + groupGain.toString() + "  " + group.title)
-      for (spot <- ofGroup(group)) {
-        if spot.start.compareTo(date) <= 0
-           && spot.end.map(date.compareTo(_) <= 0).getOrElse(true)
-        then {
-          val basePriority = spot.priority(date)
-          val spotGain = groupGain * spot.groupGainMultiplier / 10.0
-          val finalPriority = Math.pow(basePriority, Math.exp(- spotGain))
-          acc += ((spot, finalPriority))
-          // printf("\n  %s\t%f\t%f\t%f", spot.tag, basePriority, spotGain, finalPriority)
-        }
-      }
-    }
-    // println()
-
-    List.from(acc.result())
-  }
-
-  def getSortedList(date: LocalDate): List[Spot] =
-    getSortedPairsList(date).map({ case (s, _) => s})
 }
