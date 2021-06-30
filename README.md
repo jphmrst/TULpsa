@@ -5,15 +5,15 @@
 The roster generator relies on three other programs.  Doing anything
 with this code requires these two:
 
- - Scala build tool (SBT, [[https://www.scala-sbt.org/][homepage]])
+ - Scala build tool (SBT, [homepage](https://www.scala-sbt.org/))
 
  - LaTeX document system
-   ([[https://www.latex-project.org/get/][downloads page]])
+   ([downloads page](https://www.latex-project.org/get/))
 
 Additionally, if you wish to automatically push generated rosters out
 to some other server, you will need `rsync`:
 
- - RSYNC file transfer tool ([[https://rsync.samba.org/][homepage]])
+ - RSYNC file transfer tool ([homepage](https://rsync.samba.org/))
 
 ### Usage
 
