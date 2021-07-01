@@ -9,7 +9,10 @@ import org.maraist.wtulrosters.Utils.insertBetween
 
 /** A collection of announcements (represented as [[Spot]]s)
   * associated with a particular date.
-  * @see RosterBuilder
+  * @see This [[Roster]] class is used to represent the
+  * ''final result'' of assembling an announcements roster.
+  * [[RosterBuilder]] is a superclass for the process of actually
+  * assembling a roster.
   * @param startDate The starting date associated with this roster.
   * @param slots Array of announcements (represented as [[Spot]]s).
   * @param title Title of the document represented by an instance
@@ -34,11 +37,6 @@ abstract class Roster(
   val preamble: String,
   val timestamper: DateTimeFormatter
 ) extends LaTeXRenderable {
-  if (slots.size != size) {
-    throw new IllegalArgumentException(
-      "Expected " + size.toString() + " spots, but array has length "
-        + slots.size.toString())
-  }
 
   /** The number of announcement slots in this roster. */
   val size: Int = slots.length
