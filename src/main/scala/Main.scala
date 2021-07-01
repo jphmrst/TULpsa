@@ -7,7 +7,6 @@
 
 package wtul.rosters
 import org.maraist.wtulrosters.{PsaSpots, PsaRosters}
-import org.maraist.wtulrosters.writeInternalReport
 import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def batch: Unit = {
@@ -19,7 +18,7 @@ import org.maraist.wtulrosters.Utils.syncRosters
 @main def diagnostic: Unit = {
   PsaRosters.init()
   print("Writing report...")
-  writeInternalReport(PsaSpots)
+  PsaSpots.writeInternalReport
   println("finished")
   PsaRosters.writeNWeeks()
 }

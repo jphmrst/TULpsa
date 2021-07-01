@@ -39,4 +39,8 @@ object Utils {
       }
     }
   }
+
+  def twoPlaces(d: Double): String = "%.2f".format(d)
+
+  def fourPlaces(d: Double): String = "%.4f".format(d)
 }

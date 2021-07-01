@@ -51,7 +51,7 @@ class PsaRosterBuilder(startDate: LocalDate)
 )
 
 /** Bank holding long-term PSAs. */
-object PsaSpots extends SpotBank {
+object PsaSpots extends SpotBank("psa-long") {
   import Group.*
   import scala.language.implicitConversions
 
