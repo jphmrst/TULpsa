@@ -195,7 +195,8 @@ object Event {
     )
   }
 
-  /**
+  /** Substitute the appropriate relative time references in the given
+    * text.
     */
   def placeTemplate(
     template: String,
@@ -209,9 +210,10 @@ object Event {
     .replace("%%when,%%", whenComma)
     .replace("%%when.%%", whenPeriod)
 
-  /**
+  /** Format an integer as a cardinal reference.  We only need to go up
+    * to the highest date number for any month.
     */
-  def cardinal(n: Int): String = n match {
+  private def cardinal(n: Int): String = n match {
     case 1 => "first"
     case 2 => "second"
     case 3 => "third"
