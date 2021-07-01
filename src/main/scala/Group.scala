@@ -166,4 +166,9 @@ object Group {
     *  @group groups
     */
   object Voter extends Group("Voter", "Voter information", boost = 0.2)
+
+  /** Group for short-term announcements about dated material.
+    *  @group groups
+    */
+  object Events extends Group("Event", "Dated events", boost = 1.0)
 }
