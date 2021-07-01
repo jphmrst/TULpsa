@@ -7,7 +7,7 @@ import java.time.DayOfWeek.*
 import scala.sys.process.*
 import scala.collection.mutable.Builder
 import org.maraist.wtulrosters.
-  {Group, Spot, PsaSpots, Assortment, PsaRosterBuilder, PsaRoster, SpotBank}
+  {Group, Spot, PsaSpots, Assortment, PsaRosterBuilder, SpotBank}
 import org.maraist.wtulrosters.writeInternalReport
 
 @main def batch: Unit = {

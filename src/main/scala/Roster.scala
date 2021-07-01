@@ -5,11 +5,28 @@ import java.time.{LocalDate,LocalDateTime}
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle.FULL
 import org.maraist.latex.{LaTeXRenderable, LaTeXdoc}
+import org.maraist.wtulrosters.Utils.insertBetween
 
+/** A collection of announcements (represented as [[Spot]]s)
+  * associated with a particular date.
+  * @see RosterBuilder
+  * @param startDate The starting date associated with this roster.
+  * @param slots Array of announcements (represented as [[Spot]]s).
+  * @param title Title of the document represented by an instance
+  * @param groupLead Text prepended to the index/indices of
+  * announcements when this instance is output.
+  * @param footer Text included at the bottom of every page of this
+  * instance's output.
+  * @param indexFormatter Formatter from indices into `slots` to their
+  * representation in the instance's output.
+  * @param preamble Declarations to be included in the output's LaTeX
+  * preamble.
+  * @param timestamper Renderer for the timestamp in this document's
+  * output.
+  */
 abstract class Roster(
   val startDate: LocalDate,
   val slots: Array[Spot],
-  val size: Int,
   val title: String,
   val groupLead: String,
   val footer: String,
@@ -23,6 +40,12 @@ abstract class Roster(
         + slots.size.toString())
   }
 
+  /** The number of announcement slots in this roster. */
+  val size: Int = slots.length
+
+  /** Return the representation of the dates for which this roster
+    * applies.
+    */
   def weekDates: String = {
     val endDate = startDate.plusDays(6)
     if (startDate.getYear() < endDate.getYear())
@@ -32,14 +55,11 @@ abstract class Roster(
       else startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + "--" + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
   }
 
-  def insertBetween[A](x: A, xs: List[A]): List[A] = xs match {
-    case Nil => Nil
-    case (y :: Nil) => xs
-    case (y :: z :: zs) => y :: x :: insertBetween(x, z :: zs)
-  }
-
+  /** Write the contents of this document to a [[LaTeXdoc]].  This
+    * method assumes that `doc` is new, and has not yet been opened.
+    */
   def toLaTeX(doc: LaTeXdoc): Unit = {
-    val groups: List[SpotGroup] = SpotGroup.from(slots)
+    val groups: List[SpotGroup] = SpotGroup(slots)
 
     for(group <- groups) {
       val blockText =
@@ -79,14 +99,25 @@ abstract class Roster(
     doc ++= ".}}"
   }
 
+  /** Output this instance's document in the given directory.
+    */
   def write(dir: String = "./") = {
     val doc = openDoc
     toLaTeX(doc)
     closeDoc(doc)
   }
 
+  /** Returns the file name which should be used for writing this
+    * instance.  By default, it is just the result of calling
+    * `toString` on the `startDate`, but this method is intended to be
+    * overridden by subclasses.
+    */
   def fileTitle: String = startDate.toString()
 
+  /** Creates and returns a [[LaTeXdoc]] which this instance should use
+    * when writing its contents.  This method is responsible for
+    * calling `open` on its result before returning it.
+    */
   def openDoc: LaTeXdoc = {
     val doc = new LaTeXdoc(fileTitle)
     doc.setClass("book")
@@ -105,17 +136,30 @@ abstract class Roster(
     doc
   }
 
+  /** Finishes the [[LaTeXdoc]] used for writing this instance's
+    * contents.  This method is responsible for calling `close` of its
+    * argument before returning.  By default this method only calls
+    * `close`, but may be overridden to add additional closing
+    * material.
+    *
+    * @param doc A [[LaTeXdoc]] to which this instance's contents have
+    * been written.
+    */
   def closeDoc(doc: LaTeXdoc) = {
     doc.close()
   }
 }
 
+/** LaTeX written as the first part of the body.
+  */
 val commonStart: String = """
 \pagestyle{fancy}
 \setcounter{page}{1}
 \def\rosterName{PSA roster}
 """
 
+/** LaTeX written as the preamble.
+  */
 val commonPreamble: String = """
 \newcommand{\online}[1]{\textsl{#1}}
 \headheight 12pt
@@ -246,33 +290,38 @@ val commonPreamble: String = """
 \newcommand{\PM}{\textsc{PM}}
 """
 
-/** @deprecated Really for interim prototyping only; use
-  * [[PsaRosterBuilder]].
+/** Utility class for summarizing consecutive repetition of [[Spot]]s in
+  * a [[Roster]] instance's array.
+  * @param spot The [[Spot]] in question.
+  * @param firstIndex The first index of possibly many consecutive
+  * slots where `spot` is found.
+  * @param count The number of times `spot` occurs starting from
+  * `firstIndex`.
   */
-@Deprecated class PsaRoster(startDate: LocalDate, slots: Array[Spot])
-    extends Roster(startDate, slots, 78,
-      "WTUL 91.5\\textsc{fm} --- PSA roster",
-      "PSA \\#",
-      "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
-      (x: Int) => (1 + x).toString(),
-      commonPreamble,
-      DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'")) {
-  override def fileTitle: String = "PSAs-" + super.fileTitle
-}
-
 case class SpotGroup(
   val spot: Spot, val firstIndex: Int, val count: Int = 1) {
+
+  /** Returns an instance describing the same [[Spot]] and starting
+    * index, but with one additional instance.
+    */
   def another: SpotGroup = SpotGroup(spot, firstIndex, 1 + count)
 }
 
+/** Methods for creating [[SpotGroup]]s for an array of [[Spot]]s.
+  */
 object SpotGroup {
-  def from(spots: Array[Spot]): List[SpotGroup] =
+
+  /** Create a list of [[SpotGroup]] instances from an array of
+    * [[Spot]]s.
+    */
+  def apply(spots: Array[Spot]): List[SpotGroup] =
     List.from(spots) match {
       case first :: rest => groupSpots(SpotGroup(first, 1), 2, rest)
       case Nil => Nil
     }
 
-  def groupSpots(
+  /** Recursive helper method for `from`. */
+  private def groupSpots(
     thisGroup: SpotGroup, firstIdx: Int, spots: List[Spot]):
       List[SpotGroup] = spots match {
     case firstSpot :: nextSpots => {

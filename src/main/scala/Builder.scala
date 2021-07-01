@@ -26,7 +26,7 @@ class RosterBuilder(
         throw new IllegalStateException(s"Slot $i unassigned")
       case s: Spot => s
     }),
-    size, title, groupLead, footer, indexFormatter, preamble, timestamper
+    title, groupLead, footer, indexFormatter, preamble, timestamper
   ) {
     override def fileTitle: String = filePrefix + super.fileTitle
   }
@@ -86,22 +86,3 @@ class RosterBuilder(
     }
   }
 }
-
-class PsaRosterBuilder(startDate: LocalDate)
-    extends RosterBuilder(startDate, 78,
-      "WTUL 91.5\\textsc{fm} --- PSA roster",
-      "PSA \\#",
-      "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
-      (x: Int) => (1 + x).toString(),
-      commonPreamble,
-      DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'"),
-      "PSA-",
-      (first, last) => {
-        if first + 2 <= last && first < 14 then 3 else
-          if first + 4 <= last && first < 29 then 5 else
-            if first + 2 <= last && first < 46 then 3 else
-              if first + 4 <= last then 5 else
-                last - first + 1
-      }
-
-)

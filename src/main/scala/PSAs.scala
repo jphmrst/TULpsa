@@ -1,7 +1,31 @@
 
 package org.maraist.wtulrosters
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
+/** Specialization of [[RosterBuilder]] with the specifics for PSAs.
+  * @param startDate The first date of the week to be covered by this
+  * roster.
+  */
+class PsaRosterBuilder(startDate: LocalDate)
+    extends RosterBuilder(startDate, 78,
+      "WTUL 91.5\\textsc{fm} --- PSA roster",
+      "PSA \\#",
+      "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
+      (x: Int) => (1 + x).toString(),
+      commonPreamble,
+      DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'"),
+      "PSA-",
+      (first, last) => {
+        if first + 2 <= last && first < 14 then 3 else
+          if first + 4 <= last && first < 29 then 5 else
+            if first + 2 <= last && first < 46 then 3 else
+              if first + 4 <= last then 5 else
+                last - first + 1
+      }
+)
+
+/** Bank holding long-term PSAs. */
 object PsaSpots extends SpotBank {
   import Group.*
   import scala.language.implicitConversions
