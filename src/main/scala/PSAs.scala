@@ -9,8 +9,18 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-object PsaRosters
-    extends RosterTypeImpl[PsaRosterBuilder](new PsaRosterBuilder(_)) {
+/** How we generate PSA rosters. */
+object PsaRosters extends RosterType {
+
+  override def init(): Unit = {
+    PsaSpots.init()
+    Assortment.init()
+  }
+
+  override protected type RBuilder = PsaRosterBuilder
+
+  override protected def newBuilder(date: LocalDate): PsaRosterBuilder =
+    new PsaRosterBuilder(date)
 
   override protected
   def complete(builder: PsaRosterBuilder, date: LocalDate): Unit = {
