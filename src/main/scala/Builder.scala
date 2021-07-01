@@ -111,6 +111,12 @@ class RosterBuilder(
     }
     else List((start, next - 1))
 
+  /** Fill in unassigned slots with [[Spot]]s drawn from the
+    * given bank for `date`.
+    */
+  def completeWith(bank: SpotBank, thisDate: LocalDate): Unit =
+    completeWith(bank.getSortedList(thisDate))
+
   /** Fill in unassigned slots with [[Spot]]s drawn (in order) from the
     * given list.
     */

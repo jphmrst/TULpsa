@@ -9,6 +9,15 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+object PsaRosters
+    extends RosterTypeImpl[PsaRosterBuilder](new PsaRosterBuilder(_)) {
+
+  override protected
+  def complete(builder: PsaRosterBuilder, date: LocalDate): Unit = {
+    builder.completeWith(PsaSpots, date)
+  }
+}
+
 /** Specialization of [[RosterBuilder]] with the specifics for PSAs.
   * @param startDate The first date of the week to be covered by this
   * roster.
