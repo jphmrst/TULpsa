@@ -6,12 +6,7 @@
 // details.
 
 package wtul.rosters
-
-import java.time.LocalDate
-import org.maraist.latex.LaTeXdoc
-import java.time.Period
-import org.maraist.wtulrosters.
-  {Group, Spot, PsaSpots, Assortment, PsaRosters, RosterType, SpotBank}
+import org.maraist.wtulrosters.{PsaSpots, PsaRosters}
 import org.maraist.wtulrosters.writeInternalReport
 import org.maraist.wtulrosters.Utils.syncRosters
 
