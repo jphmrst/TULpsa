@@ -43,24 +43,20 @@ class Spot(
   val groupGainMultiplier: Double = 1.0,
   val variantGroup: Int = Spot.nextVariantGroup,
   val boost: Double = 0.0
-)(using bank: SpotBank) {
+)(using addSpot: (Spot) => Unit) {
   import Spot.{getWeekOfCentury, EPSILON}
 
   // -----------------------------------------------------------------
   // Instance creation.
 
   // Correctness checks --- make sure each spot has a unique tag.
-  if (bank.tags.contains(tag))
-    then throw new IllegalArgumentException("Duplicate tag " + tag)
-
   if boost >= 1.0 || boost < 0.0 then
     throw new IllegalArgumentException
       ("boost must be at least 0.0 and below 1.0")
 
-  // Register this instance in the various Spot tables.
-  bank.inventory += this
-  bank.tags += ((tag, this))
-  bank.grouped.put(group, this :: bank.grouped.getOrElse(group, Nil))
+  // Perform other checks, and then (err or) register this instance in
+  // the various Spot tables.
+  addSpot(this)
 
   // End of instance creation.
   // -----------------------------------------------------------------
