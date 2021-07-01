@@ -16,7 +16,7 @@ import java.time.LocalDate
   * @param copresent If present, a string representing the group or
   * person which should be credited as a co-presenter of the
   * announcement.
-  * @param start Start date of the this announcement.
+  * @param start Start date of this announcement.
   * @param alert Date when we should see a reminder for updating this
   * announcement.
   * @param end If present, gives the end date of this announcement
@@ -121,7 +121,7 @@ object Spot {
   private var nextVariantCounter: Int = 1
 
   /** Returns the next value available for identifying spots which
-    * arising from the multi-announcement specification.
+    * arise from the multi-announcement specification.
     */
   def nextVariantGroup: Int = {
     val result = nextVariantCounter
