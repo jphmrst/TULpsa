@@ -164,20 +164,25 @@ abstract class RosterBuilder(
           // Otherwise search (greedily) for a spot that fits.  For
           // every day covered by this roster slot:
           for (candInvSlot <- inventorySlots) {
+
             // For every spot available for that day:
             for (candSpot <- dailyInventories(candInvSlot)) {
+
               // If that spot is valid on every day covered by this
               // roster slot,
               if (inventorySlots
                     .map((n) => candSpot.validOn(startDate.plusDays(n)))
                     .fold(true)(_ && _)) {
+
                 // Then write the spot into the slot
                 slots(rosterSlot) = candSpot
+
                 // Remove the spot from consideration from the days
                 // covered here.
                 inventorySlots.map((i) => {
                   dailyInventories(i) = dailyInventories(i) - candSpot
                 })
+
                 // Note what we have now written.
                 lastSpot = candSpot
                 lastSlot = candInvSlot
