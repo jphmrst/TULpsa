@@ -6,8 +6,10 @@
 // details.
 
 package org.maraist.wtulrosters
+
 import java.time.{LocalDate,LocalDateTime}
 import java.time.format.DateTimeFormatter
+import scala.util.control.NonLocalReturns.*
 
 /** Builders for [[Roster]] instances.
   *
@@ -38,7 +40,7 @@ import java.time.format.DateTimeFormatter
   * occupied by a [[Spot]] drawn from a long-term or other default
   * bank.
   */
-class RosterBuilder(
+abstract class RosterBuilder(
   val startDate: LocalDate,
   val size: Int,
   val title: String,
@@ -48,8 +50,13 @@ class RosterBuilder(
   val preamble: String,
   val timestamper: DateTimeFormatter,
   val filePrefix: String,
-  val blockPolicy: (Int, Int) => Int
+  val blockPolicy: (Int, Int) => Int,
+  val slotDays: Array[Int | List[Int]],
 ) {
+
+  if (slotDays.length != size)
+    throw new IllegalArgumentException(
+      s"$size slots, but slotDays array has length ${slotDays.length}")
 
   /** Internal storage for the slots of the [[Roster]] we are building.
     */
@@ -113,7 +120,51 @@ class RosterBuilder(
 
   /** Fill by day matching.
     */
-  def fillByDayMatch(bank: SpotBank): Unit = ???
+  def fillByDayMatch(bank: SpotBank): Unit = {
+    // Pull the slots available on each day covered by this roster.
+    val dailyInventories = Array.tabulate[Set[Spot]](7)(
+      (i: Int) => Set.from(bank.getSortedList(startDate.plusDays(i))))
+
+    // Now look at each slot in this roster.
+    for (rosterSlot <- slotOrder) {
+
+      // If that slot is already assigned, do nothing.
+      if (slots(rosterSlot) == Unassigned.ITEM) {
+        // First check which the days which which this roster slot
+        // corresponds to.
+        val inventorySlots = slotDays(rosterSlot) match {
+          case i: Int => List(i)
+          case is: List[Int] => is
+        }
+
+        // Next try to find a spot to go here.  We bail out of these
+        // nested loops after writing one spot into this slot.
+        returning {
+          // For every day covered by this roster slot.
+          for (candInvSlot <- inventorySlots) {
+            // For every spot available for that day.
+            for (candSpot <- dailyInventories(candInvSlot)) {
+              // If that spot is valid on every day covered by this
+              // roster slot.
+              if (inventorySlots
+                    .map((n) => candSpot.validOn(startDate.plusDays(n)))
+                    .fold(true)(_ && _)) {
+                // Then write the spot into the slot, and remove the
+                // spot from consideration for other slots.
+                slots(rosterSlot) = candSpot
+                inventorySlots.map((i) => {
+                  dailyInventories(i) = dailyInventories(i) - candSpot
+                })
+                throwReturn({})
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  def slotOrder: List[Int]
 
   /** Fill in unassigned slots with [[Spot]]s drawn from the
     * given bank for `date`.

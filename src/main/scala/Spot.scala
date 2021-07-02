@@ -67,6 +67,10 @@ class Spot(
   // End of instance creation.
   // -----------------------------------------------------------------
 
+  def validOn(date: LocalDate): Boolean =
+    start.compareTo(date) <= 0
+      && end.map(date.compareTo(_) <= 0).getOrElse(true)
+
   /** We will use the hash code of the text several times, so store it
     * here.
     */

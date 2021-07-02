@@ -102,7 +102,7 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
   def getSortedList(date: LocalDate): List[Spot] =
     getSortedPairsList(date).map({ case (s, _) => s})
 
-  def writeInternalReport = {
+  def writeInternalReport(schedule: AssortmentSchedule) = {
     val startDate = LocalDate.parse("2022-01-15")
     val doc = new LaTeXdoc(s"${tag}-bank-report")
     doc.addPackage("times")

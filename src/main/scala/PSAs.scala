@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter
 object PsaRosters extends RosterType {
 
   override def init(): Unit = {
-    PsaSpots.init()
+    PsaLongTermSpots.init()
     PsaScheduling.init()
   }
 
@@ -24,7 +24,8 @@ object PsaRosters extends RosterType {
 
   override protected
   def complete(builder: PsaRosterBuilder): Unit = {
-    builder.fillByAssortment(PsaSpots)
+    // builder.fillByDayMatch(PsaShortTermSpots)
+    builder.fillByAssortment(PsaLongTermSpots)
   }
 }
 
@@ -47,11 +48,51 @@ class PsaRosterBuilder(startDate: LocalDate)
             if first + 2 <= last && first < 46 then 3 else
               if first + 4 <= last then 5 else
                 last - first + 1
-      }
-)
+      },
+      Array[Int | List[Int]](
+        0, 1, 2, 3, 4, 5, 6, // Aa
+        0, 1, 2, 3, 4, 5, 6, // Ab
+        0, 1, 2, 3, 4, 5, 6, // Ba
+        0, 1, 2, 3, 4, 5, 6, // Bb
+        0, List(1, 2), List(2, 3), 4, List(5, 6),          // Ca
+        List(0, 1), List(1, 2), 3, List(4, 5), List(5, 6), // Cb
+        List(0, 1), List(2, 3), List(4, 5), 6,  // Da
+        List(0, 1), 2, List(3, 4), List(5, 6),  // Db
+
+        List(0, 1), List(2, 3), List(4, 5), // Ea
+        List(0, 1), List(2, 3), List(4, 6), // Eb
+        List(0, 1), List(2, 3), List(5, 6), // Ec
+        List(0, 1), List(2, 4), List(5, 6), // Ed
+        List(0, 1), List(3, 4), List(5, 6), // Ee
+        List(0, 2), List(3, 4), List(5, 6), // Ef
+        List(1, 2), List(3, 4), List(5, 6), // Eg
+        List(0, 1), List(2, 3), List(4, 5), // Eh
+        List(0, 1), List(2, 3), List(4, 6), // Ei
+        List(0, 1), List(2, 3), List(5, 6), // Ej
+        List(4, 6), // Fa
+        List(5, 6), // Fb
+      )
+) {
+  override def slotOrder: List[Int] =
+    List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+      10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+      20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+      30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+      40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+      50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+      60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+      70, 71, 72, 73, 74, 75, 76, 77, 78)
+}
+
+/** Bank holding short-term PSAs. */
+object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
+  import Group.*
+  import scala.language.implicitConversions
+
+}
 
 /** Bank holding long-term PSAs. */
-object PsaSpots extends SpotBank("psa-long", PsaScheduling) {
+object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
