@@ -43,6 +43,7 @@ import scala.util.control.NonLocalReturns.*
 abstract class RosterBuilder(
   val startDate: LocalDate,
   val size: Int,
+  val mixer: AssortmentSchedule,
   val title: String,
   val groupLead: String,
   val footer: String,
@@ -123,7 +124,7 @@ abstract class RosterBuilder(
   def fillByDayMatch(bank: SpotBank): Unit = {
     // Pull the slots available on each day covered by this roster.
     val dailyInventories = Array.tabulate[Set[Spot]](7)(
-      (i: Int) => Set.from(bank.getSortedList(startDate.plusDays(i))))
+      (i: Int) => Set.from(mixer.getSortedList(startDate.plusDays(i), bank)))
 
     // Now look at each slot in this roster.
     for (rosterSlot <- slotOrder) {
@@ -169,8 +170,8 @@ abstract class RosterBuilder(
   /** Fill in unassigned slots with [[Spot]]s drawn from the
     * given bank for `date`.
     */
-  def fillByAssortment(bank: SpotBank): Unit =
-    completeWith(bank.getSortedList(startDate))
+  def fillByAssortment(bank: SpotBank, mixer: AssortmentSchedule): Unit =
+    completeWith(mixer.getSortedList(startDate, bank))
 
   /** Fill in unassigned slots with [[Spot]]s drawn (in order) from the
     * given list.

@@ -63,45 +63,6 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
     */
   def init(): Unit = { }
 
-  /** Returns a list of [[Spot]]-priority pairs drawn from this bank,
-    * ordered by priority.
-    */
-  def getSortedPairsList(date: LocalDate): List[(Spot, Double)] = {
-    val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)](
-      new Ordering[(Spot, Double)] {
-        def compare(p1: (Spot, Double), p2: (Spot, Double)) = p1 match {
-          case (_, d1) => p2 match {
-            case (_, d2) => d2 compare d1
-          }
-        }
-      }
-    )
-
-    for ((group, groupGain) <- schedule(date).groups) {
-      // print("\n\t*** " + groupGain.toString() + "  " + group.title)
-      for (spot <- ofGroup(group)) {
-        if spot.start.compareTo(date) <= 0
-           && spot.end.map(date.compareTo(_) <= 0).getOrElse(true)
-        then {
-          val basePriority = spot.priority(date)
-          val spotGain = groupGain * spot.groupGainMultiplier / 10.0
-          val finalPriority = Math.pow(basePriority, Math.exp(- spotGain))
-          acc += ((spot, finalPriority))
-          // printf("\n  %s\t%f\t%f\t%f", spot.tag, basePriority, spotGain, finalPriority)
-        }
-      }
-    }
-    // println()
-
-    List.from(acc.result())
-  }
-
-  /** Returns a list of [[Spot]]s drawn from this bank, ordered by their
-    * priority for the given date.
-    */
-  def getSortedList(date: LocalDate): List[Spot] =
-    getSortedPairsList(date).map({ case (s, _) => s})
-
   def writeInternalReport(schedule: AssortmentSchedule) = {
     val startDate = LocalDate.parse("2022-01-15")
     val doc = new LaTeXdoc(s"${tag}-bank-report")
@@ -223,7 +184,7 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
       doc ++=/ """  & \multicolumn{1}{c}{Priority}"""
       doc ++=/ """  \\ \hline"""
       var lastBase = 1.0
-      for(pair <- getSortedPairsList(thisDate).take(20)) pair match {
+      for(pair <- schedule.getSortedPairsList(thisDate, this).take(20)) pair match {
         case (spot, priority) => {
           doc ++=/ f" ${spot.tag}%s"
           doc ++=/ f" & ${spot.group.tag}%s"

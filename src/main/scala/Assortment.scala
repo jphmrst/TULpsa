@@ -98,4 +98,46 @@ class AssortmentSchedule {
 
     throw new IllegalArgumentException(s"No assortment available for $when")
   }
+
+
+  /** Returns a list of [[Spot]]-priority pairs drawn from this bank,
+    * ordered by priority.
+    */
+  def getSortedPairsList(date: LocalDate, bank:SpotBank):
+      List[(Spot, Double)] = {
+    val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)](
+      new Ordering[(Spot, Double)] {
+        def compare(p1: (Spot, Double), p2: (Spot, Double)) = p1 match {
+          case (_, d1) => p2 match {
+            case (_, d2) => d2 compare d1
+          }
+        }
+      }
+    )
+
+    for ((group, groupGain) <- apply(date).groups) {
+      // print("\n\t*** " + groupGain.toString() + "  " + group.title)
+      for (spot <- bank.ofGroup(group)) {
+        if spot.start.compareTo(date) <= 0
+           && spot.end.map(date.compareTo(_) <= 0).getOrElse(true)
+        then {
+          val basePriority = spot.priority(date)
+          val spotGain = groupGain * spot.groupGainMultiplier / 10.0
+          val finalPriority = Math.pow(basePriority, Math.exp(- spotGain))
+          acc += ((spot, finalPriority))
+          // printf("\n  %s\t%f\t%f\t%f", spot.tag, basePriority, spotGain, finalPriority)
+        }
+      }
+    }
+    // println()
+
+    List.from(acc.result())
+  }
+
+  /** Returns a list of [[Spot]]s drawn from this bank, ordered by their
+    * priority for the given date.
+    */
+  def getSortedList(date: LocalDate, bank:SpotBank): List[Spot] =
+    getSortedPairsList(date, bank).map({ case (s, _) => s})
+
 }

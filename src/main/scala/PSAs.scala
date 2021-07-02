@@ -25,7 +25,7 @@ object PsaRosters extends RosterType {
   override protected
   def complete(builder: PsaRosterBuilder): Unit = {
     // builder.fillByDayMatch(PsaShortTermSpots)
-    builder.fillByAssortment(PsaLongTermSpots)
+    builder.fillByAssortment(PsaLongTermSpots, PsaScheduling)
   }
 }
 
@@ -34,7 +34,7 @@ object PsaRosters extends RosterType {
   * roster.
   */
 class PsaRosterBuilder(startDate: LocalDate)
-    extends RosterBuilder(startDate, 78,
+    extends RosterBuilder(startDate, 78, PsaScheduling,
       "WTUL 91.5\\textsc{fm} --- PSA roster",
       "PSA \\#",
       "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
