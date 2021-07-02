@@ -19,8 +19,9 @@ case class Assortment(
   val predicate: LocalDate => Boolean,
   val groups: Map[Group, Double],
   val end: LocalDate
-) {
-  Assortment.assortmentSet.add(this)
+)(using schedule: AssortmentSchedule) {
+
+  schedule.assortmentSet.add(this)
 
   def spotPriority(spot: Spot, date: LocalDate): Double = {
     val basePriority = spot.priority(date)
@@ -34,10 +35,16 @@ case class Assortment(
   }
 }
 
-object Assortment {
-  import Group.*
+class AssortmentSchedule {
+  given AssortmentSchedule = this
 
   def init() = { }
+
+  val assortmentSet = new TreeSet[Assortment]
+}
+
+object Assortment extends AssortmentSchedule {
+  import Group.*
 
   def apply(
     start: String,
@@ -57,8 +64,6 @@ object Assortment {
   given Ordering[Assortment] with
       def compare(a: Assortment, b: Assortment): Int =
         b.start compareTo (a.start)
-
-  val assortmentSet = new TreeSet[Assortment]
 
   val always = (date: LocalDate) => true
 
