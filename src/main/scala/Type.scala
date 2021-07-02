@@ -30,7 +30,7 @@ abstract class RosterType {
   def writeFor(date: LocalDate = LocalDate.now()): String = {
     val anchorDate = singleAnchorDate(date)
     val builder = newBuilder(anchorDate)
-    complete(builder, anchorDate)
+    complete(builder)
     val roster = builder.result()
     roster.write()
     roster.fileTitle
@@ -104,5 +104,5 @@ abstract class RosterType {
   /** This method should populate the internal implementation of the
     * [[RosterBuilder]] with the contents for the given anchor date.
     */
-  protected def complete(builder: RBuilder, date: LocalDate): Unit
+  protected def complete(builder: RBuilder): Unit
 }

@@ -23,8 +23,8 @@ object PsaRosters extends RosterType {
     new PsaRosterBuilder(date)
 
   override protected
-  def complete(builder: PsaRosterBuilder, date: LocalDate): Unit = {
-    builder.completeWith(PsaSpots, date)
+  def complete(builder: PsaRosterBuilder): Unit = {
+    builder.fillByAssortment(PsaSpots)
   }
 }
 

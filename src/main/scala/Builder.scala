@@ -111,11 +111,15 @@ class RosterBuilder(
     }
     else List((start, next - 1))
 
+  /** Fill by day matching.
+    */
+  def fillByDayMatch(bank: SpotBank): Unit = ???
+
   /** Fill in unassigned slots with [[Spot]]s drawn from the
     * given bank for `date`.
     */
-  def completeWith(bank: SpotBank, thisDate: LocalDate): Unit =
-    completeWith(bank.getSortedList(thisDate))
+  def fillByAssortment(bank: SpotBank): Unit =
+    completeWith(bank.getSortedList(startDate))
 
   /** Fill in unassigned slots with [[Spot]]s drawn (in order) from the
     * given list.
