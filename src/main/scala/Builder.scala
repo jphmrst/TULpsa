@@ -126,14 +126,18 @@ abstract class RosterBuilder(
     val dailyInventories = Array.tabulate[Set[Spot]](7)(
       (i: Int) => Set.from(mixer.getSortedList(startDate.plusDays(i), bank)))
 
+    // Prioritize placing another instance of the spot we just
+    // placed.
+    var lastSpot: Spot | Unassigned = Unassigned.ITEM
+    var lastSlot: Int = size
+
     // Now look at each slot in this roster.
     for (rosterSlot <- slotOrder) {
 
       // If that slot is already assigned, do nothing.
       if (slots(rosterSlot) == Unassigned.ITEM) {
-        // First check which the days which which this roster slot
-        // corresponds to.
-        val inventorySlots = slotDays(rosterSlot) match {
+        // First check the days which this roster slot corresponds to.
+        val inventorySlots: List[Int] = slotDays(rosterSlot) match {
           case i: Int => List(i)
           case is: List[Int] => is
         }
@@ -141,21 +145,42 @@ abstract class RosterBuilder(
         // Next try to find a spot to go here.  We bail out of these
         // nested loops after writing one spot into this slot.
         returning {
-          // For every day covered by this roster slot.
+
+          // First check whether we can place another instance of what
+          // we last placed, and whether these two slots are contiguous.
+          if ((rosterSlot - 1 == lastSlot)
+            && (lastSpot match {
+              case _: Unassigned => false
+              case isSpot: Spot =>
+                inventorySlots.map(dailyInventories(_).contains(isSpot))
+                  .fold(true)(_ && _)
+            }))
+            then {
+              slots(rosterSlot) = lastSpot
+              lastSlot = rosterSlot
+              throwReturn({})
+            }
+
+          // Otherwise search (greedily) for a spot that fits.  For
+          // every day covered by this roster slot:
           for (candInvSlot <- inventorySlots) {
-            // For every spot available for that day.
+            // For every spot available for that day:
             for (candSpot <- dailyInventories(candInvSlot)) {
               // If that spot is valid on every day covered by this
-              // roster slot.
+              // roster slot,
               if (inventorySlots
                     .map((n) => candSpot.validOn(startDate.plusDays(n)))
                     .fold(true)(_ && _)) {
-                // Then write the spot into the slot, and remove the
-                // spot from consideration for other slots.
+                // Then write the spot into the slot
                 slots(rosterSlot) = candSpot
+                // Remove the spot from consideration from the days
+                // covered here.
                 inventorySlots.map((i) => {
                   dailyInventories(i) = dailyInventories(i) - candSpot
                 })
+                // Note what we have now written.
+                lastSpot = candSpot
+                lastSlot = candInvSlot
                 throwReturn({})
               }
             }

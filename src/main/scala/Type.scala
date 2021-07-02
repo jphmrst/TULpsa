@@ -29,10 +29,12 @@ abstract class RosterType {
     */
   def writeFor(date: LocalDate = LocalDate.now()): String = {
     val anchorDate = singleAnchorDate(date)
+    Output.info(s"Writing roster for $date...")
     val builder = newBuilder(anchorDate)
     complete(builder)
     val roster = builder.result()
     roster.write()
+    Output.infoln("done")
     roster.fileTitle
   }
 
@@ -46,6 +48,8 @@ abstract class RosterType {
     n: Int = 6
   ): Builder[String, ? <: Seq[String]] = {
     val anchorDate = singleAnchorDate(date)
+    Output.infoln(
+      s"Will write $n roster${if n>1 then "s" else ""} starting with $date")
     for (i <- 0 until n) {
       val thisDate = anchorDate.plusDays(7 * i)
       val fileroot = writeFor(thisDate)
