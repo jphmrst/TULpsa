@@ -14,7 +14,7 @@ object PsaRosters extends RosterType {
 
   override def init(): Unit = {
     PsaSpots.init()
-    Assortment.init()
+    PsaScheduling.init()
   }
 
   override protected type RBuilder = PsaRosterBuilder
@@ -51,7 +51,7 @@ class PsaRosterBuilder(startDate: LocalDate)
 )
 
 /** Bank holding long-term PSAs. */
-object PsaSpots extends SpotBank("psa-long") {
+object PsaSpots extends SpotBank("psa-long", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
@@ -1898,3 +1898,46 @@ object PsaSpots extends SpotBank("psa-long") {
   )
 }
 
+/** Seasonal scheduling rules for long-term PSAs. */
+object PsaScheduling extends AssortmentSchedule, Utils.Converters {
+  import scala.language.implicitConversions
+  import Group.*
+  import Assortment.*
+
+  /** Default assortment when nothing else applies */
+  private val baseWeights = Map(
+    Volunteer -> MED_LOW_GAIN,  Health -> MED_LOW_GAIN,
+    Mental -> LOW_GAIN, Services -> LOW_GAIN,
+    Voter -> NO_GAIN, Civic -> NO_GAIN,
+    Eco -> NO_GAIN,    Animal -> NO_GAIN, Edu -> NO_GAIN,
+    TaxAlways -> NO_GAIN, Museum -> NO_GAIN,
+    Rare -> NEG_GAIN
+  )
+
+  // The default
+  Assortment(LocalDate.MIN, always, baseWeights, LocalDate.MAX)
+
+  Assortment("2021-01-01", isJanuary,
+    baseWeights + (Taxtime -> MED_HIGH_GAIN) - TaxAlways + (Carnival -> HIGH_HIGH_GAIN))
+  Assortment("2021-02-01", isFebruary,
+    baseWeights + (Taxtime -> HIGH_GAIN) - TaxAlways)
+  Assortment("2021-03-01", isMarch,
+    baseWeights + (Taxtime -> MED_HIGH_GAIN) + (Voter -> HIGH_GAIN) - TaxAlways)
+  Assortment("2021-04-01", isApril,
+    baseWeights + (Taxtime -> MED_HIGH_GAIN) + (Voter -> HIGH_GAIN) - TaxAlways)
+  Assortment("2021-05-01", isMay, baseWeights + (Summer -> HIGH_GAIN))
+  Assortment("2021-06-01", isJune,
+    baseWeights + (Summer -> HIGH_GAIN) + (StormPrep -> HIGH_HIGH_GAIN))
+  Assortment("2021-07-01", isJuly,
+    baseWeights + (Summer -> MED_HIGH_GAIN) + (StormPrep -> HIGH_GAIN))
+  Assortment("2021-08-01", isAugust,
+    baseWeights + (StormPrep -> MED_HIGH_GAIN) + (Voter -> MED_HIGH_GAIN))
+  Assortment("2021-09-01", isSeptember, baseWeights + (Voter -> HIGH_GAIN))
+  Assortment("2021-10-01", isOctober, baseWeights + (Voter -> HIGH_GAIN))
+  Assortment("2021-11-01", isNovember, baseWeights)
+  Assortment("2021-12-01", isDecember,
+    baseWeights - Services + (Services -> HIGH_HIGH_GAIN)
+      - Health + (Health -> HIGH_HIGH_GAIN)
+      - Mental + (Mental -> HIGH_HIGH_GAIN)
+      + (Holiday -> HIGH_HIGH_GAIN))
+}

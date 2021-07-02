@@ -7,9 +7,29 @@
 
 package org.maraist.wtulrosters
 import scala.sys.process.*
+import java.time.LocalDate
 
 /** Miscellaneous utilities. */
 object Utils {
+
+  trait Converters {
+
+    /** Convert a [[String]] to a [[LocalDate]] by parsing the string.
+      */
+    given stringToLocalDate: Conversion[String, LocalDate] = LocalDate.parse(_)
+
+    /** Convert any [[A]] instance to an [[Option]][A] instance by tagging
+      * it [[Some]].
+      */
+    given optionPresent[A]: Conversion[A, Option[A]] with
+      def apply(a: A): Option[A] = Some(a)
+
+    /** Convert any [[A]] instance to an [[Seq]][A] instance by making it
+      * a singleton sequence.
+      */
+    given singletonSeq[A]: Conversion[A, Seq[A]] with
+      def apply(a: A): Seq[A] = Seq(a)
+  }
 
   /** Transforms a list by inserting `x` in between each element of the
     * argument in the result.

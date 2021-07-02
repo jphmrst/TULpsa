@@ -12,23 +12,8 @@ import org.maraist.wtulrosters.Utils.{twoPlaces, fourPlaces}
 
 /** Objects of this class are designed to hold several [[Spot]]s.
   */
-class SpotBank(val tag: String) {
-
-  /** Convert a [[String]] to a [[LocalDate]] by parsing the string.
-    */
-  given stringToLocalDate: Conversion[String, LocalDate] = LocalDate.parse(_)
-
-  /** Convert any [[A]] instance to an [[Option]][A] instance by tagging
-    * it [[Some]].
-    */
-  given optionPresent[A]: Conversion[A, Option[A]] with
-      def apply(a: A): Option[A] = Some(a)
-
-  /** Convert any [[A]] instance to an [[Seq]][A] instance by making it
-    * a singleton sequence.
-    */
-  given singletonSeq[A]: Conversion[A, Seq[A]] with
-      def apply(a: A): Seq[A] = Seq(a)
+class SpotBank(val tag: String, val schedule: AssortmentSchedule)
+    extends Utils.Converters {
 
   /** Provide a way to register new [[Spot]]s within the scope of
     * instances and subclass of this class.
@@ -92,7 +77,7 @@ class SpotBank(val tag: String) {
       }
     )
 
-    for ((group, groupGain) <- Assortment(date).groups) {
+    for ((group, groupGain) <- schedule(date).groups) {
       // print("\n\t*** " + groupGain.toString() + "  " + group.title)
       for (spot <- ofGroup(group)) {
         if spot.start.compareTo(date) <= 0
@@ -182,7 +167,7 @@ class SpotBank(val tag: String) {
       doc ++=/ s" \\textsc{\\small ${group.tag}} "
       for(i <- 0 until 12) {
         val hereDate = startDate.plusMonths(i)
-        val assortment = Assortment(hereDate)
+        val assortment: Assortment = schedule(hereDate)
         doc ++=/ s"  & ${assortment.groups.get(group).map(_.toString()).getOrElse("-")}"
       }
       doc ++=/ """  \\ \hline"""
@@ -216,7 +201,7 @@ class SpotBank(val tag: String) {
       doc ++=/ """  \\"""
       for(i <- 0 until 12) {
         val hereDate = startDate.plusMonths(i)
-        val assortment = Assortment(hereDate)
+        val assortment = schedule(hereDate)
         val gain: Option[Double] = assortment.groups.get(spotGroup)
         doc ++=/ s"  & \\textcolor{black!80}{${gain.map(twoPlaces(_)).getOrElse("-")}}"
         doc ++=/ f"    & \textbf{${assortment.spotPriority(spot, hereDate)}%.2f}"
@@ -245,7 +230,7 @@ class SpotBank(val tag: String) {
           val thisBase = spot.priority(thisDate)
           doc ++=/ f" & ${if thisBase > lastBase then "\\cellcolor{red!70}" else ""}${thisBase}%.9f"
           lastBase = thisBase
-          doc ++=/ s" & ${Assortment(thisDate).groups.get(spot.group).map(fourPlaces(_)).getOrElse("-")}"
+          doc ++=/ s" & ${schedule(thisDate).groups.get(spot.group).map(fourPlaces(_)).getOrElse("-")}"
           doc ++=/ f" & ${priority}%.9f"
           doc ++=/ """ \\"""
         }
