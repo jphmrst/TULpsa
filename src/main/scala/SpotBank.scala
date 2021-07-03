@@ -61,7 +61,21 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
   /** Calling this method forces the initialization of [[Spot]]s
     * included in banks defined by `object`.
     */
-  def init(): Unit = { }
+  def init(): Unit = {
+    Output.fullln(s"Bank $tag inventory =${inventory.map(_.tag).fold("")(_ + " " + _)}")
+  }
+
+  def getSortedList(date: LocalDate): List[Spot] = {
+    val builder = scala.collection.mutable.SortedSet.newBuilder[Spot](
+        new Ordering[Spot] {
+          def compare(s1: Spot, s2: Spot) =
+            s2.priority(date) compare s1.priority(date)
+        }
+      )
+
+    for(spot <- inventory; if spot.validOn(date)) { builder += spot }
+    List.from(builder.result())
+  }
 
   def writeInternalReport(schedule: AssortmentSchedule) = {
     val startDate = LocalDate.parse("2022-01-15")

@@ -105,6 +105,8 @@ class AssortmentSchedule {
     */
   def getSortedPairsList(date: LocalDate, bank:SpotBank):
       List[(Spot, Double)] = {
+    Output.fullln(s"getSortedPairList $date ${bank.tag}")
+
     val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)](
       new Ordering[(Spot, Double)] {
         def compare(p1: (Spot, Double), p2: (Spot, Double)) = p1 match {
@@ -125,7 +127,9 @@ class AssortmentSchedule {
           val spotGain = groupGain * spot.groupGainMultiplier / 10.0
           val finalPriority = Math.pow(basePriority, Math.exp(- spotGain))
           acc += ((spot, finalPriority))
-          // printf("\n  %s\t%f\t%f\t%f", spot.tag, basePriority, spotGain, finalPriority)
+          Output.fullln(s"- ${spot.tag}: in range, priority $finalPriority")
+        } else {
+          Output.fullln(s"- ${spot.tag}: $date not in range ${spot.start} - ${spot.end.map(_.toString()).getOrElse("")}")
         }
       }
     }

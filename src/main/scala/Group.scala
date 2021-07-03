@@ -29,7 +29,7 @@ sealed trait Group(
 ) {
   if boost >= 1.0 || boost < 0.0 then
     throw new IllegalArgumentException
-      ("boost must be at least 0.0 and below 1.0")
+      (s"boost must be at least 0.0 and below 1.0, was $boost")
 
   Group.inventory.add(this)
 }
@@ -170,5 +170,5 @@ object Group {
   /** Group for short-term announcements about dated material.
     *  @group groups
     */
-  object Events extends Group("Event", "Dated events", boost = 1.0)
+  object Events extends Group("Event", "Dated events", boost = 0.8)
 }

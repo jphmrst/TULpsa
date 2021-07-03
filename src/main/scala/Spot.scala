@@ -52,6 +52,8 @@ class Spot(
 )(using addSpot: (Spot) => Unit) {
   import Spot.{getWeekOfCentury, EPSILON}
 
+  Output.fullln(s"Spot $tag, ${group.tag}, $start${end.map(" to " + _.toString()).getOrElse("")}, boost $boost")
+
   // -----------------------------------------------------------------
   // Instance creation.
 

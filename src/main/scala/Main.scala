@@ -6,6 +6,7 @@
 // details.
 
 package wtul.rosters
+import java.time.LocalDate
 import org.maraist.wtulrosters.{PsaLongTermSpots, PsaRosters, PsaScheduling}
 import org.maraist.wtulrosters.Utils.syncRosters
 
@@ -21,4 +22,12 @@ import org.maraist.wtulrosters.Utils.syncRosters
   PsaLongTermSpots.writeInternalReport(PsaScheduling)
   println("finished")
   PsaRosters.writeNWeeks()
+}
+
+@main def one: Unit = {
+  PsaRosters.init()
+  // PsaRosters.writeFor(LocalDate.parse("2021-07-01"))
+  // PsaRosters.writeFor(LocalDate.parse("2021-07-07"))
+  // PsaRosters.writeFor(LocalDate.parse("2021-07-14"))
+  PsaRosters.writeFor(LocalDate.parse("2021-07-21"))
 }

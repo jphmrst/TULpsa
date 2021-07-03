@@ -6,7 +6,9 @@
 // details.
 
 package org.maraist.wtulrosters
+import java.util.Locale.US
 import java.time.LocalDate
+import java.time.format.TextStyle.FULL
 import org.maraist.wtulrosters.Group.Events
 
 /** Creating [[Spot]]s for announcing an event in the time beforehand.
@@ -49,27 +51,35 @@ object Event {
     spotsSourceNote: Option[String] = None,
     spotsGroupGainMultiplier: Double = 1.0,
     spotsVariantGroup: Int = Spot.nextVariantGroup,
-    spotsBoost: Double = 0.0
+    spotsBoost: Double = 0.8
   )(using addSpot: (Spot) => Unit): Unit = {
+    Output.fullln(s"Event group $baseTag")
+
     val startDate: LocalDate =
       givenStart.getOrElse(eventDate.minusDays(30))
 
     val tomorrow = eventDate.minusDays(1)
-    val thisWeek = eventDate.minusDays(7)
-    val nextWeek = eventDate.minusDays(13)
-    val thisMonth =
-      LocalDate.of(startDate.getYear(), startDate.getMonth(), 1)
+    Output.fullln(s"- tomorrow $tomorrow")
+    val thisWeek = eventDate.minusDays(6)
+    Output.fullln(s"- thisWeek $thisWeek")
+    val nextWeek = eventDate.minusDays(9)
+    Output.fullln(s"- nextWeek $nextWeek")
+    val thisMonth = LocalDate.of(eventDate.getYear(), eventDate.getMonth(), 1)
+    Output.fullln(s"- thisMonth $thisMonth")
 
     if tomorrow.isBefore(startDate)
     then throw new IllegalArgumentException(
       "Start date for " + baseTag + " is not before event date.")
 
+    val eventCardinalDate = "the " + cardinal(eventDate.getDayOfMonth())
+    val eventWeekDay = eventDate.getDayOfWeek().getDisplayName(FULL, US)
+    val tomorrowCore = s"omorrow, $eventWeekDay $eventCardinalDate"
     Spot(baseTag + "Tmrw", Events,
       placeTemplate(template,
-        "Tomorrow",
-        "tomorrow",
-        "tomorrow,",
-        "tomorrow."),
+        "T" + tomorrowCore + ",",
+        "t" + tomorrowCore + ",",
+        "t" + tomorrowCore + ",",
+        "t" + tomorrowCore + "."),
       spotsCopresent,
       tomorrow,
       LocalDate.MAX,
@@ -79,11 +89,8 @@ object Event {
       spotsSourceNote,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
-      spotsBoost
+      boost = spotsBoost
     )
-    val dayName = eventDate.getDayOfWeek.toString()
-    val eventCardinalDate = "the " + cardinal(eventDate.getDayOfMonth())
-    val eventWeekDay = eventDate.getDayOfWeek().toString()
 
     // Detect when the announcement is for one day only, and return.
     if tomorrow.isEqual(startDate) then return
@@ -110,7 +117,7 @@ object Event {
       spotsSourceNote,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
-      spotsBoost
+      boost = spotsBoost
     )
     if startsThisWeek then return
 
@@ -136,7 +143,7 @@ object Event {
       spotsSourceNote,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
-      spotsBoost
+      boost = spotsBoost
     )
     if startsNextWeek then return
 
@@ -151,8 +158,8 @@ object Event {
       val thisMonthCore = "n " + eventWeekDay + " " + eventCardinalDate
       Spot(baseTag + "Month", Events,
         placeTemplate(template,
-          "O" + thisMonthCore,
-          "o" + thisMonthCore,
+          "O" + thisMonthCore + ",",
+          "o" + thisMonthCore + ",",
           "o" + thisMonthCore + ",",
           "o" + thisMonthCore + "."),
         spotsCopresent,
@@ -164,7 +171,7 @@ object Event {
         spotsSourceNote,
         spotsGroupGainMultiplier,
         spotsVariantGroup,
-        spotsBoost
+        boost = spotsBoost
       )
       if startsThisMonth then return
       thisMonth.minusDays(1)
@@ -174,7 +181,8 @@ object Event {
 
     // Spot for "On DDD, MMM Nth"
     val nextMonthCore = (
-      "n " + eventWeekDay + ", " + eventDate.getMonth().toString() +
+      "n " + eventWeekDay + ", " +
+        eventDate.getMonth().getDisplayName(FULL, US) +
         " " + eventCardinalDate)
     Spot(baseTag + "Far", Events,
       placeTemplate(template,
@@ -191,7 +199,7 @@ object Event {
       spotsSourceNote,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
-      spotsBoost
+      boost = spotsBoost
     )
   }
 

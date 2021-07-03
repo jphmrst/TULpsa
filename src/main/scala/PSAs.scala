@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter
 object PsaRosters extends RosterType {
 
   override def init(): Unit = {
+    PsaShortTermSpots.init()
     PsaLongTermSpots.init()
     PsaScheduling.init()
   }
@@ -89,6 +90,11 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("sierraMtgJuly21",
+    """The next meeting of the Orleans Sierra Club will be %%when%% at 6:30\PM.  Christen Steele will discuss conservation issues affecting the survival of the monarch butterfly.  Sierra Club meetings are currently online.  More information and a link to the online session are available on their website, \online{sierra club dot O R G slash delta}.""",
+    "2021-07-21",
+    spotsSourceURL = Seq("https://www.sierraclub.org/delta/new-orleans-group")
+  )
 }
 
 /** Bank holding long-term PSAs. */
