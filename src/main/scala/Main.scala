@@ -26,8 +26,8 @@ import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def one: Unit = {
   PsaRosters.init()
-  // PsaRosters.writeFor(LocalDate.parse("2021-07-01"))
-  // PsaRosters.writeFor(LocalDate.parse("2021-07-07"))
-  // PsaRosters.writeFor(LocalDate.parse("2021-07-14"))
+  PsaRosters.writeFor(LocalDate.parse("2021-07-01"))
+  PsaRosters.writeFor(LocalDate.parse("2021-07-07"))
+  PsaRosters.writeFor(LocalDate.parse("2021-07-14"))
   PsaRosters.writeFor(LocalDate.parse("2021-07-21"))
 }

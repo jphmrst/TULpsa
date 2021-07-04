@@ -167,7 +167,7 @@ abstract class RosterBuilder(
 
           // First check whether we can place another instance of what
           // we last placed, and whether these two slots are contiguous.
-          if (rosterSlot - 1 == lastSlot)
+          if (Math.abs(rosterSlot - lastSlot) == 1)
             then lastSpot match {
               case _: Unassigned => false
               case isSpot: Spot => {
