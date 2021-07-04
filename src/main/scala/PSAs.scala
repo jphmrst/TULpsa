@@ -9,6 +9,14 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+object PSAutils {
+  def basePolicy(slot: Int): Int =
+    if slot < 14 then 3 else
+      if slot < 29 then 5 else
+        if slot < 46 then 3
+          else 5
+}
+
 /** How we generate PSA rosters. */
 object PsaRosters extends RosterType {
 
@@ -44,11 +52,13 @@ class PsaRosterBuilder(startDate: LocalDate)
       DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'"),
       "PSA-",
       (first, last) => {
-        if first + 2 <= last && first < 14 then 3 else
-          if first + 4 <= last && first < 29 then 5 else
-            if first + 2 <= last && first < 46 then 3 else
-              if first + 4 <= last then 5 else
-                last - first + 1
+        val base = PSAutils.basePolicy(first)
+        val avail = last - first + 1
+        if avail <= base + 1
+        then avail
+        else if avail >= 2 * base - 1
+        then base
+        else avail / 2
       },
       Array[Int | List[Int]](
         0, 1, 2, 3, 4, 5, 6, // Aa  0-6
@@ -1755,7 +1765,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AgendaForChildren",
     Rare,
-    "Agenda for Children advocated for children's programs in Louisiana for education, health, adoption and foster care, and the justice system. \\MoreWeb[More information, including how you can support their mission, is]{agenda for children dot O R G} ",
+    "Agenda for Children advocates for children's programs in Louisiana for education, health, adoption and foster care, and the justice system. \\MoreWeb[More information, including how you can support their mission, is]{agenda for children dot O R G} ",
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Erica Severson <SeversonE@peteramayer.com>"

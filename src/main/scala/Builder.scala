@@ -119,6 +119,37 @@ abstract class RosterBuilder(
     }
     else List((start, next - 1))
 
+  /** Return the pair of assigned neighbors of a certain slot, if any.
+    */
+  def assignedNeighbors(slot: Int, within: Int = size):
+      (Option[Spot], Option[Spot]) = {
+    (
+      returning {
+        for (i <- 0 to within; if slot - i >= 0)
+          slots(slot - i) match {
+            case _: Unassigned => { }
+            case spot: Spot => throwReturn[Option[Spot]](Some(spot))
+          }
+        None
+      },
+      returning {
+        for (i <- 0 to within; if slot + i < size)
+          slots(slot + i) match {
+            case _: Unassigned => { }
+            case spot: Spot => throwReturn[Option[Spot]](Some(spot))
+          }
+        None
+      }
+    )
+  }
+
+  def nearSameGroup(slot: Int, group: Int, within: Int = 3): Boolean = {
+    val (lower, upper): (Option[Spot], Option[Spot]) =
+      assignedNeighbors(slot, within)
+    lower.map(_.variantGroup == group).getOrElse(false) ||
+      upper.map(_.variantGroup == group).getOrElse(false)
+  }
+
   /** Fill by day matching. */
   def fillByDayMatch(bank: SpotBank): Unit = {
     Output.fullln(s"\nfillByDayMatch with ${bank.tag}")
@@ -175,18 +206,24 @@ abstract class RosterBuilder(
                 if inventorySlots.map(dailyInventories(_).contains(isSpot))
                      .fold(true)(_ && _)
                 then {
-                  Output.fullln("written")
+                  if (nearSameGroup(rosterSlot, isSpot.variantGroup))
+                    then {
+                      Output.fullln("too close to groupmate")
+                    }
+                    else {
+                      Output.fullln("written")
 
-                  // Remove the spot from consideration from the days
-                  // covered here.
-                  inventorySlots.map((i) => {
-                    dailyInventories(i) = dailyInventories(i) - isSpot
-                  })
+                      // Remove the spot from consideration from the
+                      // days covered here.
+                      inventorySlots.map((i) => {
+                        dailyInventories(i) = dailyInventories(i) - isSpot
+                      })
 
-                  slots(rosterSlot) = lastSpot
-                  lastSlot = rosterSlot
+                      slots(rosterSlot) = lastSpot
+                      lastSlot = rosterSlot
 
-                  throwReturn({})
+                      throwReturn({})
+                    }
                 } else {
                   Output.fullln("not valid on slot day")
                 }
@@ -209,22 +246,28 @@ abstract class RosterBuilder(
                     .map((n) => candSpot.validOn(startDate.plusDays(n)))
                     .fold(true)(_ && _))
                 then {
+                  if (nearSameGroup(rosterSlot, candSpot.variantGroup))
+                    then {
+                      Output.fullln("too close to groupmate")
+                    }
+                    else {
 
-                  // Then write the spot into the slot
-                  slots(rosterSlot) = candSpot
+                      // Then write the spot into the slot
+                      slots(rosterSlot) = candSpot
 
-                  // Remove the spot from consideration from the
-                  // days covered here.
-                  inventorySlots.map((i) => {
-                    dailyInventories(i) = dailyInventories(i) - candSpot
-                  })
+                      // Remove the spot from consideration from the
+                      // days covered here.
+                      inventorySlots.map((i) => {
+                        dailyInventories(i) = dailyInventories(i) - candSpot
+                      })
 
-                  // Note what we have now written.
-                  lastSpot = candSpot
-                  lastSlot = candInvSlot
+                      // Note what we have now written.
+                      lastSpot = candSpot
+                      lastSlot = candInvSlot
 
-                  Output.fullln("written")
-                  throwReturn({})
+                      Output.fullln("written")
+                      throwReturn({})
+                    }
                 } else {
                   Output.fullln("not in slot inventories")
                 }
