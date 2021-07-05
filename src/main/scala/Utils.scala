@@ -51,10 +51,36 @@ object Utils {
     envOrNone("WTUL_ROSTERS_UPLOAD") match {
       case None => {}
       case Some(hostPath) => {
+        // Make an index.html file as a manifest
+        import java.io.File
+        import java.io.FileWriter
+        import java.io.BufferedWriter
+        var bw: BufferedWriter =
+          new BufferedWriter(new FileWriter(new File("index.html")))
+        bw.write("""
+<html>
+  <head>
+    <title>WTUL Current rosters</title>
+  </head>
+  <body>
+    <h1>WTUL Current rosters</h1>
+  <ul>
+""")
+        for (file <- files) {
+          bw.write(s"    <li><a href=\"$file\">$file</a></li>\n")
+        }
+
+        bw.write("""  </ul>
+  </body>
+</html>
+""")
+        bw.close
+
+        // Upload everything
         import scala.language.postfixOps
         print(s"Uploading to ${hostPath}...")
         val options = envOrElse("WTUL_ROSTERS_RSYNC_OPTS", "")
-        (s"rsync --delete-excluded --recursive $options ${files.fold("")(_ + " " + _)} $hostPath" !)
+        (s"rsync --delete-excluded --recursive $options index.html ${files.fold("")(_ + " " + _)} $hostPath" !)
         println("written")
       }
     }
