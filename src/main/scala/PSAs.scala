@@ -1201,6 +1201,16 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Civic,
     "Rebuilding Together New Orleans is a volunteer group rehabiliting houses across New Orleans.  These repairs strengthen neighborhoods by allowing low-income homeowners to stay in their homes as they age, inhibiting blight, and keeping invested homeowners in place. \\MoreWebPhone[More information about volunteering with them is]{R T N O dot O R G}{504/264-1815}",
     start = "2021-06-22",
+    end = Some("2021-07-11"),
+    alert = "2022-07-15",
+    sourceContacts = "Alex Thibadoux <athibadoux@rtno.org>"
+  )
+
+  Spot(
+    "RebuildingTogetherNewOrleansJuly2021",
+    Civic,
+    "Rebuilding Together New Orleans is seeking volunteers to help with the rehabilitation of houses across New Orleans. These repairs strengthen neighborhoods by allowing low-income homeowners to stay in their homes as they age, inhibiting blight from spreading and keeping invested homeowners in place.  \\MoreWebPhone[More information about volunteering with them is]{R T N O dot O R G}{504/264-1815}",
+    start = "2021-07-12",
     alert = "2022-07-15",
     sourceContacts = "Alex Thibadoux <athibadoux@rtno.org>"
   )
