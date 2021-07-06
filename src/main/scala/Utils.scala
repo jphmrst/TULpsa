@@ -7,7 +7,8 @@
 
 package org.maraist.wtulrosters
 import scala.sys.process.*
-import java.time.LocalDate
+import java.time.{LocalDate,LocalDateTime}
+import java.time.format.DateTimeFormatter
 
 /** Miscellaneous utilities. */
 object Utils {
@@ -49,9 +50,12 @@ object Utils {
   def syncRosters(files: Seq[String]): Unit = {
     import scala.util.Properties.{envOrNone, envOrElse}
     envOrNone("WTUL_ROSTERS_UPLOAD") match {
-      case None => {}
+      case None => {
+        Output.infoln(s"No WTUL_ROSTERS_UPLOAD; skipping file sync")
+      }
       case Some(hostPath) => {
         // Make an index.html file as a manifest
+        Output.info(s"Writing index file...")
         import java.io.File
         import java.io.FileWriter
         import java.io.BufferedWriter
@@ -64,13 +68,17 @@ object Utils {
   </head>
   <body>
     <h1>WTUL Current rosters</h1>
-  <ul>
+    <ul>
 """)
         for (file <- files) {
-          bw.write(s"    <li><a href=\"$file\">$file</a></li>\n")
+          bw.write(s"      <li><a href=\"$file\">$file</a></li>\n")
         }
 
-        bw.write("""  </ul>
+        bw.write("""    </ul>
+  <p><i>Last generated: """)
+        bw.write(LocalDateTime.now().format(
+          DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy, h:mma")))
+        bw.write("""</i></p>
   </body>
 </html>
 """)
@@ -78,7 +86,7 @@ object Utils {
 
         // Upload everything
         import scala.language.postfixOps
-        print(s"Uploading to ${hostPath}...")
+        Output.info(s"Uploading to ${hostPath}...")
         val options = envOrElse("WTUL_ROSTERS_RSYNC_OPTS", "")
         (s"rsync --delete-excluded --recursive $options index.html ${files.fold("")(_ + " " + _)} $hostPath" !)
         println("written")
