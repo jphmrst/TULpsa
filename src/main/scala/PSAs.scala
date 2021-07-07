@@ -1846,6 +1846,33 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
+    "FemaApp",
+    StormPrep,
+    "FEMA, the Federal Emergency Management Agency, now has an app for hurricane season readiness.  You can get alerts from the National Weather Service, plus safety reminders, emergency checklists, and information about shelters.  More information about the app is available at \\online{fema dot G O V slash mobile hyphen app}.",
+    copresent = "FEMA",
+    start = "2021-07-12",
+    alert = "2022-05-15"
+  )
+
+  Spot(
+    "FemaStormDocPrep",
+    StormPrep,
+    "If you need to evacuate for a hurricane, having important documents ready to go can help get your recovery process started quickly and efficiently in the worst cases.  Keep important papers in a fireproof, waterproof box or safe in your home next to the emergency kit. Store copies in an alternate location such as a safe deposit box, work place or trusted friend or family member's home.  You can make electronic copies and keep them on a flash drive or CD in your emergency kit, email copies to yourself, or upload them to a cloud storage service.  Other important documents to include are: birth certificates, passports, Social Security cards; insurance policies; deed, mortgage, lease and loan papers; lists of medications, allergies and medical equipment; photos of valuable belongings you may want to include in an insurance claim; and contact information for doctors, relatives, creditors and utilities.  More information on preparing for hurricanes is available at \\online{ready dot G O V slash hurricanes}~.",
+    copresent = "FEMA",
+    start = "2021-07-12",
+    alert = "2022-05-15"
+  )
+
+  Spot(
+    "FemaContractorWarning",
+    StormPrep,
+    "After a hurricane or other natural disaster, survivors should ber wary of post-disaster fraud and scams. Attempts to scam residents can be made over the phone, by mail or email, through the internet or in person.  It is important to remain alert.  If an offer sounds too good to be true, it should be questioned.  To find out if a potential contractor is licensed to work in Louisiana, check the website of the Louisiana State Licensing Board for Contractors at \\online{L S L B C dot louisiana dot G O V}, or call them at (225) 765-2301.",
+    copresent = "FEMA, the Louisiana Governor’s Office of Homeland Security and Emergency Preparedness",
+    start = "2021-07-12",
+    alert = "2022-05-15"
+  )
+
+  Spot(
     "BusinessStormPrepGovernor",
     StormPrep,
     "Is your business ready to recover after the damaging winds and floods of a hurricane? The Governor's Office of Homeland Security and Emergency Preparedness has a checklist for businesses so that they can stay in business despite a storm. Their web site is \\online{get a game plan dot O R G}. ",
