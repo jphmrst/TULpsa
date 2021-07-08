@@ -614,6 +614,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Services,
     "The New Orleans Ballet Association offers weekly dance fitness classes for older adults ages 55 and up. Programming includes stretching, dance and movement, and healthy eating and lifestyle education. \\MoreWeb{N O B A dance dot com slash senior dance fitness dot C F M}",
     start = "2021-06-22",
+    end = Some("2021-07-12"),
     alert = "2022-07-15",
     sourceContacts = "Sarah Chambless Federer <sarahc@gambelpr.com>",
     sourceNote = "## add Nov 2014"
