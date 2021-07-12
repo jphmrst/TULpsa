@@ -28,7 +28,8 @@ object PsaRosters extends RosterType {
 
   override protected type RBuilder = PsaRosterBuilder
 
-  override protected def newBuilder(date: LocalDate): PsaRosterBuilder =
+  override protected
+  def newBuilder(date: LocalDate): PsaRosterBuilder =
     new PsaRosterBuilder(date)
 
   override protected
@@ -184,6 +185,12 @@ class PsaRosterBuilder(startDate: LocalDate)
 object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
+
+  Event("LionsScreeningsLakesideAug2021",
+    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services on %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   The screenings will be from 11\\AM\\ to 3\\PM\\ in the center court of the Lakeside Shopping Center.""",
+    "2021-08-28",
+    spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
+  )
 
   Event("sierraMtgJuly21",
     """The next meeting of the Orleans Sierra Club will be %%when%% at 6:30\PM.  Christen Steele will discuss conservation issues affecting the survival of the monarch butterfly.  Sierra Club meetings are currently online.  More information and a link to the online session are available on their website, \online{sierra club dot O R G slash delta}.""",
