@@ -187,7 +187,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import scala.language.implicitConversions
 
   Event("LionsScreeningsLakesideAug2021",
-    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services on %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   The screenings will be from 11\\AM\\ to 3\\PM\\ in the center court of the Lakeside Shopping Center.""",
+    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be %%when,%% from 11\AM\ to 3\PM\ in the center court of the Lakeside Shopping Center.""",
     "2021-08-28",
     spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
   )
