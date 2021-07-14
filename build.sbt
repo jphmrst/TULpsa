@@ -9,11 +9,13 @@ version := "0.1.0"
 unmanagedSources / excludeFilter := ".#*"
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
+
 lazy val root = project
   .in(file("."))
   .settings(
     scalaVersion := scala3Version,
-    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
+    libraryDependencies ++= Seq(
+      "com.novocode" % "junit-interface" % "0.11" % "test",
+      "org.maraist" %% "scala-latex" % "1.1.1"
+    )
   )
-  // .dependsOn(RootProject(file("/home/jm/Lib/Scala/Utils")))
-  .dependsOn(RootProject(file("/home/jm/Lib/Scala/LaTeX")))
