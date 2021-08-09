@@ -186,6 +186,13 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("MapleLeafVaxDayAug2021",
+    """The Maple Leaf will host a vaccination day at their bar %%when,%% from 6 to 10\PM\ in cooperation with Castellon pharmacy.  The bar will be open, and there will be live music for your listening pleasure.  People will be offered their choice of either the single-dose Johnson-and-Johnson vaccine, or the two-dose Pfizer vaccine.  There is no charge for vaccination for COVID-19.  Again, the vaccination day will be %%when,%% from 6 to 10\PM\ at the Maple Leaf Bar.""",
+    "2021-08-14",
+    spotsSourceNote = "Facebook post in WTUL group."
+  )
+
+
   Event("LionsScreeningsLakesideAug2021",
     """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be %%when,%% from 11\AM\ to 3\PM\ in the center court of the Lakeside Shopping Center.""",
     "2021-08-28",
