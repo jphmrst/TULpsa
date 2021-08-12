@@ -143,11 +143,13 @@ abstract class RosterBuilder(
     )
   }
 
-  def nearSameGroup(slot: Int, group: Int, within: Int = 3): Boolean = {
+  def nearSameGroup(slot: Int, candidate: Spot, within: Int = 3): Boolean = {
+    val group = candidate.variantGroup
     val (lower, upper): (Option[Spot], Option[Spot]) =
       assignedNeighbors(slot, within)
-    lower.map(_.variantGroup == group).getOrElse(false) ||
-      upper.map(_.variantGroup == group).getOrElse(false)
+    val checker: Spot => Boolean =
+      (spot) => !(spot == candidate) && spot.variantGroup == group
+    lower.map(checker).getOrElse(false) || upper.map(checker).getOrElse(false)
   }
 
   /** Fill by day matching. */
@@ -206,7 +208,7 @@ abstract class RosterBuilder(
                 if inventorySlots.map(dailyInventories(_).contains(isSpot))
                      .fold(true)(_ && _)
                 then {
-                  if (nearSameGroup(rosterSlot, isSpot.variantGroup))
+                  if (nearSameGroup(rosterSlot, isSpot))
                     then {
                       Output.fullln("too close to groupmate")
                     }
@@ -246,7 +248,7 @@ abstract class RosterBuilder(
                     .map((n) => candSpot.validOn(startDate.plusDays(n)))
                     .fold(true)(_ && _))
                 then {
-                  if (nearSameGroup(rosterSlot, candSpot.variantGroup))
+                  if (nearSameGroup(rosterSlot, candSpot))
                     then {
                       Output.fullln("too close to groupmate")
                     }
