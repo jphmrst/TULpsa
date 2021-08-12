@@ -211,7 +211,20 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
-  val voteDotOrg = Spot(
+  Spot(
+    "CrescentCareTestingAug21",
+    Services,
+    "Crescent Care, formerly The NO/AIDS Task Force, offers no-cost rapid HIV testing. The test is quick and painless. It requires only a sample of oral fluid and results are available in as little as twenty minutes. You can be tested at their Saint Roch (``rock'') location, 1631 Elysian Fields, on Tuesdays from noon to 5\\PM, Wednesdays from 10\\AM\\ to 5\\PM, Thursdays from 10\\AM\\ to 3\\PM, and Fridays from 10\\AM\\ to 5\\PM. Take-home HIV tests are also available five days a week from 9\\AM\\ to 5\\PM\\ at the same location. \\MoreWeb{crescent care dot O R G}",
+    start = "2021-08-12",
+    alert = "2022-01-23",
+    sourceContacts = Seq(
+      "Doreen Tollerson <Doreen.Tollerson@crescentcare.org>",
+      "Joe Hui <Joe.Hui@crescentcare.org>",
+      "Lisa Mirman <lisamirman@gmail.com>"
+    )
+  )
+
+  Spot(
     "VoteDotOrg",
     Volunteer,
     "Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?  You can find out more about voter and election information at \\online{vote dot O R G}. Quick links will connect you to every state! For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker. More information is available at \\online{vote dot O R G}.",
@@ -220,7 +233,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     sourceNote = "Local"
   )
 
-  val hnoc = Spot(
+  Spot(
     "HnocVolunteersTwelve",
     Volunteer,
     "The Historic New Orleans Collection is a museum, research center, and publisher in the French Quarter. They are looking for weekend volunteers to help greet visitors, monitor exhibitions, and lead tours. \\MoreWeb{H N O C dot O R G}",
