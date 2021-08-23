@@ -186,18 +186,29 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("MusicaSept2021",
+    """Musaica Chamber Ensemble starts its season with "A Musical Journey," featuring the music of Amy Beach, Robert Schumann (``SHOE-mahn''), Akira Miyoshi, Ennio Morricone, Florence Price, and Max Bruch.  The performances will take place %%when%% at the Saint Charles Avenue Presbyterian Church, and Tuesday the 14th at the UNO Performing Arts Center Recital Hall.  Both performances are at 7:30\PM, and are open to the public with a suggested donation. \MoreWebPhone{musica dot O R G}{504/304-8608}""",
+    "2021-09-13",
+    spotsSourceContacts = Seq("Bruce Owen <bruceowen@aol.com>")
+  )
+
   Event("MapleLeafVaxDayAug2021",
     """The Maple Leaf will host a vaccination day at their bar %%when,%% from 6 to 10\PM\ in cooperation with Castellon pharmacy.  The bar will be open, and there will be live music for your listening pleasure.  People will be offered their choice of either the single-dose Johnson-and-Johnson vaccine, or the two-dose Pfizer vaccine.  There is no charge for vaccination for COVID-19.  Again, the vaccination day will be %%when,%% from 6 to 10\PM\ at the Maple Leaf Bar.""",
     "2021-08-14",
     spotsSourceNote = "Facebook post in WTUL group."
   )
 
-
-  Event("LionsScreeningsLakesideAug2021",
-    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be %%when,%% from 11\AM\ to 3\PM\ in the center court of the Lakeside Shopping Center.""",
+  Event("LionsScreeningsAug2021Cancelled",
+    """The ``Lions  Health Awareness Day,'' originally scheduled for the 28th, has been cancelled due to the COVID resurgence.  The Lions Club hopes to reschedule the event in early 2022.""",
     "2021-08-28",
     spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
   )
+
+//  Event("LionsScreeningsLakesideAug2021",
+//    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be %%when,%% from 11\AM\ to 3\PM\ in the center court of the Lakeside Shopping Center.""",
+//    "2021-08-28",
+//    spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
+//  )
 
   Event("sierraMtgJuly21",
     """The next meeting of the Orleans Sierra Club will be %%when%% at 6:30\PM.  Christen Steele will discuss conservation issues affecting the survival of the monarch butterfly.  Sierra Club meetings are currently online.  More information and a link to the online session are available on their website, \online{sierra club dot O R G slash delta}.""",
