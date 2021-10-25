@@ -302,7 +302,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Habitat for Humanity can make use of used housewares or surplus building materials.  Donated materials are made available for purchase at the Habitat for Humanity Re-Store, located on North Lane, off Highway 59, just north of I-12. Proceeds benefit Habitat for Humanity.  \\MorePhone[More information including directions and volunteering is]{985/898-0642}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## checked details online July 2015"
+    sourceNote = "checked details online July 2015"
   )
 
   Spot(
@@ -321,7 +321,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = Seq("clearwaterwildlife@gmail.com"),
-    sourceNote = "## updated Feb. 2016"
+    sourceNote = "updated Feb. 2016"
   )
 
   Spot(
@@ -330,7 +330,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Communities In Schools of Greater New Orleans provides mentors in both Charter and Recovery District schools. Volunteer mentors meet with a child four hours every month to provide a positive role model. \\MoreWebPhone{C I S new orleans dot O R G}{504/494-0328}",
     start = "2012-08-01",
     alert = "2022-07-15",
-    sourceNote = "## asked July 2015, last confirmed Dec. 2012",
+    sourceNote = "asked July 2015, last confirmed Dec. 2012",
     sourceContacts = Seq("Jade Parker <jparker@cisneworleans.org>")
   )
 
@@ -340,7 +340,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The New Orleans Birthing Project provides \\emph{sister friends}, mentors for pregnant women of any age. They are seeking volunteers to be sister friends. \\MorePhoneWeb[More information about becoming or having a sister friend is]{504/482-6388}{nola at birthing project U S A dot O R G}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## added Dec 2011, asked Dec. 2012, asked July 2015",
+    sourceNote = "added Dec 2011, asked Dec. 2012, asked July 2015",
     sourceContacts = "Luanne Francis <luanne_f2001@yahoo.com>"
   )
 
@@ -350,7 +350,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Boys Hope Girls Hope intervenes on behalf of children in need between the ages of ten and eighteen, and provides them with a stable home, positive parenting, high-quality education, and the support needed to reach their full potential. They welcome both volunteers and donations. \\MoreWeb{B H G H nola dot O R G}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## added August 2012, asked July 2015",
+    sourceNote = "added August 2012, asked July 2015",
     sourceContacts = "Kelley Allenspach <kallenspach@bhgh.org>"
   )
 
@@ -360,7 +360,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Volunteers with Green Light New Orleans install free energy-efficient light bulbs for any New Orleans resident. \\MorePhoneWeb[More information about the program, and about becoming a volunteer, is]{504/324-2429}{green light new orleans dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (from Gambit) asked July 2015, asked Dec. 2012",
+    sourceNote = "(from Gambit) asked July 2015, asked Dec. 2012",
     sourceContacts = Seq(
       "green@greenlightneworleans.org (Bernnel January Jr.)",
       "Andreas Hoffmann <andreashoffmann@greenlightneworleans.org"
@@ -373,7 +373,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Gift of Life is a bone marrow and stem cell donor registry, helping children and adults with blood cancer find the matches they need, when they need them. \\MorePhoneWeb{800/9-MARROW}{gift of life dot O R G}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## last updated July 2015, added December 2014",
+    sourceNote = "last updated July 2015, added December 2014",
     sourceContacts = "Amy Glanzman <aglanzman@giftoflife.org>"
   )
 
@@ -383,7 +383,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Court-appointed special advocates help abused and neglected children to voice their needs in the legal process.  More information, including volunteering to become a court-appointed special advocate for Jefferson Parish is available by phone at 504/533-8757, or online at \\online{C A S A jefferson dot O R G}.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## updated January 2015 --- six-month rechecks",
+    sourceNote = "updated January 2015 --- six-month rechecks",
     sourceContacts = Seq("Ellie Schneider <eschneider@casajefferson.org>")
   )
 
@@ -393,7 +393,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Jefferson Council on Aging seeks volunteers to deliver meals to homebound adults. Gas mileage will be reimbursed. \\MorePhone[More information and volunteer scheduling are]{504/888-5880}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked July 2015, last confirmed Dec. 2012",
+    sourceNote = "asked July 2015, last confirmed Dec. 2012",
     sourceContacts = Seq("Liz Yager <lyager@jcoa.net>")
   )
 
@@ -403,7 +403,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The New Orleans Mission, a Christian homeless shelter in Central City, is dedicated to serving the spiritual and physical needs of the poor, needy and homeless population of New Orleans. The mission provides meals, showers, clothing, shelter, literacy classes and job-skills training to men and women with children. \\MorePhoneEmail[Information about volunteering or donating is]{504/415-9579}{brittany at new orleans mission dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked July 2015, last confirmed Dec. 2012",
+    sourceNote = "asked July 2015, last confirmed Dec. 2012",
     sourceContacts = "Brittany Ray <Brittany@neworleansmission.org>"
   )
 
@@ -423,7 +423,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Gulfsouth Youth Action Corps (``core'') seeks college student volunteers from all over the country to assist in providing recreational and educational opportunities for New Orleans-area inner-city youth and their families. \\MoreWeb{the G Y A C dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## from Gambit, asked Dec. 2012, web site live",
+    sourceNote = "from Gambit, asked Dec. 2012, web site live",
     sourceURL = "http://thegyac.org/"
   )
 
@@ -433,7 +433,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "New Orleans Outreach seeks volunteers for their ARMS-Outreach after-school program. Volunteers are needed in the arts, academics, technology, recreation and life skills. \\MoreWebPhone{N O outreach dot org}{504/654-1060}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked for re-confirm Dec. 2012, web site live",
+    sourceNote = "asked for re-confirm Dec. 2012, web site live",
     sourceContacts = "bette@nooutreach.org"
   )
 
@@ -443,7 +443,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "YMCA Educational Services, the adult literacy program of the YMCA of Greater New Orleans, offers adult education classes in reading, writing and math.  Classes are offered in Downtown New Orleans, Central City, and a new location in New Orleans East. Classes are open to the public, but since space is limited, registration is required. \\MorePhoneWeb[More information and volunteer signup are]{504/596-3842}{y m c a new orleans dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## got update from them Jan 2014",
+    sourceNote = "got update from them Jan 2014",
     sourceContacts = "Juliana Besenbruch <julieb@ymcaneworleans.org>"
   )
 
@@ -453,7 +453,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The ``Freedom Is Not Free'' program helps wounded and injured veterans of all branches of the military, and their families, defray the costs associated with care-giving and travel during their most trying times.  \\MoreWeb[More information about volunteering or donating is]{freedom is not free dot com}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked Dec. 2012, no answer but web site live June 2013",
+    sourceNote = "asked Dec. 2012, no answer but web site live June 2013",
     sourceContacts = "info@freedomisnotfree.com"
   )
 
@@ -463,7 +463,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Start the Adventure in Reading, or STAIR, seeks volunteers to help second-grade public school students in the New Orleans area learn how to read.  \\MoreWebPhone[Information about tutor training sessions is]{www dot stair nola dot O R G}{504/899-0820}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## last confirmed Dec. 2012",
+    sourceNote = "last confirmed Dec. 2012",
     sourceContacts = "Sara Woodard <swoodard@scapc.org>"
   )
 
@@ -473,7 +473,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Foster parenting is an opportunity to make a difference in a child's life.  Raintree Children and Family Services offers training and a supportive network of staff to ease the transition for new foster parents.  \\MorePhone[More information, including making a donation, is]{504/899-9045}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked Dec. 2012, no answer but web site live June 2013",
+    sourceNote = "asked Dec. 2012, no answer but web site live June 2013",
     sourceContacts = "Marlene Carter <mcarter@raintreeservices.org>"
   )
 
@@ -483,7 +483,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Equality Louisiana supports policy initiatives that will make Louisiana a better place for all families. They are currently seeking volunteers all across the state. \\MoreWeb{equality L A dot O R G}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## added Dec. 2013",
+    sourceNote = "added Dec. 2013",
     sourceContacts = "Micah Caswell <mcaswell@equalityla.org>"
   )
 
@@ -493,7 +493,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Hagar's House provides temporary housing to women and their children in New Orleans as they seek more permanent homes. Hagar's House offers an open and empowering residential community, support for planning and budgeting, and a safe space for transition into sustainable housing. They welcome donations and volunteers from the New Orleans community. \\MoreWebPhone{H A G A R S house nola dot O R G}{504/210-5064}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked Dec. 2012, no answer but web site live June 2013",
+    sourceNote = "asked Dec. 2012, no answer but web site live June 2013",
     sourceContacts = "hagarshouse@gmail.com"
   )
 
@@ -503,7 +503,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "CASA New Orleans is seeking volunteers, especially African-American men, to serve as advocates for children in foster care.  \\MoreEmailPhone{info at C A S A new orleans dot O R G}{504/522-1962}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## updated July 2015",
+    sourceNote = "updated July 2015",
     sourceContacts = Seq(
       "Betsy Lopez <BLopez@casaneworleans.org>",
       "Mike Madej <mmadej@casaneworleans.org>"
@@ -516,7 +516,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Hearts of Change Foundation provides support services to pregnant teens and teen parents.  They are seeking successful adults who were themselves teen parents to serve as mentors for pregnant teens.  \\MoreEmailPhone{hearts of change 2012 at gmail dot com}{504/621-8894}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## added August 2013",
+    sourceNote = "added August 2013",
     sourceContacts = "gkannie95@yahoo.com (Kimberly Dilosa)"
   )
 
@@ -526,7 +526,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The New Orleans Regional AIDS Planning Council plans local HIV services to help ensure that everyone infected or affected by HIV can access treatment, and live full, productive lives. \\MoreWebPhone[More information about the council and about how you can volunteer is]{N O R A P C dot O R G}{504/821-7334}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked July 2015",
+    sourceNote = "asked July 2015",
     sourceContacts = "brandi@norapc.org (Brandi Bowen)"
   )
 
@@ -536,7 +536,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Touro Infirmary seeks adult volunteers to assist with the Family Surgery Lounge, Patient Information Desk, book and goody cart, hospital tours and health screenings. \\MorePhone{504/897-8107}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (from Gambit)"
+    sourceNote = "(from Gambit)"
   )
 
   Spot(
@@ -546,7 +546,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "elexa@therootsofmusic.com (Elexa, no last name given)",
-    sourceNote = "## asked July 2015"
+    sourceNote = "asked July 2015"
   )
 
   Spot(
@@ -573,7 +573,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Every Thursday, the Louisiana Children's Museum hosts ``Toddler Time,'' activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to 10:30\\AM.  The museum is located at 420 Julia Street.  \\MorePhoneWeb{504/523-1357}{www dot L C M dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (with other spots from Gambit)"
+    sourceNote = "(with other spots from Gambit)"
   )
 
   Spot(
@@ -591,7 +591,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Sherri Wilder <SWilder@utno.org>",
-    sourceNote = "## still on in April 2010"
+    sourceNote = "still on in April 2010"
   )
 
   Spot(
@@ -601,7 +601,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://lcm.org/playlearn/art_programs.html",
-    sourceNote = "## (with other spots from Gambit)"
+    sourceNote = "(with other spots from Gambit)"
   )
 
   Spot(
@@ -630,7 +630,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Linda Reine <Linda@reine.biz>",
-    sourceNote = "## added August 2018"
+    sourceNote = "added August 2018"
   )
 
   Spot(
@@ -640,7 +640,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Lisa Carey <lisacareyrealty@yahoo.com>",
-    sourceNote = "## added Feb 2014"
+    sourceNote = "added Feb 2014"
   )
 
   Spot(
@@ -649,7 +649,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Restaurant Opportunities Center supports and trains New Orleans restaurant workers. They provide training in fine dining service, bartending, cooking, and English, as well as workers' rights.  \\MorePhoneWeb{504/267-4694}{R O C united dot O R G}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## live June 2013"
+    sourceNote = "live June 2013"
   )
 
   Spot(
@@ -659,7 +659,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = Seq("Stacy Vasquez 202-461-1664 (stacy.vasquez@va.gov)", "Michael Taylor 202-461-1677 (michael.taylor3@va.gov)"),
-    sourceNote = "## asked June 2013"
+    sourceNote = "asked June 2013"
   )
 
   Spot(
@@ -670,7 +670,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     end = Some("2021-07-12"),
     alert = "2022-07-15",
     sourceContacts = "Sarah Chambless Federer <sarahc@gambelpr.com>",
-    sourceNote = "## add Nov 2014"
+    sourceNote = "add Nov 2014"
   )
 
   Spot(
@@ -680,7 +680,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Irene Rible <irene.rible@gmail.com>",
-    sourceNote = "## added September 2014"
+    sourceNote = "added September 2014"
   )
 
   Spot(
@@ -690,7 +690,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceURL = "http://recycle.nola.gov/",
-    sourceNote = "## added March 2014"
+    sourceNote = "added March 2014"
   )
 
   Spot(
@@ -700,7 +700,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Madison Lagrone <mlagrone@fhfjefferson.org>",
-    sourceNote = "## updated November 2014"
+    sourceNote = "updated November 2014"
   )
 
   Spot(
@@ -710,7 +710,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "pr@fsgno.org",
-    sourceNote = "## added March 2013"
+    sourceNote = "added March 2013"
   )
 
   Spot(
@@ -720,7 +720,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Kim Byas-Dilosa <gkannie95@yahoo.com>",
-    sourceNote = "## added October 2015"
+    sourceNote = "added October 2015"
   )
 
   Spot(
@@ -730,7 +730,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Stephanie Sheeley <ssheeley@gnofairhousing.org>",
-    sourceNote = "## added Dec. 2012"
+    sourceNote = "added Dec. 2012"
   )
 
   Spot(
@@ -740,7 +740,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Amber Tucker <atucker@gnofairhousing.org>",
-    sourceNote = "## added Jan. 2016"
+    sourceNote = "added Jan. 2016"
   )
 
   Spot(
@@ -753,7 +753,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       "Sam Rueckert <sam@makemusicnola.org>",
       "Charley Cooper/Laura Patterson <info@makemusicnola.org>",
       "laura@makemusicnola.org"),
-    sourceNote = "## added Jan. 2016"
+    sourceNote = "added Jan. 2016"
   )
 
   Spot(
@@ -762,7 +762,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Lighthouse for the Blind serves the blind and visually impaired by providing job training, competitive employment, and services.  Their visual aids store is open weekdays from eight \\AM\\ to four-thirty \\PM, and is located at 123 State Street.  \\MorePhoneWeb{504/899-4501}{lighthouse louisiana dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## asked June 2013"
+    sourceNote = "asked June 2013"
   )
 
   Spot(
@@ -772,7 +772,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "info@gnofairhousing.org",
-    sourceNote = "## received October 2015"
+    sourceNote = "received October 2015"
   )
 
   Spot(
@@ -782,7 +782,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Stacy Harter <sharter@wehrtvets.org>",
-    sourceNote = "## added January 2015"
+    sourceNote = "added January 2015"
   )
 
   Spot(
@@ -794,7 +794,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     copresent = "the New Orleans Kid Camera Project",
     sourceContacts = "info@kidcameraproject.org",
     sourceURL = "http://www.kidcameraproject.org/Contacts.html",
-    sourceNote = "## (OK October 2008)"
+    sourceNote = "(OK October 2008)"
   )
 
   Spot(
@@ -804,7 +804,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Brenda.Edgerton-Webster@la.gov",
-    sourceNote = "## added Feb. 12"
+    sourceNote = "added Feb. 12"
   )
 
   Spot(
@@ -814,7 +814,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "communications@habitat-nola.org",
-    sourceNote = "## live June 2013"
+    sourceNote = "live June 2013"
   )
 
   Spot(
@@ -827,7 +827,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       "Margaret Reynolds <margaret.reynolds@star.ngo>",
       "Michaela Lovejoy <michaela.lovejoy@star.ngo>"
     ),
-    sourceNote = "## added February 2016"
+    sourceNote = "added February 2016"
   )
 
   Spot(
@@ -837,7 +837,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "information@NOFHA.org",
-    sourceNote = "## asked June 2013"
+    sourceNote = "asked June 2013"
   )
 
   Spot(
@@ -846,7 +846,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Louisiana Department of Environmental Quality offers a reporting line for questions and concerns: 888/763-5424. The federal EPA has a hotline for hazardous waste pickup: 800/401-1327.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (no email address)"
+    sourceNote = "(no email address)"
   )
 
   Spot(
@@ -855,7 +855,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "If you need help paying for prescription medicines, or have recently lost your insurance coverage, you may qualify for prescription drug support programs.  More information, is available by calling the Louisiana Partnership for Prescription Assistance, 888/477-2669.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (old spot, phone number only) asked June 2013"
+    sourceNote = "(old spot, phone number only) asked June 2013"
   )
 
   Spot(
@@ -865,7 +865,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Maria Yiannopoulos <mariay@latan.org>",
-    sourceNote = "## asked June 2013"
+    sourceNote = "asked June 2013"
   )
 
   Spot(
@@ -876,7 +876,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     alert = "2022-07-15",
     copresent = "Odyssey House Louisiana",
     sourceContacts = "atucker@ohlinc.org",
-    sourceNote = "## confirmed August 2009"
+    sourceNote = "confirmed August 2009"
   )
 
   Spot(
@@ -991,7 +991,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "Robert Smith <robert@healthygulf.org>",
-    sourceNote = "## (updated Feb 2012) alternate with GulfRestNetFour"
+    sourceNote = "(updated Feb 2012) alternate with GulfRestNetFour"
   )
 
   Spot(
@@ -1019,7 +1019,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     sourceContacts = "ahamilton@thegreenproject.org",
-    sourceNote = "## (added Dec. 2008)"
+    sourceNote = "(added Dec. 2008)"
   )
 
   Spot(
@@ -1047,7 +1047,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "Planned Parenthood",
-    sourceNote = "## (no contact info)",
+    sourceNote = "(no contact info)",
     boost = 0.6
   )
 
@@ -1057,7 +1057,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "Planned Parenthood",
-    sourceNote = "## [tweets through Aug. '10]",
+    sourceNote = "[tweets through Aug. '10]",
     boost = 0.6
   )
 
@@ -1090,7 +1090,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "the Greater New Orleans Center for Women and Children",
-    sourceNote = "## [tweets through June 10]",
+    sourceNote = "[tweets through June 10]",
     groupGainMultiplier = 1.2,
     boost = 0.65
   )
@@ -1122,7 +1122,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "Odyssey House Louisiana",
-    sourceNote = "## confirmed August 2009 - atucker@ohlinc.org",
+    sourceNote = "confirmed August 2009 - atucker@ohlinc.org",
     sourceContacts = "atucker@ohlinc.org"
   )
 
@@ -1228,7 +1228,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-07-15",
     copresent = "Narcanon",
-    sourceNote = "## (added Jan 09)"
+    sourceNote = "(added Jan 09)"
   )
 
   Spot(
@@ -1237,7 +1237,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The National Suicide Prevention crisis counseling hotline is 800/273-8255.  This number is available both for people who are having suicidal thoughts, and who are concerned about others.  That number again is 800/273-8255.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (phone number only, last called to check 8/2006)"
+    sourceNote = "(phone number only, last called to check 8/2006)"
   )
 
   Spot(
@@ -1275,7 +1275,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Friends of the Ferry works to promote the Canal Street/Algiers (``al-JEERS'') Ferry as convenient and inexpensive form of public transportation.  \\MorePhoneWeb{504/363-9090}{friends of the ferry dot org}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (re-confirmed October 2008)"
+    sourceNote = "(re-confirmed October 2008)"
   )
 
   Spot(
@@ -1310,7 +1310,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Louisiana Disaster Recovery Foundation supports long-term and equitable recovery throughout Louisiana, and provides assistance to citizens in need through a network of Louisiana charities and nonprofit agencies.  \\MoreWebPhone{louisiana help dot org}{877/435-7521}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## still going Aug. 09, jkemp@louisianahelp.org"
+    sourceNote = "still going Aug. 09, jkemp@louisianahelp.org"
   )
 
   Spot(
@@ -1396,7 +1396,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "NOLA 311 handles non-emergency city service requests such as City Assisted Evacuation registration, code enforcement complaints, street and sidewalk maintenance, street and traffic signs, traffic signals, street lights, abandoned vehicles and sanitation issues.  You can reach them weekdays from 8\\AM\\ to 5\\PM\\ by dialing 311 from any phone based in New Orleans, or 504/658-2299, or 877/286-6431.",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## added Sept 2012"
+    sourceNote = "added Sept 2012"
   )
 
   Spot(
@@ -1415,7 +1415,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Project To Promote Transparency and Accountability in Government holds a series of meetings at which residents are invited to offer their input into the city's priority-setting and decision-making. \\MorePhone{504/267-4665 or 267-4696}",
     start = "2021-06-22",
     alert = "2022-07-15",
-    sourceNote = "## (from the Times-Pic)"
+    sourceNote = "(from the Times-Pic)"
   )
 
   Spot(
