@@ -230,7 +230,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "NewNeighborProjectOct2021",
     Services,
     "The New Neighbor Project creates a holistic pathway to citizenship for refugees and immigrants in our community.   They provide English and citizenship classes, application assistance, and scholarship opportunities.  \\MoreWeb{the new neighbor project dot O R G}",
-    start = "2021-10-25",
+    start = "2021-11-01",
     alert = "2022-03-23",
     sourceContacts = Seq(
       "Amy Dudgeon <thenewneighborproject@gmail.com>"
