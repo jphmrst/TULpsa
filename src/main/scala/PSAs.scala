@@ -5,6 +5,10 @@
 // LICENSE file in this distribution or https://fsf.org/ for more
 // details.
 
+// To skip to the actual PSA spots: search for "short-term" or
+// "long-term".
+
+
 package org.maraist.wtulrosters
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -221,6 +225,17 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
 object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
+
+  Spot(
+    "NewNeighborProjectOct2021",
+    Services,
+    "The New Neighbor Project creates a holistic pathway to citizenship for refugees and immigrants in our community.   They provide English and citizenship classes, application assistance, and scholarship opportunities.  \\MoreWeb{the new neighbor project dot O R G}",
+    start = "2021-10-25",
+    alert = "2022-03-23",
+    sourceContacts = Seq(
+      "Amy Dudgeon <thenewneighborproject@gmail.com>"
+    )
+  )
 
   Spot(
     "CrescentCareTestingAug21",
