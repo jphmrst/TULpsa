@@ -7,7 +7,8 @@
 
 package wtul.rosters
 import java.time.LocalDate
-import org.maraist.wtulrosters.{PsaLongTermSpots, PsaRosters, PsaScheduling}
+import org.maraist.wtulrosters.{
+  PsaLongTermSpots, PsaRosters, PsaScheduling, Alerts}
 import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def batch: Unit = {
@@ -30,4 +31,8 @@ import org.maraist.wtulrosters.Utils.syncRosters
   PsaRosters.writeFor(LocalDate.parse("2021-07-07"))
   PsaRosters.writeFor(LocalDate.parse("2021-07-14"))
   PsaRosters.writeFor(LocalDate.parse("2021-07-21"))
+}
+
+@main def alerts: Unit = {
+  Alerts.printAlerts()
 }

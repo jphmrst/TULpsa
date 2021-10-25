@@ -49,6 +49,7 @@ object Event {
     spotsSourceContacts: Seq[String] = Seq(),
     spotsSourceURL: Seq[String] = Seq(),
     spotsSourceNote: Option[String] = None,
+    spotsSourceName: Option[String] = None,
     spotsGroupGainMultiplier: Double = 1.0,
     spotsVariantGroup: Int = Spot.nextVariantGroup,
     spotsBoost: Double = 0.8
@@ -87,6 +88,7 @@ object Event {
       spotsSourceContacts,
       spotsSourceURL,
       spotsSourceNote,
+      spotsSourceName,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
       boost = spotsBoost
@@ -115,6 +117,7 @@ object Event {
       spotsSourceContacts,
       spotsSourceURL,
       spotsSourceNote,
+      spotsSourceName,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
       boost = spotsBoost
@@ -141,6 +144,7 @@ object Event {
       spotsSourceContacts,
       spotsSourceURL,
       spotsSourceNote,
+      spotsSourceName,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
       boost = spotsBoost
@@ -169,6 +173,7 @@ object Event {
         spotsSourceContacts,
         spotsSourceURL,
         spotsSourceNote,
+        spotsSourceName,
         spotsGroupGainMultiplier,
         spotsVariantGroup,
         boost = spotsBoost
@@ -197,6 +202,7 @@ object Event {
       spotsSourceContacts,
       spotsSourceURL,
       spotsSourceNote,
+      spotsSourceName,
       spotsGroupGainMultiplier,
       spotsVariantGroup,
       boost = spotsBoost

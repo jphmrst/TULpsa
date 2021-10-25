@@ -1320,6 +1320,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-06-15",
+    previousAlerts = Seq("2021-10-25"),
+    sourceName = "Terrytown Civic Association",
     sourceContacts = "Stephen Leonard <president@terrytownla.org>"
   )
 
@@ -1448,7 +1450,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-05-15",
+    previousAlerts = Seq("2021-10-25"),
     copresent = "Mid-City Neigbhorhood Organization",
+    sourceName = "Mid-City Neigbhorhood Organization",
     sourceContacts = "Bart <b@rox.com>"
   )
 
@@ -1797,6 +1801,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-06-15",
+    previousAlerts = Seq("2021-10-25"),
+    sourceName = "Shalamar Publishing",
     sourceContacts = "Deborah Dixon <deboracracy@gmail.com>"
   )
 

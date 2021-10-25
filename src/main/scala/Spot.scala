@@ -46,9 +46,11 @@ class Spot(
   val sourceContacts: Seq[String] = Seq(),
   val sourceURL: Seq[String] = Seq(),
   val sourceNote: Option[String] = None,
+  val sourceName: Option[String] = None,
   val groupGainMultiplier: Double = 1.0,
   val variantGroup: Int = Spot.nextVariantGroup,
-  val boost: Double = 0.0
+  val boost: Double = 0.0,
+  val previousAlerts: Seq[LocalDate] = Seq()
 )(using addSpot: (Spot) => Unit) {
   import Spot.{getWeekOfCentury, EPSILON}
 
