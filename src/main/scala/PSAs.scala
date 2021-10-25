@@ -1450,7 +1450,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-05-15",
-    previousAlerts = Seq("2021-10-25"),
+    previousAlerts = Seq("2021-10-25"), // Not running --- do not alert
     copresent = "Mid-City Neigbhorhood Organization",
     sourceName = "Mid-City Neigbhorhood Organization",
     sourceContacts = "Bart <b@rox.com>"
@@ -1801,7 +1801,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-06-15",
-    previousAlerts = Seq("2021-10-25"),
+    previousAlerts = Seq("2021-10-25"), // Responded to pull
     sourceName = "Shalamar Publishing",
     sourceContacts = "Deborah Dixon <deboracracy@gmail.com>"
   )

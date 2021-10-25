@@ -20,21 +20,25 @@ object Alerts {
     println(s"Reviewing ${PsaLongTermSpots.size} long-term spots")
 
     val now = LocalDate.now
+
+    val allAlertable = for (
+      spot <- PsaLongTermSpots.all;
+      if spot.end.map(_.isAfter(now)).getOrElse(true) // Still running
+      && spot.alert.isBefore(now) // Time to alert
+    ) yield spot
+
     val emailAlertable = {
       val builder = Set.newBuilder[Spot]
-      for (
-        spot <- PsaLongTermSpots.all;
-        if spot.alert.isBefore(now) && spot.sourceContacts.length > 0
-      ) do builder += spot
+      for (spot <- allAlertable; if spot.sourceContacts.length > 0)
+        do builder += spot
       builder.result
     }
     println(s"${emailAlertable.size} spot(s) alertable by email")
 
     val webAlertable = {
       val builder = Set.newBuilder[Spot]
-      for (
-        spot <- PsaLongTermSpots.all;
-        if spot.alert.isBefore(now) && spot.sourceContacts.length == 0
+      for (spot <- PsaLongTermSpots.all;
+        if spot.sourceContacts.length == 0
         && spot.sourceURL.length > 0
       ) do builder += spot
       builder.result
@@ -42,24 +46,19 @@ object Alerts {
     println(s"${webAlertable.size} spot(s) alertable online")
 
     for (spot <- webAlertable) do {
-      println("============================================================")
-      println(spot.tag)
+      showAlertHeader(spot)
       println("Check online at")
       for (url <- spot.sourceURL) do println("- " + url)
     }
 
     for (spot <- emailAlertable) do {
-      println("============================================================")
+      showAlertHeader(spot)
       var toSep = "To: "
       for (to <- spot.sourceContacts) do {
         print(toSep + to)
         toSep = ", "
       }
       println()
-      println(s"Subject: ${spot.sourceName.map(_ + " ").getOrElse("")}PSA on WTUL")
-      if (spot.previousAlerts.size > 0) {
-        println(s"PREVIOUS ALERTS: ${spot.previousAlerts.map(_.format(ALERT_DATE)).mkString(", ")}")
-      }
       println()
       println("Hi,")
       println()
@@ -78,6 +77,15 @@ object Alerts {
     }
 
     println("============================================================")
+  }
+
+  def showAlertHeader(spot: Spot): Unit = {
+    println("============================================================")
+    println(spot.tag)
+    println(s"Subject: ${spot.sourceName.map(_ + " ").getOrElse("")}PSA on WTUL")
+    if (spot.previousAlerts.size > 0) {
+      println(s"PREVIOUS ALERTS: ${spot.previousAlerts.map(_.format(ALERT_DATE)).mkString(", ")}")
+    }
   }
 
   val ALERT_DATE = DateTimeFormatter.ofPattern("MMMM d, yyyy")
