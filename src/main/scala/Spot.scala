@@ -46,7 +46,7 @@ class Spot(
   val sourceContacts: Seq[String] = Seq(),
   val sourceURL: Seq[String] = Seq(),
   val sourceNote: Option[String] = None,
-  val sourceName: Option[String] = None,
+  val orgName: Option[String] = None,
   val groupGainMultiplier: Double = 1.0,
   val variantGroup: Int = Spot.nextVariantGroup,
   val boost: Double = 0.0,

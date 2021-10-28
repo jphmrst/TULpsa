@@ -21,29 +21,27 @@ object Alerts {
 
     val now = LocalDate.now
 
-    val allAlertable = for (
-      spot <- PsaLongTermSpots.all;
-      if spot.end.map(_.isAfter(now)).getOrElse(true) // Still running
+    val allAlertable = PsaLongTermSpots.all.filter((spot) =>
+      spot.end.map(now.isBefore(_)).getOrElse(true) // Still running
       && spot.alert.isBefore(now) // Time to alert
-    ) yield spot
+    )
+    println(s"${allAlertable.size} spot(s) alertable")
 
-    val emailAlertable = {
-      val builder = Set.newBuilder[Spot]
-      for (spot <- allAlertable; if spot.sourceContacts.length > 0)
-        do builder += spot
-      builder.result
-    }
+    val emailAlertable =
+      allAlertable.filter((spot) => spot.sourceContacts.length > 0)
     println(s"${emailAlertable.size} spot(s) alertable by email")
 
-    val webAlertable = {
-      val builder = Set.newBuilder[Spot]
-      for (spot <- PsaLongTermSpots.all;
-        if spot.sourceContacts.length == 0
-        && spot.sourceURL.length > 0
-      ) do builder += spot
-      builder.result
-    }
+    val webAlertable = allAlertable.filter((spot) =>
+      spot.sourceContacts.length == 0 && spot.sourceURL.length > 0)
     println(s"${webAlertable.size} spot(s) alertable online")
+
+    val otherAlertable = allAlertable.filter((spot) =>
+      spot.sourceContacts.length == 0 && spot.sourceURL.length == 0)
+    println(s"${otherAlertable.size} other spot(s) alertable")
+
+    for (spot <- otherAlertable) do {
+      showAlertHeader(spot)
+    }
 
     for (spot <- webAlertable) do {
       showAlertHeader(spot)
@@ -62,7 +60,7 @@ object Alerts {
       println()
       println("Hi,")
       println()
-      println(s"I'm writing about the ${spot.sourceName.map(_ + " ").getOrElse("")}PSA which we are currently running in a long-term rotation on WTUL.  I have a note that you are the contact for this announcement, and I'd like to make sure that it is still current.  Please have a look at the text below, and let me know about any updates or changes that we should make to it.")
+      println(s"I'm writing about ${spot.orgName.map("a " + _).getOrElse("a")} public service announcement which we are currently running in a long-term rotation on WTUL.  I have a note that this email address is the contact for this announcement, and I'd like to make sure that it is still current.  Please have a look at the text below, and let me know about any updates or changes that we should make to it.")
       println()
       println("Please do respond even if there are no changes — we use these responses to make sure that a group or service is still operating.  Getting a reply to this email is a big step in making sure that an announcement continues to air.")
       println()
@@ -77,12 +75,13 @@ object Alerts {
     }
 
     println("============================================================")
+    println(s"Total alerts: ${webAlertable.size + emailAlertable.size + otherAlertable.size}")
   }
 
   def showAlertHeader(spot: Spot): Unit = {
     println("============================================================")
     println(spot.tag)
-    println(s"Subject: ${spot.sourceName.map(_ + " ").getOrElse("")}PSA on WTUL")
+    println(s"Subject: ${spot.orgName.map(_ + " ").getOrElse("")}PSA on WTUL")
     if (spot.previousAlerts.size > 0) {
       println(s"PREVIOUS ALERTS: ${spot.previousAlerts.map(_.format(ALERT_DATE)).mkString(", ")}")
     }
