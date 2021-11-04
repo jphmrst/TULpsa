@@ -10,7 +10,7 @@ import java.util.Locale.US
 import java.time.{LocalDate,LocalDateTime}
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle.FULL
-import org.maraist.latex.{LaTeXRenderable, LaTeXdoc}
+import org.maraist.latex.{LaTeXRenderable,LaTeXdoc}
 import org.maraist.wtulrosters.Utils.insertBetween
 
 /** A collection of announcements (represented as [[Spot]]s)
@@ -59,8 +59,9 @@ abstract class Roster(
       else startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + "--" + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
   }
 
-  /** Write the contents of this document to a [[LaTeXdoc]].  This
-    * method assumes that `doc` is new, and has not yet been opened.
+  /** Write the contents of this document to a
+    * [[org.maraist.latex.LaTeXdoc][LaTeXdoc]].  This method assumes
+    * that `doc` is new, and has not yet been opened.
     */
   def toLaTeX(doc: LaTeXdoc): Unit = {
     val groups: List[SpotGroup] = SpotGroup(slots)
@@ -118,9 +119,10 @@ abstract class Roster(
     */
   def fileTitle: String = startDate.toString()
 
-  /** Creates and returns a [[LaTeXdoc]] which this instance should use
-    * when writing its contents.  This method is responsible for
-    * calling `open` on its result before returning it.
+  /** Creates and returns a [[org.maraist.latex.LaTeXdoc][LaTeXdoc]]
+    * which this instance should use when writing its contents.  This
+    * method is responsible for calling `open` on its result before
+    * returning it.
     */
   def openDoc: LaTeXdoc = {
     val doc = new LaTeXdoc(fileTitle)
@@ -140,14 +142,14 @@ abstract class Roster(
     doc
   }
 
-  /** Finishes the [[LaTeXdoc]] used for writing this instance's
-    * contents.  This method is responsible for calling `close` of its
-    * argument before returning.  By default this method only calls
-    * `close`, but may be overridden to add additional closing
-    * material.
+  /** Finishes the [[org.maraist.latex.LaTeXdoc][LaTeXdoc]] used for
+    * writing this instance's contents.  This method is responsible
+    * for calling `close` of its argument before returning.  By
+    * default this method only calls `close`, but may be overridden to
+    * add additional closing material.
     *
-    * @param doc A [[LaTeXdoc]] to which this instance's contents have
-    * been written.
+    * @param doc A [[org.maraist.latex.LaTeXdoc][LaTeXdoc]] to which
+    * this instance's contents have been written.
     */
   def closeDoc(doc: LaTeXdoc) = {
     doc.close()

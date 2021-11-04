@@ -68,8 +68,9 @@ abstract class RosterBuilder(
     *
     * This method should not be called unless a [[Spot]] has been
     * assigned to all `size` slots.  Assembling the result will fail
-    * with an [[IllegalStateException]] if an [[Unassigned]] slot is
-    * found.
+    * with an
+    * [[java.lang.IllegalStateException][IllegalStateException]] if an
+    * [[Unassigned]] slot is found.
     */
   def result(): Roster = new Roster(
     startDate,

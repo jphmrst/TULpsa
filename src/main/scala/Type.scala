@@ -39,8 +39,8 @@ abstract class RosterType {
   }
 
   /** Write several weeks of rosters beginning from a particular date.
-    * @return The [[Builder]] for the [[Seq]] of [[String]]s naming
-    * the generated files.
+    * @return The [[scala.collection.mutable.Builder][Builder]] for
+    * the [[Seq]] of [[String]]s naming the generated files.
     */
   def writeNWeeks(
     date: LocalDate = LocalDate.now(),

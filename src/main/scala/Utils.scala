@@ -15,7 +15,8 @@ object Utils {
 
   trait Converters {
 
-    /** Convert a [[String]] to a [[LocalDate]] by parsing the string.
+    /** Convert a [[String]] to a [[java.time.LocalDate][LocalDate]] by
+      * parsing the string.
       */
     given stringToLocalDate: Conversion[String, LocalDate] = LocalDate.parse(_)
 
