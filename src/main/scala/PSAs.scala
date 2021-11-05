@@ -859,6 +859,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Kid Camera"),
     start = "2021-06-22",
     alert = "2021-10-30",
+    previousAlerts = Seq("2021-11-04"),
     copresent = "the New Orleans Kid Camera Project",
     sourceContacts = "info@kidcameraproject.org",
     sourceURL = "http://www.kidcameraproject.org/Contacts.html",
@@ -872,6 +873,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Metropolitan Human Services"),
     start = "2021-06-22",
     alert = "2021-11-01",
+    previousAlerts = Seq("2021-11-04"),
     sourceContacts = "Brenda.Edgerton-Webster@la.gov",
     sourceNote = "added Feb. 12"
   )
@@ -883,6 +885,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Habitat"),
     start = "2021-06-22",
     alert = "2021-11-01",
+    previousAlerts = Seq("2021-11-04"),
     sourceContacts = "communications@habitat-nola.org",
     sourceNote = "live June 2013"
   )
@@ -894,6 +897,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("STAR"),
     start = "2021-06-22",
     alert = "2021-11-01",
+    previousAlerts = Seq("2021-11-04"),
     sourceContacts = Seq(
       "Margaret Reynolds <margaret.reynolds@star.ngo>",
       "Michaela Lovejoy <michaela.lovejoy@star.ngo>"
@@ -908,6 +912,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Faith Health Alliance"),
     start = "2021-06-22",
     alert = "2021-11-01",
+    previousAlerts = Seq("2021-11-04"),
     sourceContacts = "information@NOFHA.org",
     sourceNote = "asked June 2013"
   )
@@ -918,8 +923,20 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "The Louisiana Department of Environmental Quality offers a reporting line for questions and concerns: 888/763-5424. The federal EPA has a hotline for hazardous waste pickup: 800/401-1327.",
     orgName = Some("Department of Environmental Quality"),
     start = "2021-06-22",
+    end = Some("2021-11-07"),
     alert = "2021-11-01",
     sourceNote = "(no email address)"
+  )
+
+  Spot(
+    "EnvironmentProtectionAgencies2",
+    Services,
+    "The Louisiana Department of Environmental Quality offers a reporting line for questions and concerns: 888/763-5424. The federal EPA has several hotlines for different kinds of waste and emergencies.  The federal hotline for emergency events, spills and releases is 800/424-8802.  Other federal hotlines can be found online at \\online{E P A dot G O V slash about E P A slash E P A hyphen hotlines}.",
+    orgName = Some("Department of Environmental Quality"),
+    start = "2021-11-15",
+    alert = "2022-11-01",
+    sourceURL = "https://www.epa.gov/aboutepa/epa-hotlines",
+    sourceNote = "https://keeplouisianabeautiful.org/wp-content/uploads/2015/09/FLYER.pdf"
   )
 
   Spot(
