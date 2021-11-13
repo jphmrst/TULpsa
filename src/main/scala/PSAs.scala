@@ -280,7 +280,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Historic New Orleans Collection"),
     start = "2021-11-01",
     alert = "2021-07-23",
-    previousAlerts = Seq("2021-10-27"),
+    previousAlerts = Seq("2021-10-27", "2021-11-13"),
     sourceContacts = Seq("wrc@hnoc.org")
   )
 
@@ -859,7 +859,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Kid Camera"),
     start = "2021-06-22",
     alert = "2021-10-30",
-    previousAlerts = Seq("2021-11-04"),
+    previousAlerts = Seq("2021-11-04", "2021-11-13"),
     copresent = "the New Orleans Kid Camera Project",
     sourceContacts = "info@kidcameraproject.org",
     sourceURL = "http://www.kidcameraproject.org/Contacts.html",
@@ -873,7 +873,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Metropolitan Human Services"),
     start = "2021-06-22",
     alert = "2021-11-01",
-    previousAlerts = Seq("2021-11-04"),
+    previousAlerts = Seq("2021-11-04", "2021-11-13"),
     sourceContacts = "Brenda.Edgerton-Webster@la.gov",
     sourceNote = "added Feb. 12"
   )
@@ -885,7 +885,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Habitat"),
     start = "2021-06-22",
     alert = "2021-11-01",
-    previousAlerts = Seq("2021-11-04"),
+    previousAlerts = Seq("2021-11-04", "2021-11-13"),
     sourceContacts = "communications@habitat-nola.org",
     sourceNote = "live June 2013"
   )
@@ -897,7 +897,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("STAR"),
     start = "2021-06-22",
     alert = "2021-11-01",
-    previousAlerts = Seq("2021-11-04"),
+    previousAlerts = Seq("2021-11-04", "2021-11-13"),
     sourceContacts = Seq(
       "Margaret Reynolds <margaret.reynolds@star.ngo>",
       "Michaela Lovejoy <michaela.lovejoy@star.ngo>"
@@ -913,6 +913,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2021-11-01",
     previousAlerts = Seq("2021-11-04"),
+    end = Some("2021-11-14"),
     sourceContacts = "information@NOFHA.org",
     sourceNote = "asked June 2013"
   )
@@ -946,7 +947,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Partnership for Prescription Assistance"),
     start = "2021-06-22",
     alert = "2021-11-05",
-    sourceNote = "(old spot, phone number only) asked June 2013"
+    end = Some("2021-11-13"),
+    sourceNote = "Seems abandoned Nov. 2021.   Previous note: (old spot, phone number only) asked June 2013"
   )
 
   Spot(
@@ -956,6 +958,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Assistive Technology Access Network"),
     start = "2021-06-22",
     alert = "2021-11-05",
+    previousAlerts = Seq("2021-11-13"),
     sourceContacts = "Maria Yiannopoulos <mariay@latan.org>",
     sourceNote = "asked June 2013"
   )
@@ -967,6 +970,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Odyssey House"),
     start = "2021-06-22",
     alert = "2021-11-05",
+    previousAlerts = Seq("2021-11-13"),
     copresent = "Odyssey House Louisiana",
     sourceContacts = "atucker@ohlinc.org",
     sourceNote = "confirmed August 2009"
@@ -979,6 +983,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Zeus's"),
     start = "2021-06-22",
     alert = "2021-11-05",
+    previousAlerts = Seq("2021-11-13"),
     sourceContacts = "Kellie Grengs <kelliegrengs@yahoo.com>"
   )
 
@@ -997,6 +1002,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "Louisiana residents can enjoy several of New Orleans' museum admission-free every week.  Visitors need only their Louisiana ID every Wednesday at the Botanical Garden and Museum of Art, every Thursday at the Ogden Museum of Southern Art, and every Sunday at the Contemporary Arts Center. \\MoreWeb{the H E L I S foundation dot O R G}",
     start = "2021-06-22",
     alert = "2021-11-05",
+    previousAlerts = Seq("2021-11-13"),
     sourceContacts = "Ally Hodapp <ahodapp@bondmoroch.com>"
   )
 
@@ -1007,6 +1013,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Family Coaching"),
     start = "2021-06-22",
     alert = "2021-11-12",
+    previousAlerts = Seq("2021-11-13"),
     sourceContacts = "Andrea Thames <Andrea.Thames@la.gov>"
   )
 
@@ -1017,6 +1024,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("RTA"),
     start = "2021-06-22",
     alert = "2021-11-12",
+    previousAlerts = Seq("2021-11-13"),
     sourceContacts = "Tiffany Pounds <tpounds@lighthouselouisiana.org>"
   )
 
@@ -1027,7 +1035,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Abortion Fund"),
     start = "2021-06-22",
     alert = "2021-11-12",
-    sourceNote = "Steffani Bangel <steffani@neworleansabortionfund.org>"
+    sourceContacts = "info@neworleansabortionfund.org",
+    sourceNote = "Previous contact Steffani Bangel <steffani@neworleansabortionfund.org> bouncing."
   )
 
   Spot(
@@ -1036,7 +1045,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "You can save up to five gallons of water every day just by turning off the tap while brushing your teeth.  It adds up --- that's thirty five gallons a week saved during a simple everyday chore.  More tips on living green are available online at \textsl{go green NOLA dot org slash go green tips}.",
     orgName = Some("GoGreen"),
     start = "2021-06-22",
-    alert = "2021-11-12",
+    alert = "2022-11-12",
     sourceContacts = "gogreennola@gmail.com"
   )
 
