@@ -18,4 +18,4 @@ lazy val root = project
       "com.novocode" % "junit-interface" % "0.11" % "test",
       "org.maraist" %% "scala-latex" % "1.1.1"
     )
-  )
+  ).dependsOn(RootProject(file("/home/jm/Lib/Scala/Outlines/")))
