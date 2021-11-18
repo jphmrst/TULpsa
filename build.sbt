@@ -15,7 +15,10 @@ lazy val root = project
   .settings(
     scalaVersion := scala3Version,
     libraryDependencies ++= Seq(
-      "com.novocode" % "junit-interface" % "0.11" % "test",
-      "org.maraist" %% "scala-latex" % "1.1.1"
+      "com.novocode" % "junit-interface" % "0.11" % "test"
+//        ,
+//      "org.maraist" %% "scala-latex" % "1.1.1",
+//      "org.maraist" %% "scala-outlines" % "3.1"
     )
   ).dependsOn(RootProject(file("/home/jm/Lib/Scala/Outlines/")))
+  .dependsOn(RootProject(file("/home/jm/Lib/Scala/LaTeX/")))

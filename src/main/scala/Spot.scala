@@ -7,6 +7,7 @@
 
 package org.maraist.wtulrosters
 import java.time.LocalDate
+import org.maraist.structext.StructText
 
 /** Class representing one announcement.
   *
@@ -38,7 +39,7 @@ import java.time.LocalDate
 class Spot(
   val tag: String,
   val group: Group,
-  val text: String,
+  val text: StructText,
   val copresent: Option[String] = None,
   val start: LocalDate,
   val alert: LocalDate,

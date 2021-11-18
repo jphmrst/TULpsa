@@ -9,6 +9,7 @@ package org.maraist.wtulrosters
 import java.util.Locale.US
 import java.time.LocalDate
 import java.time.format.TextStyle.FULL
+import org.maraist.structext.fromString
 import org.maraist.wtulrosters.Group.Events
 
 /** Creating [[Spot]]s for announcing an event in the time beforehand.

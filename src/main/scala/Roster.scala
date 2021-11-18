@@ -95,7 +95,7 @@ abstract class Roster(
       doc ++= "}\n"
 
       doc ++= "\\\\\n"
-      doc ++= group.spot.text
+      group.spot.text.toLaTeX(doc)
       doc ++= "\n\\end{minipage}\n"
     }
     doc ++= "\\vspace*{\\fill}\n"
