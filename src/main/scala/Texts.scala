@@ -11,6 +11,8 @@ import org.maraist.structext.StructText.*
 
 val am: StructText = sc("am")
 val pm: StructText = sc("pm")
+val period: StructText = str(".")
+val comma: StructText = str(",")
 
 def online(txt: String): StructText = sl(str(txt))
 

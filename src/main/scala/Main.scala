@@ -8,7 +8,7 @@
 package wtul.rosters
 import java.time.LocalDate
 import org.maraist.wtulrosters.{
-  PsaLongTermSpots, PsaRosters, PsaScheduling, Alerts}
+  PsaLongTermSpots, PsaRosters, PsaScheduling, Alerts, Voice}
 import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def batch: Unit = {
@@ -35,4 +35,8 @@ import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def alerts: Unit = {
   Alerts.printAlerts()
+}
+
+@main def voicetest: Unit = {
+  Voice.listVoices
 }

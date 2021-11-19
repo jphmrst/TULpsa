@@ -9,7 +9,8 @@ package org.maraist.wtulrosters
 import java.util.Locale.US
 import java.time.LocalDate
 import java.time.format.TextStyle.FULL
-import org.maraist.structext.fromString
+import org.maraist.structext.StructText
+import org.maraist.structext.StructText.*
 import org.maraist.wtulrosters.Group.Events
 
 /** Creating [[Spot]]s for announcing an event in the time beforehand.
@@ -43,7 +44,7 @@ object Event {
     */
   def apply(
     baseTag: String,
-    template: String,
+    template: StructText,
     eventDate: LocalDate,
     givenStart: Option[LocalDate] = None,
     spotsCopresent: Option[String] = None,
@@ -78,10 +79,10 @@ object Event {
     val tomorrowCore = s"omorrow, $eventWeekDay $eventCardinalDate"
     Spot(baseTag + "Tmrw", Events,
       placeTemplate(template,
-        "T" + tomorrowCore + ",",
-        "t" + tomorrowCore + ",",
-        "t" + tomorrowCore + ",",
-        "t" + tomorrowCore + "."),
+        str("T" + tomorrowCore) > comma,
+        str("t" + tomorrowCore) > comma,
+        str("t" + tomorrowCore) > comma,
+        str("t" + tomorrowCore) > period),
       spotsCopresent,
       tomorrow,
       LocalDate.MAX,
@@ -107,10 +108,10 @@ object Event {
     val thisWeekCore = "his " + eventWeekDay + ", " + eventCardinalDate
     Spot(baseTag + "This", Events,
       placeTemplate(template,
-        "T" + thisWeekCore + ",",
-        "t" + thisWeekCore + ",",
-        "t" + thisWeekCore + ",",
-        "t" + thisWeekCore + "."),
+        str("T" + thisWeekCore) > comma,
+        str("t" + thisWeekCore) > comma,
+        str("t" + thisWeekCore) > comma,
+        str("t" + thisWeekCore) > period),
       spotsCopresent,
       thisWeekStartDate,
       LocalDate.MAX,
@@ -134,10 +135,10 @@ object Event {
     val nextWeekCore = "ext " + eventWeekDay + ", " + eventCardinalDate
     Spot(baseTag + "Next", Events,
       placeTemplate(template,
-        "N" + nextWeekCore + ",",
-        "n" + nextWeekCore + ",",
-        "n" + nextWeekCore + ",",
-        "n" + nextWeekCore + "."),
+        str("N" + nextWeekCore) > comma,
+        str("n" + nextWeekCore) > comma,
+        str("n" + nextWeekCore) > comma,
+        str("n" + nextWeekCore) > period),
       spotsCopresent,
       nextWeekStartDate,
       LocalDate.MAX,
@@ -163,10 +164,10 @@ object Event {
       val thisMonthCore = "n " + eventWeekDay + " " + eventCardinalDate
       Spot(baseTag + "Month", Events,
         placeTemplate(template,
-          "O" + thisMonthCore + ",",
-          "o" + thisMonthCore + ",",
-          "o" + thisMonthCore + ",",
-          "o" + thisMonthCore + "."),
+          str("O" + thisMonthCore) > comma,
+          str("o" + thisMonthCore) > comma,
+          str("o" + thisMonthCore) > comma,
+          str("o" + thisMonthCore) > period),
         spotsCopresent,
         thisMonthStartDate,
         LocalDate.MAX,
@@ -192,10 +193,10 @@ object Event {
         " " + eventCardinalDate)
     Spot(baseTag + "Far", Events,
       placeTemplate(template,
-        "O" + nextMonthCore + ",",
-        "o" + nextMonthCore + ",",
-        "o" + nextMonthCore + ",",
-        "o" + nextMonthCore + "."),
+        str("O" + nextMonthCore) > comma,
+        str("o" + nextMonthCore) > comma,
+        str("o" + nextMonthCore) > comma,
+        str("o" + nextMonthCore) > period),
       spotsCopresent,
       startDate,
       LocalDate.MAX,
@@ -214,16 +215,16 @@ object Event {
     * text.
     */
   def placeTemplate(
-    template: String,
-    whenCap: String,
-    whenLC: String,
-    whenComma: String,
-    whenPeriod: String
-  ): String = template
-    .replace("%%When%%", whenCap)
-    .replace("%%when%%", whenLC)
-    .replace("%%when,%%", whenComma)
-    .replace("%%when.%%", whenPeriod)
+    template: StructText,
+    whenCap: StructText,
+    whenLC: StructText,
+    whenComma: StructText,
+    whenPeriod: StructText
+  ): StructText = template
+    .fill("When", whenCap)
+    .fill("when", whenLC)
+    .fill("when,", whenComma)
+    .fill("when.", whenPeriod)
 
   /** Format an integer as a cardinal reference.  We only need to go up
     * to the highest date number for any month.

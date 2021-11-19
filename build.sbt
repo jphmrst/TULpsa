@@ -16,13 +16,15 @@ lazy val root = project
     scalaVersion := scala3Version,
     libraryDependencies ++= Seq(
       "com.novocode" % "junit-interface" % "0.11" % "test",
-      "org.maraist" %% "scala-latex" % "2.0.1",
-      "org.maraist" %% "scala-outlines" % "2.0.0"
+      "com.google.cloud" % "google-cloud-texttospeech" % "2.0.6",
+      "org.maraist" %% "scala-latex" % "2.0.1"
+      //   ,
+      // "org.maraist" %% "scala-outlines" % "2.0.0"
     )
   )
    // These lines are normally commented out, unless there are local
    // additions to these libraries which have not yet cycled through
    // to the Scaladex.
    //
-   // .dependsOn(RootProject(file("/home/jm/Lib/Scala/Outlines/")))
+   .dependsOn(RootProject(file("/home/jm/Lib/Scala/Outlines/")))
    // .dependsOn(RootProject(file("/home/jm/Lib/Scala/LaTeX/")))
