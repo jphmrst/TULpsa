@@ -199,7 +199,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   )
 
   Event("MapleLeafVaxDayAug2021",
-    """The Maple Leaf will host a vaccination day at their bar %%when,%% from 6 to") + pm("10") + str("in cooperation with Castellon pharmacy.  The bar will be open, and there will be live music for your listening pleasure.  People will be offered their choice of either the single-dose Johnson-and-Johnson vaccine, or the two-dose Pfizer vaccine.  There is no charge for vaccination for COVID-19.  Again, the vaccination day will be %%when,%% from 6 to") + pm("10") + str("at the Maple Leaf Bar.""",
+    """The Maple Leaf will host a vaccination day at their bar %%when,%% from 6 to ten") + pm + str("in cooperation with Castellon pharmacy.  The bar will be open, and there will be live music for your listening pleasure.  People will be offered their choice of either the single-dose Johnson-and-Johnson vaccine, or the two-dose Pfizer vaccine.  There is no charge for vaccination for COVID-19.  Again, the vaccination day will be %%when,%% from six to ten") + pm + str("at the Maple Leaf Bar.""",
     "2021-08-14",
     spotsSourceNote = "Facebook post in WTUL group."
   )
@@ -211,7 +211,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   )
 
 //  Event("LionsScreeningsLakesideAug2021",
-//    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be %%when,%% from") + am("eleven") + str("to") + pm("3") + str("in the center court of the Lakeside Shopping Center.""",
+//    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services %%when.%%  Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be %%when,%% from eleven") + am + str("to three") + pm + str("in the center court of the Lakeside Shopping Center.""",
 //    "2021-08-28",
 //    spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
 //  )
@@ -241,7 +241,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "CrescentCareTestingAug21",
     Services,
-    str("Crescent Care, formerly The NO/AIDS Task Force, offers no-cost rapid HIV testing. The test is quick and painless. It requires only a sample of oral fluid and results are available in as little as twenty minutes. You can be tested at their Saint Roch (``rock'') location, 1631 Elysian Fields, on Tuesdays from noon to") + pmc("five") + str(" Wednesdays from") + am("10") + str("to") + pmp("five") + str("Thursdays from") + am("10") + str("to") + pmc("three") + str("and Fridays from") + am("10") + str("to") + pmp("five") + str("Take-home HIV tests are also available five days a week from") + am("9") + str("to") + pm("5") + str("at the same location.") + moreWeb("crescent care dot O R G"),
+    str("Crescent Care, formerly The NO/AIDS Task Force, offers no-cost rapid HIV testing. The test is quick and painless. It requires only a sample of oral fluid and results are available in as little as twenty minutes. You can be tested at their Saint Roch (``rock'') location, 1631 Elysian Fields, on Tuesdays from noon to five") + (pm > str(",")) + str(" Wednesdays from ten") + am + str("to five") + (pm > str(".")) + str("Thursdays from ten") + am + str("to three") + (pm > str(",")) + str("and Fridays from ten") + am + str("to five") + (pm > str(".")) + str("Take-home HIV tests are also available five days a week from nine") + am + str("to five") + pm + str("at the same location.") + moreWeb("crescent care dot O R G"),
     orgName = Some("Crescent Care"),
     start = "2021-08-12",
     alert = "2022-01-23",
@@ -255,7 +255,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "VoteDotOrg",
     Volunteer,
-    str("Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?  You can find out more about voter and election information at") + online("vote dot O R G.") + str("Quick links will connect you to every state.  For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker. More information is available at") + online("vote dot O R G"),
+    str("Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?  You can find out more about voter and election information at") + online("vote dot O R G.") + str("Quick links will connect you to every state.  For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker.") + moreWeb("vote dot O R G"),
     orgName = Some("VoteDotOrg"),
     start = "2021-06-22",
     alert = "2023-03-23",
@@ -360,7 +360,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BirthingProjectGeneral",
     Volunteer,
-    str("The New Orleans Birthing Project provides \\emph{sister friends}, mentors for pregnant women of any age. They are seeking volunteers to be sister friends.") + moreWebPhoneAnnounce("More information about becoming or having a sister friend is", "nola at birthing project U S A dot O R G", "504/482-6388"),
+    str("The New Orleans Birthing Project provides") + emph("sister friends,") + str("mentors for pregnant women of any age. They are seeking volunteers to be sister friends.") + moreWebPhoneAnnounce("More information about becoming or having a sister friend is", "nola at birthing project U S A dot O R G", "504/482-6388"),
     orgName = Some("New Orleans Birthing Project"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -616,7 +616,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LCMtoddlerTime",
     Edu,
-    str("Every Thursday, the Louisiana Children's Museum hosts ``Toddler Time,'' activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to") + amp("10:30") + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot org", "504/523-1357"),
+    str("Every Thursday, the Louisiana Children's Museum hosts ``Toddler Time,'' activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to ten-thirty") + (am > str(".")) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot org", "504/523-1357"),
     orgName = Some("LCM"),
     start = "2021-06-22",
     alert = "2022-05-15",
@@ -657,7 +657,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LCMfamilyGames",
     Edu,
-    str("Every Thursday, the Louisiana Children's Museum hosts ``Family Game Night,'' from four to") + pmp("six") + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot org", "504/523-1357"),
+    str("Every Thursday, the Louisiana Children's Museum hosts ``Family Game Night,'' from four to six") + (pm > str(".")) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot org", "504/523-1357"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2022-05-15",
@@ -823,7 +823,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "Lighthouse",
     Services,
-    str("The Lighthouse for the Blind serves the blind and visually impaired by providing job training, competitive employment, and services.  Their visual aids store is open weekdays from") + am("eight") + str("to") + pmc("four-thirty") + str("and is located at 123 State Street.") + moreWebPhone("lighthouse louisiana dot org", "504/899-4501"),
+    str("The Lighthouse for the Blind serves the blind and visually impaired by providing job training, competitive employment, and services.  Their visual aids store is open weekdays from eight") + am + str("to four-thirty") + (pm > str(",")) + str("and is located at 123 State Street.") + moreWebPhone("lighthouse louisiana dot org", "504/899-4501"),
     orgName = Some("Lighthouse"),
     start = "2021-06-22",
     alert = "2022-07-15",
@@ -1020,7 +1020,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BlindRTA",
     Services,
-    str("The Regional Transit Authority (RTA) has launched a new Assistance Card Program for visiually impaired bus and streetcar passengers.  The program improves communication between operators and passengers by using color-coded cards to give information about the accommodations needed for the passenger.  The cards can be obtained at Lighthouse Louisiana's New Orleans location, 123 State Street, or at RTA Headquarters, 2817 Canal Street.." + morePhoneAnnounce("The assistance cards, and more information about the program, are", "504/899-4501 extension 245")) + str("Brailed cards are available upon request."),
+    str("The Regional Transit Authority (RTA) has launched a new Assistance Card Program for visiually impaired bus and streetcar passengers.  The program improves communication between operators and passengers by using color-coded cards to give information about the accommodations needed for the passenger.  The cards can be obtained at Lighthouse Louisiana's New Orleans location, 123 State Street, or at RTA Headquarters, 2817 Canal Street." + morePhoneAnnounce("The assistance cards, and more information about the program, are", "504/899-4501 extension 245")) + str("Brailed cards are available upon request."),
     orgName = Some("RTA"),
     start = "2021-06-22",
     alert = "2021-11-12",
@@ -1044,7 +1044,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GoGreenWaterOff",
     Eco,
-    str("You can save up to five gallons of water every day just by turning off the tap while brushing your teeth.  It adds up --- that's thirty five gallons a week saved during a simple everyday chore.  More tips on living green are available online at \textsl{go green NOLA dot org slash go green tips}."),
+    str("You can save up to five gallons of water every day just by turning off the tap while brushing your teeth.  It adds up --- that's thirty five gallons a week saved during a simple everyday chore.  More tips on living green are available online at") + online("go green NOLA dot org slash go green tips."),
     orgName = Some("GoGreen"),
     start = "2021-06-22",
     alert = "2022-11-12",
@@ -1121,7 +1121,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GoGreenCompost",
     Eco,
-    str("Most organic trash can be used to feed our gardens.  More information about how to set up composting in your garden, and what kitchen waste can be composted is available from \\textsl{go green nola dot org slash gardening one zero one}."),
+    str("Most organic trash can be used to feed our gardens.  More information about how to set up composting in your garden, and what kitchen waste can be composted is available from") + online("go green nola dot org slash gardening one zero one."),
     start = "2021-06-22",
     alert = "2021-11-26",
     sourceContacts = "gogreennola@gmail.com"
@@ -1130,7 +1130,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GreenProjectConstructionWasteB",
     Eco,
-    str("The Green Project recycles building materials, which are then available for rebuilding and renovation of homes, reducing the waste going to landfills.  More information is available from The Green Project at 2831 Marais (``MAH-ray'') Street, or online at \textsl{the green project dot org}."),
+    str("The Green Project recycles building materials, which are then available for rebuilding and renovation of homes, reducing the waste going to landfills.  More information is available from The Green Project at 2831 Marais (``MAH-ray'') Street, or online at") + online("the green project dot org."),
     orgName = Some("Green Project"),
     start = "2021-06-22",
     alert = "2021-11-26",
@@ -1151,7 +1151,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DeprBipolarAllianceC",
     Health,
-    str("The Depression and Bipolar Support Alliance is a peer support group for people with bipolar disorder or depression, their families, and their friends.  The alliance meets the first and third Tuesdays of every month from seven to") + pm("eight") + str("online, and periodically outside when weather permits.") + moreWebPhone("www dot D B S A New Orleans dot org", "504/286-1916"),
+    str("The Depression and Bipolar Support Alliance is a peer support group for people with bipolar disorder or depression, their families, and their friends.  The alliance meets the first and third Tuesdays of every month from seven to eight") + pm + str("online, and periodically outside when weather permits.") + moreWebPhone("www dot D B S A New Orleans dot org", "504/286-1916"),
     orgName = Some("Depression and Bipolar Support Alliance"),
     start = "2021-06-22",
     alert = "2021-11-26",
@@ -1221,7 +1221,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "InternetPrescriptions",
     Health,
-    str("Increasing numbers of fraudulent websites are selling counterfeit medicines.  You can avoid danger when purchasing drugs online by following a few simple safety guidelines. Legitimate e-pharmacies will not allow you to purchase prescription medication without a valid prescription. Legitimate e-pharmacies should also have an easy way for you to contact a real pharmacist for a medical consultation. Risks can be further reduced by avoiding sites that do not display a physical U.S.\\ street address and a toll-free phone number, and avoiding websites that sell only ``lifestyle'' medications used to treat conditions such as obesity and impotence.  The National Association of Boards of Pharmacy has created a web site to identify online pharmacies that are legitimate and appropriately licensed at \\textsl{V I P P S dot info}."),
+    str("Increasing numbers of fraudulent websites are selling counterfeit medicines.  You can avoid danger when purchasing drugs online by following a few simple safety guidelines. Legitimate e-pharmacies will not allow you to purchase prescription medication without a valid prescription. Legitimate e-pharmacies should also have an easy way for you to contact a real pharmacist for a medical consultation. Risks can be further reduced by avoiding sites that do not display a physical US street address and a toll-free phone number, and avoiding websites that sell only ``lifestyle'' medications used to treat conditions such as obesity and impotence.  The National Association of Boards of Pharmacy has created a web site to identify online pharmacies that are legitimate and appropriately licensed at") + online("V I P P S dot info."),
     start = "2021-06-22",
     alert = "2021-12-04",
     copresent = "the Partnership for Safe Medicines",
@@ -1301,7 +1301,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "TesticularCancerA",
     Health,
-    str("Testicular cancer is the most common cancer in men between the ages of 15 and 35.  When detected early, both sexual function and fertility can be preserved.  But if left untreated, the disease will spread, and become life-threatening.   A simple and effective self-examination is available from your doctor, or online at \\textsl{T C R C dot A C O R dot O R G}."),
+    str("Testicular cancer is the most common cancer in men between the ages of 15 and 35.  When detected early, both sexual function and fertility can be preserved.  But if left untreated, the disease will spread, and become life-threatening.   A simple and effective self-examination is available from your doctor, or online at") + online("T C R C dot A C O R dot O R G."),
     start = "2021-06-22",
     alert = "2021-12-11",
     copresent = "the Testicular Cancer Resource Center",
@@ -1311,7 +1311,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "MedicarePlanFinder",
     Health,
-    str("Medicare Part D, the prescription drug benefit for seniors, now offers an online service for beneficiaries to find and compare prescription drug plans.  The service, called ``Plan Finder,'' is part of the website \\textsl{medicare dov G O V}.  To use the Plan Finder, seniors will need to first make a list of their current prescriptions and dosages.  With this information, Plan Finder will return a list of appropriate insurance plans, and their costs in your area.  Plan Finder can help you navigate the hundreds of private plans competing under Medicare Part D.") + moreWebPhone("medicare dot G O V", "1-800-MEDICARE"),
+    str("Medicare Part D, the prescription drug benefit for seniors, now offers an online service for beneficiaries to find and compare prescription drug plans.  The service, called ``Plan Finder,'' is part of the website") + online("medicare dot G O V.") + str("To use the Plan Finder, seniors will need to first make a list of their current prescriptions and dosages.  With this information, Plan Finder will return a list of appropriate insurance plans, and their costs in your area.  Plan Finder can help you navigate the hundreds of private plans competing under Medicare Part D.") + moreWebPhone("medicare dot G O V", "1-800-MEDICARE"),
     start = "2021-06-22",
     alert = "2021-12-11",
     copresent = "the Center for Medicine in the Public Interest",
@@ -1358,7 +1358,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "NarcanonScriptDrugAbuse",
     Health,
-    str("Prescription drug abuse is on the rise.  What's in your medicine cabinet? More information about how to keep your kids safe is available from Narconon at 877/413-3073, or online at \\textsl{drugs no dot com}."),
+    str("Prescription drug abuse is on the rise.  What's in your medicine cabinet? More information about how to keep your kids safe is available from Narconon at 877/413-3073, or online at") + online("drugs no dot com."),
     orgName = Some("Narconon"),
     start = "2021-06-22",
     alert = "2021-12-18",
@@ -1458,7 +1458,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "TerrytownCivic",
     Civic,
-    str("The Terrytown Civic Association meets the first Wednesday of each month at") + pm("7") + str("at the Golden Age Center, 604 Heritage Avenue.") + moreWebPhone("terrytown L A dot org", "504/914-2200"),
+    str("The Terrytown Civic Association meets the first Wednesday of each month at seven") + pm + str("at the Golden Age Center, 604 Heritage Avenue.") + moreWebPhone("terrytown L A dot org", "504/914-2200"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-06-15",
@@ -1512,7 +1512,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LowerNinthHomeowners",
     Civic,
-    str("The Lower Ninth Ward Homeowners' Association meets monthly, on the second Saturday of the month, at") + pm("one") + str("at Holy Angels Academy, 3500 Saint Claude Avenue."),
+    str("The Lower Ninth Ward Homeowners' Association meets monthly, on the second Saturday of the month, at one") + pm + str("at Holy Angels Academy, 3500 Saint Claude Avenue."),
     orgName = Some("Lower Ninth Ward Homeowners' Association"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
@@ -1542,7 +1542,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "NolaThreeOneOne",
     Civic,
-    str("NOLA 311 handles non-emergency city service requests such as City Assisted Evacuation registration, code enforcement complaints, street and sidewalk maintenance, street and traffic signs, traffic signals, street lights, abandoned vehicles and sanitation issues.  You can reach them weekdays from") + am("8") + str("to") + pm("5") + str("by dialing 311 from any phone based in New Orleans, or 504/658-2299, or 877/286-6431."),
+    str("NOLA 311 handles non-emergency city service requests such as City Assisted Evacuation registration, code enforcement complaints, street and sidewalk maintenance, street and traffic signs, traffic signals, street lights, abandoned vehicles and sanitation issues.  You can reach them weekdays from eight") + am + str("to five") + pm + str("by dialing 311 from any phone based in New Orleans, or 504/658-2299, or 877/286-6431."),
     orgName = Some("NOLA 311"),
     start = "2021-06-22",
     alert = "2022-01-12",
@@ -1583,7 +1583,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "FederalDepositoryLibrary",
     Civic,
-    str("Are you interested in information on science, technology, health, laws, the workings of the presidential administration, and more?  Your local Federal Depository Library provides open access to U.S.\\ government information.  You can find the library nearest you at") + online("G P O dot G O V slash libraries."),
+    str("Are you interested in information on science, technology, health, laws, the workings of the presidential administration, and more?  Your local Federal Depository Library provides open access to US government information.  You can find the library nearest you at") + online("G P O dot G O V slash libraries."),
     start = "2021-06-22",
     alert = "2026-07-15"
   )
@@ -1600,7 +1600,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "MidCityCommunityMeeting", Civic,
-    str("Mid-City Recovery Action Meetings take place on the first Monday of each month at") + pm("6:30") + str("at Grace Episcopal Church, 3700 Canal Street.  Their meetings are open to the public, and all are invited to help rebuild Mid-City. More information is available on the Mid-City Neigbhorhood Organization website, \\textsl{M C N O dot org}."),
+    str("Mid-City Recovery Action Meetings take place on the first Monday of each month at six-thirty") + pm + str("at Grace Episcopal Church, 3700 Canal Street.  Their meetings are open to the public, and all are invited to help rebuild Mid-City. More information is available on the Mid-City Neigbhorhood Organization website,") + online("M C N O dot org."),
     orgName = Some("Mid-City Neigbhorhood Organization"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
@@ -1677,7 +1677,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AnimalRescueNewOrleansB",
     Animal,
-    str("Animal Rescue New Orleans is a nonprofit no-kill animal shelter located at 271 Plauche (``PLAW-shay'') Street, off Jefferson Highway in Harahan, near the Huey P.\\ Long Bridge. They need volunteers to assist with office tasks, to care for cats and dogs, and to walk dogs in the evenings from 5:30-8:30.  All volunteers are welcome, and no advance signup is required.") + moreEmail("A R new orleans at aol dot com"),
+    str("Animal Rescue New Orleans is a nonprofit no-kill animal shelter located at 271 Plauche (``PLAW-shay'') Street, off Jefferson Highway in Harahan, near the Huey P Long Bridge. They need volunteers to assist with office tasks, to care for cats and dogs, and to walk dogs in the evenings from 5:30-8:30.  All volunteers are welcome, and no advance signup is required.") + moreEmail("A R new orleans at aol dot com"),
     orgName = Some("Animal Rescue"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
@@ -1730,7 +1730,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BeauregardKeyesRegular",
     Museum,
-    str("The Beauregard-Keyes (``BO-regard'') House, built in 1826 and named for two of its former tenants, is a fine example of a raised center hall house.  Visitors can explore the original furnishing of General Beauregard, and Mrs.\\ Keyes' collections of antiques.") + morePhone("504/523-7275") + nomuseumsdotcomblurb,
+    str("The Beauregard-Keyes (``BO-regard'') House, built in 1826 and named for two of its former tenants, is a fine example of a raised center hall house.  Visitors can explore the original furnishing of General Beauregard, and Mrs Keyes' collections of antiques.") + morePhone("504/523-7275") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-03",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1739,7 +1739,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DegasHouseRegular",
     Museum,
-    str("The Edgar Degas House was the home of the impressionist painter during his time in New Orleans, and is the only known home or studio of Degas that is open to the public. Tours of the home are conducted by appointment only, include a viewing of the award-winning documentary \\emph{Degas in New Orleans, A Creole Sojourn}, and support the Edgar Degas Foundation.") + moreWebPhone("www dot degas house dot com", "504/821-5009") + nomuseumsdotcomblurb,
+    str("The Edgar Degas House was the home of the impressionist painter during his time in New Orleans, and is the only known home or studio of Degas that is open to the public. Tours of the home are conducted by appointment only, include a viewing of the award-winning documentary") + emph("Degas in New Orleans, A Creole Sojourn,") + str("and support the Edgar Degas Foundation.") + moreWebPhone("www dot degas house dot com", "504/821-5009") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-10",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1794,7 +1794,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "PharmacyMuseumRegular",
     Museum,
-    str("The New Orleans Pharmacy Museum is the largest and finest pharmaceutical collection in the United States.  Housed in the French QUarter, in the 1823 apothecary of America's first licensed pharmacist, the Museum contains a collection of 19th-century pharmacy and medical artifacts including an exhibition on epidemics in New Orleans.") + moreWebPhone("www dot pharmacy museum dot org", "504/565-8027") + nomuseumsdotcomblurb,
+    str("The New Orleans Pharmacy Museum is the largest and finest pharmaceutical collection in the United States.  Housed in the French Quarter, in the 1823 apothecary of America's first licensed pharmacist, the Museum contains a collection of 19th-century pharmacy and medical artifacts including an exhibition on epidemics in New Orleans.") + moreWebPhone("www dot pharmacy museum dot org", "504/565-8027") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2024-03-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1848,7 +1848,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "OgdenAfterHours",
     Museum,
-    str("Every Thursday evening, The Ogden Museum of Southern Art presents \\emph{Ogden After Hours}, music in the atrium of the museum.  During these concerts, the museum also offers art activities for kids.") + moreWebPhone("www dot ogden museum dot org", "504/539-9600") + nomuseumsdotcomblurb,
+    str("Every Thursday evening, The Ogden Museum of Southern Art presents") + emph("Ogden After Hours,") + str("music in the atrium of the museum.  During these concerts, the museum also offers art activities for kids.") + moreWebPhone("www dot ogden museum dot org", "504/539-9600") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1893,7 +1893,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AfAmMuseumRegular",
     Museum,
-    str("The New Orleans African American Museum is dedicated to protecting, preserving, and promoting through education the history, art, and communities of African Americans in New Orleans and the African diaspora.  Five restored building over a full city block in the Tr\\`eme (``TREHM-ay'') host permanent and changing exhibits, and a serene garden.  Tour groups, school groups and individuals are welcomed by appointment only.") + moreWebPhoneAnnounce("Information and appointments are", "www dot N O A A M dot org", "504/566-1136") + nomuseumsdotcomblurb,
+    str("The New Orleans African American Museum is dedicated to protecting, preserving, and promoting through education the history, art, and communities of African Americans in New Orleans and the African diaspora.  Five restored building over a full city block in the Trème (``TREHM-ay'') host permanent and changing exhibits, and a serene garden.  Tour groups, school groups and individuals are welcomed by appointment only.") + moreWebPhoneAnnounce("Information and appointments are", "www dot N O A A M dot org", "504/566-1136") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1902,7 +1902,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SculptureGardenRegular",
     Museum,
-    str("The Besthoff Sculpture Garden occupies five acres of City Park, and is open to the public five days a week, Wednesdays through Sundays.  The collection includes work by some of the great master sculptors of the twentieth century, as well as younger, contemporary sculptors.") + moreWeb("www dot N O M A dot org.") + nomuseumsdotcomblurb,
+    str("The Besthoff Sculpture Garden occupies five acres of City Park, and is open to the public five days a week, Wednesdays through Sundays.  The collection includes work by some of the great master sculptors of the twentieth century, as well as younger, contemporary sculptors.") + moreWeb("www dot N O M A dot org") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1920,7 +1920,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "NOMAregular",
     Museum,
-    str("The New Orleans Museum of Art is the premier art museum of the Gulf South region.  NOMA's broad collection includes a notable collection of Faberg\\'e\\ eggs and treasures, and the Latin American Colonial collection.") + moreWebPhone("www dot N O M A dot org", "504/488-2631") + nomuseumsdotcomblurb,
+    str("The New Orleans Museum of Art is the premier art museum of the Gulf South region.  NOMA's broad collection includes a notable collection of Fabergé eggs and treasures, and the Latin American Colonial collection.") + moreWebPhone("www dot N O M A dot org", "504/488-2631") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1929,7 +1929,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DibollRegular",
     Museum,
-    str("The Collins C.\\ Diboll Art Gallery is a small museum dedicated to artifacts of Belgian Congo plus rotating exhibits, including exhibits of Loyola student and faculty work.  The gallery is located in the Monroe Library on Loyola's campus.") + moreWebPhone("www dot L O Y N O dot edu", "504/861-5456") + nomuseumsdotcomblurb,
+    str("The Collins C Diboll Art Gallery is a small museum dedicated to artifacts of Belgian Congo plus rotating exhibits, including exhibits of Loyola student and faculty work.  The gallery is located in the Monroe Library on Loyola's campus.") + moreWebPhone("www dot L O Y N O dot edu", "504/861-5456") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1965,7 +1965,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GallierHouseRegular",
     Museum, (
-      str("Gallier (``GAL-yer'') House, built in 1857, was described as ``one of thebest small museums in the country'' by the \\emph{New York Times}.  The house is a well-preserved example of progressive design, and is decorated throughout the year to reflect period seasonal styles.")
+      str("Gallier (``GAL-yer'') House, built in 1857, was described as ``one of thebest small museums in the country'' by the") + emph("New York Times.") + str("The house is a well-preserved example of progressive design, and is decorated throughout the year to reflect period seasonal styles.")
         + moreWebPhoneAnnounce("More information about Gallier (``GAL-yer'') House is", "www dot H G G H H dot org", "504/525-5661")
         + nomuseumsdotcomblurb
     ),
@@ -1977,7 +1977,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "ShalamarWritingWorkshop",
     Rare,
-    str("Shalamar Publishing holds writing workshops to offer feedback and advice to local writers.  Workshops are open to the public, and are held the first Sunday of each month at") + pm("six") + str("at the CC's Coffee at 3647 Veterans Memorial Boulevard in Metairie."),
+    str("Shalamar Publishing holds writing workshops to offer feedback and advice to local writers.  Workshops are open to the public, and are held the first Sunday of each month at six") + pm + str("at the CC's Coffee at 3647 Veterans Memorial Boulevard in Metairie."),
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-06-15",
@@ -1988,7 +1988,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "MicrowaveBoilingWater", Rare,
-    str("Boiling water in a microwave oven may seem easy and convenient --- but serious burns are never easy, or convenient.  Water heated by microwaves can \\emph{superheat}, leading to an explosion of steam and hot water when the container is picked up.  You can keep water from superheating by heating it in a wide-mouthed container like a mixing cup, never a narrow-mouthed container like a jar, and adding a wooden popsicle stick or toothpick to the water, to give bubbles a place to form.  Remember: no matter much of a hurry you're in, you don't have time for superheated microwave water scalding."),
+    str("Boiling water in a microwave oven may seem easy and convenient --- but serious burns are never easy, or convenient.  Water heated by microwaves can") + emph("superheat,") + str("leading to an explosion of steam and hot water when the container is picked up.  You can keep water from superheating by heating it in a wide-mouthed container like a mixing cup, never a narrow-mouthed container like a jar, and adding a wooden popsicle stick or toothpick to the water, to give bubbles a place to form.  Remember: no matter much of a hurry you're in, you don't have time for superheated microwave water scalding."),
     start = "2021-06-22",
     alert = "2029-07-15"
   )
@@ -1996,7 +1996,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "JobSeekersNOLA",
     Rare,
-    str("The Job Seekers Alliance is a networking group for New Orleans area individuals looking for work in the non-profit sector.  The group meets on the first and third Friday of each month from ten to") + am("eleven") + str("at 1824 Oretha Castle Haley Boulevard.") + moreWeb("J S A nola at gmail dot com"),
+    str("The Job Seekers Alliance is a networking group for New Orleans area individuals looking for work in the non-profit sector.  The group meets on the first and third Friday of each month from ten to eleven") + am + str("at 1824 Oretha Castle Haley Boulevard.") + moreWeb("J S A nola at gmail dot com"),
     orgName = Some("Job Seekers Alliance"),
     start = "2021-06-22",
     alert = "2022-02-24",
@@ -2026,7 +2026,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "SBAbeforeDistaster", Rare,
-    str("Before a disaster strikes, there are things you can do to protect yourself.  The U.S.\\ Small Business Administration encourages homeowners and small businesses to develop a disaster preparedness plan.  Preparation includes: having a battery operated radio on hand to monitor news and weather reports;  identifying possible hazards;  familiarizing yourself with escape routes for use in an emergency;  keeping phone numbers handy; and saving copies of financial records offsite to help speed up the recovery process.") + moreWeb("www dot S B A dot gov"),
+    str("Before a disaster strikes, there are things you can do to protect yourself.  The US Small Business Administration encourages homeowners and small businesses to develop a disaster preparedness plan.  Preparation includes: having a battery operated radio on hand to monitor news and weather reports;  identifying possible hazards;  familiarizing yourself with escape routes for use in an emergency;  keeping phone numbers handy; and saving copies of financial records offsite to help speed up the recovery process.") + moreWeb("www dot S B A dot gov"),
     orgName = Some("Small Business Administration"),
     sourceContacts = "Aaron Viles <aaron@healthygulf.org>",
     copresent = "U.S.\\ Small Business Administration",
@@ -2046,7 +2046,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "IrsWebSite",
     Taxtime,
-    str("The IRS website,") + online("I R S dot G O V") + str("is a one-stop shop for an array of tax information. You can even prepare and file your federal tax return through ``Free File,'' a service offered by IRS and its partners who offer tax preparation software and electronic filing as a public service. The site also includes answers to common tax questions, and lets you check the status of your refund. The IRS website is") + online("I R S dot G O V."),
+    str("The IRS website,") + online("I R S dot G O V") + str("is a one-stop shop for an array of tax information. You can even prepare and file your federal tax return through ``Free File,'' a service offered by IRS and its partners who offer tax preparation software and electronic filing as a public service. The site also includes answers to common tax questions, and lets you check the status of your refund. The IRS website is") + online("I R S dot G O V") > str("."),
     orgName = Some("IRS"),
     start = "2021-06-22",
     alert = "2022-07-15"
@@ -2054,7 +2054,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "IrsMilitaryHelp", Taxtime,
-    str("Free tax return preparation assistance is available for eligible military members and their spouses. Volunteers at military VITA sites are trained to address military-specific tax issues, such as combat zone tax benefits and the Earned Income Tax Credit guidelines. More information is available in IRS Publication 3, the \\emph{Armed Forces' Tax Guide}, available on the IRS web site") + online("I R S dot G O V,") + str("or by phone, 800/TAX-FORM, that's 800/829-3676."),
+    str("Free tax return preparation assistance is available for eligible military members and their spouses. Volunteers at military VITA sites are trained to address military-specific tax issues, such as combat zone tax benefits and the Earned Income Tax Credit guidelines. More information is available in IRS Publication 3, the") + emph("Armed Forces' Tax Guide}, available on the IRS web site") + online("I R S dot G O V,") + str("or by phone, 800/TAX-FORM, that's 800/829-3676."),
     orgName = Some("IRS"),
     start = "2021-06-22",
     alert = "2022-07-15"
@@ -2090,7 +2090,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "IrsScamAwareness",
     TaxAlways,
-    str("The IRS warns taxpayers to be wary of tax scams. They issue an annual ``Dirty Dozen'' tax scams list ranging from identity theft to return preparer fraud. More information, including warning signs and new scams, are available by search on the IRS website,") + online("I R S dot G O V"),
+    str("The IRS warns taxpayers to be wary of tax scams. They issue an annual ``Dirty Dozen'' tax scams list ranging from identity theft to return preparer fraud. More information, including warning signs and new scams, are available by search on the IRS website,") + online("I R S dot G O V") > str("."),
     orgName = Some("IRS"),
     start = "2021-06-22",
     alert = "2022-07-15"
@@ -2099,7 +2099,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "FemaApp",
     StormPrep,
-    str("FEMA, the Federal Emergency Management Agency, now has an app for hurricane season readiness.  You can get alerts from the National Weather Service, plus safety reminders, emergency checklists, and information about shelters.  More information about the app is available at") + online("fema dot G O V slash mobile hyphen app."),
+    str("FEMA, the Federal Emergency Management Agency, now has an app for hurricane season readiness.  You can get alerts from the National Weather Service, plus safety reminders, emergency checklists, and information about shelters.  More information about the app is available at") + online("fema dot G O V slash mobile hyphen app") > str("."),
     orgName = Some("FEMA"),
     copresent = "FEMA",
     start = "2021-07-12",
@@ -2109,7 +2109,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "FemaStormDocPrep",
     StormPrep,
-    str("If you need to evacuate for a hurricane, having important documents ready to go can help get your recovery process started quickly and efficiently in the worst cases.  Keep important papers in a fireproof, waterproof box or safe in your home next to the emergency kit. Store copies in an alternate location such as a safe deposit box, work place or trusted friend or family member's home.  You can make electronic copies and keep them on a flash drive or CD in your emergency kit, email copies to yourself, or upload them to a cloud storage service.  Other important documents to include are: birth certificates, passports, Social Security cards; insurance policies; deed, mortgage, lease and loan papers; lists of medications, allergies and medical equipment; photos of valuable belongings you may want to include in an insurance claim; and contact information for doctors, relatives, creditors and utilities.  More information on preparing for hurricanes is available at") + online("ready dot G O V slash hurricanes."),
+    str("If you need to evacuate for a hurricane, having important documents ready to go can help get your recovery process started quickly and efficiently in the worst cases.  Keep important papers in a fireproof, waterproof box or safe in your home next to the emergency kit. Store copies in an alternate location such as a safe deposit box, work place or trusted friend or family member's home.  You can make electronic copies and keep them on a flash drive or CD in your emergency kit, email copies to yourself, or upload them to a cloud storage service.  Other important documents to include are: birth certificates, passports, Social Security cards; insurance policies; deed, mortgage, lease and loan papers; lists of medications, allergies and medical equipment; photos of valuable belongings you may want to include in an insurance claim; and contact information for doctors, relatives, creditors and utilities.  More information on preparing for hurricanes is available at") + online("ready dot G O V slash hurricanes") > str("."),
     orgName = Some("FEMA"),
     copresent = "FEMA",
     start = "2021-07-12",
@@ -2138,7 +2138,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "Evacuteer",
     StormPrep,
-    str("Thousands of New Orleanians may need help evacuating this hurricane season.  You can assist by volunteering with Evacuteer, to help get people out of harm's way in case of an evacuation.  Evacuteer hosts one-hour volunteer trainings at libraries and community spaces throughout the city.") + moreWebAnnounce("More information, and registration for training, are", "evacuteer dot O R G.") + str("That's") + online("E V A C U T E E R dot O R G."),
+    str("Thousands of New Orleanians may need help evacuating this hurricane season.  You can assist by volunteering with Evacuteer, to help get people out of harm's way in case of an evacuation.  Evacuteer hosts one-hour volunteer trainings at libraries and community spaces throughout the city.") + moreWebAnnounce("More information, and registration for training, are", "evacuteer dot O R G.") + str("That's") + online("E V A C U T E E R dot O R G") > str("."),
     orgName = Some("Evacuteer"),
     start = "2021-06-22",
     alert = "2022-03-04",
@@ -2158,7 +2158,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HurricaneContraflowAlertB",
     StormPrep,
-    str("Do you know the way out of town in a hurricane evacuation?  When a storm is approaching, our interstate highways are rerouted for \\emph{contraflow}, where all lanes head away from the coast.  During contraflow it's important to know where you're going, because there may be few exits from the highway once you enter.  More information about contraflow routes is available on the Evacuation Guide for Southeast Louisiana, available from the Governor's Office of Homeland Security and Emergency Preparedness website, \\textsl{get a game plan dot O R G}."),
+    str("Do you know the way out of town in a hurricane evacuation?  When a storm is approaching, our interstate highways are rerouted for") + emph("contraflow}, where all lanes head away from the coast.  During contraflow it's important to know where you're going, because there may be few exits from the highway once you enter.  More information about contraflow routes is available on the Evacuation Guide for Southeast Louisiana, available from the Governor's Office of Homeland Security and Emergency Preparedness website,") + online("get a game plan dot O R G."),
     orgName = Some("GOHEP"),
     start = "2021-06-22",
     alert = "2022-03-04",
@@ -2188,7 +2188,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HurricaneShelterAlert",
     StormPrep,
-    str("Do you have somewhere to go when a hurricane approaches?  Just because you can't afford a hotel, doesn't mean you have to ride out a storm.  For information about shelter options, get the Evacuation Guide for Southeast Louisiana from the Governor's Office of Homeland Security and Emergency Preparedness.  You can download it from their website, \textsl{get a game plan dot O R G}."),
+    str("Do you have somewhere to go when a hurricane approaches?  Just because you can't afford a hotel, doesn't mean you have to ride out a storm.  For information about shelter options, get the Evacuation Guide for Southeast Louisiana from the Governor's Office of Homeland Security and Emergency Preparedness.  You can download it from their website,") + online("get a game plan dot O R G") > str("."),
     orgName = Some("GOHEP"),
     start = "2021-06-22",
     alert = "2022-03-11",
@@ -2198,7 +2198,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SEfloodProtectWebsiteB",
     StormPrep,
-    str("The Southeast Louisiana Flood Protection Authority-West, which provides flood protection for nearly all land on the west bank of the Mississippi River in Jefferson and Orleans parishes, provides information to the public via its web site,") + online("W W W dot S L F P A W dot O R G.") + str("The site provide information to the public about flood incidents, ongoing projects, and permit guidelines. Again, the URL is") + online("W W W dot S L F P A W dot O R G."),
+    str("The Southeast Louisiana Flood Protection Authority-West, which provides flood protection for nearly all land on the west bank of the Mississippi River in Jefferson and Orleans parishes, provides information to the public via its web site,") + online("W W W dot S L F P A W dot O R G.") + str("The site provide information to the public about flood incidents, ongoing projects, and permit guidelines. Again, the URL is") + online("W W W dot S L F P A W dot O R G") > str("."),
     orgName = Some("Flood Protection Authority"),
     start = "2021-06-22",
     alert = "2022-07-15"
@@ -2216,7 +2216,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "StormTaxPrepIRS", StormPrep,
-    str("The IRS offers resources to help both individuals and businesses prepare for the disruption a hurricane can bring. Their disaster loss workbooks can help you compile a room-by-room list of personal belongings and business equipment. Those workbooks and more information are available on their website at") + online("I R S dot G O V slash publications slash p 584") + str("and") + online("publications slash p 584 b."),
+    str("The IRS offers resources to help both individuals and businesses prepare for the disruption a hurricane can bring. Their disaster loss workbooks can help you compile a room-by-room list of personal belongings and business equipment. Those workbooks and more information are available on their website at") + online("I R S dot G O V slash publications slash p 584") + str("and") + online("publications slash p 584 b") > str("."),
     orgName = Some("IRS"),
     start = "2021-06-22",
     alert = "2022-03-11"
@@ -2234,7 +2234,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HolidayPetChocolate",
     Holiday,
-    str("Holiday cooking and gifts often include chocolate.  However, chocolate is very toxic to pets and can cause digestive, heart and brain disease including vomiting, rapid heart rate, high blood pressure, and seizures.  Exposure to chocolate can be life-threatening to pets, and treatments are expensive.  The best way to protect pets is to limit their risk of exposure at home by making sure that chocolate snacks are out of their reach. More information about poisons and pets is available from the ASPCA's web site,") + online("A S P C A  dot O R G slash pet hyphen care slash animal hyphen poison hyphen control."),
+    str("Holiday cooking and gifts often include chocolate.  However, chocolate is very toxic to pets and can cause digestive, heart and brain disease including vomiting, rapid heart rate, high blood pressure, and seizures.  Exposure to chocolate can be life-threatening to pets, and treatments are expensive.  The best way to protect pets is to limit their risk of exposure at home by making sure that chocolate snacks are out of their reach. More information about poisons and pets is available from the ASPCA's web site,") + online("A S P C A  dot O R G slash pet hyphen care slash animal hyphen poison hyphen control") > str("."),
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
@@ -2266,7 +2266,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HolidayPetTableFood",
     Holiday,
-    str("Table food can cause dogs to suffer from acute gastroenteritis (``GAS-tro-En-ter-Eye-tiss'') or pancreatitis (``PAN-kree-uh-Tie-tiss''). In both diseases, dogs experience severe vomiting, diarrhea, abdominal pain, and listlessness. Bones may obstruct the esophagus, the stomach or the intestine and lead to severe digestive symptoms. Furthermore, grapes, raisins and onions are foods that dogs and cats should not receive. They are toxic to pets and can cause potentially fatal diseases.  Pet owners can avoid these risks by making sure that they and their guests do not feed table food to pets.  More information about poisons and pets is available from the ASPCA's web site,") + online("A S P C A dot O R G slash pet hyphen care slash animal hyphen poison hyphen control."),
+    str("Table food can cause dogs to suffer from acute gastroenteritis (``GAS-tro-En-ter-Eye-tiss'') or pancreatitis (``PAN-kree-uh-Tie-tiss''). In both diseases, dogs experience severe vomiting, diarrhea, abdominal pain, and listlessness. Bones may obstruct the esophagus, the stomach or the intestine and lead to severe digestive symptoms. Furthermore, grapes, raisins and onions are foods that dogs and cats should not receive. They are toxic to pets and can cause potentially fatal diseases.  Pet owners can avoid these risks by making sure that they and their guests do not feed table food to pets.  More information about poisons and pets is available from the ASPCA's web site,") + online("A S P C A dot O R G slash pet hyphen care slash animal hyphen poison hyphen control") > str("."),
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
@@ -2277,7 +2277,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HolidayPetPlants",
     Holiday,
-    str("Over the holidays, many of us will have seasonal plants in the house.  But ornamental plants like poinsettias (``point-SET-uhz''), mistletoe and holly are toxic to animals.  They can cause upset stomachs or worse symptoms in dogs and cats.  Owners can protect pets by placing them away from where pets go, and by watching for signs that the plants are being eaten.  More information about poisons and pets is available from the ASPCA's web site,") + online("") + str(" \\online{A S P C A dot O R G slash pet hyphen care slash animal hyphen poison hyphen control}~."),
+    str("Over the holidays, many of us will have seasonal plants in the house.  But ornamental plants like poinsettias (``point-SET-uhz''), mistletoe and holly are toxic to animals.  They can cause upset stomachs or worse symptoms in dogs and cats.  Owners can protect pets by placing them away from where pets go, and by watching for signs that the plants are being eaten.  More information about poisons and pets is available from the ASPCA's web site,") + online("A S P C A dot O R G slash pet hyphen care slash animal hyphen poison hyphen control") > str("."),
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
@@ -2317,7 +2317,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SAPHEcarnival",
     Carnival,
-    str("SAPHE (``safe''), Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call SAPHE's student-operated, confidential hotline at 504/654-9543. Again, the hotline's number is 504/654-9543."),
+    str("SAPHE (``safe''), Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call SAPHE's student-operated, confidential hotline at 504/654-9543. Again, the hotline number is 504/654-9543."),
     orgName = Some("SAPHE"),
     start = "2021-06-22",
     alert = "2022-01-15",
@@ -2335,7 +2335,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SummerInjuryPrevention",
     Summer,
-    str("Forty percent of all injury-related emergency room visits --- and forty-two percent of all injury deaths --- happen between May and August.  Tips on how to keep your children active and safe over the summer are available online at") + online("") + str(" \\online{H L C online dot O R G}."),
+    str("Forty percent of all injury-related emergency room visits --- and forty-two percent of all injury deaths --- happen between May and August.  Tips on how to keep your children active and safe over the summer are available online at") + online("H L C online dot O R G") > str("."),
     start = "2021-06-22",
     alert = "2022-04-15"
   )
@@ -2343,7 +2343,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DrowningPrevention",
     Summer,
-    str("Drowning is a leading cause of accidental death for children under fifteen. Parents should know CPR, have a life preserver on hand, and never let children swim in a pool unsupervised. More summer water safety tips are available online at") + online("") + str(" \\online{H L C online dot O R G}."),
+    str("Drowning is a leading cause of accidental death for children under fifteen. Parents should know CPR, have a life preserver on hand, and never let children swim in a pool unsupervised. More summer water safety tips are available online at") + online("H L C online dot O R G"),
     start = "2021-06-22",
     alert = "2022-04-15"
   )

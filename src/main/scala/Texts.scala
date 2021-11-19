@@ -9,32 +9,30 @@ package org.maraist.wtulrosters
 import org.maraist.structext.{StructText, fromString}
 import org.maraist.structext.StructText.*
 
-def am(time: String): StructText = sc(s"{time}am")
-def pm(time: String): StructText = sc(s"{time}pm")
-def amp(time: String): StructText = sc(s"{time}am.")
-def pmp(time: String): StructText = sc(s"{time}pm.")
-def amc(time: String): StructText = sc(s"{time}am,")
-def pmc(time: String): StructText = sc(s"{time}pm,")
+val am: StructText = sc("am")
+val pm: StructText = sc("pm")
 
-def online(txt: String): StructText = sf(str(txt))
+def online(txt: String): StructText = sl(str(txt))
 
 def moreWebPhoneAnnounce(ann: String, web: String, phone: String):
     StructText = (
   fromString(ann) + fromString("available online at")
-    + sf(s"$web,") + fromString("or by phone at " + phone + ".")
+    + (online(web) > str(",")) + fromString("or by phone at " + phone + ".")
 )
 
 def moreWebEmailAnnounce(ann: String, web: String, email: String):
     StructText = (
   fromString(ann) + fromString("available online at")
-    + sf(s"$web,") + fromString("or by email to") + sf(s"$email.")
+    + (online(web) > str(","))
+    + fromString("or by email to") + (online(email) > str("."))
 )
 
 def moreWebAnnounce(ann: String, web: String): StructText =
-  fromString(ann) + fromString("available online at") + sf(s"$web.")
+  fromString(ann) + fromString("available online at") + online(web) > str(".")
 
 def moreEmailAnnounce(ann: String, email: String): StructText =
-  fromString(ann) + fromString("available by email to") + sf(s"$email.")
+  fromString(ann) + fromString("available by email to") + online(email)
+    > str(".")
 
 def morePhoneAnnounce(ann: String, phone: String): StructText =
   fromString(s"$ann available by phone at $phone.")
@@ -42,7 +40,7 @@ def morePhoneAnnounce(ann: String, phone: String): StructText =
 def morePhoneEmailAnnounce(ann: String, phone: String, email: String):
     StructText =
   fromString(s"$ann available by phone at $phone, or by email to")
-    + sf(s"$email.")
+    + online(email) > str(".")
 
 def moreWebPhone(web: String, phone: String): StructText =
   moreWebPhoneAnnounce("More information is", web: String, phone: String)
