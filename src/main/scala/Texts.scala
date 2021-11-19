@@ -11,6 +11,10 @@ import org.maraist.structext.StructText.*
 
 def am(time: String): StructText = sc(s"{time}am")
 def pm(time: String): StructText = sc(s"{time}pm")
+def amp(time: String): StructText = sc(s"{time}am.")
+def pmp(time: String): StructText = sc(s"{time}pm.")
+def amc(time: String): StructText = sc(s"{time}am,")
+def pmc(time: String): StructText = sc(s"{time}pm,")
 
 def online(txt: String): StructText = sf(str(txt))
 
