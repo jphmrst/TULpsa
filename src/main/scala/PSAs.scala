@@ -262,7 +262,13 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "VoteDotOrg",
     Volunteer,
-    str("Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?  You can find out more about voter and election information at") + online("vote dot O R G.") + str("Quick links will connect you to every state.  For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker.") + moreWeb("vote dot O R G"),
+    str("Do you need to register to vote, check your registration status, or find your polling place?  Do you want to volunteer to be an election site poll worker?")
+      + sentence(
+        str("You can find out more about voter and election information at")
+          + online("vote dot O R G")
+          > period)
+      + str("Quick links will connect you to every state.  For your state of residence, you can register, check registration status, find your polling place, request an absentee ballot, or volunteer to be a poll worker.")
+      + moreWeb("vote dot O R G"),
     orgName = Some("VoteDotOrg"),
     start = "2021-06-22",
     alert = "2023-03-23",

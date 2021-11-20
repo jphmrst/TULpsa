@@ -38,6 +38,6 @@ import org.maraist.wtulrosters.Utils.syncRosters
 }
 
 @main def voicetest: Unit = {
-  Voice.translateTestSSML
+  Voice.translateTestSSML3
   // Voice.listVoices
 }

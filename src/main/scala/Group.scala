@@ -32,6 +32,9 @@ sealed trait Group(
       (s"boost must be at least 0.0 and below 1.0, was $boost")
 
   Group.inventory.add(this)
+
+  override val hashCode: Int =
+    tag.hashCode + title.hashCode + period.hashCode + boost.toInt
 }
 
 /** The available [[Group]] instances, and standardized periods for

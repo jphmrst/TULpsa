@@ -7,8 +7,8 @@
 // details.
 
 package org.maraist.wtulrosters
-
-import java.io.{OutputStream, FileOutputStream}
+import java.util.Scanner
+import java.io.{OutputStream, FileOutputStream, File, FileWriter}
 import com.google.cloud.texttospeech.v1.ListVoicesRequest
 import com.google.cloud.texttospeech.v1.ListVoicesResponse
 import com.google.cloud.texttospeech.v1.TextToSpeechClient
@@ -18,40 +18,39 @@ import com.google.cloud.texttospeech.v1.{
 import com.google.cloud.texttospeech.v1.Voice
 import com.google.protobuf.ByteString
 import com.google.protobuf.ByteString
+import org.maraist.structext.StructText.*
 
 object Voice {
 
   def listVoices = {
-    try {
-      val client: TextToSpeechClient = TextToSpeechClient.create()
-      // Builds the text to speech list voices request
-      val request: ListVoicesRequest = ListVoicesRequest.getDefaultInstance()
+    val client: TextToSpeechClient = TextToSpeechClient.create()
+    // Builds the text to speech list voices request
+    val request: ListVoicesRequest = ListVoicesRequest.getDefaultInstance()
 
-      // Performs the list voices request
-      val response: ListVoicesResponse = client.listVoices(request)
-      val voices = response.getVoicesList()
+    // Performs the list voices request
+    val response: ListVoicesResponse = client.listVoices(request)
+    val voices = response.getVoicesList()
 
-      val voiceIter = voices.iterator
-      while (voiceIter.hasNext) {
-        val voice = voiceIter.next
-        // Display the voice's name. Example: tpc-vocoded
-        println(s"Name: ${voice.getName}")
+    val voiceIter = voices.iterator
+    while (voiceIter.hasNext) {
+      val voice = voiceIter.next
+      // Display the voice's name. Example: tpc-vocoded
+      println(s"Name: ${voice.getName}")
 
-        // Display the supported language codes for this
-        // voice. Example: "en-us"
-        val languageCodes =
-          voice.getLanguageCodesList().asByteStringList().iterator()
-        while (languageCodes.hasNext) {
-          val languageCode: ByteString = languageCodes.next
-          println(s"- Supported Language: ${languageCode.toStringUtf8()}")
-        }
-
-        println(s"- Gender ${voice.getSsmlGender()}")
-
-        // Display the natural sample rate hertz for this
-        // voice. Example: 24000
-        println(s"- Sample rate: ${voice.getNaturalSampleRateHertz()}Hz")
+      // Display the supported language codes for this
+      // voice. Example: "en-us"
+      val languageCodes =
+        voice.getLanguageCodesList().asByteStringList().iterator()
+      while (languageCodes.hasNext) {
+        val languageCode: ByteString = languageCodes.next
+        println(s"- Supported Language: ${languageCode.toStringUtf8()}")
       }
+
+      println(s"- Gender ${voice.getSsmlGender()}")
+
+      // Display the natural sample rate hertz for this
+      // voice. Example: 24000
+      println(s"- Sample rate: ${voice.getNaturalSampleRateHertz()}Hz")
     }
   }
 
@@ -128,4 +127,21 @@ object Voice {
     out.write(audioContents.toByteArray())
     println("Audio content written to file \"spot-test.mp3\"")
   }
+
+  /**
+    * Demonstrates using the Text to Speech client to synthesize text
+    * or ssml.
+    */
+  def translateTestSSML2 = PsaLongTermSpots("VoteDotOrg").get.writeSpotAudio
+
+  /**
+    * Demonstrates using the Text to Speech client to synthesize text
+    * or ssml only when needed to update a spot.
+    */
+  def translateTestSSML3 = {
+    PsaLongTermSpots("VoteDotOrg").get.updateSpotAudio
+    PsaLongTermSpots("GiftOfLifeMarrowTwo").get.updateSpotAudio
+  }
+
+  def translateTestSSML4 = println(PsaLongTermSpots("VoteDotOrg").get.hashCode)
 }

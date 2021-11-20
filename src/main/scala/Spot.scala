@@ -7,6 +7,17 @@
 
 package org.maraist.wtulrosters
 import java.time.LocalDate
+import java.util.Scanner
+import java.io.{OutputStream, FileOutputStream, File, FileWriter}
+import com.google.cloud.texttospeech.v1.ListVoicesRequest
+import com.google.cloud.texttospeech.v1.ListVoicesResponse
+import com.google.cloud.texttospeech.v1.TextToSpeechClient
+import com.google.cloud.texttospeech.v1.{
+  AudioConfig, AudioEncoding, SsmlVoiceGender, SynthesisInput,
+  VoiceSelectionParams, SynthesizeSpeechResponse}
+import com.google.cloud.texttospeech.v1.Voice
+import com.google.protobuf.ByteString
+import com.google.protobuf.ByteString
 import org.maraist.structext.{StructText, ProsodyPitch}
 import org.maraist.structext.StructText.*
 
@@ -80,13 +91,16 @@ class Spot(
   /** We will use the hash code of the text several times, so store it
     * here.
     */
-  private val testHash: Int = text.hashCode()
+  private val textHash: Int = text.hashCode()
+
+  override val hashCode: Int = textHash
+   + tag.hashCode + start.hashCode + group.hashCode + copresent.hashCode
 
   /** Calculate a small, unique, persistent "wiggle" for the period of
     * every spot, so that it has at least a slightly unique pattern.
     */
   private[wtulrosters]
-  val periodWiggle: Double = Math.sin(testHash.toDouble) / 4.0
+  val periodWiggle: Double = Math.sin(textHash.toDouble) / 4.0
 
   /** The period (in weeks) of the rise and fall of this spot's priority
     * ranking.
@@ -123,38 +137,104 @@ class Spot(
     val variant = 1 + (hash % 8)
 
     val firstPitch = (hash % 5) match {
-      case 0 => ProsodyPitch.Low
-      case 4 => ProsodyPitch.High
-      case _ => ProsodyPitch.Medium
+      case 1 => ProsodyPitch.Medium
+      case 2 => ProsodyPitch.Medium
+      case _ => ProsodyPitch.Low
     }
 
-    val secondPitch = (hash % 13) match {
-      case 0 => ProsodyPitch.Low
-      case 1 => ProsodyPitch.Low
-      case 11 => ProsodyPitch.High
-      case 12 => ProsodyPitch.High
-      case _ => ProsodyPitch.Medium
+    val secondPitch = (hash % 7) match {
+      case 0 => ProsodyPitch.Medium
+      case 1 => ProsodyPitch.Medium
+      case 2 => ProsodyPitch.Medium
+      case _ => ProsodyPitch.Low
     }
 
     val sb = new StringBuilder
-    sb ++= "<speak><voice languages=\"en-US\" name=\"Standard\">"
-
-    sb ++= s"<voice gender=\"$firstVoice\"><prosody pitch=\"$firstPitch\" variant=\"$variant\" required=\"languages\" ordering=\"languages gender variant\"><s>"
-    sb ++= introText.replace(
-      "WTUL", "<say-as interpret-as=\"characters\">WTUL</say-as>")
-    sb ++= "</s></prosody></voice>"
-
-    sb ++= s"<voice gender=\"$secondVoice\"><prosody pitch=\"$secondPitch\">"
-    sb ++= text.toSSML
-    sb ++= "</prosody></voice>"
-
-    sb ++= "</voice></speak>"
+    sb ++= "<speak>\n"
+    sb ++= s"  <voice languages=\"en-US\" gender=\"$firstVoice\" variant=\"$variant\">\n"
+    sb ++= s"    <prosody rate=\"95%\" pitch=\"${firstPitch.pitch}\">\n"
+    sb ++= s"      <s>${introText.replace(
+      "WTUL",
+      "<say-as interpret-as=\"characters\">WTUL</say-as>")}</s>\n"
+    sb ++= "    </prosody>\n"
+    sb ++= "  </voice>\n"
+    sb ++= s"  <voice languages=\"en-US\" gender=\"$secondVoice\">\n"
+    sb ++= s"    <prosody rate=\"95%\" pitch=\"${secondPitch.pitch}\">\n"
+    sb ++= s"      ${text.toSSML}\n"
+    sb ++= "    </prosody>\n"
+    sb ++= "  </voice>\n"
+    sb ++= "</speak>\n"
     sb.result
+  }
+
+  def updateSpotAudio: Unit = {
+    val mp3File = new File(Spot.cacheDir, s"${tag}.mp3")
+    val hashFile = new File(Spot.cacheDir, s"${tag}.txt")
+
+    val sameHash: Boolean = if hashFile.isFile then {
+      val scanner: Scanner = new Scanner(hashFile)
+      val savedHash = scanner.nextInt()
+      (savedHash == hashCode) && mp3File.exists
+    } else false
+
+    if !sameHash then writeSpotAudio
+  }
+
+  def writeSpotAudio = {
+    val mp3File = new File(Spot.cacheDir, s"${tag}.mp3")
+    print(s"Writing audio for spot \"${mp3File.toString}\"...")
+    Spot.cacheDir.mkdirs
+    val textToSpeechClient: TextToSpeechClient = TextToSpeechClient.create()
+
+    // Create and save the SSML of the spot.
+    val ssml = toSSML
+    val ssmlWriter: FileWriter =
+      new FileWriter(new File(Spot.cacheDir, s"${tag}.ssml"))
+    ssmlWriter.write(ssml)
+    ssmlWriter.close
+
+    // Save the spot hash code.
+    val hashWriter: FileWriter =
+      new FileWriter(new File(Spot.cacheDir, s"${tag}.txt"))
+    hashWriter.write(s"${hashCode}")
+    hashWriter.close
+
+    // Set the text input to be synthesized
+    val input: SynthesisInput =
+      SynthesisInput.newBuilder().setSsml(ssml).build()
+
+    // Build the voice request
+    val voice: VoiceSelectionParams =
+        VoiceSelectionParams.newBuilder()
+            .setLanguageCode("en-US") // languageCode = "en_us"
+            .setSsmlGender(SsmlVoiceGender.FEMALE)
+            .build()
+
+    // Select the type of audio file you want returned
+    val audioConfig: AudioConfig =
+        AudioConfig.newBuilder()
+            .setAudioEncoding(AudioEncoding.MP3) // MP3 audio.
+            .build()
+
+    // Perform the text-to-speech request
+    val response: SynthesizeSpeechResponse =
+        textToSpeechClient.synthesizeSpeech(input, voice, audioConfig)
+
+    // Get the audio contents from the response
+    val audioContents: ByteString = response.getAudioContent()
+
+    // Write the response to the output file.
+    val out: OutputStream = new FileOutputStream(mp3File)
+    out.write(audioContents.toByteArray())
+    println("done")
   }
 }
 
 /** Utilities for [[Spot]]s. */
 object Spot {
+
+  val cacheDir = File("audio")
+
   /** Calculate the week number of a date with its century, under the
     * simplifying assumptions that each year has exactly 52 weeks, and
     * January 1 always starts a new week.

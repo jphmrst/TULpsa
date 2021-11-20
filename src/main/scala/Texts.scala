@@ -6,7 +6,7 @@
 // details.
 
 package org.maraist.wtulrosters
-import org.maraist.structext.{StructText, fromString}
+import org.maraist.structext.{StructText, ProsodyRate, SpeakAs, fromString}
 import org.maraist.structext.StructText.*
 
 val am: StructText = sc("am")
@@ -14,12 +14,14 @@ val pm: StructText = sc("pm")
 val period: StructText = str(".")
 val comma: StructText = str(",")
 
-def online(txt: String): StructText = sl(str(txt))
+def online(txt: String): StructText =
+  prosody(sl(str(txt)), rate=ProsodyRate.Percent(65))
 
 def moreWebPhoneAnnounce(ann: String, web: String, phone: String):
     StructText = (
   fromString(ann) + fromString("available online at")
-    + (online(web) > str(",")) + fromString("or by phone at " + phone + ".")
+    + (online(web) > str(",")) + fromString("or by phone at")
+    + speak(phone, SpeakAs.Telephone) > period
 )
 
 def moreWebEmailAnnounce(ann: String, web: String, email: String):
@@ -37,12 +39,14 @@ def moreEmailAnnounce(ann: String, email: String): StructText =
     > str(".")
 
 def morePhoneAnnounce(ann: String, phone: String): StructText =
-  fromString(s"$ann available by phone at $phone.")
+  fromString(s"$ann available by phone at")
+   + speak(phone, SpeakAs.Telephone) > period
 
 def morePhoneEmailAnnounce(ann: String, phone: String, email: String):
     StructText =
-  fromString(s"$ann available by phone at $phone, or by email to")
-    + online(email) > str(".")
+  fromString(s"$ann available by phone at")
+   + speak(phone, SpeakAs.Telephone) > comma + str("or by email to")
+   + online(email) > str(".")
 
 def moreWebPhone(web: String, phone: String): StructText =
   moreWebPhoneAnnounce("More information is", web: String, phone: String)
