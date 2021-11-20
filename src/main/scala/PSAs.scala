@@ -8,7 +8,6 @@
 // To skip to the actual PSA spots: search for "short-term" or
 // "long-term".
 
-
 package org.maraist.wtulrosters
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

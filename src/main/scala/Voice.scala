@@ -144,8 +144,8 @@ object Voice {
     PsaLongTermSpots("GiftOfLifeMarrowTwo").get.updateSpotAudio
     PsaLongTermSpots("PAWS").get.updateSpotAudio
     PsaShortTermSpots("MusicaSept2021This").get.updateSpotAudio
-    println(PsaShortTermSpots("MusicaSept2021This").get.toSSML)
   }
 
-  def translateTestSSML4 = println(PsaLongTermSpots("VoteDotOrg").get.hashCode)
+  def translateTestSSML4 =
+    println(println(PsaShortTermSpots("MusicaSept2021This").get.text.dump))
 }
