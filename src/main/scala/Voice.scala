@@ -18,6 +18,7 @@ import com.google.cloud.texttospeech.v1.{
 import com.google.cloud.texttospeech.v1.Voice
 import com.google.protobuf.ByteString
 import com.google.protobuf.ByteString
+import org.maraist.structext.SpeakAs
 import org.maraist.structext.StructText.*
 
 object Voice {
@@ -141,6 +142,9 @@ object Voice {
   def translateTestSSML3 = {
     PsaLongTermSpots("VoteDotOrg").get.updateSpotAudio
     PsaLongTermSpots("GiftOfLifeMarrowTwo").get.updateSpotAudio
+    PsaLongTermSpots("PAWS").get.updateSpotAudio
+    PsaShortTermSpots("MusicaSept2021This").get.updateSpotAudio
+    println(PsaShortTermSpots("MusicaSept2021This").get.toSSML)
   }
 
   def translateTestSSML4 = println(PsaLongTermSpots("VoteDotOrg").get.hashCode)

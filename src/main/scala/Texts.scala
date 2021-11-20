@@ -50,13 +50,18 @@ def morePhoneEmailAnnounce(ann: String, phone: String, email: String):
 
 def moreWebPhone(web: String, phone: String): StructText =
   moreWebPhoneAnnounce("More information is", web: String, phone: String)
+
 def moreWebEmail(web: String, email: String): StructText =
   moreWebEmailAnnounce("More information is", web: String, email: String)
+
 def moreWeb(web: String): StructText =
   moreWebAnnounce("More information is", web)
+
 def moreEmail(email: String): StructText =
   moreEmailAnnounce("More information is", email)
+
 def morePhone(phone: String): StructText =
   morePhoneAnnounce("More information is", phone)
+
 def morePhoneEmail(phone: String, email: String): StructText =
   morePhoneEmailAnnounce("More information is", phone, email)

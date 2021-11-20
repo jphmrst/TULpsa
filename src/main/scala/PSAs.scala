@@ -12,7 +12,7 @@
 package org.maraist.wtulrosters
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import org.maraist.structext.{StructText, fromString}
+import org.maraist.structext.{SpeakAs, StructText, fromString}
 import org.maraist.structext.StructText.*
 
 object PSAutils {
@@ -200,7 +200,18 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   )
 
   Event("MusicaSept2021",
-    str("Musaica Chamber Ensemble starts its season with ``A Musical Journey,'' featuring the music of Amy Beach, Robert Schumann (``SHOE-mahn''), Akira Miyoshi, Ennio Morricone, Florence Price, and Max Bruch.  The performances will take place") + blank("when") + str("at the Saint Charles Avenue Presbyterian Church, and Tuesday the 14th at the UNO Performing Arts Center Recital Hall.  Both performances are at 7:30pm and are open to the public with a suggested donation. More information is available online at \textsf{musica dot O R G}, or by phone at 504/304-8608"),
+    str("Musica Chamber Ensemble starts its season with") +
+      doublequoted(str("A Musical Journey")) > comma +
+      str("featuring the music of Amy Beach, Robert") +
+      phonetic(str("Schumann"), "SHOE-mahn", "ˈʃuː.man") > comma +
+      str("Akira Miyoshi, Ennio Morricone, Florence Price, and Max") +
+      phonetic(str("Bruch"), "broohk", "ˈbRUx") > period +
+      str("The performances will take place") +
+      blank("when") +
+      str("at the Saint Charles Avenue Presbyterian Church, and Tuesday the 14th at the") +
+      speak(str("UNO"), SpeakAs.SpellOut) +
+      str("Performing Arts Center Recital Hall.  Both performances are at 7:30pm and are open to the public with a suggested donation.") +
+      moreWebPhone("musica dot O R G", "504/304-8608"),
     "2021-09-13",
     spotsSourceContacts = Seq("Bruce Owen <bruceowen@aol.com>")
   )
@@ -1626,7 +1637,12 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "PAWS",
     Animal,
-    str("PAWS, the Plaquemines (``PLACK-minzz'') Animal Welfare Society, cares for unwanted, abused and abandoned animals in Plaquemines (``PLACK-minzz'') Parish, and works to find new homes for these animals.") + moreWeb("paws 4 life dot O R G"),
+    str("PAWS, the") +
+      phonetic(str("Plaquemines"), "PLACK-minzz", "ˈplæk.məŋz") +
+      str("Animal Welfare Society, cares for unwanted, abused and abandoned animals in") +
+      phonetic(str("Plaquemines"), "PLACK-minzz", "ˈplæk.məŋz") +
+      str("Parish, and works to find new homes for these animals.")
+      + moreWeb("paws 4 life dot O R G"),
     orgName = Some("PAWS"),
     start = "2021-06-22",
     alert = "2022-01-19",
