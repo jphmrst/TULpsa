@@ -8,10 +8,15 @@
 
 package org.maraist.wtulrosters
 
+import java.io.{OutputStream, FileOutputStream}
 import com.google.cloud.texttospeech.v1.ListVoicesRequest
 import com.google.cloud.texttospeech.v1.ListVoicesResponse
 import com.google.cloud.texttospeech.v1.TextToSpeechClient
+import com.google.cloud.texttospeech.v1.{
+  AudioConfig, AudioEncoding, SsmlVoiceGender, SynthesisInput,
+  VoiceSelectionParams, SynthesizeSpeechResponse}
 import com.google.cloud.texttospeech.v1.Voice
+import com.google.protobuf.ByteString
 import com.google.protobuf.ByteString
 
 object Voice {
@@ -38,15 +43,89 @@ object Voice {
           voice.getLanguageCodesList().asByteStringList().iterator()
         while (languageCodes.hasNext) {
           val languageCode: ByteString = languageCodes.next
-          println(s"Supported Language: ${languageCode.toStringUtf8()}")
+          println(s"- Supported Language: ${languageCode.toStringUtf8()}")
         }
 
         println(s"- Gender ${voice.getSsmlGender()}")
 
         // Display the natural sample rate hertz for this
         // voice. Example: 24000
-        println("Sample rate: ${voice.getNaturalSampleRateHertz()}Hz")
+        println(s"- Sample rate: ${voice.getNaturalSampleRateHertz()}Hz")
       }
     }
+  }
+
+  /**
+    * Demonstrates using the Text to Speech client to synthesize text or ssml.
+    */
+  def translateTestPlain = {
+    val textToSpeechClient: TextToSpeechClient = TextToSpeechClient.create()
+    // Set the text input to be synthesized
+    val input: SynthesisInput =
+      SynthesisInput.newBuilder()
+        .setText(PsaLongTermSpots("VoteDotOrg").get.text.toPlain(80))
+        .build()
+
+    // Build the voice request
+    val voice: VoiceSelectionParams =
+        VoiceSelectionParams.newBuilder()
+            .setLanguageCode("en-US") // languageCode = "en_us"
+            .setSsmlGender(SsmlVoiceGender.FEMALE)
+            .build()
+
+    // Select the type of audio file you want returned
+    val audioConfig: AudioConfig =
+        AudioConfig.newBuilder()
+            .setAudioEncoding(AudioEncoding.MP3) // MP3 audio.
+            .build()
+
+    // Perform the text-to-speech request
+    val response: SynthesizeSpeechResponse =
+        textToSpeechClient.synthesizeSpeech(input, voice, audioConfig)
+
+    // Get the audio contents from the response
+    val audioContents: ByteString = response.getAudioContent()
+
+    // Write the response to the output file.
+    val out: OutputStream = new FileOutputStream("plain-test.mp3")
+    out.write(audioContents.toByteArray())
+    println("Audio content written to file \"plain-test.mp3\"")
+  }
+
+  /**
+    * Demonstrates using the Text to Speech client to synthesize text or ssml.
+    */
+  def translateTestSSML = {
+    val textToSpeechClient: TextToSpeechClient = TextToSpeechClient.create()
+    // Set the text input to be synthesized
+    val input: SynthesisInput =
+      SynthesisInput.newBuilder()
+        .setSsml(PsaLongTermSpots("VoteDotOrg").get.toSSML)
+        .build()
+
+    // Build the voice request
+    val voice: VoiceSelectionParams =
+        VoiceSelectionParams.newBuilder()
+            .setLanguageCode("en-US") // languageCode = "en_us"
+            .setSsmlGender(SsmlVoiceGender.FEMALE)
+            .build()
+
+    // Select the type of audio file you want returned
+    val audioConfig: AudioConfig =
+        AudioConfig.newBuilder()
+            .setAudioEncoding(AudioEncoding.MP3) // MP3 audio.
+            .build()
+
+    // Perform the text-to-speech request
+    val response: SynthesizeSpeechResponse =
+        textToSpeechClient.synthesizeSpeech(input, voice, audioConfig)
+
+    // Get the audio contents from the response
+    val audioContents: ByteString = response.getAudioContent()
+
+    // Write the response to the output file.
+    val out: OutputStream = new FileOutputStream("spot-test.mp3")
+    out.write(audioContents.toByteArray())
+    println("Audio content written to file \"spot-test.mp3\"")
   }
 }

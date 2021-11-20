@@ -65,6 +65,8 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
     Output.fullln(s"Bank $tag inventory =${inventory.map(_.tag).fold("")(_ + " " + _)}")
   }
 
+  def apply(tag: String): Option[Spot] = tags.get(tag)
+
   def getSortedList(date: LocalDate): List[Spot] = {
     val builder = scala.collection.mutable.SortedSet.newBuilder[Spot](
         new Ordering[Spot] {

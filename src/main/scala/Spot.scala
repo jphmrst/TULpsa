@@ -7,7 +7,8 @@
 
 package org.maraist.wtulrosters
 import java.time.LocalDate
-import org.maraist.structext.StructText
+import org.maraist.structext.{StructText, ProsodyPitch}
+import org.maraist.structext.StructText.*
 
 /** Class representing one announcement.
   *
@@ -110,6 +111,45 @@ class Spot(
     "This public service announcement is brought to you by "
     + copresent.map(_ + " and ").getOrElse("")
     + "WTUL New Orleans."
+  }
+
+  def toSSML: String = {
+    val hash = hashCode()
+
+    val maleFirst: Boolean = (hash % 2) == 0
+    val firstVoice = if maleFirst then "male" else "female"
+    val secondVoice = if maleFirst then "female" else "male"
+
+    val variant = 1 + (hash % 8)
+
+    val firstPitch = (hash % 5) match {
+      case 0 => ProsodyPitch.Low
+      case 4 => ProsodyPitch.High
+      case _ => ProsodyPitch.Medium
+    }
+
+    val secondPitch = (hash % 13) match {
+      case 0 => ProsodyPitch.Low
+      case 1 => ProsodyPitch.Low
+      case 11 => ProsodyPitch.High
+      case 12 => ProsodyPitch.High
+      case _ => ProsodyPitch.Medium
+    }
+
+    val sb = new StringBuilder
+    sb ++= "<speak><voice languages=\"en-US\" name=\"Standard\">"
+
+    sb ++= s"<voice gender=\"$firstVoice\"><prosody pitch=\"$firstPitch\" variant=\"$variant\" required=\"languages\" ordering=\"languages gender variant\"><s>"
+    sb ++= introText.replace(
+      "WTUL", "<say-as interpret-as=\"characters\">WTUL</say-as>")
+    sb ++= "</s></prosody></voice>"
+
+    sb ++= s"<voice gender=\"$secondVoice\"><prosody pitch=\"$secondPitch\">"
+    sb ++= text.toSSML
+    sb ++= "</prosody></voice>"
+
+    sb ++= "</voice></speak>"
+    sb.result
   }
 }
 
