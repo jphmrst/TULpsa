@@ -881,12 +881,12 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("The New Orleans Kid Camera Project provides local children with the equipment to explore their environment and express themselves.") + moreWebAnnounce("More information, including a photograph display and upcoming events, is", "kid camera project dot org"),
     orgName = Some("Kid Camera"),
     start = "2021-06-22",
-    alert = "2021-10-30",
+    alert = "2022-04-30",
     previousAlerts = Seq("2021-11-04", "2021-11-13"),
     copresent = "the New Orleans Kid Camera Project",
     sourceContacts = "info@kidcameraproject.org",
     sourceURL = "http://www.kidcameraproject.org/Contacts.html",
-    sourceNote = "(OK October 2008)"
+    sourceNote = "So email reply but still online November 2021."
   )
 
   Spot(
@@ -908,6 +908,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Habitat"),
     start = "2021-06-22",
     alert = "2021-11-01",
+    end = Some("2021-11-21"),
     previousAlerts = Seq("2021-11-04", "2021-11-13"),
     sourceContacts = "communications@habitat-nola.org",
     sourceNote = "live June 2013"
@@ -916,16 +917,16 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "StarGeneral",
     Services,
-    str("STAR, the Sexual Trauma Awareness and Response team, supports survivors of sexual trauma.  They operate a 24-hour hotline for anyone needing support; their number is 855/435-STAR.  STAR is also seeking volunteers to answer their hotline and accompany survivors to the hospital.") + moreWebAnnounce("More information about both their services and how you can help is", "star dot N G O"),
+    str("STAR, the Sexual Trauma Awareness and Response team, supports survivors of sexual trauma.  They operate a 24-hour hotline for anyone needing support; their number is") +
+      phone("855/435-STAR") > period +
+      str("STAR is also seeking volunteers to answer their hotline and accompany survivors to the hospital.") +
+      moreWebAnnounce("More information about both their services and how you can help is", "star dot N G O"),
     orgName = Some("STAR"),
     start = "2021-06-22",
-    alert = "2021-11-01",
+    alert = "2023-05-01",
     previousAlerts = Seq("2021-11-04", "2021-11-13"),
-    sourceContacts = Seq(
-      "Margaret Reynolds <margaret.reynolds@star.ngo>",
-      "Michaela Lovejoy <michaela.lovejoy@star.ngo>"
-    ),
-    sourceNote = "added February 2016"
+    sourceURL = "https://star.ngo/",
+    sourceNote = "Checked web site Nov. 2021.  Old email contacts bounce: Margaret Reynolds <margaret.reynolds@star.ngo>, Michaela Lovejoy <michaela.lovejoy@star.ngo>"
   )
 
   Spot(
@@ -993,6 +994,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Odyssey House"),
     start = "2021-06-22",
     alert = "2021-11-05",
+    end = Some("2021-11-21"),
     previousAlerts = Seq("2021-11-13"),
     copresent = "Odyssey House Louisiana",
     sourceContacts = "atucker@ohlinc.org",
@@ -1006,7 +1008,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Zeus's"),
     start = "2021-06-22",
     alert = "2021-11-05",
-    previousAlerts = Seq("2021-11-13"),
+    previousAlerts = Seq("2021-11-13", "2021-11-21"),
     sourceContacts = "Kellie Grengs <kelliegrengs@yahoo.com>"
   )
 
@@ -1024,9 +1026,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Services,
     str("Louisiana residents can enjoy several of New Orleans' museum admission-free every week.  Visitors need only their Louisiana ID every Wednesday at the Botanical Garden and Museum of Art, every Thursday at the Ogden Museum of Southern Art, and every Sunday at the Contemporary Arts Center.") + moreWeb("the H E L I S foundation dot O R G"),
     start = "2021-06-22",
-    alert = "2021-11-05",
+    alert = "2022-11-05",
     previousAlerts = Seq("2021-11-13"),
-    sourceContacts = "Ally Hodapp <ahodapp@bondmoroch.com>"
+    sourceContacts = "Ally Hodapp <ahodapp@bondmoroch.com>",
+    sourceNote = "No email reply, but still going Nov 2021."
   )
 
   Spot(
@@ -1035,9 +1038,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("The Family Coaching and Support Program of the Louisiana Department of Health helps new and expecting parents learn the many things to know about being a parent.  Under the  program, a nurse or parent educator will come to you and help with things like having a healthy pregnancy, caring for your newborn, breastfeeding, and helping you be the best parent you can be.  The program is tailored to each family's needs, and is a service of the state of Louisiana.") + moreWebPhoneAnnounce("More information about the program and whether you are eligible is", "partners for healthy babies dot O R G", "504/568-5926"),
     orgName = Some("Family Coaching"),
     start = "2021-06-22",
-    alert = "2021-11-12",
+    alert = "2023-11-12",
     previousAlerts = Seq("2021-11-13"),
-    sourceContacts = "Andrea Thames <Andrea.Thames@la.gov>"
+    sourceContacts = Seq(
+      "PHBlouisiana@gmail.com", "Andrea Thames <Andrea.Thames@la.gov>"),
+    sourceNote = "No response from last email, but web site still going."
   )
 
   Spot(
@@ -1047,8 +1052,25 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("RTA"),
     start = "2021-06-22",
     alert = "2021-11-12",
-    previousAlerts = Seq("2021-11-13"),
+    previousAlerts = Seq("2021-11-13", "2021-11-21"),
     sourceContacts = "Tiffany Pounds <tpounds@lighthouselouisiana.org>"
+  )
+
+  Spot(
+    "NolaAbortionFund2",
+    Services,
+    (str("The New Orleans Abortion Fund is a nonprofit organization working across Louisiana to ensure that all people have access to quality medical care, regardless of their economic situation.  The Fund partners with local medical providers in Baton Rouge and New Orleans to provide financial assistance to patients seeking abortions who are unable to fully afford the cost.")
+      + moreWeb("new orleans abortion fund dot O R G")
+      + str("Their helpline for people who need assistance is")
+      + phone("844/44-ABORT") > period
+      + moreWeb("Callers should leave a voicemail with name and phone number; someone will return your call within twenty-four hours.")),
+    orgName = Some("Abortion Fund"),
+    start = "2021-11-22",
+    alert = "2023-02-12",
+    sourceContacts = Seq(
+      "Chasity Matthews <chasity@neworleansabortionfund.org>",
+      "info@neworleansabortionfund.org"),
+    sourceNote = "Previous contact Steffani Bangel <steffani@neworleansabortionfund.org> bouncing."
   )
 
   Spot(
@@ -1060,6 +1082,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Abortion Fund"),
     start = "2021-06-22",
     alert = "2021-11-12",
+    end = Some("2021-11-21"),
     sourceContacts = "info@neworleansabortionfund.org",
     sourceNote = "Previous contact Steffani Bangel <steffani@neworleansabortionfund.org> bouncing."
   )
@@ -1088,6 +1111,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("One of the easiest ways to lower your energy bill and fight global warming is to change the lighting in your home to compact fluorescents.  Compact fluorescents use seventy-five percent less energy than incandescent bulbs and last up to ten times longer.  If you change five of the most-used lights in your home you can save up to sixty dollars on your energy bill each year.  Each compact fluorescent prevents 450 pounds of greenhouse gas emissions over its lifetime.") + moreWebAnnounce("More energy-saving information is", "green dot tulane dot edu"),
     start = "2021-06-22",
     alert = "2021-11-19",
+    end = Some("2021-11-21"),
     copresent = "The Tulane University Office of Environmental Affairs",
     orgName = Some("Environmental Affairs"),
   )
@@ -1097,8 +1121,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Eco,
     str("By choosing local meat, seafood and produce, you support our economy, your body and the environment.  Community farmers' and seafood markets offer fresh food from our area, and our local summer produce can be canned, frozen or dried to last year-round.") + moreWebAnnounce("More tips on eating locally are", "go green NOLA dot org slash farmers markets"),
     start = "2021-06-22",
-    alert = "2021-11-19",
-    sourceContacts = "gogreennola@gmail.com"
+    alert = "2022-11-19",
+    sourceContacts = "gogreennola@gmail.com",
+    sourceNote = "Web site up Nov. 2021"
   )
 
   Spot(
@@ -1108,6 +1133,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Jefferson Parish"),
     start = "2021-06-22",
     alert = "2021-11-19",
+    previousAlerts = Seq("2021-11-21"),
     sourceContacts = "RCollins@jeffparish.net"
   )
 
@@ -1118,6 +1144,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Jefferson Parish"),
     start = "2021-06-22",
     alert = "2021-11-19",
+    previousAlerts = Seq("2021-11-21"),
     sourceContacts = "RCollins@jeffparish.net"
   )
 
@@ -1127,6 +1154,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("We can restore Louisiana's coast, but it will take hard work and tough choices. Coastal lines of defense are natural and man-made landscape features necessary to protect coastal Louisiana.") + moreWeb("lines of defense dot org"),
     start = "2021-06-22",
     alert = "2021-11-19",
+    previousAlerts = Seq("2021-11-21"),
     sourceContacts = "Robert Smith <robert@healthygulf.org>",
     sourceNote = "(updated Feb 2012) alternate with GulfRestNetFour"
   )
@@ -1264,12 +1292,26 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
+    "OdysseySubstance2",
+    Health,
+    str("Odyssey House Louisiana provides substance use disorder treatment, including detox, short-term and long-term treatment. The Odyssey House Louisiana Community Health Center provides primary care and behavioral health care services. COVID-19 vaccines are also available.") +
+      moreWeb("O H L I N C dot O R G"),
+    orgName = Some("Odyssey House"),
+    start = "2021-06-22",
+    alert = "2023-04-04",
+    copresent = "Odyssey House Louisiana",
+    sourceNote = "confirmed November 2021",
+    sourceContacts = Seq("Ann Tucker <atucker@ohlinc.org>")
+  )
+
+  Spot(
     "OdysseySubstance",
     Health,
     str("Odyssey House Louisiana is a nonprofit behavioral healthcare facility with an emphasis on addiction treatment, providing detoxification, residential treatment and outpatient treatment. Other services include a community medical clinic, community prisoner reentry and housing services for homeless populations.") + moreWebPhone("504/821-9211", "O H L I N C dot O R G"),
     orgName = Some("Odyssey House"),
     start = "2021-06-22",
     alert = "2021-12-04",
+    end = Some("2021-11-21"),
     copresent = "Odyssey House Louisiana",
     sourceNote = "confirmed August 2009 - atucker@ohlinc.org",
     sourceContacts = "atucker@ohlinc.org"
