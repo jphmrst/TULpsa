@@ -222,19 +222,20 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   )
 
   Event("LionsScreeningsAug2021Cancelled",
-    str("The ``Lions  Health Awareness Day,'' originally scheduled for the 28th, has been cancelled due to the COVID resurgence.  The Lions Club hopes to reschedule the event in early 2022."),
+    str("The") +
+      doublequoted("Lions  Health Awareness Day,") +
+      str("originally scheduled for the 28th, has been cancelled due to the COVID resurgence.  The Lions Club hopes to reschedule the event in early") +
+      speak("2022", SpeakAs.Date("y")),
     "2021-08-28",
     spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
   )
 
-//  Event("LionsScreeningsLakesideAug2021",
-//    """The Lions Clubs of Louisiana support eye and ear health for children.  They will conduct their annual ``Lions  Health Awareness Day'' program of vision screening and other services") + blank"when(.") + str( Screenings will provide recommendations for a doctor's visit when necessary.  There is no charge for these screenings.   Again, the screenings will be") + blank"when(,") + str(from eleven") + am + str("to three") + pm + str("in the center court of the Lakeside Shopping Center.""",
-//    "2021-08-28",
-//    spotsSourceContacts = Seq("Aida Grace <dajg@aol.com>")
-//  )
-
   Event("sierraMtgJuly21",
-    str("The next meeting of the Orleans Sierra Club will be") + blank("when") + str("at 6:30") + pm > period + str("Christen Steele will discuss conservation issues affecting the survival of the monarch butterfly.  Sierra Club meetings are currently online.  More information and a link to the online session are available on their website,") + online("sierra club dot O R G slash delta") > period,
+    str("The next meeting of the Orleans Sierra Club will be") +
+      blank("when") +
+      str("at 6:30") + pm > period +
+      str("Christen Steele will discuss conservation issues affecting the survival of the monarch butterfly.  Sierra Club meetings are currently online.  More information and a link to the online session are available on their website,") +
+      online("sierra club dot O R G slash delta") > period,
     "2021-07-21",
     spotsSourceURL = Seq("https://www.sierraclub.org/delta/new-orleans-group")
   )
@@ -248,7 +249,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "NewNeighborProjectOct2021",
     Services,
-    str("The New Neighbor Project creates a holistic pathway to citizenship for refugees and immigrants in our community.   They provide English and citizenship classes, application assistance, and scholarship opportunities.") + moreWeb("the new neighbor project dot O R G"),
+    str("The New Neighbor Project creates a holistic pathway to citizenship for refugees and immigrants in our community.   They provide English and citizenship classes, application assistance, and scholarship opportunities.") +
+      moreWeb("the new neighbor project dot O R G"),
     start = "2021-11-01",
     alert = "2022-03-23",
     orgName = Some("New Neighbor Project"),
@@ -258,7 +260,18 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "CrescentCareTestingAug21",
     Services,
-    str("Crescent Care, formerly The NO/AIDS Task Force, offers no-cost rapid HIV testing. The test is quick and painless. It requires only a sample of oral fluid and results are available in as little as twenty minutes. You can be tested at their Saint Roch (``rock'') location, 1631 Elysian Fields, on Tuesdays from noon to five") + (pm > str(",")) + str(" Wednesdays from ten") + am + str("to five") + (pm > str(".")) + str("Thursdays from ten") + am + str("to three") + (pm > str(",")) + str("and Fridays from ten") + am + str("to five") + (pm > str(".")) + str("Take-home HIV tests are also available five days a week from nine") + am + str("to five") + pm + str("at the same location.") + moreWeb("crescent care dot O R G"),
+    str("Crescent Care, formerly The NO/AIDS Task Force, offers no-cost rapid HIV testing. The test is quick and painless. It requires only a sample of oral fluid and results are available in as little as twenty minutes. You can be tested at their Saint") +
+      phonetic("Roch", "rock", "ɹɑːk") +
+      str("location, 1631") +
+      phonetic("Elysian", "eh-LEE-zhun", "əˈliː.ʒən") +
+      str("Fields, on Tuesdays from noon to five") +
+      pm > str(",") +
+      str(" Wednesdays from ten") + am + str("to five") + (pm > str(".")) +
+      str("Thursdays from ten") + am + str("to three") + (pm > str(",")) +
+      str("and Fridays from ten") + am + str("to five") + pm > str(".") +
+      str("Take-home HIV tests are also available five days a week from nine") +
+      am + str("to five") + pm + str("at the same location.") +
+      moreWeb("crescent care dot O R G"),
     orgName = Some("Crescent Care"),
     start = "2021-08-12",
     alert = "2022-01-23",
@@ -310,7 +323,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SharedHousingOfNOLATwo",
     Volunteer,
-    str("Shared Housing of New Orleans matches people seeking places to live with elderly and disabled homeowners.  The home-seeker does light housekeeping, and stays on the premises at night. The home owner avoids nursing home or other assisted-living facilities by having this assistance and companionship.") + moreWebPhone("shared housing of new orleans dot org", "504/896-2575"),
+    str("Shared Housing of New Orleans matches people seeking places to live with elderly and disabled homeowners.  The home-seeker does light housekeeping, and stays on the premises at night. The home owner avoids nursing home or other assisted-living facilities by having this assistance and companionship.") + moreWebPhone("shared housing of new orleans dot O R G", "504/896-2575"),
     orgName = Some("Shared Housing of New Orleans"),
     start = "2021-06-22",
     alert = "2022-01-07",
@@ -320,7 +333,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "InnocenceProjectGeneralTwo",
     Volunteer,
-    str("Innocence Project New Orleans represents prisoners serving life sentences in Louisiana and Mississippi. They work to free innocent prisoners, prevent wrongful convictions, and assist freed prisoners with their transition upon release.") + moreWebPhoneAnnounce("Information about supporting the Innocence Project is", "I P hyphen N O dot org", "504/522-4766"),
+    str("Innocence Project New Orleans represents prisoners serving life sentences in Louisiana and Mississippi. They work to free innocent prisoners, prevent wrongful convictions, and assist freed prisoners with their transition upon release.") +
+      moreWebPhoneAnnounce(
+        "Information about supporting the Innocence Project is",
+        "I P hyphen N O dot O R G",
+        "504/522-4766"),
     orgName = Some("Innocence Project New Orleans"),
     start = "2021-06-22",
     alert = "2022-01-15",
@@ -331,7 +348,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "JeffParishAdoptParkwayTwo",
     Volunteer,
-    str("Jefferson Parish's Adopt-a-Parkway Program started in 1988. Parkway sponsors improve landscape of their adopted sections of thoroughfares, and are recognized by a sign on their neutral ground.  More information is available on the Jefferson Parish website") + online("jeff parish dot net,") + str("or by phone at {504/349-5829}."),
+    str("Jefferson Parish's Adopt-a-Parkway Program started in 1988. Parkway sponsors improve landscape of their adopted sections of thoroughfares, and are recognized by a sign on their neutral ground.  More information is available on the Jefferson Parish website") +
+      online("jeff parish dot net") > comma +
+      str("or by phone at") + phone("504/349-5829") > period,
     orgName = Some("Adopt-a-Parkway Program"),
     start = "2021-06-22",
     alert = "2022-01-15",
@@ -341,7 +360,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HabitatStTammanyReStore",
     Volunteer,
-    str("Habitat for Humanity can make use of used housewares or surplus building materials.  Donated materials are made available for purchase at the Habitat for Humanity Re-Store, located on North Lane, off Highway 59, just north of I-12. Proceeds benefit Habitat for Humanity.") + morePhoneAnnounce("More information including directions and volunteering is", "985/898-0642"),
+    str("Habitat for Humanity can make use of used housewares or surplus building materials.  Donated materials are made available for purchase at the Habitat for Humanity Re-Store, located on North Lane, off Highway 59, just north of I-12. Proceeds benefit Habitat for Humanity.") +
+      morePhoneAnnounce(
+        "More information including directions and volunteering is",
+        "985/898-0642"),
     orgName = Some("Habitat for Humanity"),
     start = "2021-06-22",
     alert = "2022-01-15",
@@ -351,7 +373,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "CathCharitiesReadToKidsTwo",
     Volunteer,
-    str("Catholic Charities seeks volunteers to read or tutor children and youth, work with seniors, and perform other duties.") + moreWebPhone("C C A N O dot org", "504/310-6960"),
+    str("Catholic Charities seeks volunteers to read or tutor children and youth, work with seniors, and perform other duties.") +
+      moreWebPhone("C C A N O dot O R G", "504/310-6960"),
     orgName = Some("Catholic Charities"),
     start = "2021-06-22",
     alert = "2022-01-28",
@@ -361,7 +384,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "ClearwaterWildlifeSanctuaryB",
     Volunteer,
-    str("The Clearwater Wildlife Sanctuary seeks volunteers fostering abandoned young and rehabilitating injured animals and birds. Help is also needed at the Covington hospital site, the Madisonville educational center, and with transportating creatures. They also offer classes, including for skilled animal handling volunteers.") + moreWebPhone("clear water sanctuary dot O R G", "985/630-1009"),
+    str("The Clearwater Wildlife Sanctuary seeks volunteers fostering abandoned young and rehabilitating injured animals and birds. Help is also needed at the Covington hospital site, the Madisonville educational center, and with transportating creatures. They also offer classes, including for skilled animal handling volunteers.") +
+      moreWebPhone("clear water sanctuary dot O R G", "985/630-1009"),
     orgName = Some("Clearwater Wildlife Sanctuary"),
     start = "2021-06-22",
     alert = "2022-01-29",
@@ -372,7 +396,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "CommInSchoolsNolaGeneral",
     Volunteer,
-    str("Communities In Schools of Greater New Orleans provides mentors in both Charter and Recovery District schools. Volunteer mentors meet with a child four hours every month to provide a positive role model.") + moreWebPhone("C I S new orleans dot O R G", "504/494-0328"),
+    str("Communities In Schools of Greater New Orleans provides mentors in both Charter and Recovery District schools. Volunteer mentors meet with a child four hours every month to provide a positive role model.") +
+      moreWebPhone("C I S new orleans dot O R G", "504/494-0328"),
     orgName = Some("Communities In Schools of Greater New Orleans"),
     start = "2012-08-01",
     alert = "2022-01-28",
@@ -383,7 +408,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BirthingProjectGeneral",
     Volunteer,
-    str("The New Orleans Birthing Project provides") + emph("sister friends,") + str("mentors for pregnant women of any age. They are seeking volunteers to be sister friends.") + moreWebPhoneAnnounce("More information about becoming or having a sister friend is", "nola at birthing project U S A dot O R G", "504/482-6388"),
+    str("The New Orleans Birthing Project provides") + emph("sister friends,") +
+      str("mentors for pregnant women of any age. They are seeking volunteers to be sister friends.") +
+      moreWebPhoneAnnounce(
+        "More information about becoming or having a sister friend is",
+        "nola at birthing project U S A dot O R G", "504/482-6388"),
     orgName = Some("New Orleans Birthing Project"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -394,7 +423,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BoysHopeGirlsHope",
     Volunteer,
-    str("Boys Hope Girls Hope intervenes on behalf of children in need between the ages of ten and eighteen, and provides them with a stable home, positive parenting, high-quality education, and the support needed to reach their full potential. They welcome both volunteers and donations.") + moreWeb("B H G H nola dot O R G"),
+    str("Boys Hope Girls Hope intervenes on behalf of children in need between the ages of ten and eighteen, and provides them with a stable home, positive parenting, high-quality education, and the support needed to reach their full potential. They welcome both volunteers and donations.") +
+      moreWeb("B H G H nola dot O R G"),
     orgName = Some("Boys Hope Girls Hope"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -405,7 +435,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GreenLightVolunteersTwo",
     Volunteer,
-    str("Volunteers with Green Light New Orleans install free energy-efficient light bulbs for any New Orleans resident.") + moreWebPhoneAnnounce("More information about the program, and about becoming a volunteer, is", "green light new orleans dot org", "504/324-2429"),
+    str("Volunteers with Green Light New Orleans install free energy-efficient light bulbs for any New Orleans resident.") +
+      moreWebPhoneAnnounce(
+        "More information about the program, and about becoming a volunteer, is",
+        "green light new orleans dot O R G", "504/324-2429"),
     orgName = Some("Green Light New Orleans"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -419,7 +452,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GiftOfLifeMarrowTwo",
     Volunteer,
-    str("Gift of Life is a bone marrow and stem cell donor registry, helping children and adults with blood cancer find the matches they need, when they need them.") + moreWebPhone("gift of life dot O R G", "800/9-MARROW"),
+    str("Gift of Life is a bone marrow and stem cell donor registry, helping children and adults with blood cancer find the matches they need, when they need them.") +
+      moreWebPhone("gift of life dot O R G", "800/9-MARROW"),
     orgName = Some("Gift of Life"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -430,7 +464,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "CASAJeffFour",
     Volunteer,
-    str("Court-appointed special advocates help abused and neglected children to voice their needs in the legal process.") + moreWebPhoneAnnounce("More information, including volunteering to become a court-appointed special advocate for Jefferson Parish, is", "504/533-8757", "C A S A jefferson dot O R G."),
+    str("Court-appointed special advocates help abused and neglected children to voice their needs in the legal process.") +
+      moreWebPhoneAnnounce("More information, including volunteering to become a court-appointed special advocate for Jefferson Parish, is",
+        "504/533-8757", "C A S A jefferson dot O R G."),
     orgName = Some("CASA"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -441,7 +477,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "JeffersonAgingMealsOnWheels",
     Volunteer,
-    str("The Jefferson Council on Aging seeks volunteers to deliver meals to homebound adults. Gas mileage will be reimbursed.") + morePhoneAnnounce("More information and volunteer scheduling are", "504/888-5880"),
+    str("The Jefferson Council on Aging seeks volunteers to deliver meals to homebound adults. Gas mileage will be reimbursed.") +
+      morePhoneAnnounce(
+        "More information and volunteer scheduling are", "504/888-5880"),
     orgName = Some("Jefferson Council on Aging"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -452,7 +490,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "TheNewOrleansMissionShelterTwo",
     Volunteer,
-    str("The New Orleans Mission, a Christian homeless shelter in Central City, is dedicated to serving the spiritual and physical needs of the poor, needy and homeless population of New Orleans. The mission provides meals, showers, clothing, shelter, literacy classes and job-skills training to men and women with children.") + morePhoneEmailAnnounce("Information about volunteering or donating is", "504/415-9579", "brittany at new orleans mission dot org"),
+    str("The New Orleans Mission, a Christian homeless shelter in Central City, is dedicated to serving the spiritual and physical needs of the poor, needy and homeless population of New Orleans. The mission provides meals, showers, clothing, shelter, literacy classes and job-skills training to men and women with children.") +
+      morePhoneEmailAnnounce(
+        "Information about volunteering or donating is",
+        "504/415-9579", "brittany at new orleans mission dot O R G"),
     orgName = Some("New Orleans Mission"),
     start = "2021-06-22",
     alert = "2022-02-15",
@@ -463,7 +504,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HabForHumanFive",
     Volunteer,
-    str("Habitat for Humanity is in need of volunteers to achieve the goal of making decent, affordable housing a reality in the New Orleans area. No construction experience is necessary.  You can support them through volunteer labor or a donation. More information is available by phone to Cynthia White at 504/861-4121."),
+    str("Habitat for Humanity is in need of volunteers to achieve the goal of making decent, affordable housing a reality in the New Orleans area. No construction experience is necessary.  You can support them through volunteer labor or a donation.  More information is available by phone to Cynthia White at") +
+      phone("504/861-4121") > period,
     orgName = Some("Habitat for Humanity"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -474,7 +516,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "Gyac",
     Volunteer,
-    str("The Gulfsouth Youth Action Corps (``core'') seeks college student volunteers from all over the country to assist in providing recreational and educational opportunities for New Orleans-area inner-city youth and their families.") + moreWeb("the G Y A C dot org"),
+    str("The Gulfsouth Youth Action") +
+      phonetic("Corps", "core", "kɔːɹ") +
+      str("seeks college student volunteers from all over the country to assist in providing recreational and educational opportunities for New Orleans-area inner-city youth and their families.") +
+      moreWeb("the G Y A C dot O R G"),
     orgName = Some("Gulfsouth Youth Action Corps"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -485,7 +530,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "NOLAoutreachArmsTwo",
     Volunteer,
-    str("New Orleans Outreach seeks volunteers for their ARMS-Outreach after-school program. Volunteers are needed in the arts, academics, technology, recreation and life skills.") + moreWebPhone("N O outreach dot org", "504/654-1060"),
+    str("New Orleans Outreach seeks volunteers for their ARMS-Outreach after-school program. Volunteers are needed in the arts, academics, technology, recreation and life skills.") +
+      moreWebPhone("N O outreach dot O R G", "504/654-1060"),
     orgName = Some("New Orleans Outreach"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -496,7 +542,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "YMCAyesC",
     Volunteer,
-    str("YMCA Educational Services, the adult literacy program of the YMCA of Greater New Orleans, offers adult education classes in reading, writing and math.  Classes are offered in Downtown New Orleans, Central City, and a new location in New Orleans East. Classes are open to the public, but since space is limited, registration is required.") + moreWebPhoneAnnounce("More information and volunteer signup are", "y m c a new orleans dot org", "504/596-3842"),
+    str("YMCA Educational Services, the adult literacy program of the YMCA of Greater New Orleans, offers adult education classes in reading, writing and math.  Classes are offered in Downtown New Orleans, Central City, and a new location in New Orleans East. Classes are open to the public, but since space is limited, registration is required.") +
+      moreWebPhoneAnnounce("More information and volunteer signup are",
+        "Y M C A new orleans dot O R G", "504/596-3842"),
     orgName = Some("YMCA Educational Services"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -507,7 +555,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "FreedomNotFreeOhNine",
     Volunteer,
-    str("The ``Freedom Is Not Free'' program helps wounded and injured veterans of all branches of the military, and their families, defray the costs associated with care-giving and travel during their most trying times.") + moreWebAnnounce("More information about volunteering or donating is", "freedom is not free dot com"),
+    str("The") +
+      doublequoted("Freedom Is Not Free") +
+      str("program helps wounded and injured veterans of all branches of the military, and their families, defray the costs associated with care-giving and travel during their most trying times.") +
+      moreWebAnnounce("More information about volunteering or donating is",
+        "freedom is not free dot com"),
     orgName = Some("Freedom Is Not Free"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -518,7 +570,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "StairGeneral",
     Volunteer,
-    str("Start the Adventure in Reading, or STAIR, seeks volunteers to help second-grade public school students in the New Orleans area learn how to read.") + moreWebPhoneAnnounce("Information about tutor training sessions is", "www dot stair nola dot O R G", "504/899-0820"),
+    str("Start the Adventure in Reading, or STAIR, seeks volunteers to help second-grade public school students in the New Orleans area learn how to read.") +
+      moreWebPhoneAnnounce("Information about tutor training sessions is",
+        "www dot stair nola dot O R G", "504/899-0820"),
     orgName = Some("STAIR"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -529,7 +583,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "RaintreeCFS",
     Volunteer,
-    str("Foster parenting is an opportunity to make a difference in a child's life.  Raintree Children and Family Services offers training and a supportive network of staff to ease the transition for new foster parents.") + morePhoneAnnounce("More information, including making a donation, is", "504/899-9045"),
+    str("Foster parenting is an opportunity to make a difference in a child's life.  Raintree Children and Family Services offers training and a supportive network of staff to ease the transition for new foster parents.") +
+      morePhoneAnnounce(
+        "More information, including making a donation, is", "504/899-9045"),
     orgName = Some("Raintree"),
     start = "2021-06-22",
     alert = "2022-03-15",
@@ -576,7 +632,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HeartsOfChangeMentors",
     Volunteer,
-    str("Hearts of Change Foundation provides support services to pregnant teens and teen parents.  They are seeking successful adults who were themselves teen parents to serve as mentors for pregnant teens.") + morePhoneEmail("504/621-8894", "hearts of change 2012 at gmail dot com"),
+    str("Hearts of Change Foundation provides support services to pregnant teens and teen parents.  They are seeking successful adults who were themselves teen parents to serve as mentors for pregnant teens.") +
+      morePhoneEmail("504/621-8894", "hearts of change 2012 at gmail dot com"),
     orgName = Some("Hearts of Change"),
     start = "2021-06-22",
     alert = "2022-04-15",
@@ -587,7 +644,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AidsPlanningCouncilVolunteersTwo",
     Volunteer,
-    str("The New Orleans Regional AIDS Planning Council plans local HIV services to help ensure that everyone infected or affected by HIV can access treatment, and live full, productive lives.") + moreWebPhoneAnnounce("More information about the council and about how you can volunteer is", "N O R A P C dot O R G", "504/821-7334"),
+    str("The New Orleans Regional AIDS Planning Council plans local HIV services to help ensure that everyone infected or affected by HIV can access treatment, and live full, productive lives.") +
+      moreWebPhoneAnnounce(
+        "More information about the council and about how you can volunteer is",
+        "N O R A P C dot O R G", "504/821-7334"),
     orgName = Some("The New Orleans Regional AIDS Planning Council"),
     start = "2021-06-22",
     alert = "2022-04-15",
@@ -608,7 +668,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "RootsOfMusicGeneralTwo",
     Volunteer,
-    str("The Roots of Music teaches, protects and empowers at-risk youth through music education, academic support and mentorship. At the same time, they help to preserve and promote the great musical and cultural heritage of New Orleans.") + moreWebAnnounce("More information about events, donating or volunteering is", "the roots of music dot com"),
+    str("The Roots of Music teaches, protects and empowers at-risk youth through music education, academic support and mentorship. At the same time, they help to preserve and promote the great musical and cultural heritage of New Orleans.") +
+      moreWebAnnounce(
+        "More information about events, donating or volunteering is",
+        "the roots of music dot com"),
     orgName = Some("Roots of Music"),
     start = "2021-06-22",
     alert = "2022-04-15",
@@ -639,7 +702,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LCMtoddlerTime",
     Edu,
-    str("Every Thursday, the Louisiana Children's Museum hosts ``Toddler Time,'' activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to ten-thirty") + (am > str(".")) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot org", "504/523-1357"),
+    str("Every Thursday, the Louisiana Children's Museum hosts ``Toddler Time,'' activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to ten-thirty") + (am > str(".")) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357"),
     orgName = Some("LCM"),
     start = "2021-06-22",
     alert = "2022-05-15",
@@ -680,7 +743,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LCMfamilyGames",
     Edu,
-    str("Every Thursday, the Louisiana Children's Museum hosts ``Family Game Night,'' from four to six") + (pm > str(".")) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot org", "504/523-1357"),
+    str("Every Thursday, the Louisiana Children's Museum hosts ``Family Game Night,'' from four to six") + (pm > str(".")) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2022-05-15",
@@ -846,7 +909,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "Lighthouse",
     Services,
-    str("The Lighthouse for the Blind serves the blind and visually impaired by providing job training, competitive employment, and services.  Their visual aids store is open weekdays from eight") + am + str("to four-thirty") + (pm > str(",")) + str("and is located at 123 State Street.") + moreWebPhone("lighthouse louisiana dot org", "504/899-4501"),
+    str("The Lighthouse for the Blind serves the blind and visually impaired by providing job training, competitive employment, and services.  Their visual aids store is open weekdays from eight") + am + str("to four-thirty") + (pm > str(",")) + str("and is located at 123 State Street.") + moreWebPhone("lighthouse louisiana dot O R G", "504/899-4501"),
     orgName = Some("Lighthouse"),
     start = "2021-06-22",
     alert = "2022-07-15",
@@ -878,7 +941,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "KidCameraTwo",
     Services,
-    str("The New Orleans Kid Camera Project provides local children with the equipment to explore their environment and express themselves.") + moreWebAnnounce("More information, including a photograph display and upcoming events, is", "kid camera project dot org"),
+    str("The New Orleans Kid Camera Project provides local children with the equipment to explore their environment and express themselves.") + moreWebAnnounce("More information, including a photograph display and upcoming events, is", "kid camera project dot O R G"),
     orgName = Some("Kid Camera"),
     start = "2021-06-22",
     alert = "2022-04-30",
@@ -1090,7 +1153,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GoGreenWaterOff",
     Eco,
-    str("You can save up to five gallons of water every day just by turning off the tap while brushing your teeth.  It adds up --- that's thirty five gallons a week saved during a simple everyday chore.  More tips on living green are available online at") + online("go green NOLA dot org slash go green tips."),
+    str("You can save up to five gallons of water every day just by turning off the tap while brushing your teeth.  It adds up --- that's thirty five gallons a week saved during a simple everyday chore.  More tips on living green are available online at") + online("go green NOLA dot O R G slash go green tips."),
     orgName = Some("GoGreen"),
     start = "2021-06-22",
     alert = "2022-11-12",
@@ -1119,7 +1182,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GoGreenShopLocal",
     Eco,
-    str("By choosing local meat, seafood and produce, you support our economy, your body and the environment.  Community farmers' and seafood markets offer fresh food from our area, and our local summer produce can be canned, frozen or dried to last year-round.") + moreWebAnnounce("More tips on eating locally are", "go green NOLA dot org slash farmers markets"),
+    str("By choosing local meat, seafood and produce, you support our economy, your body and the environment.  Community farmers' and seafood markets offer fresh food from our area, and our local summer produce can be canned, frozen or dried to last year-round.") + moreWebAnnounce("More tips on eating locally are", "go green NOLA dot O R G slash farmers markets"),
     start = "2021-06-22",
     alert = "2022-11-19",
     sourceContacts = "gogreennola@gmail.com",
@@ -1151,7 +1214,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GulfRestNetFive",
     Eco,
-    str("We can restore Louisiana's coast, but it will take hard work and tough choices. Coastal lines of defense are natural and man-made landscape features necessary to protect coastal Louisiana.") + moreWeb("lines of defense dot org"),
+    str("We can restore Louisiana's coast, but it will take hard work and tough choices. Coastal lines of defense are natural and man-made landscape features necessary to protect coastal Louisiana.") + moreWeb("lines of defense dot O R G"),
     start = "2021-06-22",
     alert = "2021-11-19",
     previousAlerts = Seq("2021-11-21"),
@@ -1162,7 +1225,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GreenProjectElectronicsB",
     Eco,
-    str("Computers, monitors, mobile phones and other electronic devices release toxic substances like lead, cadmium, and mercury into our landfills and water when discarded improperly.  You can properly dispose of electronics at The Green Project, 2831 Marais (``MAH-ray'') Street.") + moreWeb("the green project dot org"),
+    str("Computers, monitors, mobile phones and other electronic devices release toxic substances like lead, cadmium, and mercury into our landfills and water when discarded improperly.  You can properly dispose of electronics at The Green Project, 2831 Marais (``MAH-ray'') Street.") + moreWeb("the green project dot O R G"),
     orgName = Some("Green Project"),
     start = "2021-06-22",
     alert = "2021-11-26",
@@ -1172,7 +1235,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GoGreenCompost",
     Eco,
-    str("Most organic trash can be used to feed our gardens.  More information about how to set up composting in your garden, and what kitchen waste can be composted is available from") + online("go green nola dot org slash gardening one zero one."),
+    str("Most organic trash can be used to feed our gardens.  More information about how to set up composting in your garden, and what kitchen waste can be composted is available from") + online("go green nola dot O R G slash gardening one zero one."),
     start = "2021-06-22",
     alert = "2021-11-26",
     sourceContacts = "gogreennola@gmail.com"
@@ -1181,7 +1244,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "GreenProjectConstructionWasteB",
     Eco,
-    str("The Green Project recycles building materials, which are then available for rebuilding and renovation of homes, reducing the waste going to landfills.  More information is available from The Green Project at 2831 Marais (``MAH-ray'') Street, or online at") + online("the green project dot org."),
+    str("The Green Project recycles building materials, which are then available for rebuilding and renovation of homes, reducing the waste going to landfills.  More information is available from The Green Project at 2831 Marais (``MAH-ray'') Street, or online at") + online("the green project dot O R G."),
     orgName = Some("Green Project"),
     start = "2021-06-22",
     alert = "2021-11-26",
@@ -1202,7 +1265,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DeprBipolarAllianceC",
     Health,
-    str("The Depression and Bipolar Support Alliance is a peer support group for people with bipolar disorder or depression, their families, and their friends.  The alliance meets the first and third Tuesdays of every month from seven to eight") + pm + str("online, and periodically outside when weather permits.") + moreWebPhone("www dot D B S A New Orleans dot org", "504/286-1916"),
+    str("The Depression and Bipolar Support Alliance is a peer support group for people with bipolar disorder or depression, their families, and their friends.  The alliance meets the first and third Tuesdays of every month from seven to eight") + pm + str("online, and periodically outside when weather permits.") + moreWebPhone("www dot D B S A New Orleans dot O R G", "504/286-1916"),
     orgName = Some("Depression and Bipolar Support Alliance"),
     start = "2021-06-22",
     alert = "2021-11-26",
@@ -1238,7 +1301,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BloodCenterOne",
     Health,
-    str("Each and every day, 300 to 350 people are needed to give blood in Southeast Louisiana.  Sixty percent of the population is eligible to donate blood, but only five percent actually do.  The Blood Center has four convenient donor centers in the New Orleans area, or our mobile team can bring the drive to you.") + moreWebPhoneAnnounce("Center hours and addresses, and information about booking a blood drive, are", "www dot the blood center dot org", "800/86-BLOOD"),
+    str("Each and every day, 300 to 350 people are needed to give blood in Southeast Louisiana.  Sixty percent of the population is eligible to donate blood, but only five percent actually do.  The Blood Center has four convenient donor centers in the New Orleans area, or our mobile team can bring the drive to you.") + moreWebPhoneAnnounce("Center hours and addresses, and information about booking a blood drive, are", "www dot the blood center dot O R G", "800/86-BLOOD"),
     orgName = Some("The Blood Center"),
     start = "2021-06-22",
     alert = "2021-12-04",
@@ -1320,7 +1383,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "OrganDonationLegacy",
     Health,
-    str("Today, there are nearly 100,000 people on the national organ transplant waiting list, and more than 1,700 of them live here in Louisiana.") + moreWebAnnounce("More information about organ and tissue donation is", "organ awareness dot org"),
+    str("Today, there are nearly 100,000 people on the national organ transplant waiting list, and more than 1,700 of them live here in Louisiana.") + moreWebAnnounce("More information about organ and tissue donation is", "organ awareness dot O R G"),
     start = "2021-06-22",
     alert = "2021-12-11",
     copresent = "Legacy Donor Foundation",
@@ -1356,7 +1419,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AmerCancerSocQuitSmoking",
     Health,
-    str("Smoking is the most preventable cause of death in our society.  The American Cancer Society offers information about quitting smoking, and about local resources.") + moreWebPhone("cancer dot org", "800/ACS-2345"),
+    str("Smoking is the most preventable cause of death in our society.  The American Cancer Society offers information about quitting smoking, and about local resources.") + moreWebPhone("cancer dot O R G", "800/ACS-2345"),
     orgName = Some("American Cancer Society"),
     start = "2021-06-22",
     alert = "2021-12-11",
@@ -1414,7 +1477,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "EyesHaveIt",
     Health,
-    str("Children with uncorrected vision conditions can face all sorts of life barriers --- academically, psychologically and socially. Remember to have your child's eyes checked regularly.") + moreWeb("www dot eyes for school dot org"),
+    str("Children with uncorrected vision conditions can face all sorts of life barriers --- academically, psychologically and socially. Remember to have your child's eyes checked regularly.") + moreWeb("www dot eyes for school dot O R G"),
     start = "2021-06-22",
     alert = "2021-12-18",
     sourceContacts = "Susan Ilijevich <susan@whitespace-creative.com>"
@@ -1476,7 +1539,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "FriendsOfAlgiersFerryTwo",
     Civic,
-    str("Friends of the Ferry works to promote the Canal Street/Algiers (``al-JEERS'') Ferry as convenient and inexpensive form of public transportation.") + moreWebPhone("friends of the ferry dot org", "504/363-9090"),
+    str("Friends of the Ferry works to promote the Canal Street/Algiers (``al-JEERS'') Ferry as convenient and inexpensive form of public transportation.") + moreWebPhone("friends of the ferry dot O R G", "504/363-9090"),
     orgName = Some("Friends of the Ferry"),
     start = "2021-06-22",
     alert = "2022-01-05",
@@ -1513,7 +1576,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LouisianaDisasterRecoveryFoundation",
     Civic,
-    str("The Louisiana Disaster Recovery Foundation supports long-term and equitable recovery throughout Louisiana, and provides assistance to citizens in need through a network of Louisiana charities and nonprofit agencies.") + moreWebPhone("louisiana help dot org", "877/435-7521"),
+    str("The Louisiana Disaster Recovery Foundation supports long-term and equitable recovery throughout Louisiana, and provides assistance to citizens in need through a network of Louisiana charities and nonprofit agencies.") + moreWebPhone("louisiana help dot O R G", "877/435-7521"),
     orgName = Some("Disaster Recovery Foundation"),
     start = "2021-06-22",
     alert = "2022-01-05",
@@ -1523,7 +1586,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "TerrytownCivic",
     Civic,
-    str("The Terrytown Civic Association meets the first Wednesday of each month at seven") + pm + str("at the Golden Age Center, 604 Heritage Avenue.") + moreWebPhone("terrytown L A dot org", "504/914-2200"),
+    str("The Terrytown Civic Association meets the first Wednesday of each month at seven") + pm + str("at the Golden Age Center, 604 Heritage Avenue.") + moreWebPhone("terrytown L A dot O R G", "504/914-2200"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
     alert = "2021-06-15",
@@ -1534,7 +1597,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "TulaneGalvezPheonix", Civic,
-    str("The Phoenix of New Orleans is the neighborhood recovery association for the Tulane/Gravier (``GRAH-vee-ur'') neighborhood, bordered by I-10, Saint Louis, Claiborne Avenue and Broad Street.  The Phoenix provides community organization, directs recovery services, and sponsors monthly neighborhood meetings.") + moreWebPhoneAnnounce("More information and volunteer opportunities are", "www dot P N O L A dot org", "504/342-4399"),
+    str("The Phoenix of New Orleans is the neighborhood recovery association for the Tulane/Gravier (``GRAH-vee-ur'') neighborhood, bordered by I-10, Saint Louis, Claiborne Avenue and Broad Street.  The Phoenix provides community organization, directs recovery services, and sponsors monthly neighborhood meetings.") + moreWebPhoneAnnounce("More information and volunteer opportunities are", "www dot P N O L A dot O R G", "504/342-4399"),
     orgName = Some("Phoenix of New Orleans"),
     start = "2021-06-22",
     alert = "2022-01-12",
@@ -1545,7 +1608,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "FaubourgStJohnNeighborhoodAssocTwo",
     Civic,
-    str("The Faubourg (``FOH-borg'') Saint John Neighborhood Association serves the areas between the Fairgrounds, City Park, Orleans Avenue and North Broad Street.  They sponsor regular meetings, cleanups, walks and other neighborhood get-togethers.") + moreWebAnnounce("More information and volunteer opportunities are", "F S J N A dot org"),
+    str("The Faubourg (``FOH-borg'') Saint John Neighborhood Association serves the areas between the Fairgrounds, City Park, Orleans Avenue and North Broad Street.  They sponsor regular meetings, cleanups, walks and other neighborhood get-togethers.") + moreWebAnnounce("More information and volunteer opportunities are", "F S J N A dot O R G"),
     orgName = Some("Saint John Neighborhood Association"),
     start = "2021-06-22",
     alert = "2022-01-12",
@@ -1617,7 +1680,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "ArabAntiDiscTwo",
     Civic,
-    str("In recent years, bias against Arab Americans has grown throughout the US.  The American Arab Anti-Discrimination Committee (ADC) is a grassroots civil rights organization working to combat discrimination, bias and stereotyping.") + moreWebAnnounce("More information about the New Orleans chapter of the ADC is", "A D C dot org"),
+    str("In recent years, bias against Arab Americans has grown throughout the US.  The American Arab Anti-Discrimination Committee (ADC) is a grassroots civil rights organization working to combat discrimination, bias and stereotyping.") + moreWebAnnounce("More information about the New Orleans chapter of the ADC is", "A D C dot O R G"),
     orgName = Some("ADC"),
     start = "2021-06-22",
     alert = "2022-01-19",
@@ -1665,7 +1728,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "MidCityCommunityMeeting", Civic,
-    str("Mid-City Recovery Action Meetings take place on the first Monday of each month at six-thirty") + pm + str("at Grace Episcopal Church, 3700 Canal Street.  Their meetings are open to the public, and all are invited to help rebuild Mid-City. More information is available on the Mid-City Neigbhorhood Organization website,") + online("M C N O dot org."),
+    str("Mid-City Recovery Action Meetings take place on the first Monday of each month at six-thirty") + pm + str("at Grace Episcopal Church, 3700 Canal Street.  Their meetings are open to the public, and all are invited to help rebuild Mid-City. More information is available on the Mid-City Neigbhorhood Organization website,") + online("M C N O dot O R G."),
     orgName = Some("Mid-City Neigbhorhood Organization"),
     start = "2021-06-22",
     end = Some("2021-06-22"),
@@ -1695,7 +1758,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Animal,
     str("The Louisiana SPCA needs volunteers. Volunteers can help by responding to telephone inquiries, assisting with arriving animals, exercising and socializing animals, providing foster care and vet clinic assistance, in addition to many other roles.")
       + moreWebAnnounce("More information and a volunteer application are",
-          "L A hyphen S P C A dot org"),
+          "L A hyphen S P C A dot O R G"),
     orgName = Some("Louisiana SPCA"),
     start = "2021-06-22",
     alert = "2022-01-26",
@@ -1705,7 +1768,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HumaneSocLou",
     Animal,
-    str("The Humane Society of Louisiana investigates animal cruelty, rescues and fosters abused and neglected animals, and provides animal care information to the public.  They are seeking foster homes, volunteers and donations.") + moreWebPhone("humane L A dot org", "888/6-HUMANE"),
+    str("The Humane Society of Louisiana investigates animal cruelty, rescues and fosters abused and neglected animals, and provides animal care information to the public.  They are seeking foster homes, volunteers and donations.") + moreWebPhone("humane L A dot O R G", "888/6-HUMANE"),
     orgName = Some("Humane Society of Louisiana"),
     start = "2021-06-22",
     alert = "2022-01-26",
@@ -1726,7 +1789,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "MicrochippingSPCA",
     Animal,
-    str("Microchipping is a quick, easy way to ensure that your dog or cat will never be without their identifying information.  The Louisiana SPCA partners with local businesses to offer low-cost microchipping events around the New Orleans metro area.") + moreWebAnnounce("The time and place of the next microchipping event is", "www dot L A hyphen S P C A dot org"),
+    str("Microchipping is a quick, easy way to ensure that your dog or cat will never be without their identifying information.  The Louisiana SPCA partners with local businesses to offer low-cost microchipping events around the New Orleans metro area.") + moreWebAnnounce("The time and place of the next microchipping event is", "www dot L A hyphen S P C A dot O R G"),
     orgName = Some("LSPCA"),
     start = "2021-06-22",
     alert = "2022-01-26",
@@ -1736,7 +1799,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SpaymartTwo",
     Animal,
-    str("Spaymart Sanctuary is a New Orleans non-profit cat adoption and spay neuter organization.  They are seeking volunteers and prospective cat owners.") + moreWebPhone("spaymart dot org", "601/749-0268"),
+    str("Spaymart Sanctuary is a New Orleans non-profit cat adoption and spay neuter organization.  They are seeking volunteers and prospective cat owners.") + moreWebPhone("spaymart dot O R G", "601/749-0268"),
     orgName = Some("Spaymart Sanctuary"),
     start = "2021-06-22",
     alert = "2022-01-26",
@@ -1791,7 +1854,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "PrcRegular",
     Museum,
-    str("The Preservation Resource Center features both permanent and rotating exhibits on New Orleans architecture and historic neighborhoods.  The ``Living With History'' exhibit features hundreds of professional and amateur photographs of New Orleans residents going about their daily lives in several of New Orleans' fascinating neighborhoods.  The center also provides walking tour brochures highlighting neighborhood restaurants, churches, theaters and more.  The Preservation Resource Center is located at 923 Tchoupitoulas Street in the Warehouse District.") + moreWebPhone("www dot P R C N O dot org", "504/581-7032") + nomuseumsdotcomblurb,
+    str("The Preservation Resource Center features both permanent and rotating exhibits on New Orleans architecture and historic neighborhoods.  The ``Living With History'' exhibit features hundreds of professional and amateur photographs of New Orleans residents going about their daily lives in several of New Orleans' fascinating neighborhoods.  The center also provides walking tour brochures highlighting neighborhood restaurants, churches, theaters and more.  The Preservation Resource Center is located at 923 Tchoupitoulas Street in the Warehouse District.") + moreWebPhone("www dot P R C N O dot O R G", "504/581-7032") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-03",
     sourceURL = "Kathy Fleming <kathylee1145@yahoo.com>"
@@ -1818,7 +1881,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "PitotHouseRegular",
     Museum,
-    str("The Pitot House Museum on Bayou (``BUY-you'') Saint John is an eighteenth-century Creole colonial building, and was the home of New Orleans first mayor.  The museum has been restored to highlight its distinctive construction and roof, and is furnished with Louisiana and American antiques from the early 1800s.  Visitors do need an appointment to tour the home.") + moreWebPhoneAnnounce("More information and appointments are", "www dot P I T O T house dot org", "504/482-0312") + nomuseumsdotcomblurb,
+    str("The Pitot House Museum on Bayou (``BUY-you'') Saint John is an eighteenth-century Creole colonial building, and was the home of New Orleans first mayor.  The museum has been restored to highlight its distinctive construction and roof, and is furnished with Louisiana and American antiques from the early 1800s.  Visitors do need an appointment to tour the home.") + moreWebPhoneAnnounce("More information and appointments are", "www dot P I T O T house dot O R G", "504/482-0312") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     end = Some("2022-10-31"),
     alert = "2022-02-10",
@@ -1828,7 +1891,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "PitotHouseRegular2",
     Museum,
-    str("The Pitot House Museum on Bayou (``BUY-you'') Saint John is an eighteenth-century Creole colonial building, and was the home of New Orleans first mayor.  The museum has been restored to highlight its distinctive construction and roof, and is furnished with Louisiana and American antiques from the early 1800s.  Visitors do need an appointment to tour the home.") + moreWebPhoneAnnounce("More information and appointments are", "P I T O T house dot org", "504/482-0312") + nomuseumsdotcomblurb,
+    str("The Pitot House Museum on Bayou (``BUY-you'') Saint John is an eighteenth-century Creole colonial building, and was the home of New Orleans first mayor.  The museum has been restored to highlight its distinctive construction and roof, and is furnished with Louisiana and American antiques from the early 1800s.  Visitors do need an appointment to tour the home.") + moreWebPhoneAnnounce("More information and appointments are", "P I T O T house dot O R G", "504/482-0312") + nomuseumsdotcomblurb,
     start = "2022-10-31",
     alert = "2024-04-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1846,7 +1909,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DDayMuseumRegular",
     Museum,
-    str("New Orleans is home to the country's official World War II Museum.  Permanent exhibits tell the story of both fronts of the war from both the military and civilian points of view. Temporary exhibits and lectures delve more deeply into aspect of that era.") + moreWebPhone("www dot national w w 2 museum dot org", "504/527-6012") + nomuseumsdotcomblurb,
+    str("New Orleans is home to the country's official World War II Museum.  Permanent exhibits tell the story of both fronts of the war from both the military and civilian points of view. Temporary exhibits and lectures delve more deeply into aspect of that era.") + moreWebPhone("www dot national w w 2 museum dot O R G", "504/527-6012") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-10",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1855,7 +1918,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AmericanItalianMuseumRegular",
     Museum,
-    str("The American-Italian Renaissance Foundation's Museum tells the story of the cultural contributions of one of New Orleans' more often-overlooked immigrant groups --- from procedures in anesthesiology which are still in use today, to the tradition of the Saint Joseph's Day altar.  The Museum is located at 537 South Peters in the Warehouse District.") + moreWebPhone("www dot A I R F dot org", "504/522-7294") + nomuseumsdotcomblurb,
+    str("The American-Italian Renaissance Foundation's Museum tells the story of the cultural contributions of one of New Orleans' more often-overlooked immigrant groups --- from procedures in anesthesiology which are still in use today, to the tradition of the Saint Joseph's Day altar.  The Museum is located at 537 South Peters in the Warehouse District.") + moreWebPhone("www dot A I R F dot O R G", "504/522-7294") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-10",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1864,7 +1927,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "PharmacyMuseumRegular",
     Museum,
-    str("The New Orleans Pharmacy Museum is the largest and finest pharmaceutical collection in the United States.  Housed in the French Quarter, in the 1823 apothecary of America's first licensed pharmacist, the Museum contains a collection of 19th-century pharmacy and medical artifacts including an exhibition on epidemics in New Orleans.") + moreWebPhone("www dot pharmacy museum dot org", "504/565-8027") + nomuseumsdotcomblurb,
+    str("The New Orleans Pharmacy Museum is the largest and finest pharmaceutical collection in the United States.  Housed in the French Quarter, in the 1823 apothecary of America's first licensed pharmacist, the Museum contains a collection of 19th-century pharmacy and medical artifacts including an exhibition on epidemics in New Orleans.") + moreWebPhone("www dot pharmacy museum dot O R G", "504/565-8027") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2024-03-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1882,7 +1945,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "DDayMuseumLivingHistoryCorps",
     Museum,
-    str("The National World War II Museum's World War II re-enactors, collectively known as the Living History Corps (``core''), are local volunteers who enrich visitors' museum experience with their wealth of information and stories. Wearing the uniforms and carrying the equipment of both the Allied and Axis forces, they share their knowledge about the day-to-day lives of military men and women, and the broader lessons of World War II.  Living History Corps (``core'') events are open to the public.") + moreWebPhone("national W W 2 museum dot org slash calendar", "504/527-6012 extension 333"),
+    str("The National World War II Museum's World War II re-enactors, collectively known as the Living History Corps (``core''), are local volunteers who enrich visitors' museum experience with their wealth of information and stories. Wearing the uniforms and carrying the equipment of both the Allied and Axis forces, they share their knowledge about the day-to-day lives of military men and women, and the broader lessons of World War II.  Living History Corps (``core'') events are open to the public.") + moreWebPhone("national W W 2 museum dot O R G slash calendar", "504/527-6012 extension 333"),
     start = "2021-06-22",
     alert = "2022-02-10",
     sourceURL = "http://www.nationalww2museum.org/calendar/"
@@ -1909,7 +1972,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HistoricNewOrleansRegular",
     Museum,
-    str("The Historic New Orleans Collection houses primary sources including manuscripts and documents, literary and artistic treasures, and other artifacts showcasing the numerous cultures that shaped New Orleans from the 18th century to the present.  Along with public exhibition galleries and a museum shop, the Collection offers A research guide and photocopying services for scholarly and historic research.") + moreWebPhone("www dot H N O C dot org", "504/523-4662") + nomuseumsdotcomblurb,
+    str("The Historic New Orleans Collection houses primary sources including manuscripts and documents, literary and artistic treasures, and other artifacts showcasing the numerous cultures that shaped New Orleans from the 18th century to the present.  Along with public exhibition galleries and a museum shop, the Collection offers A research guide and photocopying services for scholarly and historic research.") + moreWebPhone("www dot H N O C dot O R G", "504/523-4662") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1918,7 +1981,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "OgdenAfterHours",
     Museum,
-    str("Every Thursday evening, The Ogden Museum of Southern Art presents") + emph("Ogden After Hours,") + str("music in the atrium of the museum.  During these concerts, the museum also offers art activities for kids.") + moreWebPhone("www dot ogden museum dot org", "504/539-9600") + nomuseumsdotcomblurb,
+    str("Every Thursday evening, The Ogden Museum of Southern Art presents") + emph("Ogden After Hours,") + str("music in the atrium of the museum.  During these concerts, the museum also offers art activities for kids.") + moreWebPhone("www dot ogden museum dot O R G", "504/539-9600") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1945,7 +2008,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "ChildrensMuseumRegular",
     Museum,
-    str("The Louisiana Children's Museum offers more than 30,000 square feet of hands-on, interactive exhibits that invite and engage children and families as they explore art, music, science, math, and health, and role-playing environments. The museum is located at 420 Julia Street in the Warehouse District, is open seven days a week in the summer, and closes Mondays during the school year.") + moreWebPhone("www dot L C M dot org", "504/523-1357") + nomuseumsdotcomblurb,
+    str("The Louisiana Children's Museum offers more than 30,000 square feet of hands-on, interactive exhibits that invite and engage children and families as they explore art, music, science, math, and health, and role-playing environments. The museum is located at 420 Julia Street in the Warehouse District, is open seven days a week in the summer, and closes Mondays during the school year.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1954,7 +2017,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "BackstreetRegular",
     Museum,
-    str("The Backstreet Cultural Museum is home to an amazing assortment of memorabilia of Mardi Gras, jazz funerals and other traditions found only in New Orleans, including the city's largest collection of Mardi Gras Indian costumes.") + moreWebPhoneAnnounce("Directions to the museum and more information are", "www dot back street museum dot org", "504/522-4806") + nomuseumsdotcomblurb,
+    str("The Backstreet Cultural Museum is home to an amazing assortment of memorabilia of Mardi Gras, jazz funerals and other traditions found only in New Orleans, including the city's largest collection of Mardi Gras Indian costumes.") + moreWebPhoneAnnounce("Directions to the museum and more information are", "www dot back street museum dot O R G", "504/522-4806") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1963,7 +2026,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "AfAmMuseumRegular",
     Museum,
-    str("The New Orleans African American Museum is dedicated to protecting, preserving, and promoting through education the history, art, and communities of African Americans in New Orleans and the African diaspora.  Five restored building over a full city block in the Trème (``TREHM-ay'') host permanent and changing exhibits, and a serene garden.  Tour groups, school groups and individuals are welcomed by appointment only.") + moreWebPhoneAnnounce("Information and appointments are", "www dot N O A A M dot org", "504/566-1136") + nomuseumsdotcomblurb,
+    str("The New Orleans African American Museum is dedicated to protecting, preserving, and promoting through education the history, art, and communities of African Americans in New Orleans and the African diaspora.  Five restored building over a full city block in the Trème (``TREHM-ay'') host permanent and changing exhibits, and a serene garden.  Tour groups, school groups and individuals are welcomed by appointment only.") + moreWebPhoneAnnounce("Information and appointments are", "www dot N O A A M dot O R G", "504/566-1136") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1972,7 +2035,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SculptureGardenRegular",
     Museum,
-    str("The Besthoff Sculpture Garden occupies five acres of City Park, and is open to the public five days a week, Wednesdays through Sundays.  The collection includes work by some of the great master sculptors of the twentieth century, as well as younger, contemporary sculptors.") + moreWeb("www dot N O M A dot org") + nomuseumsdotcomblurb,
+    str("The Besthoff Sculpture Garden occupies five acres of City Park, and is open to the public five days a week, Wednesdays through Sundays.  The collection includes work by some of the great master sculptors of the twentieth century, as well as younger, contemporary sculptors.") + moreWeb("www dot N O M A dot O R G") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1981,7 +2044,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "OgdenRegular",
     Museum,
-    str("The Ogden Museum of Southern Art is home to the most comprehensive collection of southern art in the world, spanning fifteen states and four centuries.  The Ogden features special programming for visitors of all ages, plus weekly evening gallery openings and music performances.") + moreWebPhone("www dot ogden museum dot org", "504/539-9600") + nomuseumsdotcomblurb,
+    str("The Ogden Museum of Southern Art is home to the most comprehensive collection of southern art in the world, spanning fifteen states and four centuries.  The Ogden features special programming for visitors of all ages, plus weekly evening gallery openings and music performances.") + moreWebPhone("www dot ogden museum dot O R G", "504/539-9600") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -1990,7 +2053,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "NOMAregular",
     Museum,
-    str("The New Orleans Museum of Art is the premier art museum of the Gulf South region.  NOMA's broad collection includes a notable collection of Fabergé eggs and treasures, and the Latin American Colonial collection.") + moreWebPhone("www dot N O M A dot org", "504/488-2631") + nomuseumsdotcomblurb,
+    str("The New Orleans Museum of Art is the premier art museum of the Gulf South region.  NOMA's broad collection includes a notable collection of Fabergé eggs and treasures, and the Latin American Colonial collection.") + moreWebPhone("www dot N O M A dot O R G", "504/488-2631") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-24",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -2017,7 +2080,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "CACregular",
     Museum,
-    str("The Contemporary Arts Center is a multidisciplinary arts center presenting an array of programs encompassing the visual arts, music, dance and drama, all celebrating the arts of our time.") + moreWebPhone("www dot C A C N O dot org", "504/528-3805") + nomuseumsdotcomblurb,
+    str("The Contemporary Arts Center is a multidisciplinary arts center presenting an array of programs encompassing the visual arts, music, dance and drama, all celebrating the arts of our time.") + moreWebPhone("www dot C A C N O dot O R G", "504/528-3805") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2024-05-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -2026,7 +2089,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HermannGrimaHouseRegular",
     Museum,
-    str("Located in the heart of the historic French Quarter, the Hermann-Grima House is thought to be the finest example of American architecture in the area.  The mansion has accurately restored to depict the gracious lifestyle of a wealthy Creole family from 1830 to 1860. Visitors can tour the original stables, the outdoor kitchen with the open hearth for cooking, and a meticulously restored courtyard with citrus trees and antique roses.") + moreWebPhone("www dot H G G H H dot org", "504/525-5661") + nomuseumsdotcomblurb,
+    str("Located in the heart of the historic French Quarter, the Hermann-Grima House is thought to be the finest example of American architecture in the area.  The mansion has accurately restored to depict the gracious lifestyle of a wealthy Creole family from 1830 to 1860. Visitors can tour the original stables, the outdoor kitchen with the open hearth for cooking, and a meticulously restored courtyard with citrus trees and antique roses.") + moreWebPhone("www dot H G G H H dot O R G", "504/525-5661") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2023-06-15",
     sourceURL = "http://www.neworleansmuseums.com/"
@@ -2036,7 +2099,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "GallierHouseRegular",
     Museum, (
       str("Gallier (``GAL-yer'') House, built in 1857, was described as ``one of thebest small museums in the country'' by the") + emph("New York Times.") + str("The house is a well-preserved example of progressive design, and is decorated throughout the year to reflect period seasonal styles.")
-        + moreWebPhoneAnnounce("More information about Gallier (``GAL-yer'') House is", "www dot H G G H H dot org", "504/525-5661")
+        + moreWebPhoneAnnounce("More information about Gallier (``GAL-yer'') House is", "www dot H G G H H dot O R G", "504/525-5661")
         + nomuseumsdotcomblurb
     ),
     start = "2021-06-22",
@@ -2077,7 +2140,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "RockTheEarth",
     Rare,
-    str("Some of the best music in the world invokes a sense of time and place in the listener.  Today many of our planet's special places are under increased stress and your help is needed to protect the areas that we all cherish.  Rock the Earth and their musical partners are working hard in the name of our most precious natural places.") + moreWebAnnounce("More information about their work and how you can help are", "rock the earth dot org"),
+    str("Some of the best music in the world invokes a sense of time and place in the listener.  Today many of our planet's special places are under increased stress and your help is needed to protect the areas that we all cherish.  Rock the Earth and their musical partners are working hard in the name of our most precious natural places.") + moreWebAnnounce("More information about their work and how you can help are", "rock the earth dot O R G"),
     orgName = Some("Rock the Earth"),
     start = "2021-06-22",
     alert = "2022-03-04",
