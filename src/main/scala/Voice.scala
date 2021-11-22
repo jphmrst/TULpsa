@@ -145,6 +145,10 @@ object Voice {
     PsaLongTermSpots("PAWS").get.updateSpotAudio
     PsaShortTermSpots("MusicaSept2021This").get.updateSpotAudio
     PsaLongTermSpots("RootsOfMusicGeneralTwo").get.updateSpotAudio
+    PsaLongTermSpots("PrcRegular").get.updateSpotAudio
+    PsaLongTermSpots("NOMAregular").get.updateSpotAudio
+    PsaLongTermSpots("StormPrepCityWebSiteE").get.updateSpotAudio
+    PsaLongTermSpots("SummerInjuryPrevention").get.updateSpotAudio
   }
 
   def translateTestSSML4 =
