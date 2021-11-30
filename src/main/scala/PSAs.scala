@@ -266,7 +266,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       phonetic("Elysian", "eh-LEE-zhun", "əˈliː.ʒən") +
       str("Fields, on Tuesdays from noon to five") +
       pm > comma +
-      str(" Wednesdays from ten") + am + str("to five") + (pm > period) +
+      str("Wednesdays from ten") + am + str("to five") + (pm > period) +
       str("Thursdays from ten") + am + str("to three") + (pm > comma) +
       str("and Fridays from ten") + am + str("to five") + pm > period +
       str("Take-home HIV tests are also available five days a week from nine") +
@@ -685,7 +685,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "StompTroopers",
     Volunteer,
     phonetic("NOLArts", "NOL-arts") +
-      str("Learning Center provides cultural access to young people with special needs.  Their flagship project, the STOMP Troopers, is an eight-week workshop to prepare young people with autism and other special needs to perform in the Chewbacchus Mardi Gras Parade. ") +
+      str("Learning Center provides cultural access to young people with special needs.  Their flagship project, the STOMP Troopers, is an eight-week workshop to prepare young people with autism and other special needs to perform in the Chewbacchus Mardi Gras Parade.") +
       moreWebAnnounce("More information about donating or volunteering is", "stomp troopers dot O R G"),
     orgName = Some("NOLArts"),
     start = "2021-06-22",
@@ -1693,7 +1693,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
 
   Spot(
     "TulaneGalvezPheonix", Civic,
-    str("The Phoenix of New Orleans is the neighborhood recovery association for the Tulane/Gravier (``GRAH-vee-ur'') neighborhood, bordered by I-10, Saint Louis, Claiborne Avenue and Broad Street.  The Phoenix provides community organization, directs recovery services, and sponsors monthly neighborhood meetings.") + moreWebPhoneAnnounce("More information and volunteer opportunities are", "www dot P N O L A dot O R G", "504/342-4399"),
+    str("The Phoenix of New Orleans is the neighborhood recovery association for the Tulane/") >
+      phonetic("Gravier", "GRAH-vee-ur") +
+      phonetic("neighborhood, bordered by I-10, Saint Louis, Claiborne Avenue and Broad Street.  The Phoenix provides community organization, directs recovery services, and sponsors monthly neighborhood meetings.") +
+      moreWebPhoneAnnounce("More information and volunteer opportunities are", "www dot P N O L A dot O R G", "504/342-4399"),
     orgName = Some("Phoenix of New Orleans"),
     start = "2021-06-22",
     alert = "2022-01-12",
@@ -2180,9 +2183,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "DDayMuseumLivingHistoryCorps",
     Museum,
     str("The National World War 2 Museum's World War II re-enactors, collectively known as the Living History") +
-      phonetic(" Corps", "core", "kɑːɹ") > comma +
+      phonetic("Corps", "core", "kɑːɹ") > comma +
       str("are local volunteers who enrich visitors' museum experience with their wealth of information and stories. Wearing the uniforms and carrying the equipment of both the Allied and Axis forces, they share their knowledge about the day-to-day lives of military men and women, and the broader lessons of World War 2.  Living History") +
-      phonetic(" Corps", "core", "kɑːɹ") +
+      phonetic("Corps", "core", "kɑːɹ") +
       str("events are open to the public.") +
       moreWebPhone(
         "national W W 2 museum dot O R G slash calendar",
@@ -2473,7 +2476,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Taxtime,
     str("The") +
       spellout("IRS") +
-      str("website,") + online("I R S dot gov") + str("is a one-stop shop for an array of tax information. You can even prepare and file your federal tax return through ``Free File,'' a service offered by") +
+      str("website,") +
+      online("I R S dot gov") + str("is a one-stop shop for an array of tax information. You can even prepare and file your federal tax return through") +
+      doublequoted("Free File") > comma +
+      str("a service offered by") +
       spellout("IRS") +
       str("and its partners who offer tax preparation software and electronic filing as a public service. The site also includes answers to common tax questions, and lets you check the status of your refund. The") +
       spellout("IRS") +
@@ -2832,7 +2838,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "SAPHEcarnival",
     Carnival,
-    str("SAPHE (``safe''), Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call SAPHE's student-operated, confidential hotline at") +
+    phonetic("SAPHE", "safe", "seɪf") > comma +
+      str("Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call" +
+        phonetic("SAPHE's", "safes", "seɪfs") +
+        str("student-operated, confidential hotline at") +
       phone("504/654-9543") > period +
       str("Again, the hotline number is") +
       phone("504/654-9543") > period,
