@@ -1695,7 +1695,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "TulaneGalvezPheonix", Civic,
     str("The Phoenix of New Orleans is the neighborhood recovery association for the Tulane/") >
       phonetic("Gravier", "GRAH-vee-ur") +
-      phonetic("neighborhood, bordered by I-10, Saint Louis, Claiborne Avenue and Broad Street.  The Phoenix provides community organization, directs recovery services, and sponsors monthly neighborhood meetings.") +
+      "neighborhood, bordered by I-10, Saint Louis, Claiborne Avenue and Broad Street.  The Phoenix provides community organization, directs recovery services, and sponsors monthly neighborhood meetings." +
       moreWebPhoneAnnounce("More information and volunteer opportunities are", "www dot P N O L A dot O R G", "504/342-4399"),
     orgName = Some("Phoenix of New Orleans"),
     start = "2021-06-22",
@@ -2493,7 +2493,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "IrsMilitaryHelp", Taxtime,
     str("Free tax return preparation assistance is available for eligible military members and their spouses. Volunteers at military VITA sites are trained to address military-specific tax issues, such as combat zone tax benefits and the Earned Income Tax Credit guidelines. More information is available in") +
       spellout("IRS") +
-      str("Publication 3, the") + emph("Armed Forces' Tax Guide}, available on the") +
+      str("Publication 3, the") + emph("Armed Forces' Tax Guide") >
+      ", available on the" +
       spellout("IRS") +
       str("web site") + online("I R S dot gov,") + str("or by phone, 800/TAX-FORM, that's 800/829-3676."),
     orgName = Some("IRS"),
@@ -2839,9 +2840,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     "SAPHEcarnival",
     Carnival,
     phonetic("SAPHE", "safe", "seɪf") > comma +
-      str("Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call" +
-        phonetic("SAPHE's", "safes", "seɪfs") +
-        str("student-operated, confidential hotline at") +
+      str("Tulane's Sexual Aggression Peer Hotline and Education program, provides the Tulane community with resources, support and education about sexual aggression. If you or someone you know is a victim of sexual assault, relationship violence, stalking, harassment, or exploitation, you can call") +
+      phonetic("SAPHE's", "safes", "seɪfs") +
+      str("student-operated, confidential hotline at") +
       phone("504/654-9543") > period +
       str("Again, the hotline number is") +
       phone("504/654-9543") > period,
