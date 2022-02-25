@@ -2811,7 +2811,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2021-12-01",
+    alert = "2024-12-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2823,7 +2823,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Veterinary Teaching Hospital"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2021-12-01",
+    alert = "2025-06-01",
     copresent = "LSU School of Veterinary Medicine"
   )
 
@@ -2833,7 +2833,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Veterinary Teaching Hospital"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2021-12-01",
+    alert = "2025-12-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2852,7 +2852,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2021-12-01",
+    alert = "2026-06-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2869,7 +2869,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2021-12-01",
+    alert = "2026-12-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2877,10 +2877,13 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "HolidayPetFreeze",
     Holiday,
-    str("The weather in December and January can be quite chilly even in Louisiana. Please remember to bring in outside pets overnight if a hard freeze is forecast."),
+    str("The weather in December and January can be quite chilly even in Louisiana. Please remember to bring in outside pets overnight if a hard freeze is forecast.  More information about winter pet care is available from the") +
+      spellout("ASPCA") +
+      str("web site,") +
+      online("A S P C A dot O R G") > period,
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2029-07-15",
+    alert = "2027-06-01",
     copresent = "LSU School of Veterinary Medicine"
   )
 
