@@ -191,6 +191,19 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("FemaAppealsIda",
+    str("If you received a letter from FEMA saying that the information you provided is incomplete, or that you are ineligible for disaster assistance, you have the right to appeal the decision within sixty days of the date on the letter, or longer with an explanation for the delay.  An appeal letter from you may change FEMA’s decision.  If your FEMA letter says your request was denied because of missing information, providing the necessary documentation may help you qualify for a grant.  Or, if you don’t agree with the amount of the grant you received, providing receipts or written quotes may allow you to receive a larger grant.  More information about the FEMA appeal process is available on their website") > comma + online("F E M A dot G O V") > comma + str("searching for the word `appeal'") > comma + online("A P P E A L") > period,
+    "2022-03-31",
+    spotsSourceContacts = Seq("FEMA-NewsDesk-Louisiana-Disasters@fema.dhs.gov")
+  )
+
+  Event("TUbookfair2022",
+    str("The New Orleans Book Festival at Tulane University will debut ") + blank("when.") + str(" on Tulane’s uptown campus, and run through Saturday the 12th. The event is open to the public and will feature over 130 authors.") + moreWebEmail("bookfest dot tulane dot E D U", "bookfest at tulane dot E D U"),
+    "2022-03-10",
+    spotsSourceContacts = Seq(
+      "Christopher R Dunaway <roger@tulane.edu>",
+      "Brendan F Chase <bchase2@tulane.edu>")
+  )
 
   Event("IdaFemaIndivLastRegister",
     str("Survivors of Hurricane Ida still have two weeks left to apply for individual assistance from FEMA. The final deadline to apply is") + blank("when.") + str("FEMA assistance for individuals and families can cover rental assistance, temporary housing, home repairs, personal property losses and other disaster-related needs not covered by insurance.  The easiest way to apply for FEMA assistance is online at") + online("disaster assistance dot gov") > comma + str("or by phone at 800-621-3362.  Phone lines operate from 6") + am + str("to midnight, seven days a week. Individuals can also visit a Disaster Recovery Center to apply and meet with FEMA specialists in person.  Center locations are available on the FEMA app, or online at") + online("fema dot gov slash D R C Locator") > period,
@@ -275,6 +288,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Crescent Care"),
     start = "2021-08-12",
     alert = "2022-01-23",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = Seq(
       "Doreen Tollerson <Doreen.Tollerson@crescentcare.org>",
       "Joe Hui <Joe.Hui@crescentcare.org>",
@@ -331,7 +345,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
-    "InnocenceProjectGeneralTwo",
+    "InnocenceProjectGeneralThree",
     Volunteer,
     str("Innocence Project New Orleans represents prisoners serving life sentences in Louisiana and Mississippi. They work to free innocent prisoners, prevent wrongful convictions, and assist freed prisoners with their transition upon release.") +
       moreWebPhoneAnnounce(
@@ -340,9 +354,26 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
         "504/522-4766"),
     orgName = Some("Innocence Project New Orleans"),
     start = "2021-06-22",
+    alert = "2025-01-15",
+    sourceContacts = Seq("info@ip-no.org", "Cat Forrester <catf@ip-no.org>"),
+    sourceNote = "updated February 2022"
+  )
+
+  Spot(
+    "InnocenceProjectGeneralTwo",
+    Volunteer,
+    str("Innocence Project New Orleans frees innocent people sentenced to life in prison, and those serving unjust sentences. They work to expose and address the systemic racism and inequities at the root of wrongful convictions and unjust sentences, by sharing their clients’ stories in courts, and with the legislature, communities, and the media.  IPNO helps their clients to live well and fully in the world after their release.") +
+      moreWebPhoneAnnounce(
+        "Information about supporting IPNO is",
+        "I P hyphen N O dot O R G",
+        "504/943-1902"),
+    orgName = Some("Innocence Project New Orleans"),
+    start = "2021-06-22",
     alert = "2022-01-15",
+    end = Some("2022-02-21"),
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = Seq("info@ip-no.org", "Jene OKeefe Trigg <JeneOT@ip-no.org>"),
-    sourceNote = "confirmed August 2015"
+    sourceNote = "confirmed August 2015, updated February 2022"
   )
 
   Spot(
@@ -391,6 +422,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Clearwater Wildlife Sanctuary"),
     start = "2021-06-22",
     alert = "2022-01-29",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = Seq("clearwaterwildlife@gmail.com"),
     sourceNote = "updated Feb. 2016"
   )
@@ -403,6 +435,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Communities In Schools of Greater New Orleans"),
     start = "2012-08-01",
     alert = "2022-01-28",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "asked July 2015, last confirmed Dec. 2012",
     sourceContacts = Seq("Jade Parker <jparker@cisneworleans.org>")
   )
@@ -418,6 +451,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("New Orleans Birthing Project"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "added Dec 2011, asked Dec. 2012, asked July 2015",
     sourceContacts = "Luanne Francis <luanne_f2001@yahoo.com>"
   )
@@ -430,6 +464,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Boys Hope Girls Hope"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "added August 2012, asked July 2015",
     sourceContacts = "Kelley Allenspach <kallenspach@bhgh.org>"
   )
@@ -444,6 +479,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Green Light New Orleans"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "(from Gambit) asked July 2015, asked Dec. 2012",
     sourceContacts = Seq(
       "green@greenlightneworleans.org (Bernnel January Jr.)",
@@ -459,6 +495,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Gift of Life"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "last updated July 2015, added December 2014",
     sourceContacts = "Amy Glanzman <aglanzman@giftoflife.org>"
   )
@@ -472,6 +509,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("CASA"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "updated January 2015 --- six-month rechecks",
     sourceContacts = Seq("Ellie Schneider <eschneider@casajefferson.org>")
   )
@@ -484,9 +522,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
         "More information and volunteer scheduling are", "504/888-5880"),
     orgName = Some("Jefferson Council on Aging"),
     start = "2021-06-22",
-    alert = "2022-02-15",
-    sourceNote = "asked July 2015, last confirmed Dec. 2012",
-    sourceContacts = Seq("Liz Yager <lyager@jcoa.net>")
+    alert = "2025-02-15",
+    previousAlerts = Seq("2022-02-20"),
+    sourceNote = "asked July 2015, last confirmed Feb 2022",
+    sourceContacts = Seq("Chuck Sabin <csabin@jcoa.net>",
+      "Al Robichaux <arobichaux@jcoa.net>", "Renee Schober <rschober@jcoa.net>")
   )
 
   Spot(
@@ -499,6 +539,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("New Orleans Mission"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
     sourceNote = "asked July 2015, last confirmed Dec. 2012",
     sourceContacts = "Brittany Ray <Brittany@neworleansmission.org>"
   )
@@ -966,7 +1007,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Metropolitan Human Services"),
     start = "2021-06-22",
     alert = "2021-11-01",
-    previousAlerts = Seq("2021-11-04", "2021-11-13"),
+    previousAlerts = Seq("2021-11-04", "2021-11-13", "2022-02-20"),
     sourceContacts = "Brenda.Edgerton-Webster@la.gov",
     sourceNote = "added Feb. 12"
   )
@@ -1055,7 +1096,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Assistive Technology Access Network"),
     start = "2021-06-22",
     alert = "2021-11-05",
-    previousAlerts = Seq("2021-11-13"),
+    previousAlerts = Seq("2021-11-13", "2022-02-21"),
     sourceContacts = "Maria Yiannopoulos <mariay@latan.org>",
     sourceNote = "asked June 2013"
   )
@@ -1082,8 +1123,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Zeus's"),
     start = "2021-06-22",
     alert = "2021-11-05",
-    previousAlerts = Seq("2021-11-13", "2021-11-21"),
-    sourceContacts = "Kellie Grengs <kelliegrengs@yahoo.com>"
+    previousAlerts = Seq("2021-11-13", "2021-11-21", "2022-02-20"),
+    sourceContacts = "zeusrescues@gmail.com"
   )
 
   Spot(
@@ -1239,11 +1280,12 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("Computers, monitors, mobile phones and other electronic devices release toxic substances like lead, cadmium, and mercury into our landfills and water when discarded improperly.  You can properly dispose of electronics at The Green Project,") +
       spellout("2831") +
       phonetic("Marais", "mah-RAY", "məˈɹeɪ") +
-      moreWeb("Street.") +
+      str("Street.") +
       moreWeb("the green project dot O R G"),
     orgName = Some("Green Project"),
     start = "2021-06-22",
     alert = "2021-11-26",
+    previousAlerts = Seq("2022-02-21"),
     sourceContacts = "ahamilton@thegreenproject.org"
   )
 
@@ -1254,6 +1296,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       online("go green nola dot O R G slash gardening one zero one."),
     start = "2021-06-22",
     alert = "2021-11-26",
+    orgName = Some("Go Green Composting"),
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "gogreennola@gmail.com"
   )
 
@@ -1268,6 +1312,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Green Project"),
     start = "2021-06-22",
     alert = "2021-11-26",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "ahamilton@thegreenproject.org",
     sourceNote = "(added Dec. 2008)"
   )
@@ -1281,6 +1326,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Alcoholics Anonymous"),
     start = "2021-06-22",
     alert = "2021-11-26",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "aa.nola.pi.cpc@gmail.com"
   )
 
@@ -1337,6 +1383,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("The Blood Center"),
     start = "2021-06-22",
     alert = "2021-12-04",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "The Blood Center",
     sourceContacts = "Amy Goldfine <agoldfine@thebloodcenter.org>"
   )
@@ -1348,7 +1395,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       moreWebPhone("stuttering help dot O R G", "800/992-9392"),
     orgName = Some("Stuttering Foundation"),
     start = "2021-06-22",
-    alert = "2021-12-04",
+    alert = "2025-12-04",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "Jane Fraser <jfraser@stutteringhelp.org>"
   )
 
@@ -1376,6 +1424,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       phone("medications used to treat conditions such as obesity and impotence.  The National Association of Boards of Pharmacy has created a web site to identify online pharmacies that are legitimate and appropriately licensed at") + online("V I P P S dot info."),
     start = "2021-06-22",
     alert = "2021-12-04",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "the Partnership for Safe Medicines",
     orgName = Some("Partnership for Safe Medicines"),
     sourceContacts = "Chad Wilkisnon <chad@keybridge.biz>"
@@ -1391,6 +1440,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Domestic Violence Hotline"),
     start = "2021-06-22",
     alert = "2021-12-04",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "Alex Juan <alex.juan@lcadv.org>",
     groupGainMultiplier = 1.2
   )
@@ -1430,6 +1480,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
         "organ awareness dot O R G"),
     start = "2021-06-22",
     alert = "2021-12-11",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "Legacy Donor Foundation",
     orgName = Some("Legacy Donor Foundation"),
     sourceContacts = "hschonekas@ontargetwithbmf.com"
@@ -1459,6 +1510,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("SAPHE"),
     start = "2021-06-22",
     alert = "2021-12-11",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = Seq(
       "TUSAPHE@gmail.com",
       "Cory J Cole <ccole5@tulane.edu>",
@@ -1475,6 +1527,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("American Cancer Society"),
     start = "2021-06-22",
     alert = "2021-12-11",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "Rebecca Do <rydo@loyno.edu>"
   )
 
@@ -1593,6 +1646,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Rebuilding Together"),
     start = "2021-06-22",
     end = Some("2021-07-11"),
+    previousAlerts = Seq("2022-02-20"),
     alert = "2021-12-18",
     sourceContacts = "Alex Thibadoux <athibadoux@rtno.org>"
   )
@@ -1638,8 +1692,12 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
         "info at urban conservancy dot O R G"),
     orgName = Some("Urban Conservancy"),
     start = "2021-06-22",
-    alert = "2022-01-05",
-    sourceContacts = "Dana Eness <dana@urbanconservancy.org>"
+    alert = "2025-01-05",
+    previousAlerts = Seq("2022-02-20"),
+    sourceContacts = Seq(
+      "Dana Eness <dana@urbanconservancy.org>",
+      "Maryann Miller <maryann@staylocal.org>",
+      "Sam Commagere <sam@urbanconservancy.org>")
   )
 
   Spot(
@@ -1716,6 +1774,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Saint John Neighborhood Association"),
     start = "2021-06-22",
     alert = "2022-01-12",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "The Faubourg Saint John Neighborhood Association",
     sourceContacts = "info@fsjna.org"
   )
@@ -1745,6 +1804,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("Employers: you can help reduce the recidivism rate in New Orleans by employing formerly incarcerated individuals.  Steady employment is an important factor in successfully reintegrating back into the community, and avoiding re-offending.  Federal and state funds may be available.") + morePhone("504/568-8738"),
     start = "2021-06-22",
     alert = "2022-01-12",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "the Department of Public Safety \\& Corrections, Division of Probation \\& Parole",
     orgName = Some("Public Safety \\& Corrections"),
     sourceContacts = "tmccoy@corrections.state.la.us (Thomas McCoy)"
@@ -1816,6 +1876,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("ADC"),
     start = "2021-06-22",
     alert = "2022-01-19",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "American Arab Anti-Discrimination Committee",
     sourceContacts = "info@nolahumanrights.org"
   )
@@ -1866,6 +1927,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Central City Renaissance Alliance"),
     start = "2021-06-22",
     alert = "2022-01-19",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "the Central City Renaissance Alliance",
     sourceContacts = "Dorian Hastings <d_hastings@juno.com>"
   )
@@ -1896,6 +1958,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("PAWS"),
     start = "2021-06-22",
     alert = "2022-01-19",
+    previousAlerts = Seq("2022-02-20"),
     sourceContacts = "Kathy Fleming <kathylee1145@yahoo.com>"
   )
 
@@ -1921,6 +1984,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Humane Society of Louisiana"),
     start = "2021-06-22",
     alert = "2022-01-26",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "Humane Society of Louisiana",
     sourceContacts = "Robyn B. <marshmallowlullaby@hotmail.com>"
   )
@@ -1977,6 +2041,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Spaymart Sanctuary"),
     start = "2021-06-22",
     alert = "2022-01-26",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "Spaymart",
     sourceContacts = "Lynn Chiche <spaymart@hughes.net>"
   )
@@ -2006,6 +2071,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Dag's House"),
     start = "2021-06-22",
     alert = "2022-02-03",
+    previousAlerts = Seq("2022-02-21"),
     sourceContacts = "Kathy Fleming <kathylee1145@yahoo.com>"
   )
 
@@ -2419,6 +2485,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Job Seekers Alliance"),
     start = "2021-06-22",
     alert = "2022-02-24",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "the New Orleans Job Seekers Alliance",
     sourceContacts = "Heather Mack <jsanola@gmail.com>"
   )
@@ -2745,6 +2812,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
     alert = "2021-12-01",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
 
@@ -2766,6 +2834,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
     alert = "2021-12-01",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
 
@@ -2784,6 +2853,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
     alert = "2021-12-01",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
 
@@ -2800,6 +2870,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
     alert = "2021-12-01",
+    previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
 
