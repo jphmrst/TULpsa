@@ -2823,7 +2823,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Veterinary Teaching Hospital"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2028-12-01",
+    alert = "2026-12-01",
     copresent = "LSU School of Veterinary Medicine"
   )
 
@@ -2833,7 +2833,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Veterinary Teaching Hospital"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2025-12-01",
+    alert = "2028-12-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2852,7 +2852,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2027-12-01",
+    alert = "2030-12-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2869,7 +2869,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("ASPCA"),
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2026-12-01",
+    alert = "2032-12-01",
     previousAlerts = Seq("2022-02-20"),
     copresent = "LSU School of Veterinary Medicine"
   )
@@ -2883,7 +2883,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       online("A S P C A dot O R G") > period,
     sourceContacts = "Ginger Guttner <ginger@lsu.edu>",
     start = "2021-06-22",
-    alert = "2027-06-01",
+    alert = "2034-06-01",
     copresent = "LSU School of Veterinary Medicine"
   )
 
