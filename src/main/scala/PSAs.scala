@@ -347,11 +347,13 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "InnocenceProjectGeneralThree",
     Volunteer,
-    str("Innocence Project New Orleans represents prisoners serving life sentences in Louisiana and Mississippi. They work to free innocent prisoners, prevent wrongful convictions, and assist freed prisoners with their transition upon release.") +
+    str("Innocence Project New Orleans frees innocent people sentenced to life in prison, and those serving unjust sentences. They work to expose and address the systemic racism and inequities at the root of wrongful convictions and unjust sentences, by sharing their clients’ stories in courts, and with the legislature, communities, and the media.") +
+      phonetic("IPNO", "IPP-know", "ɪpˈnoʊ") +
+      str("helps their clients to live well and fully in the world after their release.") +
       moreWebPhoneAnnounce(
-        "Information about supporting the Innocence Project is",
+        "Information about supporting IPNO is",
         "I P hyphen N O dot O R G",
-        "504/522-4766"),
+        "504/943-1902"),
     orgName = Some("Innocence Project New Orleans"),
     start = "2021-06-22",
     alert = "2025-01-15",
@@ -362,11 +364,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "InnocenceProjectGeneralTwo",
     Volunteer,
-    str("Innocence Project New Orleans frees innocent people sentenced to life in prison, and those serving unjust sentences. They work to expose and address the systemic racism and inequities at the root of wrongful convictions and unjust sentences, by sharing their clients’ stories in courts, and with the legislature, communities, and the media.  IPNO helps their clients to live well and fully in the world after their release.") +
+    str("Innocence Project New Orleans represents prisoners serving life sentences in Louisiana and Mississippi. They work to free innocent prisoners, prevent wrongful convictions, and assist freed prisoners with their transition upon release.") +
       moreWebPhoneAnnounce(
-        "Information about supporting IPNO is",
+        "Information about supporting the Innocence Project is",
         "I P hyphen N O dot O R G",
-        "504/943-1902"),
+        "504/522-4766"),
     orgName = Some("Innocence Project New Orleans"),
     start = "2021-06-22",
     alert = "2022-01-15",
@@ -452,8 +454,10 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-02-15",
     previousAlerts = Seq("2022-02-20"),
-    sourceNote = "added Dec 2011, asked Dec. 2012, asked July 2015",
-    sourceContacts = "Luanne Francis <luanne_f2001@yahoo.com>"
+    sourceNote = "added Dec 2011, asked Dec. 2012, asked July 2015, asked at gmail address Feb 2022",
+    sourceContacts = Seq("birthingproject@gmail.com",
+      "bpusa@birthingprojectus.org",
+      "nola@birthingprojectus.org")
   )
 
   Spot(
@@ -465,8 +469,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-02-15",
     previousAlerts = Seq("2022-02-20"),
-    sourceNote = "added August 2012, asked July 2015",
-    sourceContacts = "Kelley Allenspach <kallenspach@bhgh.org>"
+    sourceContacts = "neworleans@bhgh.org"
   )
 
   Spot(
@@ -510,8 +513,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-02-15",
     previousAlerts = Seq("2022-02-20"),
-    sourceNote = "updated January 2015 --- six-month rechecks",
-    sourceContacts = Seq("Ellie Schneider <eschneider@casajefferson.org>")
+    sourceNote = "Feb 2022 tried the contact form on their site",
+    // BOUNCES sourceContacts = Seq("Ellie Schneider <eschneider@casajefferson.org>")
   )
 
   Spot(
@@ -540,8 +543,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-02-15",
     previousAlerts = Seq("2022-02-20"),
-    sourceNote = "asked July 2015, last confirmed Dec. 2012",
-    sourceContacts = "Brittany Ray <Brittany@neworleansmission.org>"
+    sourceNote = "asked July 2015, last confirmed Dec. 2012.  Tried their web email form Feb 2022.",
+    // BOUNCES sourceContacts = "Brittany Ray <Brittany@neworleansmission.org>"
   )
 
   Spot(
@@ -1097,8 +1100,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2021-11-05",
     previousAlerts = Seq("2021-11-13", "2022-02-21"),
-    sourceContacts = "Maria Yiannopoulos <mariay@latan.org>",
-    sourceNote = "asked June 2013"
+    // BOUNCES sourceContacts = "Maria Yiannopoulos <mariay@latan.org>",
+    sourceNote = "Used their web form, Feb. 2022"
   )
 
   Spot(
@@ -1270,8 +1273,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2021-11-19",
     previousAlerts = Seq("2021-11-21"),
-    sourceContacts = "Robert Smith <robert@healthygulf.org>",
-    sourceNote = "(updated Feb 2012) alternate with GulfRestNetFour"
+    // BOUNCES sourceContacts = "Robert Smith <robert@healthygulf.org>",
+    sourceNote = "(updated Feb 2012) alternate with GulfRestNetFour --- Feb 2022 used their web form to reconfirm"
   )
 
   Spot(
@@ -1279,14 +1282,14 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     Eco,
     str("Computers, monitors, mobile phones and other electronic devices release toxic substances like lead, cadmium, and mercury into our landfills and water when discarded improperly.  You can properly dispose of electronics at The Green Project,") +
       spellout("2831") +
-      phonetic("Marais", "mah-RAY", "məˈɹeɪ") +
+      phonetic("Marais", "mah-RAY", "ɪməˈɹeɪ") +
       str("Street.") +
       moreWeb("the green project dot O R G"),
-    orgName = Some("Green Project"),
+    orgName = Some("Green Project electronic waste"),
     start = "2021-06-22",
     alert = "2021-11-26",
     previousAlerts = Seq("2022-02-21"),
-    sourceContacts = "ahamilton@thegreenproject.org"
+    sourceContacts = "info@thegreenproject.org"
   )
 
   Spot(
@@ -1307,13 +1310,13 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("The Green Project recycles building materials, which are then available for rebuilding and renovation of homes, reducing the waste going to landfills.  More information is available from The Green Project at") +
       spellout("2831") +
       phonetic("Marais", "mah-RAY", "məˈɹeɪ") +
-      moreWeb("Street, or online at") +
+      text("Street, or online at") +
       online("the green project dot O R G."),
-    orgName = Some("Green Project"),
+    orgName = Some("Green Project Construction Waste"),
     start = "2021-06-22",
     alert = "2021-11-26",
     previousAlerts = Seq("2022-02-20"),
-    sourceContacts = "ahamilton@thegreenproject.org",
+    sourceContacts = "info@thegreenproject.org",
     sourceNote = "(added Dec. 2008)"
   )
 
@@ -1385,7 +1388,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     alert = "2021-12-04",
     previousAlerts = Seq("2022-02-20"),
     copresent = "The Blood Center",
-    sourceContacts = "Amy Goldfine <agoldfine@thebloodcenter.org>"
+    sourceContacts = "info@thebloodcenter.org"
   )
 
   Spot(
@@ -1441,7 +1444,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2021-12-04",
     previousAlerts = Seq("2022-02-20"),
-    sourceContacts = "Alex Juan <alex.juan@lcadv.org>",
+    // BOUNCES sourceContacts = "Alex Juan <alex.juan@lcadv.org>",
+    sourceContacts = "info@lcadv.org",
     groupGainMultiplier = 1.2
   )
 
@@ -1483,7 +1487,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     previousAlerts = Seq("2022-02-20"),
     copresent = "Legacy Donor Foundation",
     orgName = Some("Legacy Donor Foundation"),
-    sourceContacts = "hschonekas@ontargetwithbmf.com"
+    sourceContacts = "info@organawareness.org"
   )
 
   Spot(
@@ -1528,7 +1532,8 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2021-12-11",
     previousAlerts = Seq("2022-02-20"),
-    sourceContacts = "Rebecca Do <rydo@loyno.edu>"
+    // BOUNCES sourceContacts = "Rebecca Do <rydo@loyno.edu>"
+    sourceContacts = "lindsey.shirley@cancer.org" // From website
   )
 
   Spot(
@@ -1959,7 +1964,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-01-19",
     previousAlerts = Seq("2022-02-20"),
-    sourceContacts = "Kathy Fleming <kathylee1145@yahoo.com>"
+    sourceContacts = "pawslouisiana@gmail.com"
   )
 
   Spot(
@@ -2043,7 +2048,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     alert = "2022-01-26",
     previousAlerts = Seq("2022-02-20"),
     copresent = "Spaymart",
-    sourceContacts = "Lynn Chiche <spaymart@hughes.net>"
+    sourceContacts = "Lynn Chiche <lynn@spaymart.org>"
   )
 
   Spot(
@@ -2071,6 +2076,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Dag's House"),
     start = "2021-06-22",
     alert = "2022-02-03",
+    end = Some("2022-02-20"),
     previousAlerts = Seq("2022-02-21"),
     sourceContacts = "Kathy Fleming <kathylee1145@yahoo.com>"
   )
