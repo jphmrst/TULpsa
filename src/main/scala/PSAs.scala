@@ -198,7 +198,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   )
 
   Event("TUbookfair2022",
-    str("The New Orleans Book Festival at Tulane University will debut ") + blank("when.") + str(" on Tulane’s uptown campus, and run through Saturday the 12th. The event is open to the public and will feature over 130 authors.") + moreWebEmail("bookfest dot tulane dot E D U", "bookfest at tulane dot E D U"),
+    str("The New Orleans Book Festival at Tulane University will debut ") + blank("when,") + str(" on Tulane’s uptown campus, and run through Saturday the 12th. The event is open to the public and will feature over 130 authors.") + moreWebEmail("bookfest dot tulane dot E D U", "bookfest at tulane dot E D U"),
     "2022-03-10",
     spotsSourceContacts = Seq(
       "Christopher R Dunaway <roger@tulane.edu>",
@@ -260,6 +260,20 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   import scala.language.implicitConversions
 
   Spot(
+    "AllOfUsResearch2022",
+    Volunteer,
+    str("The ``All of Us'' research program is investigating why some people get sick and others stay healthy. In 2022, they are seeking volunteers to participate by completing surveys, attending a clinic visit, and sharing health information.  In return, you can receive your genetic information.") +
+      moreWebPhone("join all of us dot org slash Tulane", "504/988-0650"),
+    start = "2022-03-06",
+    end = Some("2022-12-31"),
+    alert = "2022-12-05",
+    orgName = Some("Tulane University School of Medicine"),
+    sourceContacts = Seq(
+      "Marie Towns <mtowns@tulane.edu>",
+      "Emily Callegari <ecallegari@tulane.edu>")
+  )
+
+  Spot(
     "NewNeighborProjectOct2021",
     Services,
     str("The New Neighbor Project creates a holistic pathway to citizenship for refugees and immigrants in our community.   They provide English and citizenship classes, application assistance, and scholarship opportunities.") +
@@ -287,7 +301,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       moreWeb("crescent care dot O R G"),
     orgName = Some("Crescent Care"),
     start = "2021-08-12",
-    alert = "2022-01-23",
+    alert = "2023-01-23",
     previousAlerts = Seq("2022-02-20"),
     sourceContacts = Seq(
       "Doreen Tollerson <Doreen.Tollerson@crescentcare.org>",
@@ -498,8 +512,20 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Gift of Life"),
     start = "2021-06-22",
     alert = "2022-02-15",
+    end = Some("2022-03-04"),
     previousAlerts = Seq("2022-02-20"),
     sourceNote = "last updated July 2015, added December 2014",
+    sourceContacts = "Amy Glanzman <aglanzman@giftoflife.org>"
+  )
+
+  Spot(
+    "GiftOfLifeMarrowThree",
+    Volunteer,
+    str("Gift of Life is a blood stem cell and bone marrow donor registry, helping children and adults battling blood cancer to find the matches they need, when they need them.") +
+      moreWebPhone("gift of life dot O R G", "800/9-MARROW"),
+    orgName = Some("Gift of Life"),
+    start = "2022-03-05",
+    alert = "2024-02-15",
     sourceContacts = "Amy Glanzman <aglanzman@giftoflife.org>"
   )
 
@@ -1261,9 +1287,9 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("Oil, paint and antifreeze should never be poured down drains or put in household trash.  Jefferson Parish residents can drop off oil, paint and antifreeze for proper disposal.  Paint may be accepted at the Green Project; for more information, call 504/945-0240.  Oil and antifreeze can be brought to the David Drive or Lapalco Boulevard trash drop-off sites.  More information is available from the Jefferson Parish Department of Environmental Affairs at 504/731-4612."),
     orgName = Some("Jefferson Parish"),
     start = "2021-06-22",
-    alert = "2021-11-19",
+    alert = "2024-11-19",
     previousAlerts = Seq("2021-11-21"),
-    sourceContacts = "RCollins@jeffparish.net"
+    sourceContacts = Seq("info@thegreenproject.org", "RCollins@jeffparish.net")
   )
 
   Spot(
@@ -1287,6 +1313,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       moreWeb("the green project dot O R G"),
     orgName = Some("Green Project electronic waste"),
     start = "2021-06-22",
+    end = Some("2022-03-05"),
     alert = "2021-11-26",
     previousAlerts = Seq("2022-02-21"),
     sourceContacts = "info@thegreenproject.org"
@@ -1310,11 +1337,11 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     str("The Green Project recycles building materials, which are then available for rebuilding and renovation of homes, reducing the waste going to landfills.  More information is available from The Green Project at") +
       spellout("2831") +
       phonetic("Marais", "mah-RAY", "məˈɹeɪ") +
-      text("Street, or online at") +
+      str("Street, or online at") +
       online("the green project dot O R G."),
     orgName = Some("Green Project Construction Waste"),
     start = "2021-06-22",
-    alert = "2021-11-26",
+    alert = "2024-11-19",
     previousAlerts = Seq("2022-02-20"),
     sourceContacts = "info@thegreenproject.org",
     sourceNote = "(added Dec. 2008)"
@@ -1385,10 +1412,27 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
         "www dot the blood center dot O R G", "800/86-BLOOD"),
     orgName = Some("The Blood Center"),
     start = "2021-06-22",
+    end = Some("2022-03-05"),
     alert = "2021-12-04",
     previousAlerts = Seq("2022-02-20"),
     copresent = "The Blood Center",
     sourceContacts = "info@thebloodcenter.org"
+  )
+
+  Spot(
+    "BloodCenterTwo",
+    Health,
+    str("The Blood Center has locations around the New Orleans area for blood donors to respond to hospital, patient and emergency needs.  Or, a mobile team can bring the blood drive to school, business, civic or religious organizations.") +
+      moreWebPhoneAnnounce(
+        "Center hours and addresses, and information about booking a blood drive, are",
+        "the blood center dot O R G", "800/86-BLOOD"),
+    orgName = Some("The Blood Center"),
+    start = "2022-03-05",
+    alert = "2023-12-04",
+    previousAlerts = Seq(),
+    copresent = "The Blood Center",
+    sourceContacts = Seq(
+      "info@thebloodcenter.org", "Paul Adams <padams@thebloodcenter.org>")
   )
 
   Spot(
@@ -1530,10 +1574,12 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       moreWebPhone("cancer dot O R G", "800/ACS-2345"),
     orgName = Some("American Cancer Society"),
     start = "2021-06-22",
-    alert = "2021-12-11",
+    alert = "2023-12-11",
     previousAlerts = Seq("2022-02-20"),
     // BOUNCES sourceContacts = "Rebecca Do <rydo@loyno.edu>"
-    sourceContacts = "lindsey.shirley@cancer.org" // From website
+    sourceContacts = Seq(
+      "Lindsey Shirley <lindsey.shirley@cancer.org>", // From website
+      "Kym McGee <kym.mcgee@cancer.org>") // Email exchange Feb. '22
   )
 
   Spot(
