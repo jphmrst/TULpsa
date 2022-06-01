@@ -1471,6 +1471,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       phone("medications used to treat conditions such as obesity and impotence.  The National Association of Boards of Pharmacy has created a web site to identify online pharmacies that are legitimate and appropriately licensed at") + online("V I P P S dot info."),
     start = "2021-06-22",
     alert = "2021-12-04",
+    end = Some("2022-05-31"),
     previousAlerts = Seq("2022-02-20"),
     copresent = "the Partnership for Safe Medicines",
     orgName = Some("Partnership for Safe Medicines"),
