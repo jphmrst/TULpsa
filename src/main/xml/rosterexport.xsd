@@ -5,37 +5,31 @@
   <xs:import namespace="http://www.w3.org/1999/xhtml"
       schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
 
-  <!-- xs:include
-      namespace="ssml" schemaLocation=
-      "https://www.w3.org/TR/speech-synthesis11/synthesis-nonamespace.xsd"
-      / -->
-
+  <!-- Copied from the XHTML defn of a <p> block. -->
   <xs:complexType name="htmlpar" mixed="true">
     <xs:complexContent>
-      <xs:extension base="Inline">
-	<xs:attributeGroup ref="attrs"/>
+      <xs:extension base="xhtml:Inline">
+	<xs:attributeGroup ref="xhtml:attrs"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
 
-  <!-- xs:simpleType name="htmlpar">
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType -->
-
-  <!-- xs:attribute name="pausebefore" type="duration"/>
-  <xs:attribute name="pauseafter" type="duration"/>
-  <xs:attribute name="slidefile"  type="xs:string"/ -->
-
+  <!-- Representation of one PSA: an ID string, plus the spot's body
+       as HTML. -->
   <xs:complexType name="psa">
     <xs:attribute name="id"   type="xs:string" use="required"/>
     <xs:attribute name="body" type="htmlpar"   use="required"/>
   </xs:complexType>
 
+  <!-- Representation of one scheduling of a PSA to be read: an ID
+       string, plus a date-and-time. -->
   <xs:complexType name="reading">
     <xs:attribute name="id"   type="xs:string"   use="required"/>
     <xs:attribute name="slot" type="xs:dateTime" use="required"/>
   </xs:complexType>
 
+  <!-- Top-level representation of a roster: at least one PSA text,
+       followed by at least one PSA reading. -->
   <xs:element name="roster">
     <xs:complexType>
       <xs:sequence>
