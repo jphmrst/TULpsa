@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Importing XHTML namespace -->
+  <xs:import namespace="http://www.w3.org/1999/xhtml"
+      schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
+
+  <!-- xs:include
+      namespace="ssml" schemaLocation=
+      "https://www.w3.org/TR/speech-synthesis11/synthesis-nonamespace.xsd"
+      / -->
+
+  <xs:complexType name="htmlpar" mixed="true">
+    <xs:complexContent>
+      <xs:extension base="Inline">
+	<xs:attributeGroup ref="attrs"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- xs:simpleType name="htmlpar">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType -->
+
+  <!-- xs:attribute name="pausebefore" type="duration"/>
+  <xs:attribute name="pauseafter" type="duration"/>
+  <xs:attribute name="slidefile"  type="xs:string"/ -->
+
+  <xs:complexType name="psa">
+    <xs:attribute name="id"   type="xs:string" use="required"/>
+    <xs:attribute name="body" type="htmlpar"   use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="reading">
+    <xs:attribute name="id"   type="xs:string"   use="required"/>
+    <xs:attribute name="slot" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="roster">
+    <xs:complexType>
+      <xs:sequence>
+	<xs:element ref="slide" type="psa"
+		    minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:sequence>
+	<xs:element ref="slide" type="reading" 
+		    minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute ref="generationDate" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
