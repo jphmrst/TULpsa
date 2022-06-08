@@ -27,12 +27,19 @@ abstract class RosterType {
   /** Generate a roster anchored on the given `date`.
     * @return The root name of the generated file.
     */
-  def writeFor(date: LocalDate = LocalDate.now()): String = {
+  def buildFor(date: LocalDate = LocalDate.now()): Roster = {
     val anchorDate = singleAnchorDate(date)
-    Output.info(s"Writing roster for $date...")
     val builder = newBuilder(anchorDate)
     complete(builder)
-    val roster = builder.result()
+    builder.result()
+  }
+
+  /** Generate and export a roster anchored on the given `date`.
+    * @return The root name of the generated file.
+    */
+  def writeFor(date: LocalDate = LocalDate.now()): String = {
+    Output.info(s"Writing roster for $date...")
+    val roster: Roster = buildFor(date)
     roster.write()
     Output.infoln("done")
     roster.fileTitle
