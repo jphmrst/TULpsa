@@ -9,7 +9,7 @@
 // "long-term".
 
 package org.maraist.wtulrosters
-import java.time.LocalDate
+import java.time.{LocalDate, LocalDateTime, LocalTime}
 import java.time.format.DateTimeFormatter
 import org.maraist.structext.{SpeakAs, StructText, fromString}
 import org.maraist.structext.StructText.*
@@ -88,7 +88,15 @@ class PsaRosterBuilder(startDate: LocalDate)
         List(0, 1), List(2, 3), List(5, 6), // Ej  73-75
         List(4, 6), // Fa  76
         List(5, 6), // Fb  77
-      )
+      ),
+      Array[Array[Int]](
+        Array[Int](0, 38, 46, 49, 52, 14, 55, 7, 0, 58, 28, 21, 42, 33, 7, 14, 28, 0, 61, 21, 67, 7, 70, 73),
+          Array[Int](52, 1, 64, 70, 38, 46, 8, 1, 33, 15, 49, 8, 67, 29, 22, 42, 15, 34, 73, 8, 1, 55, 22, 58),
+        Array[Int](16, 61, 23, 74, 56, 68, 2, 64, 9, 29, 39, 16, 47, 71, 2, 50, 9, 30, 23, 43, 9, 53, 2, 34),
+        Array[Int](3, 35, 71, 43, 50, 24, 59, 10, 53, 17, 47, 3, 62, 24, 35, 10, 39, 17, 3, 68, 30, 10, 74, 65),
+        Array[Int](72, 11, 69, 59, 65, 44, 36, 4, 25, 40, 11, 48, 18, 31, 62, 4, 56, 11, 25, 51, 18, 76, 4, 31),
+        Array[Int](19, 5, 57, 77, 54, 63, 26, 66, 12, 32, 45, 26, 36, 5, 40, 69, 12, 48, 19, 60, 12, 5, 37, 75),
+        Array[Int](13, 51, 6, 72, 76, 20, 57, 54, 27, 75, 6, 66, 32, 13, 45, 20, 60, 6, 37, 27, 63, 13, 41, 77))
 ) {
   val slotOrders: List[List[Int]] = List(
     List(
@@ -184,6 +192,14 @@ class PsaRosterBuilder(startDate: LocalDate)
   override def slotOrder: List[Int] =
     import Spot.getWeekOfCentury
     slotOrders(startDate.getWeekOfCentury() % slotOrders.length)
+
+  override def rosterSlotDateTime(roster: Roster, day: Int, idx: Int):
+      LocalDateTime =
+    LocalDateTime.of(roster.startDate.plusDays(day), LocalTime.of(idx, 30, 0))
+
+  override val rosterDayCount: Int = 7
+
+  override def rosterDaySlotCount(dayIdx: Int): Int = 24
 }
 
 /** Bank holding short-term PSAs. */

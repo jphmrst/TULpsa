@@ -37,12 +37,12 @@ abstract class RosterType {
   /** Generate and export a roster anchored on the given `date`.
     * @return The root name of the generated file.
     */
-  def writeFor(date: LocalDate = LocalDate.now()): String = {
+  def writeFor(date: LocalDate = LocalDate.now()): Roster = {
     Output.info(s"Writing roster for $date...")
     val roster: Roster = buildFor(date)
     roster.write()
     Output.infoln("done")
-    roster.fileTitle
+    roster
   }
 
   /** Write several weeks of rosters beginning from a particular date.
@@ -57,11 +57,16 @@ abstract class RosterType {
     val anchorDate = singleAnchorDate(date)
     Output.infoln(
       s"Will write $n roster${if n>1 then "s" else ""} starting with $date")
+    val rosters = Set.newBuilder[Roster]
     for (i <- 0 until n) {
       val thisDate = anchorDate.plusDays(7 * i)
-      val fileroot = writeFor(thisDate)
+      val roster = writeFor(thisDate)
+      rosters += roster
+      val fileroot = roster.fileTitle
       outBuilder += fileroot + ".pdf"
     }
+    val exporter = new Exporter(rosters.result)
+    exporter.write("weeks")
     outBuilder
   }
 

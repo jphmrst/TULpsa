@@ -42,11 +42,16 @@ abstract class Roster(
   val footer: String,
   val indexFormatter: Int => String,
   val preamble: String,
-  val timestamper: DateTimeFormatter
+  val timestamper: DateTimeFormatter,
+  val hourSlots: Array[Array[Int]]
 ) extends LaTeXRenderable {
 
   /** The number of announcement slots in this roster. */
   val size: Int = slots.length
+
+  def slotDateTime(dayIdx: Int, idx: Int): LocalDateTime
+  def rosterDays: Int
+  def rosterDaySlots(dayIdx: Int): Int
 
   /** Return the representation of the dates for which this roster
     * applies.
@@ -58,12 +63,6 @@ abstract class Roster(
     else if (startDate.getMonth() != endDate.getMonth())
       then startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + "--" + endDate.getMonth().getDisplayName(FULL, US) + " " + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
       else startDate.getMonth().getDisplayName(FULL, US) + " " + startDate.getDayOfMonth().toString() + "--" + endDate.getDayOfMonth().toString() + ", " + endDate.getYear().toString()
-  }
-
-  /** TODO
-    */
-  def toXml(doc: Any): Unit = {
-    ???
   }
 
   /** Write the contents of this document to a
@@ -119,13 +118,9 @@ abstract class Roster(
     closeDoc(doc)
   }
 
-  /** Output this instance's document in the given directory.
+  /** TODO Output this instance's document in the given directory.
     */
-  def writeXml(dir: String = "./") = {
-    val doc = openXml
-    toXml(doc)
-    closeXml(doc)
-  }
+  def writeXml(dir: String = "./") = ???
 
   /** Returns the file name which should be used for writing this
     * instance.  By default, it is just the result of calling
@@ -133,10 +128,6 @@ abstract class Roster(
     * overridden by subclasses.
     */
   def fileTitle: String = startDate.toString()
-
-  /** TODO
-    */
-  def openXml: Any = ???
 
   /** Creates and returns a [[org.maraist.latex.LaTeXdoc][LaTeXdoc]]
     * which this instance should use when writing its contents.  This
@@ -172,12 +163,6 @@ abstract class Roster(
     */
   def closeDoc(doc: LaTeXdoc) = {
     doc.close()
-  }
-
-  /** TODO
-    */
-  def closeXml(doc: Any) = {
-    ???
   }
 }
 

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema targetNamespace="https://maraist.net/wtul/rosters"
+	   elementFormDefault="qualified"
+	   xmlns="https://maraist.net/wtul/rosters"
+	   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	   xmlns:xhtml="http://www.w3.org/1999/xhtml" >
 
   <!-- Importing XHTML namespace -->
-  <xs:import namespace="http://www.w3.org/1999/xhtml"
+  <xs:import
+      namespace="http://www.w3.org/1999/xhtml"
       schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
 
   <!-- Copied from the XHTML defn of a <p> block. -->
@@ -14,33 +19,43 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <!-- Representation of one PSA: an ID string, plus the spot's body
-       as HTML. -->
-  <xs:complexType name="psa">
-    <xs:attribute name="id"   type="xs:string" use="required"/>
-    <xs:attribute name="body" type="htmlpar"   use="required"/>
-  </xs:complexType>
-
-  <!-- Representation of one scheduling of a PSA to be read: an ID
-       string, plus a date-and-time. -->
-  <xs:complexType name="reading">
-    <xs:attribute name="id"   type="xs:string"   use="required"/>
-    <xs:attribute name="slot" type="xs:dateTime" use="required"/>
-  </xs:complexType>
 
   <!-- Top-level representation of a roster: at least one PSA text,
        followed by at least one PSA reading. -->
   <xs:element name="roster">
     <xs:complexType>
       <xs:sequence>
-	<xs:element ref="slide" type="psa"
-		    minOccurs="1" maxOccurs="unbounded" />
+	<xs:element name="psa" minOccurs="1" maxOccurs="unbounded">
+
+	  <!-- Representation of one PSA: an ID string, plus the
+	       spot's body allowing font-setting and style-related
+	       HTML tags.  Example:
+       
+               <psa id="ThisPsaIs">
+                 More than <em>anything</em> else, be <i>kind</i>.
+               </psa>
+
+	  -->
+
+	  <xs:complexType mixed="true">
+	    <xs:choice minOccurs="0" maxOccurs="unbounded">
+	      <xs:group ref="xhtml:fontstyle"/>
+	      <xs:group ref="xhtml:phrase"/>
+	    </xs:choice>
+	    <xs:attribute name="id" type="xs:string" use="required"/>
+	  </xs:complexType>
+	</xs:element>
+	
+	<xs:element name="reading" minOccurs="1" maxOccurs="unbounded">
+	  <!-- Representation of one scheduling of a PSA to be read:
+	       an ID string, plus a date-and-time. -->
+	  <xs:complexType>
+	    <xs:attribute name="id"   type="xs:string"   use="required"/>
+	    <xs:attribute name="slot" type="xs:dateTime" use="required"/>
+	  </xs:complexType>
+	</xs:element>
       </xs:sequence>
-      <xs:sequence>
-	<xs:element ref="slide" type="reading" 
-		    minOccurs="1" maxOccurs="unbounded" />
-      </xs:sequence>
-      <xs:attribute ref="generationDate" type="xs:dateTime" use="required"/>
+      <xs:attribute name="generationDate" type="xs:dateTime" use="required"/>
     </xs:complexType>
   </xs:element>
 

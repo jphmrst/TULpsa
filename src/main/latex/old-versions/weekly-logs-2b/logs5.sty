@@ -2216,6 +2216,53 @@ Premium \# & Description & Min.\ pledge & Name & Time pledged
 \debugHour{#1}{23}{24}{\psaHourX#2}{#5}{\noTix}{\promoHourX#2}
 \cleardoublepage}
 
+\def\debugDay#1#2#3#4#5{
+%% 1 Day name
+%% 2 Day selector --- \onMon, \onTue, etc.
+%% 3 \promoDayCode
+%% 4 Calendar command for 00 and 01
+%% 5 Calendar command for 21 and 23
+  #1
+  \begin{compactitem}
+    \item
+\debugHour{00}{01}{\psaHourA#2}{#4}{\noTix}{\promoHourA#2}
+\debugHour{01}{02}{\psaHourB#2}{#4}{\noTix}{\promoHourB#2}
+\debugHour{02}{03}{\psaHourC#2}{\withCal}{\noTix}{\promoHourC#2}
+\debugHour{03}{04}{\psaHourD#2}{\withCal}{\noTix}{\promoHourD#2}
+\debugHour{04}{05}{\psaHourE#2}{\withCal}{\noTix}{\promoHourE#2}
+\debugHour{05}{06}{\psaHourF#2}{\withCal}{\noTix}{\promoHourF#2}
+\debugHour{06}{07}{\psaHourG#2}{\withCal}{\noTix}{\promoHourG#2}
+\debugHour{07}{08}{\psaHourH#2}{\withCal}{\withTix}{\promoHourH#2}
+\debugHour{08}{09}{\psaHourI#2}{\withCal}{\withTix}{\promoHourI#2}
+\debugHour{09}{10}{\psaHourJ#2}{\withCal}{\withTix}{\promoHourJ#2}
+\debugHour{10}{11}{\psaHourK#2}{\withCal}{\withTix}{\promoHourK#2}
+\debugHour{11}{12}{\psaHourL#2}{\withCal}{\withTix}{\promoHourL#2}
+\debugHour{12}{13}{\psaHourM#2}{\withCal}{\withTix}{\promoHourM#2}
+\debugHour{13}{14}{\psaHourN#2}{\withCal}{\withTix}{\promoHourN#2}
+\debugHour{14}{15}{\psaHourO#2}{\withCal}{\withTix}{\promoHourO#2}
+\debugHour{15}{16}{\psaHourP#2}{\withCal}{\withTix}{\promoHourP#2}
+\debugHour{16}{17}{\psaHourQ#2}{\withCal}{\withTix}{\promoHourQ#2}
+\debugHour{17}{18}{\psaHourR#2}{\withCal}{\noTix}{\promoHourR#2}
+\debugHour{18}{19}{\psaHourS#2}{\withCal}{\noTix}{\promoHourS#2}
+\debugHour{19}{20}{\psaHourT#2}{\withCal}{\noTix}{\promoHourT#2}
+\debugHour{20}{21}{\psaHourU#2}{\withCal}{\noTix}{\promoHourU#2}
+\debugHour{21}{22}{\psaHourV#2}{#5}{\noTix}{\promoHourV#2}
+\debugHour{22}{23}{\psaHourW#2}{\withCal}{\noTix}{\promoHourW#2}
+\debugHour{23}{24}{\psaHourX#2}{#5}{\noTix}{\promoHourX#2}
+  \end{compactitem}
+}
+
+\def\debugHour#1#2#3#4#5#6{
+%% 1 Start hour
+%% 2 End hour
+%% 3 PSA code
+%% 4 \withCal or \noCal
+%% 5 \withTix or \noTix
+%% 6 \withPromo{\promoSlot} or \noPromo
+  % \item #1 - {\csname psaNum@#3\endcsname} - {#6}
+  {\csname psaNum@#3\endcsname},
+}
+
 \def\makeHour#1#2#3#4#5#6{
 %% 1 Start hour
 %% 2 End hour

@@ -53,6 +53,7 @@ abstract class RosterBuilder(
   val filePrefix: String,
   val blockPolicy: (Int, Int) => Int,
   val slotDays: Array[Int | List[Int]],
+  val hourSlots: Array[Array[Int]]
 ) {
 
   if (slotDays.length != size)
@@ -63,6 +64,10 @@ abstract class RosterBuilder(
     */
   private val slots: Array[Unassigned | Spot] =
     Array.fill[Unassigned | Spot](size)(Unassigned.ITEM)
+
+  def rosterSlotDateTime(roster: Roster, day: Int, idx: Int): LocalDateTime
+  def rosterDayCount: Int
+  def rosterDaySlotCount(dayIdx: Int): Int
 
   /** Build and return a [[Roster]].
     *
@@ -79,9 +84,13 @@ abstract class RosterBuilder(
         throw new IllegalStateException(s"Slot $i unassigned")
       case s: Spot => s
     }),
-    title, groupLead, footer, indexFormatter, preamble, timestamper
+    title, groupLead, footer, indexFormatter, preamble, timestamper, hourSlots
   ) {
     override def fileTitle: String = filePrefix + super.fileTitle
+    override def slotDateTime(dayIdx: Int, idx: Int): LocalDateTime =
+      rosterSlotDateTime(this, dayIdx, idx)
+    override def rosterDays: Int = rosterDayCount
+    override def rosterDaySlots(dayIdx: Int): Int = rosterDaySlotCount(dayIdx)
   }
 
   /** Returns the [[Spot]] assigned at the given index, or the

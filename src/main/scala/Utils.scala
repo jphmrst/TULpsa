@@ -84,13 +84,13 @@ object Utils {
 </html>
 """)
         bw.close
+        println("written")
 
         // Upload everything
         import scala.language.postfixOps
         Output.info(s"Uploading to ${hostPath}...")
         val options = envOrElse("WTUL_ROSTERS_RSYNC_OPTS", "")
-        (s"rsync --delete-excluded --recursive $options index.html ${files.fold("")(_ + " " + _)} $hostPath" !)
-        println("written")
+        (s"rsync --delete-excluded --recursive $options index.html weeks.xml src/main/xml/rosterexport.xsd ${files.fold("")(_ + " " + _)} $hostPath" !)
       }
     }
   }
