@@ -207,6 +207,17 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("sierraMtgJune22",
+    str("The next meeting of the Orleans Sierra Club will be") +
+      blank("when") +
+      str("at 6:30") + pm > period +
+      str("Zach Kopkin, the Sierra Club's regional organizer, will discuss the Sierra Club’s ``Beyond Dirty Fuels'' Campaign.  The campaignaims to stop the expansion of dirty fossil fuels infrastructure projects, bring about a safer climate future, and help open a path for clean, renewable energy.  "
+        + "  The meeting will be at First Unitarian Universalist, 5212 South Claiborne.") +
+      moreWebEmail("sierra club dot O R G slash delta", "doc tim sierra at gmail dot com"),
+    "2022-06-12",
+    spotsSourceURL = Seq("https://www.sierraclub.org/delta/new-orleans-group")
+  )
+
   Event("FemaAppealsIda",
     str("If you received a letter from FEMA saying that the information you provided is incomplete, or that you are ineligible for disaster assistance, you have the right to appeal the decision within sixty days of the date on the letter, or longer with an explanation for the delay.  An appeal letter from you may change FEMA’s decision.  If your FEMA letter says your request was denied because of missing information, providing the necessary documentation may help you qualify for a grant.  Or, if you don’t agree with the amount of the grant you received, providing receipts or written quotes may allow you to receive a larger grant.  More information about the FEMA appeal process is available on their website") > comma + online("F E M A dot G O V") > comma + str("searching for the word `appeal'") > comma + online("A P P E A L") > period,
     "2022-03-31",
@@ -1142,8 +1153,19 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2021-11-05",
     previousAlerts = Seq("2021-11-13", "2022-02-21"),
+    end = Some("2022-06-09"),
     // BOUNCES sourceContacts = "Maria Yiannopoulos <mariay@latan.org>",
     sourceNote = "Used their web form, Feb. 2022"
+  )
+
+  Spot(
+    "LATANgeneralTwo",
+    Services,
+    str("The Louisiana Assistive Technology Access Network provides information about assistive devices, services and funding to support  normal activities like bathing, walking, reading or watching TV. LATAN has alternative financing options to make obtaining devices more affordable.") + moreWebPhoneEmail("L A T A N dot O R G", "800/270-6185", "info at L A T A N dot O R G"),
+    orgName = Some("Assistive Technology Access Network"),
+    start = "2022-06-10",
+    alert = "2023-12-05",
+    sourceContacts = "Tiffany Johnlouis <tjohnlouis@latan.org>"
   )
 
   Spot(
@@ -1193,12 +1215,26 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
+    "FamilyCoachingProgramTwentyTwo",
+    Services,
+    str("The Louisiana Department of Health's Family Support and Coaching Program helps new and expecting parents learn all about caring for a new baby. Through this program, a qualified nurse or parent educator supports caregivers in the Greater New Orleans area as they navigate pregnancy, infant care, breastfeeding, and more. As the child grows, the program also offers tips on tracking healthy development, understanding changing behaviors, and preparing to start school.")
+      + morePhone("800/251-BABY (2229)"),
+    orgName = Some("Louisiana Department of Health"),
+    start = "2022-06-10",
+    alert = "2023-11-12",
+    sourceContacts = Seq(
+      "Partners for Healthy Babies <phblouisiana@gmail.com>",
+      "PHBlouisiana@gmail.com", "Andrea Thames <Andrea.Thames@la.gov>")
+  )
+
+  Spot(
     "FamilyCoachingProgram",
     Services,
     str("The Family Coaching and Support Program of the Louisiana Department of Health helps new and expecting parents learn the many things to know about being a parent.  Under the  program, a nurse or parent educator will come to you and help with things like having a healthy pregnancy, caring for your newborn, breastfeeding, and helping you be the best parent you can be.  The program is tailored to each family's needs, and is a service of the state of Louisiana.") + moreWebPhoneAnnounce("More information about the program and whether you are eligible is", "partners for healthy babies dot O R G", "504/568-5926"),
     orgName = Some("Family Coaching"),
     start = "2021-06-22",
     alert = "2023-11-12",
+    end = Some("2022-06-09"),
     previousAlerts = Seq("2021-11-13"),
     sourceContacts = Seq(
       "PHBlouisiana@gmail.com", "Andrea Thames <Andrea.Thames@la.gov>"),
@@ -2741,6 +2777,17 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     copresent = "FEMA, the Louisiana Governor’s Office of Homeland Security and Emergency Preparedness",
     start = "2021-07-12",
     alert = "2022-05-15"
+  )
+
+  Spot(
+    "TempHousingStormTwentyTwo",
+    StormPrep,
+    str("FEMA encourages survivors living in temporary housing to prepare for hurricanes.  Trailers and other temporary housing units are not safe in a hurricane, so occupants in state and FEMA housing units should plan ahead in case a storm arrives.  Make your personal emergency plan now so if your local emergency management officials tell you to evacuate you will know what to take, who will drive and where you will go. Take pets with you if you evacuate. Pack all medications you will need while you are evacuated.  And pay attention to directions for evacuation routes.") +
+      online("get a game plan dot O R G"),
+    orgName = Some("FEMA"),
+    start = "2022-06-09",
+    end = Some("2022-09-30"),
+    alert = "2024-05-15"
   )
 
   Spot(

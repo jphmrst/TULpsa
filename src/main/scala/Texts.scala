@@ -33,6 +33,17 @@ def moreWebEmailAnnounce(ann: String, web: String, email: String):
     online(email) > str(".")
 )
 
+def moreWebPhoneEmailAnnounce(
+  ann: String, web: String, phone: String, email: String):
+    StructText = (
+  fromString(ann) + fromString("available online at") > pause(PauseWeight.Medium)
+    + online(web) > str(",") > pause(PauseWeight.Medium)
+    + fromString("by phone at") > pause(PauseWeight.Medium) +
+    str(phone + ",") > pause(PauseWeight.Medium)
+    + fromString("or by email to") > pause(PauseWeight.Medium) +
+    online(email) > str(".")
+)
+
 def moreWebAnnounce(ann: String, web: String): StructText =
   fromString(ann) + fromString("available online at") >
     pause(PauseWeight.Medium) + online(web) > str(".")
@@ -51,6 +62,9 @@ def morePhoneEmailAnnounce(ann: String, phone: String, email: String):
     pause(PauseWeight.Medium) + speak(phone, SpeakAs.Telephone) >
     pause(PauseWeight.Medium) > comma +
     str("or by email to") > pause(PauseWeight.Medium) + online(email) > str(".")
+
+def moreWebPhoneEmail(web: String, phone: String, email: String): StructText =
+  moreWebPhoneEmailAnnounce("More information is", web, phone, email)
 
 def moreWebPhone(web: String, phone: String): StructText =
   moreWebPhoneAnnounce("More information is", web: String, phone: String)
