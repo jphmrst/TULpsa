@@ -41,6 +41,7 @@ import scala.util.control.NonLocalReturns.*
   * bank.
   */
 abstract class RosterBuilder(
+  val species: String,
   val startDate: LocalDate,
   val size: Int,
   val mixer: AssortmentSchedule,
@@ -78,6 +79,7 @@ abstract class RosterBuilder(
     * [[Unassigned]] slot is found.
     */
   def result(): Roster = new Roster(
+    species,
     startDate,
     Array.tabulate[Spot](size)((i) => slots(i) match {
       case _: Unassigned =>

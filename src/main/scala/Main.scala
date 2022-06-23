@@ -8,13 +8,19 @@
 package wtul.rosters
 import java.time.LocalDate
 import org.maraist.wtulrosters.{
-  PsaLongTermSpots, PsaRosters, PsaScheduling, Alerts, Voice}
+  PsaLongTermSpots, PsaRosters, PsaScheduling,
+  PromoLongTermSpots, PromoRosters, PromoScheduling,
+  Alerts, Voice}
 import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def batch: Unit = {
   PsaRosters.init()
-  val out = PsaRosters.writeNWeeks()
-  syncRosters(out.result())
+  val psaOut = PsaRosters.writeNWeeks()
+  syncRosters(psaOut.result())
+
+  PromoRosters.init()
+  val promoOut = PromoRosters.writeNWeeks()
+  syncRosters(promoOut.result())
 }
 
 @main def diagnostic: Unit = {

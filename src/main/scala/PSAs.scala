@@ -49,12 +49,12 @@ object PsaRosters extends RosterType {
   * roster.
   */
 class PsaRosterBuilder(startDate: LocalDate)
-    extends RosterBuilder(startDate, 78, PsaScheduling,
+    extends RosterBuilder("PSA", startDate, 78, PsaScheduling,
       "WTUL 91.5\\textsc{fm} --- PSA roster",
       "PSA \\#",
       "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
       (x: Int) => (1 + x).toString(),
-      commonPreamble,
+      commonPreamble("PSAs"),
       DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'"),
       "PSA-",
       (first, last) => {

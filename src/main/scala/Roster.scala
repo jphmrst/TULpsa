@@ -35,6 +35,7 @@ import org.maraist.wtulrosters.Utils.insertBetween
   * output.
   */
 abstract class Roster(
+  val species: String,
   val startDate: LocalDate,
   val slots: Array[Spot],
   val title: String,
@@ -74,7 +75,7 @@ abstract class Roster(
 
     for(group <- groups) {
       val blockText =
-        "\\LARGE\\textsf{\\bfseries PSA \\#"
+        s"\\LARGE\\textsf{\\bfseries $species \\#"
         + insertBetween(
           "\\,$\\cdot$\\,",
           List.from(
@@ -148,7 +149,7 @@ abstract class Roster(
     doc.addPreamble(preamble)
     doc.addPreamble(s"\\def\\rosterDates{$weekDates}\n")
     doc.open()
-    doc ++= commonStart
+    doc ++= commonStart(title)
     doc
   }
 
@@ -168,15 +169,11 @@ abstract class Roster(
 
 /** LaTeX written as the first part of the body.
   */
-val commonStart: String = """
-\pagestyle{fancy}
-\setcounter{page}{1}
-\def\rosterName{PSA roster}
-"""
+def commonStart(docTitle: String): String = s"\n\\pagestyle{fancy}\n\\setcounter{page}{1}\n\\def\\rosterName{$docTitle}\n"
 
 /** LaTeX written as the preamble.
   */
-val commonPreamble: String = """
+def commonPreamble(spotPlural: String): String = """
 \newcommand{\online}[1]{\textsl{#1}}
 \headheight 12pt
 \headsep 1em
@@ -189,17 +186,17 @@ val commonPreamble: String = """
 \parindent 0pt
 \parskip 14pt
 
-\def\misprintsTo{{\small Please report typos, expired spots, or other problems with PSAs to \textsl{wtul-psa@gmail.com}\,.}}
+\def\misprintsTo#1{{\small Please report typos, expired spots, or other problems with #1 to \textsl{wtul-psa@gmail.com}\,.}}
 
 \usepackage{fancyhdr}
 \def\plainheadrulewidth{0pt}
 \def\footrulewidth{0.4pt}
-\lhead{WTUL 91.5\textsc{fm} --- \rosterName}
+\lhead{\rosterName}
 \chead{}
 \rhead{\rosterDates}
-\lfoot[\textbf{\thepage}]{\misprintsTo}
+\lfoot[\textbf{\thepage}]{\misprintsTo{""" + spotPlural + """}}
 \cfoot{}
-\rfoot[\misprintsTo]{\textbf{\thepage}}
+\rfoot[\misprintsTo{""" + spotPlural + """}]{\textbf{\thepage}}
 
 \makeatletter
 
