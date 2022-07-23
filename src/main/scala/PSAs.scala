@@ -207,6 +207,16 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("autismSchollSupply2022",
+    str("The Autism Society of Greater New Orleans and the Jefferson Parish Recreation Department will distribute school supplies and COVID-19 vaccines at two Back to School Events")
+      + blank("when,")
+      + str("one in Terrytown and one on the east bank.  The West Bank location is the Terrytown Playground Gym, 641 Heritage Avenue.  The East Bank location is the Ree-Alario Special Needs Center at 6900 Saints Drive in Metairie.  Each child aged six and up will receive one mesh backpacks with school supplies.  COVID-19 vaccines will be available for kids aged six months and up.  The event is open to the public, but an online signup is required to attend, at")
+      + online("A S G N O dot O R G slash back hyphen to hyphen school")
+      > period,
+    "2022-07-23",
+    spotsSourceContacts = Seq("FEMA-NewsDesk-Louisiana-Disasters@fema.dhs.gov")
+  )
+
   Event("sierraMtgJune22",
     str("The next meeting of the Orleans Sierra Club will be") +
       blank("when") +
