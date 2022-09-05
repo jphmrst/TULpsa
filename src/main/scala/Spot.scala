@@ -65,6 +65,9 @@ class Spot(
   val boost: Double = 0.0,
   val previousAlerts: Seq[LocalDate] = Seq()
 )(using addSpot: (Spot) => Unit) {
+
+  override def toString(): String = tag
+
   import Spot.{getWeekOfCentury, EPSILON}
 
   Output.fullln(s"Spot $tag, ${group.tag}, $start${end.map(" to " + _.toString()).getOrElse("")}, boost $boost")

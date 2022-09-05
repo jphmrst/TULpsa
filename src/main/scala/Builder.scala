@@ -54,7 +54,9 @@ abstract class RosterBuilder(
   val filePrefix: String,
   val blockPolicy: (Int, Int) => Int,
   val slotDays: Array[Int | List[Int]],
-  val hourSlots: Array[Array[Int]]
+  val hourSlots: Array[Array[Int]],
+  val useOptIntro: Boolean,
+  val tagTextColor: String
 ) {
 
   if (slotDays.length != size)
@@ -86,7 +88,8 @@ abstract class RosterBuilder(
         throw new IllegalStateException(s"Slot $i unassigned")
       case s: Spot => s
     }),
-    title, groupLead, footer, indexFormatter, preamble, timestamper, hourSlots
+    title, groupLead, footer, indexFormatter, preamble, timestamper, hourSlots,
+    useOptIntro, tagTextColor
   ) {
     override def fileTitle: String = filePrefix + super.fileTitle
     override def slotDateTime(dayIdx: Int, idx: Int): LocalDateTime =
@@ -306,23 +309,26 @@ abstract class RosterBuilder(
     * given list.
     */
   def completeWith(spots: List[Spot]): Unit =
-    completeWith(unassignedRanges, spots)
+    completeWith(unassignedRanges, spots, spots)
 
   /** Recursive helper method for [[#completeWith]]. */
-  private def completeWith(ranges: List[(Int, Int)], spots: List[Spot]):
+  private def completeWith(
+    ranges: List[(Int, Int)], spots: List[Spot], reset: List[Spot]):
       Unit = {
     // println(s"completeWith($ranges)")
     ranges match {
       case Nil => { }
-      case (first, last) :: rest => completeWith(first, last, rest, spots)
+      case (first, last) :: rest =>
+        completeWith(first, last, rest, spots, reset)
     }
   }
 
   /** Recursive helper method for [[#completeWith]]. */
-  private def completeWith
-    (first: Int, last: Int, ranges: List[(Int, Int)], spots: List[Spot]):
+  private def completeWith(
+    first: Int, last: Int, ranges: List[(Int, Int)],
+    spots: List[Spot], reset: List[Spot]):
       Unit = {
-    // println(s"completeWith($first, $last, $ranges)")
+    // println(s"completeWith($first, $last, $ranges, $spots)")
     spots match {
       case Nil => throw new IllegalArgumentException("Exhausted spots list")
       case spot :: otherSpots => {
@@ -332,9 +338,15 @@ abstract class RosterBuilder(
         // println(s"  ${i + first} <- ${spot.tag}")
           set(i + first, spot)
         }
+
+        val nextSpots = otherSpots match {
+          case Nil => reset
+          case _ => otherSpots
+        }
+
         if first + len > last
-        then completeWith(ranges, otherSpots)
-        else completeWith(first + len, last, ranges, otherSpots)
+        then completeWith(ranges, nextSpots, reset)
+        else completeWith(first + len, last, ranges, nextSpots, reset)
       }
     }
   }

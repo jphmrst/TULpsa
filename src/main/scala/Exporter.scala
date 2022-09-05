@@ -72,7 +72,6 @@ object Exporter {
       val spot = roster.slots(spotIdx)
       bw.write(s"  <tul:reading slot=\"${dateTime}:00\" id=\"${spot.tag}\" />\n")
     }
-    // ???
 
     bw.write("</tul:roster>\n")
   }

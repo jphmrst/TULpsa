@@ -241,7 +241,7 @@ object Event {
     case 9 => "ninth"
     case 10 => "tenth"
     case 11 => "eleventh"
-    case 12 => "twelvth"
+    case 12 => "twelfth"
     case 13 => "thirteenth"
     case 14 => "fourteenth"
     case 15 => "fifteenth"

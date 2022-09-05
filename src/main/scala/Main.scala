@@ -14,13 +14,16 @@ import org.maraist.wtulrosters.{
 import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def batch: Unit = {
-  // PromoRosters.init()
-  // val promoOut = PromoRosters.writeNWeeks()
-  // syncRosters(promoOut.result())
+  PromoRosters.init()
+  val promoOut = PromoRosters.writeNWeeks()
 
   PsaRosters.init()
   val psaOut = PsaRosters.writeNWeeks()
-  syncRosters(psaOut.result())
+
+  syncRosters(
+    promoOut.result() ++ psaOut.result(),
+    List("promos-weeks.xml", "psa-weeks.xml")
+  )
 }
 
 @main def diagnostic: Unit = {

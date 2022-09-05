@@ -48,7 +48,9 @@ object Utils {
     * Additional options to `rsync` can be specified through the
     * `WTUL_ROSTERS_RSYNC_OPTS` environment variable.
     */
-  def syncRosters(files: Seq[String]): Unit = {
+  def syncRosters(files: Seq[String], xmlFiles: Seq[String]): Unit = {
+    // println(files)
+    // println(xmlFiles)
     import scala.util.Properties.{envOrNone, envOrElse}
     envOrNone("WTUL_ROSTERS_UPLOAD") match {
       case None => {
@@ -90,7 +92,7 @@ object Utils {
         import scala.language.postfixOps
         Output.info(s"Uploading to ${hostPath}...")
         val options = envOrElse("WTUL_ROSTERS_RSYNC_OPTS", "")
-        (s"rsync --delete-excluded --recursive $options index.html weeks.xml src/main/xml/rosterexport.xsd ${files.fold("")(_ + " " + _)} $hostPath" !)
+        (s"rsync --delete-excluded --recursive $options index.html ${xmlFiles.fold("")(_ + " " + _)} src/main/xml/rosterexport.xsd ${files.fold("")(_ + " " + _)} $hostPath" !)
       }
     }
   }

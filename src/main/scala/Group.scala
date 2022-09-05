@@ -174,4 +174,14 @@ object Group {
     *  @group groups
     */
   object Events extends Group("Event", "Dated events", boost = 0.8)
+
+  /** Group for standard show promos.
+    *  @group groups
+    */
+  object StandardPromo extends Group("Standard", "Standard promo")
+
+  /** Group for the "no promo this slot" spot.
+    *  @group groups
+    */
+  object NoPromo extends Group("No-promo", "Placeholder for a blank promo slot")
 }

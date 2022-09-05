@@ -16,7 +16,7 @@ import scala.collection.mutable.Builder
   * the [[Roster]], are all internal and must be provided by concrete
   * subclasses.
   */
-abstract class RosterType {
+abstract class RosterType(val exporterBase: String = "") {
 
   /** We expect most concrete implementations to be given as Scala
     * `object`s.  Since Scala instantiates objects lazily, this method
@@ -66,7 +66,7 @@ abstract class RosterType {
       outBuilder += fileroot + ".pdf"
     }
     val exporter = new Exporter(rosters.result)
-    exporter.write("weeks")
+    exporter.write(exporterBase + "weeks")
     outBuilder
   }
 

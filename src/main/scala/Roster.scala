@@ -44,7 +44,9 @@ abstract class Roster(
   val indexFormatter: Int => String,
   val preamble: String,
   val timestamper: DateTimeFormatter,
-  val hourSlots: Array[Array[Int]]
+  val hourSlots: Array[Array[Int]],
+  val useOptIntro: Boolean,
+  val tagTextColor: String
 ) extends LaTeXRenderable {
 
   /** The number of announcement slots in this roster. */
@@ -80,7 +82,7 @@ abstract class Roster(
           "\\,$\\cdot$\\,",
           List.from(
             for(i <- 0 until group.count)
-            yield (group.firstIndex + i).toString()
+            yield indexFormatter(group.firstIndex + i)
           )
         ).fold("")(_ + _)
         + "}"
@@ -92,16 +94,21 @@ abstract class Roster(
       doc ++= "\\addtolength{\\nextPsaBlockWrap}{2\\psaBlockSep}\n"
       doc ++= "\\begin{minipage}{\\textwidth}\n"
       doc ++= "\\begin{wrapfigure}{l}{\\nextPsaBlockWrap}\n"
-      doc ++= """\begin{tikzpicture}[every node/.style={fill,text=yellow,text width=\nextPsaBlock,inner sep=\psaBlockSep, outer sep=0pt}] \node {"""
+      doc ++= (
+        """\begin{tikzpicture}[every node/.style={fill,text="""
+          + tagTextColor
+          + """,text width=\nextPsaBlock,inner sep=\psaBlockSep, outer sep=0pt}] \node {""")
       doc ++= blockText
       doc ++= "};\\end{tikzpicture}\n"
       doc ++= "\\end{wrapfigure}\n"
 
-      doc ++= "\\textsl{Optional introduction: "
-      doc ++= group.spot.introText
-      doc ++= "}\n"
+      if (useOptIntro) {
+        doc ++= "\\textsl{Optional introduction: "
+        doc ++= group.spot.introText
+        doc ++= "}\n"
+        doc ++= "\\\\\n"
+      }
 
-      doc ++= "\\\\\n"
       group.spot.text.toLaTeX(doc)
       doc ++= "\n\\end{minipage}\n"
     }

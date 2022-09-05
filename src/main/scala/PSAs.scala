@@ -23,7 +23,7 @@ object PSAutils {
 }
 
 /** How we generate PSA rosters. */
-object PsaRosters extends RosterType {
+object PsaRosters extends RosterType("psas-") {
 
   override def init(): Unit = {
     PsaShortTermSpots.init()
@@ -53,7 +53,7 @@ class PsaRosterBuilder(startDate: LocalDate)
       "WTUL 91.5\\textsc{fm} --- PSA roster",
       "PSA \\#",
       "Please report typos, expired spots, or other problems with PSAs to \\textsl{wtul-psa@gmail.com}\\,.",
-      (x: Int) => (1 + x).toString(),
+      (x: Int) => x.toString(),
       commonPreamble("PSAs"),
       DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm'{\\small 'a'}'"),
       "PSA-",
@@ -96,7 +96,9 @@ class PsaRosterBuilder(startDate: LocalDate)
         Array[Int](3, 35, 71, 43, 50, 24, 59, 10, 53, 17, 47, 3, 62, 24, 35, 10, 39, 17, 3, 68, 30, 10, 74, 65),
         Array[Int](72, 11, 69, 59, 65, 44, 36, 4, 25, 40, 11, 48, 18, 31, 62, 4, 56, 11, 25, 51, 18, 76, 4, 31),
         Array[Int](19, 5, 57, 77, 54, 63, 26, 66, 12, 32, 45, 26, 36, 5, 40, 69, 12, 48, 19, 60, 12, 5, 37, 75),
-        Array[Int](13, 51, 6, 72, 76, 20, 57, 54, 27, 75, 6, 66, 32, 13, 45, 20, 60, 6, 37, 27, 63, 13, 41, 77))
+        Array[Int](13, 51, 6, 72, 76, 20, 57, 54, 27, 75, 6, 66, 32, 13, 45, 20, 60, 6, 37, 27, 63, 13, 41, 77)),
+      true,
+      "yellow"
 ) {
   val slotOrders: List[List[Int]] = List(
     List(
@@ -253,9 +255,9 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
       doublequoted(str("A Musical Family")) > comma +
       str("a program of beautiful pieces from the Mendelssohn siblings, with Fanny Mendelssohn's String Quartet in E flat major and Felix Mendelssohn's Second String Quintet, plus works by Johann Christian Bach and Samuel Coleridge-Tayor. The performances will take place") +
       blank("when") +
-      str("at the Munholland Methodist Church on 1201 Metairie Road, and Tuesday the 13th at the Saint Charles Avenue Presbyterian Church, 1545 State Street.  Both performances are at 7:30pm and are open to the public with a suggested donation.") +
+      str("at the Munholland Methodist Church on 1201 Metairie Road, and Tuesday the thirteenth at the Saint Charles Avenue Presbyterian Church, 1545 State Street.  Both performances are at 7:30pm and are open to the public with a suggested donation.") +
       moreWebPhone("musica dot O R G", "504/304-8608"),
-    "2021-09-12",
+    "2022-09-12",
     spotsSourceContacts = Seq("Bruce Owen <musaica@musaica.org>")
   )
 
