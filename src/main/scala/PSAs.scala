@@ -248,6 +248,17 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
     spotsSourceContacts = Seq("FEMA-NewsDesk-Louisiana-Disasters@fema.dhs.gov")
   )
 
+  Event("MusicaSept2022",
+    str("Musica Chamber Ensemble starts its seventeenth season with") +
+      doublequoted(str("A Musical Family")) > comma +
+      str("a program of beautiful pieces from the Mendelssohn siblings, with Fanny Mendelssohn's String Quartet in E flat major and Felix Mendelssohn's Second String Quintet, plus works by Johann Christian Bach and Samuel Coleridge-Tayor. The performances will take place") +
+      blank("when") +
+      str("at the Munholland Methodist Church on 1201 Metairie Road, and Tuesday the 13th at the Saint Charles Avenue Presbyterian Church, 1545 State Street.  Both performances are at 7:30pm and are open to the public with a suggested donation.") +
+      moreWebPhone("musica dot O R G", "504/304-8608"),
+    "2021-09-12",
+    spotsSourceContacts = Seq("Bruce Owen <musaica@musaica.org>")
+  )
+
   Event("MusicaSept2021",
     str("Musica Chamber Ensemble starts its season with") +
       doublequoted(str("A Musical Journey")) > comma +
@@ -381,6 +392,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Historic New Orleans Collection"),
     start = "2021-11-01",
     alert = "2021-07-23",
+    end = Some("2022-08-31"),
     previousAlerts = Seq("2021-10-27", "2021-11-13"),
     sourceContacts = Seq("wrc@hnoc.org")
   )
@@ -2395,6 +2407,16 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
+  )
+
+  Spot(
+    "HistoricNewOrleansRegular2",
+    Museum,
+    str("The Historic New Orleans Collection is dedicated to presenting and preserving the culture of this area. Details about the its current exhibitions, original books, research center, and museum experience are available at") +
+      online("H N O C dot O R G") > period,
+    start = "2022-09-01",
+    alert = "2023-12-17",
+    sourceContacts = "Teresa Devlin <Teresa.Devlin@hnoc.org>"
   )
 
   Spot(
