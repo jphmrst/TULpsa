@@ -44,7 +44,7 @@ object Exporter {
     bw.write("<tul:roster xmlns=\"http://www.w3.org/1999/xhtml\"\n")
     bw.write("        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n")
     bw.write("        xmlns:tul=\"https://maraist.net/wtul/rosters\"\n")
-    bw.write("        xsi:schemaLocation=\"https://maraist.net/wtul/rosters rosterexport.xsd\"\n")
+    bw.write("        xsi:schemaLocation=\"https://maraist.net/wtul/rosters/rosterexport.xsd\"\n")
 
     bw.write(s"        generationDate=\"${LocalDateTime.now()}\"\n")
 
