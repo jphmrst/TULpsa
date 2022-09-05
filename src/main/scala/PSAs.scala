@@ -23,7 +23,7 @@ object PSAutils {
 }
 
 /** How we generate PSA rosters. */
-object PsaRosters extends RosterType("psas-") {
+object PsaRosters extends RosterType("psa-") {
 
   override def init(): Unit = {
     PsaShortTermSpots.init()

@@ -92,7 +92,8 @@ object Utils {
         import scala.language.postfixOps
         Output.info(s"Uploading to ${hostPath}...")
         val options = envOrElse("WTUL_ROSTERS_RSYNC_OPTS", "")
-        (s"rsync --delete-excluded --recursive $options index.html ${xmlFiles.fold("")(_ + " " + _)} src/main/xml/rosterexport.xsd ${files.fold("")(_ + " " + _)} $hostPath" !)
+        val rsync: String = s"rsync --delete-excluded --recursive $options index.html ${xmlFiles.fold("")(_ + " " + _)} src/main/xml/rosterexport.xsd ${files.fold("")(_ + " " + _)} $hostPath"
+        (rsync !)
       }
     }
   }
