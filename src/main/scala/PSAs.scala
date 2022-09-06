@@ -209,6 +209,18 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("PSCforum2022a",
+    str("The Louisiana Public Service Commission has two seats up for election this year, including here in District 3.  The Alliance for Affordable Energy is hosting a series of LPSC forums across the state, with a focus on voter education.  Their New Orleans forum will be")
+      + blank("when,")
+      + str("at the Lutcher Library, from six to eight p.m.  Candidates for this seat will speak and answer questions.  More information is available on the Alliance for Affordable Energy's web site,")
+      + online("all 4 energy dot O R G slash L P S C dot H T M L")
+      > comma + str("that's")
+      + online("all 4 energy")
+      + str("with the digit ``four.''"),
+    "2022-09-21",
+    spotsSourceContacts = Seq("Austen Angers <austen@all4energy.org>")
+  )
+
   Event("autismSchollSupply2022",
     str("The Autism Society of Greater New Orleans and the Jefferson Parish Recreation Department will distribute school supplies and COVID-19 vaccines at two Back to School Events")
       + blank("when,")
@@ -2412,13 +2424,26 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
-    "HistoricNewOrleansRegular2",
+    "HistoricNewOrleansVisitor",
     Museum,
     str("The Historic New Orleans Collection is dedicated to presenting and preserving the culture of this area. Details about the its current exhibitions, original books, research center, and museum experience are available at") +
       online("H N O C dot O R G") > period,
     start = "2022-09-01",
     alert = "2023-12-17",
     sourceContacts = "Teresa Devlin <Teresa.Devlin@hnoc.org>"
+  )
+
+  Spot(
+    "HistoricNewOrleansResearcher",
+    Museum,
+    str("The Historic New Orleans Collection is a nonprofit museum dedicated to documenting the history and culture of New Orleans and the Gulf South. In addition to operating a public history museum, The H-N-O-C runs the Williams Research Center, a non-lending facility where researchers of all levels can access primary resources from the institution's holdings. The website")
+      + online("H N O C dot org slash research")
+      + str("offers a link to the online catalog as well as information on scheduling appointments.")
+      + morePhoneEmail("504/523-4662", "reference at H N O C dot org")
+      + nomuseumsdotcomblurb,
+    start = "2022-09-12",
+    alert = "2024-02-17",
+    sourceURL = "http://www.neworleansmuseums.com/"
   )
 
   Spot(
@@ -2429,6 +2454,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
+    end = Some("2022-09-11"),
     sourceURL = "http://www.neworleansmuseums.com/"
   )
 

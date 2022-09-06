@@ -33,6 +33,14 @@ import org.maraist.wtulrosters.Utils.insertBetween
   * preamble.
   * @param timestamper Renderer for the timestamp in this document's
   * output.
+  * @param hourSlots A 7-by-(up-to-24) array of integers, mapping from
+  * a slot in the given days of the week to the index in `slots` of
+  * the [[Spot]] to be read at that time in the day.
+  * @param useOptIntro If `true`, the generated rosters contain the
+  * "optional introduction" block.
+  * @param tagTextColor A [[String]] decribing the LaTeX color to be
+  * used for the slot list in the generated PDF roster.  This color
+  * should be visible against a black background.
   */
 abstract class Roster(
   val species: String,

@@ -296,6 +296,146 @@ abstract class RosterBuilder(
       }
     }
   }
+  /** Fill in the context of a weekly series of blockout patterns.
+    *  @param bank Available [[Spot]]s.
+    *  @param blackoutSpec Bundled control of blackout information.
+    */
+  def fillByBlackoutTimes(
+    bank: SpotBank, mixer: AssortmentSchedule)(
+    using blackoutSpec: BlackoutSpec):
+      Unit = {
+    val spotList =
+      mixer.getSortedList(startDate, bank).filter(_ != blackoutSpec.blankSpot)
+    var state: BlackoutFillState =
+      BlackoutNextSpot(unassignedRanges, spotList, blackoutSpec.readingsPer)
+    // println(s"\n\nInitial state: $state")
+
+    while (state.more) {
+      state = state.step
+    }
+
+    // println(s"\nfillByBlackoutTimes $spotList")
+    // fillByBlackoutTimes(
+    //  unassignedRanges, spotList, blackoutSpec.readingsPer, blackoutSpec)
+  }
+
+  trait BlackoutFillState {
+    def more: Boolean
+    def step(using blackoutSpec: BlackoutSpec): BlackoutFillState
+  }
+
+  case class BlackoutNextSpot(
+    ranges: List[(Int, Int)],
+    spots: List[Spot],
+    readingsToSchedule: Int)
+      extends BlackoutFillState {
+    override def more: Boolean = ranges.nonEmpty
+    override def step(using blackoutSpec: BlackoutSpec): BlackoutFillState = {
+      // println(this)
+      ranges match {
+        case Nil => throw new IllegalStateException("Stepped exhausted state")
+        case (firstIdx, lastIdx) :: otherRanges => spots match {
+          case Nil => {
+            // println("- Transition to defaults")
+            BlackoutDefaults0(ranges)
+          }
+          case firstSpot :: restSpots => {
+            // println(s"- Place $firstSpot")
+            BlackoutSpotProgress(
+              firstIdx, lastIdx, otherRanges, List.empty, firstSpot, restSpots,
+              readingsToSchedule)
+          }
+        }
+      }
+    }
+  }
+
+  case class BlackoutSpotProgress(
+    lo: Int, hi: Int,
+    otherRanges: List[(Int, Int)],
+    skipped: List[(Int, Int)],
+    spot: Spot,
+    otherSpots: List[Spot],
+    readingsToSchedule: Int)
+      extends BlackoutFillState {
+    override def more: Boolean = true
+    override def step(using blackoutSpec: BlackoutSpec): BlackoutFillState = {
+      // println(this)
+      if (readingsToSchedule <= 0) then {
+        // println("- no more readings needed")
+        BlackoutNextSpot(
+          skipped.reverse ++ ((lo, hi) :: otherRanges), otherSpots,
+          blackoutSpec.readingsPer)
+      }
+
+      else if (hi < lo) then {
+        otherRanges match {
+          case Nil => {
+            // println("- give up on this spot")
+            BlackoutNextSpot(skipped.reverse, otherSpots, readingsToSchedule)
+          }
+          case (lo0, hi0) :: rs => {
+            // println("- next range")
+            BlackoutSpotProgress(lo0, hi0, rs,
+              skipped, spot, otherSpots, readingsToSchedule)
+          }
+        }
+
+      } else if (blackoutSpec.spotBlackout(spot, lo)) then {
+        // println(s"- blacked out")
+        val nextSkipped = skipped match {
+          // TODO requeue lo
+          case (lo1, hi1) :: otherSkipped if hi1 + 1 == lo =>
+            (lo1, lo) :: otherSkipped
+          case _ => (lo, lo) :: skipped
+        }
+        BlackoutSpotProgress(
+          1 + lo, hi, otherRanges, nextSkipped, spot,
+          otherSpots, readingsToSchedule)
+
+      } else {
+        // println(s"- yes")
+        set(lo, spot)
+        BlackoutSpotProgress(
+          1 + lo, hi, otherRanges, skipped, spot,
+          otherSpots,
+          readingsToSchedule - blackoutSpec.readingsAt(lo))
+      }
+    }
+  }
+
+  case class BlackoutDefaults0(
+    ranges: List[(Int, Int)])
+      extends BlackoutFillState {
+    override def more: Boolean = ranges.nonEmpty
+    override def step(using blackoutSpec: BlackoutSpec): BlackoutFillState = {
+      // println(this)
+      ranges match {
+        case Nil => throw new IllegalStateException("Stepped exhausted state")
+        case (lo, hi) :: otherRanges => {
+          // println(s"- To stepwise for this ranges")
+          BlackoutDefaults(lo, hi, otherRanges)
+        }
+      }
+    }
+  }
+
+  case class BlackoutDefaults(
+    lo: Int, hi: Int,
+    otherRanges: List[(Int, Int)]) extends BlackoutFillState {
+    override def more: Boolean = (lo <= hi || otherRanges.nonEmpty)
+    override def step(using blackoutSpec: BlackoutSpec): BlackoutFillState = {
+      // println(this)
+      if (lo <= hi) then {
+        // println(s"- Add default here")
+        set(lo, blackoutSpec.blankSpot)
+        BlackoutDefaults(1 + lo, hi, otherRanges)
+      } else {
+        // println(s"- Check for more ranges for default")
+        BlackoutDefaults0(otherRanges)
+      }
+    }
+  }
 
   def slotOrder: List[Int]
 
@@ -350,4 +490,11 @@ abstract class RosterBuilder(
       }
     }
   }
+}
+
+trait BlackoutSpec {
+  def spotBlackout(spot: Spot, slotIdx: Int): Boolean
+  def readingsAt(slotIdx: Int): Int
+  def readingsPer: Int
+  def blankSpot: Spot
 }
