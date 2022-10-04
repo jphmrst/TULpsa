@@ -209,16 +209,16 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
-//  Event("AutismHalloween2022",
-//    str("The Autism Society of Greater New Orleans is hosting their annual Inclusive Halloween Party")
-//      + blank("when,")
-//      + str("from 11") > am
-//      + str("to 2") > pm > period
-//      + str("The event will be at the Westwego Farmers Market, 484 Sala Avenue, with trick-or-treating, autism resources, and fun.  The event will be inclusive of all dietary restrictions, sensory needs, and ages of trick or treaters.")
-//      + more( ZZZZZZZZZZZZZZZZZZZZ ),
-//    "2022-10-29",
-//    spotsSourceContacts = Seq("Alicia Dardar <eventcoordinator@asgno.org>")
-//  )
+  Event("AutismHalloween2022",
+    str("The Autism Society of Greater New Orleans is hosting their annual Inclusive Halloween Party")
+      + blank("when,")
+      + str("from 11") > am
+      + str("to 2") > pm > period
+      + str("The event will be at the Westwego Farmers Market, 484 Sala Avenue, with trick-or-treating, autism resources, and fun.  The event will be inclusive of all dietary restrictions, sensory needs, and ages of trick or treaters.")
+      + moreWeb("A S G N O dot O R G slash halloween"),
+    "2022-10-29",
+    spotsSourceContacts = Seq("Alicia Dardar <eventcoordinator@asgno.org>")
+  )
 
   Event("ReliefSpendingMeeting",
     str("The Mayor of New Orleans is hosting a Community Meeting to get input from the residents of New Orleans about how they think the $388 Million in economic relief dollars, allocated to the City of New Orleans, should be spent.  The meeting is")
