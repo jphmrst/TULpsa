@@ -118,6 +118,7 @@ abstract class Roster(
       }
 
       group.spot.text.toLaTeX(doc)
+      doc ++= s"\n{\\small\\\\ \\hspace*{\\fill}\\begin{raggedright}\\mbox{\\slshape\\sffamily\\textcolor{black!50}{When reporting an update/problem with this spot, mention code} \\textcolor{black!75}{${group.spot.tag}}}\\end{raggedright}}"
       doc ++= "\n\\end{minipage}\n"
     }
     doc ++= "\\vspace*{\\fill}\n"

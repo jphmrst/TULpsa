@@ -91,19 +91,13 @@ class Spot(
     start.compareTo(date) <= 0
       && end.map(date.compareTo(_) <= 0).getOrElse(true)
 
-  /** We will use the hash code of the text several times, so store it
-    * here.
-    */
-  private val textHash: Int = text.hashCode()
-
-  override val hashCode: Int = textHash
-   + tag.hashCode + start.hashCode + group.hashCode + copresent.hashCode
+  override val hashCode: Int = tag.hashCode + start.hashCode + group.hashCode
 
   /** Calculate a small, unique, persistent "wiggle" for the period of
     * every spot, so that it has at least a slightly unique pattern.
     */
   private[wtulrosters]
-  val periodWiggle: Double = Math.sin(textHash.toDouble) / 4.0
+  val periodWiggle: Double = Math.sin(hashCode.toDouble) / 4.0
 
   /** The period (in weeks) of the rise and fall of this spot's priority
     * ranking.

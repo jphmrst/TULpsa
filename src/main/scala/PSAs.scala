@@ -209,6 +209,26 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+//  Event("AutismHalloween2022",
+//    str("The Autism Society of Greater New Orleans is hosting their annual Inclusive Halloween Party")
+//      + blank("when,")
+//      + str("from 11") > am
+//      + str("to 2") > pm > period
+//      + str("The event will be at the Westwego Farmers Market, 484 Sala Avenue, with trick-or-treating, autism resources, and fun.  The event will be inclusive of all dietary restrictions, sensory needs, and ages of trick or treaters.")
+//      + more( ZZZZZZZZZZZZZZZZZZZZ ),
+//    "2022-10-29",
+//    spotsSourceContacts = Seq("Alicia Dardar <eventcoordinator@asgno.org>")
+//  )
+
+  Event("ReliefSpendingMeeting",
+    str("The Mayor of New Orleans is hosting a Community Meeting to get input from the residents of New Orleans about how they think the $388 Million in economic relief dollars, allocated to the City of New Orleans, should be spent.  The meeting is")
+      + blank("when,")
+      + str("from 6 to 7") > pm
+      + str("at L.B. Landry High School, 1200 B. Landry Avenue, on the Westbank. More information is available on the Facebook and Instagram pages of the New Orleans Workers’ Center for Racial Justice."),
+    "2022-10-05",
+    spotsSourceContacts = Seq("Austen Angers <austen@all4energy.org>")
+  )
+
   Event("PSCforum2022a",
     str("The Louisiana Public Service Commission has two seats up for election this year, including here in District 3.  The Alliance for Affordable Energy is hosting a series of LPSC forums across the state, with a focus on voter education.  Their New Orleans forum will be")
       + blank("when,")
@@ -550,6 +570,19 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
+    "FlashFloodsGeneral",
+    Volunteer,
+    str("Flash flooding occurs when rain falls too quickly and for too long for the ground to absorb all of it.  A flash flood watch means conditions are favorable for a flash flood.  When a flash flood watch is issued, be alert to signs of flash flooding be ready to evacuate, don’t park your vehicle along bayous and canals, avoid low areas, and look out for rapidly rising water. A flash flood warning means that a flash flood is taking place or is imminent. When a flash flood WARNING is issued for your area, or the moment you realize that a flash flood is imminent, act quickly to save yourself.· Go to higher ground if possible.· Avoid places that are already flooded and anywhere water is moving rapidly.· Do not attempt to cross flowing waterways.· If advised to evacuate, do so immediately.· Continue monitoring weather forecasts and alerts--on radio, TV, or your phone.") +
+      moreWebPhone("join all of us dot org slash Tulane", "504/988-0650"),
+    start = "2022-09-12",
+    alert = "2024-12-05",
+    orgName = Some("FEMA"),
+    sourceContacts = Seq(
+      "Marie Towns <mtowns@tulane.edu>",
+      "Emily Callegari <ecallegari@tulane.edu>")
+  )
+
+  Spot(
     "GreenLightVolunteersTwo",
     Volunteer,
     str("Volunteers with Green Light New Orleans install free energy-efficient light bulbs for any New Orleans resident.") +
@@ -842,7 +875,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "LCMtoddlerTime",
     Edu,
-    str("Every Thursday, the Louisiana Children's Museum hosts Toddler Time, activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to ten-thirty") + (am > period) + str("The museum is located at 420 Julia Street.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357"),
+    str("Every Thursday, the Louisiana Children's Museum hosts Toddler Time, activities for children ages 3 and under, and their parents or caregivers. Toddler Time is from ten to ten-thirty") + (am > period) + str("The museum is located at 15 Henry Thomas Drive in City Park.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357"),
     orgName = Some("LCM"),
     start = "2021-06-22",
     alert = "2022-05-15",
@@ -1295,7 +1328,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       + moreWeb("new orleans abortion fund dot O R G")
       + str("Their helpline for people who need assistance is")
       + phone("844/44-ABORT") > period
-      + moreWeb("Callers should leave a voicemail with name and phone number; someone will return your call within twenty-four hours.")),
+      + str("Callers should leave a voicemail with name and phone number; someone will return your call within twenty-four hours.")),
     orgName = Some("Abortion Fund"),
     start = "2021-11-22",
     alert = "2023-02-12",
@@ -1471,6 +1504,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Planned Parenthood"),
     start = "2021-06-22",
     alert = "2021-11-26",
+    end = Some("2022-09-17"),
     copresent = "Planned Parenthood",
     sourceNote = "(no contact info)",
     boost = 0.6
@@ -1483,6 +1517,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
     orgName = Some("Planned Parenthood"),
     start = "2021-06-22",
     alert = "2021-11-26",
+    end = Some("2022-09-17"),
     copresent = "Planned Parenthood",
     sourceNote = "[tweets through Aug. '10]",
     boost = 0.6
@@ -2501,9 +2536,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   Spot(
     "ChildrensMuseumRegular",
     Museum,
-    str("The Louisiana Children's Museum offers more than 30,000 square feet of hands-on, interactive exhibits that invite and engage children and families as they explore art, music, science, math, and health, and role-playing environments. The museum is located at") +
-      spellout("420") +
-      str("Julia Street in the Warehouse District, is open seven days a week in the summer, and closes Mondays during the school year.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357") + nomuseumsdotcomblurb,
+    str("The Louisiana Children's Museum offers more than 30,000 square feet of hands-on, interactive exhibits that invite and engage children and families as they explore art, music, science, math, and health, and role-playing environments. The museum is located at 15 Henry Thomas Drive in City Park, is open seven days a week in the summer, and closes Mondays during the school year.") + moreWebPhone("www dot L C M dot O R G", "504/523-1357") + nomuseumsdotcomblurb,
     start = "2021-06-22",
     alert = "2022-02-17",
     sourceURL = "http://www.neworleansmuseums.com/"
