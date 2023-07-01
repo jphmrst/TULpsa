@@ -354,6 +354,39 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
   def overlaps(spot: Spot, glob: Set[SlotGlob]) =
     !globs.getOrElse(spot, Set.empty).intersect(glob).isEmpty
 
+  Show(
+    "AltOldies",
+    StandardPromo,
+    str(
+      "Tune in to the Alt Oldies show every Saturday night on WTUL from 8 until 10 to hear music left of the radio dial as it was in past decades.  Let the DJs take you on a sonic joy ride through the past that includes old prog, vintage new wave and punk, underground rock and soul, synth wave, psychedelia and much more.  If it’s vintage and cool, the DJs will blow off the dust and play it for ya!  That's every Saturday from 8 until 10")
+      > pm + str("only on WTUL New Orleans."),
+    start = "2023-07-03",
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "LocalShow",
+    StandardPromo,
+    str(
+      "The Local show is a blend of not-so-secret herbs and spices, the holy trinity of creole cooking blended with local radio. Lettuce turnip the beets to the sweet and spicy sounds of local artists in New Orleans and Louisiana. Sometimes DJ Chef stirs the pot, other times DJ Lank takes the ladle. No matter what, it's a flavor-filled guaranteed good-taste-of-a-time. Fill up on the local show, Tuesdays 8-10") > pm + str("on WTUL New Orleans, 91.5 FM."),
+    start = "2023-07-03",
+    alert = "2023-08-31",
+    occludes = Set(TueAfternoon, TueDinner)
+  )
+
+  Show(
+    "JamBand",
+    StandardPromo,
+    str(
+      "Check out the Friday Night Jam Session show, every Friday from 8 to 10")
+      > pm > period
+      + str("Host DJ Uptown Ruler explores jam bands from the 90s to the present.  Journey through the night with a good dose of eclectic, contemporary psychedelic rock music featuring extended jams.  Jam out right here with WTUL on Friday nights."),
+    start = "2023-07-03",
+    alert = "2023-08-31",
+    occludes = Set(FriAfternoon, FriDinner)
+  )
+
   Spot(
     "SociaMedia",
     StandardPromo,
