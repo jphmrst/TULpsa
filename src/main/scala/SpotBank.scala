@@ -218,4 +218,24 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
 
     doc.close()
   }
+
+  def writeInventory(doc: LaTeXdoc, title: String): Unit = {
+    val now = LocalDate.now()
+    val current = inventory.filter((spot) =>
+      spot.end.map((endDate) => endDate.isAfter(now)).getOrElse(true)
+    )
+    if (current.size > 0) {
+      doc ++= s"\\section[$title]{$title"
+      doc ++= s" (${current.size} spots)"
+      doc ++= "}\n"
+      for(spot <- current) {
+        doc ++= s"\\subsection{${spot.tag}}\n"
+        doc ++= "\\begin{compactitem}\n"
+        spot.addInventoryMetaItems(doc)
+        doc ++= "\\vspace{0.25em}\n"
+        doc ++= "\\end{compactitem}\n"
+        spot.text.toLaTeX(doc)
+      }
+    }
+  }
 }

@@ -20,6 +20,7 @@ import com.google.protobuf.ByteString
 import com.google.protobuf.ByteString
 import org.maraist.structext.{StructText, ProsodyPitch}
 import org.maraist.structext.StructText.*
+import org.maraist.latex.LaTeXdoc
 
 /** Class representing one announcement.
   *
@@ -224,6 +225,62 @@ class Spot(
     val out: OutputStream = new FileOutputStream(mp3File)
     out.write(audioContents.toByteArray())
     println("done")
+  }
+
+  def addInventoryMetaItems(doc: LaTeXdoc): Unit = {
+    doc ++= s"\\item Group: ${group.title}"
+    doc ++= s"\\item Added $start\n"
+    doc ++= s"\\item Due for check $alert\n"
+
+    sourceURL.size match {
+      case 0 => { }
+      case 1 => sourceURL.map((url) => {
+        doc ++= s"\\item Source URL: \\textsf{$url}\n" })
+      case n => {
+        doc ++= "\\item Source URLs\n"
+        doc ++= "\\begin{compactitem}\n"
+        sourceURL.map((url) => { doc ++= s"\\item\\textsf{$url}\n" })
+        doc ++= "\\end{compactitem}\n"
+      }
+    }
+
+    sourceContacts.size match {
+      case 0 => { }
+      case 1 => sourceContacts.map((who) => {
+        doc ++= s"\\item Source: \\textsf{${
+          who.replace("<", "$<$").replace(">", "$>$").replace("_", "\\_")
+        }}\n"
+      })
+      case n => {
+        doc ++= "\\item Sources\n"
+        doc ++= "\\begin{compactitem}\n"
+        sourceContacts.map((who) => {
+          doc ++= s"\\item\\textsf{${
+            who.replace("<", "$<$").replace(">", "$>$").replace("_", "\\_")
+          }}\n" })
+        doc ++= "\\end{compactitem}\n"
+      }
+    }
+
+    sourceNote.map((sourceNote) => {
+      doc ++= s"\\item Source note: ${sourceNote}"
+    })
+
+    orgName.map((org) => { doc ++= s"\\item Organization name: $org" })
+    if (groupGainMultiplier != 1.0) {
+      doc ++= s"\\item Group gain multiplier: $groupGainMultiplier"
+    }
+
+    copresent.map((co) => {
+      doc ++= s"\\item Co-presenter in PSA introduction: ${co}"
+    })
+
+    if (groupGainMultiplier != 1.0) {
+      doc ++= s"\\item Nonstandard group gain multiplier: $groupGainMultiplier"
+    }
+    if (boost != 0.0) {
+      doc ++= s"\\item Nonzero boost: $boost"
+    }
   }
 }
 

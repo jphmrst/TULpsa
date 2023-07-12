@@ -1,4 +1,4 @@
-// Main.scala --- (c) 2021 John Maraist
+// Main.scala --- (c) 2021, 2023 John Maraist
 // Part of the WTUL Roster Generator
 //
 // This file is made available under the GNU GPL version 3; see the
@@ -10,7 +10,8 @@ import java.time.LocalDate
 import org.maraist.wtulrosters.{
   PsaLongTermSpots, PsaRosters, PsaScheduling,
   PromoLongTermSpots, PromoRosters, PromoScheduling,
-  Alerts, Voice}
+  Alerts, Voice, Inventory,
+  PsaShortTermSpots, PromoShortTermSpots}
 import org.maraist.wtulrosters.Utils.syncRosters
 
 @main def batch: Unit = {
@@ -41,6 +42,11 @@ import org.maraist.wtulrosters.Utils.syncRosters
   PsaRosters.writeFor(LocalDate.parse("2021-07-14"))
   PsaRosters.writeFor(LocalDate.parse("2021-07-21"))
 }
+
+@main def inventory: Unit =
+  Inventory.writeInventory(
+    PsaLongTermSpots, PsaShortTermSpots,
+    PromoLongTermSpots, PromoShortTermSpots)
 
 @main def alerts: Unit = {
   Alerts.printAlerts()
