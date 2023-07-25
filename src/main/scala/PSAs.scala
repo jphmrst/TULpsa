@@ -210,9 +210,9 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import scala.language.implicitConversions
 
   Event("BocaflojaAug2023",
-    str("GulfRoots Collective will host a potluck dinner and screening of the documentary")
+    str("GulfRoots Collective will host a potluck dinner and bilingual Spanish/English screening of the documentary")
       + emph("EnClave")
-      + str("by the artist and filmmaker Bocafloja.  The event will be at 6:30")
+      + str("by the artist and filmmaker Bocafloja.  The event is open to the public, and will be at 6:30")
       > pm
       + blank("when")
       + str("at the First Unitarian Universalist Church, 2903 Jefferson Avenue.")
