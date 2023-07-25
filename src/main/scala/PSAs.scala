@@ -209,6 +209,18 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("BocaflojaAug2023",
+    str("GulfRoots Collective will host a potluck dinner and screening of the documentary")
+      + emph("EnClave")
+      + str("by the artist and filmmaker Bocafloja.  The event will be at 6:30")
+      > pm
+      + blank("when")
+      + str("at the First Unitarian Universalist Church, 2903 Jefferson Avenue.")
+      + moreWeb("bit dot L Y slash boca hyphen nola"),
+    "2023-08-03",
+    spotsSourceContacts = Seq("Zach Kopkin <zach@gulfroots.co>")
+  )
+
   Event("AutismHalloween2022",
     str("The Autism Society of Greater New Orleans is hosting their annual Inclusive Halloween Party")
       + blank("when,")
