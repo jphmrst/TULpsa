@@ -8,6 +8,8 @@
 // To skip to the actual PSA spots: search for "short-term" or
 // "long-term".
 
+// Phonemes: https://cloud.google.com/text-to-speech/docs/phonemes
+
 package org.maraist.wtulrosters
 import java.time.{LocalDate, LocalDateTime, LocalTime}
 import java.time.format.DateTimeFormatter
@@ -208,6 +210,44 @@ class PsaRosterBuilder(startDate: LocalDate)
 object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
+
+  Event("MusaicaApr2024",
+    str("Musaica concludes its 2023-24 season with a program entitled")
+      + emph("The Soul of Music") > comma
+      + str("featuring works of Florence Price, William Grant Still, Michel Damase, Dave Anderson, and Mollie O'Meara.")
+      + str("Concerts will take place")
+      + blank("when")
+      + str("at Saint Martin Episcopal Church in Metairie, and on Tuesday the 24th at the Saint Charles Avenue Presbyterian Church in New Orleans.   Both shows are at 7:30") > pm
+      + moreWeb("musaica dot O R G"),
+    "2024-04-23",
+    givenStart = Some("2024-04-01"),
+    spotsSourceContacts = Seq("musaica@musaica.org")
+  )
+
+  Event("MusaicaJan2024",
+    str("Musaica continues its 2023-24 season with a program entitled")
+      + emph("Fantasia Romantica") > comma
+      + str("featuring works of Rota and Enescu.")
+      + str("Concerts will take place")
+      + blank("when")
+      + str("at Saint Martin Episcopal Church in Metairie, and on Tuesday the 30th at the Saint Charles Avenue Presbyterian Church in New Orleans.   Both shows are at 7:30") > pm
+      + moreWeb("musaica dot O R G"),
+    "2024-01-29",
+    givenStart = Some("2024-01-03"),
+    spotsSourceContacts = Seq("musaica@musaica.org")
+  )
+
+  Event("MusaicaSept2023",
+    str("Musaica begins its 2023-24 season with a program entitled")
+      + emph("Heart of Genius") > comma
+      + str("featuring works of Mozart, Beethoven, Brod and Moszkovski.")
+      + str("Concerts will take place")
+      + blank("when")
+      + str("at Saint Martin Episcopal Church in Metairie, and on Tuesday the 12th at the Saint Charles Avenue Presbyterian Church in New Orleans.   Both shows are at 7:30") > pm
+      + moreWeb("musaica dot O R G"),
+    "2023-09-11",
+    spotsSourceContacts = Seq("musaica@musaica.org")
+  )
 
   Event("BocaflojaAug2023",
     str("GulfRoots Collective will host a potluck dinner and bilingual Spanish/English screening of the documentary")
