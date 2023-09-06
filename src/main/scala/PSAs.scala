@@ -211,6 +211,18 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("ApprenticeshipSept2023",
+    str("Are you a Tulane affiliate or Loyola student with an interest in the weird and wonderful world of college radio? WTUL is accepting applications for apprenticeships. You can learn how to broadcast progressive music from the basement of the LBC, under the guidance of WTUL DJs. The application is on our website,")
+      + online("W T U L dot F M") > comma
+      + str("and is due")
+      + blank("when.")
+      + str("More information is available by email from our Apprentice Directors at")
+      + online("W T U L dot apprentice at gmail dot com") > period,
+    "2023-09-15",
+    givenStart = Some("2023-09-11"),
+    spotsSourceContacts = Seq("Jess Quint <jquint@tulane.edu>")
+  )
+
   Event("MusaicaApr2024",
     str("Musaica concludes its 2023-24 season with a program entitled")
       + emph("The Soul of Music") > comma
