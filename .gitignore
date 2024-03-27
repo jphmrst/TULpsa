@@ -1,2 +1,8 @@
 *.class
 *.log
+Promo-*
+PSA-*
+index.html
+project/target
+*.xml
+target
