@@ -211,6 +211,28 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("PublicHealth2024Apr22",
+    str("In honor of Earth Day, the Tulane School of Public Health and Tropical Medicine will launch its Dean's Lecture Series on Climate Change and Health in the Gulf South")
+      + blank("when.")
+      + str("The invited guest, a professor from Columbia University, will discuss how climate change and its affects are impacting health in our region. Refreshments will be provided starting at 11:30") > am > comma + str("and discussion will begin at noon, in the Tidewater auditorium on the downtown campus at 1440 Canal Street")
+      + moreWeb("S P H dot tulane dot E D U"),
+    "2024-04-22",
+    givenStart = Some("2024-04-03"),
+    spotsSourceContacts = Seq("Dee Boling <dboling@tulane.edu>")
+  )
+
+  Event("PublicHealth2024Apr2",
+    str("Tulane's School of Public Health and Tropical Medicine will host")
+      + emph("Climate Change and Health in the Gulf South: A Symposium on Community, Research, Design, and Action") > period
+      + str("The symposium will be")
+      + blank("when")
+      + str("in the Tidewater auditorium on the downtown campus, 1440 Canal Street, from 4:30") > pm + str("to 8") > pm > period
+      + moreWeb("S P H dot tulane dot E D U"),
+    "2024-04-02",
+    givenStart = Some("2024-04-01"),
+    spotsSourceContacts = Seq("Dee Boling <dboling@tulane.edu>")
+  )
+
   Event("ApprenticeshipSept2023",
     str("Are you a Tulane affiliate or Loyola student with an interest in the weird and wonderful world of college radio? WTUL is accepting applications for apprenticeships. You can learn how to broadcast progressive music from the basement of the LBC, under the guidance of WTUL DJs. The application is on our website,")
       + online("W T U L dot F M") > comma
@@ -229,9 +251,9 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
       + str("featuring works of Florence Price, William Grant Still, Michel Damase, Dave Anderson, and Mollie O'Meara.")
       + str("Concerts will take place")
       + blank("when")
-      + str("at Saint Martin Episcopal Church in Metairie, and on Tuesday the 24th at the Saint Charles Avenue Presbyterian Church in New Orleans.   Both shows are at 7:30") > pm
+      + str("at the UNO Performing Arts Center Recital Hall, and on Tuesday the 23rd at the Saint Charles Avenue Presbyterian Church in New Orleans.   Both shows are at 7:30") > pm
       + moreWeb("musaica dot O R G"),
-    "2024-04-23",
+    "2024-04-22",
     givenStart = Some("2024-04-01"),
     spotsSourceContacts = Seq("musaica@musaica.org")
   )
@@ -2797,7 +2819,20 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       str("Their mission is to seek ways through person-to-person communication to show that they are committed to treating fellow human beings of all colors with love and respect.") + morePhoneAnnounce("More information about ERACE, its discussion meeting schedule, or bumper stickers is", "504/866-1163"),
     orgName = Some("Eracism"),
     start = "2021-06-22",
+    end = Some("2024-03-31"),
     alert = "2022-07-15"
+  )
+
+  Spot(
+    "Eracism2",
+    Rare,
+    str("Eracism is the slogan of the group ERACE, which was formed in New Orleans in")
+      + date("1993", "y") > period
+      + str("Their mission is to seek ways through person-to-person communication to show that they are committed to treating fellow human beings of all colors with love and respect.")
+      + moreWeb("E R A C I S M new orleans dot O R G"),
+    orgName = Some("Eracism"),
+    start = "2021-04-01",
+    alert = "2027-07-15"
   )
 
   Spot(
