@@ -6,3 +6,5 @@ index.html
 project/target
 *.xml
 target
+.bsp
+.metals
