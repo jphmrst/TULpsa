@@ -468,6 +468,18 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
   )
 
   Show(
+    "JamBand3",
+    StandardPromo,
+    str(
+      "Check out the Friday Night Jam Session show, every other Friday from 8 to 10")
+      > pm > period
+      + str("Host DJ Uptown Ruler explores jam bands from the 90s to the present.  Journey through the night with a good dose of eclectic, contemporary psychedelic rock music featuring extended jams.  Jam out right here with WTUL every other Friday night."),
+    start = "2024-04-27",
+    alert = "2023-08-31",
+    occludes = Set(FriAfternoon, FriDinner)
+  )
+
+  Show(
     "JamBand2",
     StandardPromo,
     str(
@@ -475,6 +487,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       > pm > period
       + str("Host DJ Uptown Ruler explores jam bands from the 90s to the present.  Journey through the night with a good dose of eclectic, contemporary psychedelic rock music featuring extended jams.  Jam out right here with WTUL on Friday nights."),
     start = "2024-04-15",
+    end = Some("2024-04-26"),
     alert = "2023-08-31",
     occludes = Set(FriAfternoon, FriDinner)
   )
