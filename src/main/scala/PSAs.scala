@@ -214,8 +214,8 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   Event(
     "NovasMay2024",
     // Volunteer,
-    str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is now welcoming applications for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.") +
-      moreWebEmail(
+    str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is now welcoming applications for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.")
+      + moreWebEmail(
         "nola voices dot O R G", "info at nola voices dot O R G"),
     "2024-06-30",
     givenStart = Some("2024-05-27"),
