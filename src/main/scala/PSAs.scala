@@ -211,6 +211,33 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event(
+    "NovasMay2024",
+    // Volunteer,
+    str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is now welcoming applications for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.") +
+      moreWebEmail(
+        "nola voices dot O R G", "info at nola voices dot O R G"),
+    "2024-06-30",
+    givenStart = Some("2024-05-27"),
+    // "2024-05-27",
+    // end = Some("2024-06-30"),
+    // alert = "2024-06-20",
+    spotsSourceContacts = Seq(
+      "Devorah Levy-Pearlman <info@nolavoices.org>")
+  )
+
+  Event("KomenkaJune2024",
+    str("The forty-second spring concert of the Komenka Ethnic Dance and Music Ensemble will be held")
+      + blank("when")
+      + str("at 7:30") > pm + str ("and Sunday the 2nd at 2") > pm > period
+      + str("Both performances are at Loyola University's Louis J. Roussel Performance Hall, at 6301 Saint Charles Avenue.  The show is an ``around the world'' tour through ethnic dance and music, featuring presentations representing Appalachia, Cajuns, Estonia, Finland, Greece, Hawaii, India, North Macedonia, Poland, Portugal, Scotland, Slovakia, Tibet, Turkey and the American 1940's Jazz Period. Tickets are available online at")
+      + online("ticket tailor dot com slash events slash komenka") > period
+      + morePhoneEmail("504/529-4676", "R O D I J at copper dot net"),
+    "2024-06-01",
+    givenStart = Some("2024-04-01"),
+    spotsSourceContacts = Seq("musaica@musaica.org")
+  )
+
   Event("PublicHealth2024Apr22",
     str("In honor of Earth Day, the Tulane School of Public Health and Tropical Medicine will launch its Dean's Lecture Series on Climate Change and Health in the Gulf South")
       + blank("when.")
