@@ -217,7 +217,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
     str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is now welcoming applications for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.")
       + moreWebEmail(
         "nola voices dot O R G", "info at nola voices dot O R G"),
-    "2024-06-30",
+    "2024-06-02",
     givenStart = Some("2024-05-27"),
     // "2024-05-27",
     // end = Some("2024-06-30"),
@@ -453,6 +453,19 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
 object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
+
+  Spot(
+    "NovasMay2024v2",
+    Volunteer,
+    str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is now welcoming applications for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.")
+      + moreWebEmail(
+        "nola voices dot O R G", "info at nola voices dot O R G"),
+    start = "2024-06-03",
+    end = None,
+    alert = "2025-06-01",
+    sourceContacts = Seq(
+      "Devorah Levy-Pearlman <info@nolavoices.org>")
+  )
 
   Spot(
     "AllOfUsResearch2022",
