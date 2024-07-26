@@ -212,6 +212,21 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import scala.language.implicitConversions
 
   Event(
+    "HoumaSchoolBackpacksJuly2024",
+    // Volunteer,
+    str("Three hundred backpacks of school supplies will be distributed to students in Houma")
+      + blank("when")
+      + str("at 8:30") > am + str (" from the Rally's at 1526 Martin Luther King Boulevard."),
+    "2024-07-27",
+    givenStart = Some("2024-07-26"),
+    // "2024-05-27",
+    // end = Some("2024-07-26"),
+    // alert = "2024-06-20",
+    spotsSourceContacts = Seq(
+      "Eden Jurick <Eden.Jurick@icrinc.com>")
+  )
+
+  Event(
     "NovasMay2024",
     // Volunteer,
     str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is now welcoming applications for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.")
