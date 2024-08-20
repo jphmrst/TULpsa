@@ -329,6 +329,41 @@ object PromoShortTermSpots extends SpotBank("promo-short", PromoScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("BackToSchool2024",
+    str("WTUL is hosting a Back 2 School Bash") +
+      blank("when") +
+      str("at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! For more information, you can check our website and social media pages!"),
+    "2024-08-22"
+  )
+
+  Event("BackToSchool2024b",
+    str("WTUL is hosting a Back 2 School Bash") +
+      blank("when") +
+      str("at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! For more information, you can check our website and social media pages!"),
+    "2024-08-22"
+  )
+
+  Event("BackToSchool2024c",
+    str("WTUL is hosting a Back 2 School Bash") +
+      blank("when") +
+      str("at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! For more information, you can check our website and social media pages!"),
+    "2024-08-22"
+  )
+
+  Event("BackToSchool2024d",
+    str("WTUL is hosting a Back 2 School Bash") +
+      blank("when") +
+      str("at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! For more information, you can check our website and social media pages!"),
+    "2024-08-22"
+  )
+
+  Event("BackToSchool2024e",
+    str("WTUL is hosting a Back 2 School Bash") +
+      blank("when") +
+      str("at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! For more information, you can check our website and social media pages!"),
+    "2024-08-22"
+  )
+
 //  // Dummy spot
 //  Event("sierraMtgJune22",
 //    str("The next meeting of the Orleans Sierra Club will be") +
@@ -355,96 +390,252 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     !globs.getOrElse(spot, Set.empty).intersect(glob).isEmpty
 
   Show(
-    "Antenna2024",
+    "BackToSchool2024f",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024g",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024h",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024i",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024j",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Event("BackToSchool2024k",
+    str("WTUL is hosting a Back 2 School Bash") +
+      blank("when") +
+      str("at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    "2024-08-22"
+  )
+
+  Show(
+    "BackToSchool2024l",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024m",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024n",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "BackToSchool2024p",
+    StandardPromo,
+    str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
+    start = "2024-08-18",
+    end = Some("2024-08-22"),
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  // After back-to-school 2024
+
+  Show(
+    "AltOldies3",
     StandardPromo,
     str(
-      "If you’ve been having a hard time catching WTUL on your stereo, fear not -- our transmission troubles are coming to an end! Our new antenna is now on top of Tidewater Building on Canal Street and it’s going to be sending out crystal clear radio goodness across New Orleans once more. Tulane University and your donations have made this happen so thank you! For more info, read the antenna story at")
-      + online("W T U L new orleans dot com")
+      "Tune in to the Alt Oldies show every Saturday night on WTUL from 8 until 10 to hear music left of the radio dial as it was in past decades.  Let the DJs take you on a sonic joy ride through the past that includes old prog, vintage new wave and punk, underground rock and soul, synth wave, psychedelia and much more.  If it’s vintage and cool, the DJs will blow off the dust and play it for ya!  That's every Saturday from 8 until 10")
+      > pm + str("only on WTUL New Orleans."),
+    start = "2024-08-23",
+    alert = "2023-08-31",
+    occludes = Set(SatDinner)
+  )
+
+  Show(
+    "LocalShow3",
+    StandardPromo,
+    str(
+      "The Local show is a blend of not-so-secret herbs and spices, the holy trinity of creole cooking blended with local radio. Lettuce turnip the beets to the sweet and spicy sounds of local artists in New Orleans and Louisiana. Sometimes DJ Chef stirs the pot, other times DJ Lank takes the ladle. No matter what, it's a flavor-filled guaranteed good-taste-of-a-time. Fill up on the local show, Tuesdays 8-10") > pm + str("on WTUL New Orleans, 91.5 FM."),
+    start = "2024-08-23",
+    alert = "2023-08-31",
+    occludes = Set(TueAfternoon, TueDinner)
+  )
+
+  Show(
+    "JamBand4",
+    StandardPromo,
+    str(
+      "Check out the Friday Night Jam Session show, every other Friday from 8 to 10")
+      > pm > period
+      + str("Host DJ Uptown Ruler explores jam bands from the 90s to the present.  Journey through the night with a good dose of eclectic, contemporary psychedelic rock music featuring extended jams.  Jam out right here with WTUL every other Friday night."),
+    start = "2024-08-23",
+    alert = "2023-08-31",
+    occludes = Set(FriAfternoon, FriDinner)
+  )
+
+  Spot(
+    "SociaMedia3",
+    StandardPromo,
+    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Twitter and Instagram is")
+      + online("@WTUL") > comma
+      + str("or search for our Facebook page under")
+      + online("WTUL New Orleans") > period
+      + str("And you can find our website at")
+      + online("W T U L dot F M")
       > period,
-    start = "2024-03-28",
-    end = Some("2024-04-12"),
-    alert = "2024-04-15",
+    start = "2024-08-23",
+    alert = "2022-12-05"
+  )
+
+  Spot(
+    "PSAcall3",
+    StandardPromo,
+    str("Does your group work for the good of New Orleans?  WTUL's public service announcements prioritize charitable activities, human services, and volunteer opportunities.  We also announce public meetings, grassroots organizations, local issue-oriented community activities, and free public lectures and exhibits.")
+      + moreWebEmail("W T U L new orleans dot com slash about slash P S A S", "W T U L hyphen P S A at gmail dot com"),
+    start = "2024-08-23",
+    alert = "2022-12-05"
+  )
+
+  Show(
+    "DemocracyNow3",
+    StandardPromo,
+    it("Democracy Now")
+      + str("airs Mondays, Wednesdays, and Fridays at 9") > am
+      + str("right here on WTUL New Orleans.")
+      + it("Democracy Now") > comma
+      + str("with host Amy Goodman, offers award-winning journalism and fresh and progressive perspectives on national and international issues."),
+    start = "2024-08-23",
+    alert = "2022-12-05",
+    occludes = Set(MonMorning, WedMorning, FriMorning)
+  )
+
+  Show(
+    "Jazz3",
+    StandardPromo,
+    str("Every weekday evening, tune your radios to 91.5FM for sweet jazz music from artists new and old, local and global.  You don't want to miss it!  Listen to the World of Jazz every weeknight, Monday through Friday, from 6 to 8")
+      > pm
+      + str("on WTUL New Orleans."),
+    start = "2024-08-23",
+    alert = "2022-12-05",
+    occludes = Set(MonDinner, TueDinner, WedDinner, ThuDinner, FriDinner)
+  )
+
+  Show(
+    "Surf3",
+    StandardPromo,
+    str("Storm Surge of Reverb serves up a jumbo portion of high-energy surf and instrumental rock-and-roll music every Monday from 4 to 6")
+      > pm > period
+      + str("It's not just Wipe Out on repeat, it's vintage and new bands from around the world, playing wild, strange and wonderful rock-and-roll instrumentals. That's Storm Surge of Reverb, every Monday from 4 to 6")
+      > pm > period,
+    start = "2024-08-23",
+    alert = "2022-12-05",
+    occludes = Set(MonAfternoon)
+  )
+
+  Show(
+    "Country3",
+    StandardPromo,
+    str("You can catch WTUL's Country Show every Sunday from 2 to 4")
+      > pm > period
+      + str("Tune in for two hours of folk, blues, cowpunk, western swing, that rockabilly thing, outlaw and everything in between, right here on WTUL."),
+    start = "2024-08-23",
+    alert = "2022-12-05",
+    occludes = Set(SunAfternoon)
+  )
+
+  Show(
+    "TwentyTwentyOne3",
+    StandardPromo,
+    str("Sunday Nights at 8")
+      > pm > comma
+      + str("WTUL's classical and experimental program ")
+      + phonetic(str("20/21"), "Twenty Twenty-One")
+      + str("rounds out the weekend with four hours of music from the birth of modernism to today. Each week, DJ Pennebaker explores a range of styles and sounds --- from contemporary compositions to 20th century classics --- with excursions into electronic music and the avant-garde.  A Sunday night feature for nearly forty years, 20/21 airs Sunday from 8") > pm + str("to midnight here on WTUL."),
+    start = "2024-08-23",
+    alert = "2022-12-05",
+    occludes = Set(SunNight)
+  )
+
+  Show(
+    "Cheez3",
+    StandardPromo,
+    str("Tune in to WTUL every Sunday from 6 to 10") > am
+      + str("for the Cheez Muzik Show.  What is Cheez, you may ask? Space Music, Ambient, Berlin School, Downtempo, New Age. This music is cheesy! Tune into the Cheez Muzik Show every Sunday morning from 6 to 10")
+      > am > period,
+    start = "2024-08-23",
+    alert = "2022-12-05",
     occludes = Set()
   )
 
   Show(
-    "Marathon2024BrassShow",
+    "FolkAmericana3",
     StandardPromo,
-    str("It’s Marathon time! Check out WTUL’s  ‘TULbox Show at Tipitina’s featuring Brass-A-Holics and Brass Hearts on Wednesday the third.  The show’s at 8 and tickets are available at")
-      + online("tipitinas dot com")
-      + str("or at the door."),
-    start = "2024-03-28",
-    end = Some("2024-04-03"),
-    alert = "2024-04-07",
-    occludes = Set()
+    str("Every Saturday afternoon, WTUL brings you four hours of Americana music. At noon, the folk show with host Mark T brings you singer-songwriters, fiddlers, bluegrass, and more. The folk show is followed by the Americana show at 2")
+      > pm > comma
+      + str("dusting off the old and bringing you new Americana, rockabilly, and alt-country music. Tune in every Saturday from noon to four for your weekly dose of down-home roots music right here on WTUL New Orleans."),
+    start = "2024-08-23",
+    alert = "2022-12-05",
+    occludes = Set(SatAfternoon)
   )
 
   Show(
-    "Marathon2024PunkShow",
+    "Kids3",
     StandardPromo,
-    str("At 8") > pm
-      + str("on Friday, April 5th, WTUL is hosting a Punk Show at The Goat with Sesher, BS Machine and Code Black. Come see these great bands and support WTUL!"),
-    start = "2024-03-28",
-    end = Some("2024-04-05"),
-    alert = "2024-04-05",
-    occludes = Set()
+    str("Every Saturday morning, the Kid's Show with DJ Liz E brings you family-friendly programming to start your day off right. Join us for music and stories for kids of all ages. It's a pajama dance party right in your living room, and it's only here on WTUL, Saturdays from 8 to 10") > am > period,
+    start = "2024-08-23",
+    alert = "2999-12-31",
+    occludes = Set(SatMorning)
   )
 
-  Show(
-    "Marathon2024Alumni",
-    StandardPromo,
-    str("The WTUL Alumni Reunion is Sunday, April 7th at Cooter Brown’s at four") > pm > period
-      + str("There’ll be food, good music, old friends and great stories! From the station’s earliest days to now, relive your best (and maybe worst) moments at WTUL!"),
-    start = "2024-03-28",
-    end = Some("2024-04-07"),
-    alert = "2024-04-08",
-    occludes = Set()
-  )
-
-  Show(
-    "Marathon2024Trivia",
-    StandardPromo,
-    str("Test your music knowledge with Euclid Records Owner Lefty Parker, Journalist Alison Fensterstock and Ziggy the Wonder Dog. WTUL is hosting Music Trivia at 6:30") > pm
-      + str("on Monday April 8th at Dat Dog Freret. Compete solo or with a team and win cool prizes while you support WTUL!"),
-    start = "2024-03-28",
-    end = Some("2024-04-08"),
-    alert = "2024-04-09",
-    occludes = Set()
-  )
-
-  Show(
-    "Marathon2024BattleOfTheBands",
-    StandardPromo,
-    str("Test your music knowledge with Euclid Records Owner Lefty Parker, Journalist Alison Fensterstock and Ziggy the Wonder Dog. WTUL is hosting Music Trivia at 6:30") > pm
-      + str("on Monday April 8th at Dat Dog Freret. Compete solo or with a team and win cool prizes while you support WTUL!"),
-    start = "2024-03-28",
-    end = Some("2024-04-08"),
-    alert = "2024-04-09",
-    occludes = Set()
-  )
-
-  Show(
-    "Marathon2024Main",
-    StandardPromo,
-    str("The main Marathon event starts at noon, Friday April 12th as DJ Fallah Steen takes the first shift during 24-Hour DJ Weekend. DJ Skitch takes over the airwaves at noon Saturday, followed by Laura B at noon Sunday. Listen to these amazing DJs as they fight the sleepies to bring you 24 hours each of outstanding interviews, live music and WTUL tunes."),
-    start = "2024-03-28",
-    end = Some("2024-04-12"),
-    alert = "2024-04-13",
-    occludes = Set()
-  )
-
-  Show(
-    "Marathon2024KidsShow",
-    StandardPromo,
-    str("The Kids Show will be live Saturday, April 13th on the LBC Quad! Join DJ LizE from 8-10") > am
-      + str("for a live performance by musician Johnette Downing, lots of bubbles and crafts, story time, snacks, and great music. Kids of all ages are welcome!"),
-    start = "2024-03-28",
-    end = Some("2024-04-08"),
-    alert = "2024-04-09",
-    occludes = Set()
-  )
-
-  // -----------------------------------------------------------------
+  // Before back-to-school 2024
 
   Show(
     "AltOldies2",
@@ -453,6 +644,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       "Tune in to the Alt Oldies show every Saturday night on WTUL from 8 until 10 to hear music left of the radio dial as it was in past decades.  Let the DJs take you on a sonic joy ride through the past that includes old prog, vintage new wave and punk, underground rock and soul, synth wave, psychedelia and much more.  If it’s vintage and cool, the DJs will blow off the dust and play it for ya!  That's every Saturday from 8 until 10")
       > pm + str("only on WTUL New Orleans."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2023-08-31",
     occludes = Set(SatDinner)
   )
@@ -463,6 +655,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     str(
       "The Local show is a blend of not-so-secret herbs and spices, the holy trinity of creole cooking blended with local radio. Lettuce turnip the beets to the sweet and spicy sounds of local artists in New Orleans and Louisiana. Sometimes DJ Chef stirs the pot, other times DJ Lank takes the ladle. No matter what, it's a flavor-filled guaranteed good-taste-of-a-time. Fill up on the local show, Tuesdays 8-10") > pm + str("on WTUL New Orleans, 91.5 FM."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2023-08-31",
     occludes = Set(TueAfternoon, TueDinner)
   )
@@ -475,6 +668,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       > pm > period
       + str("Host DJ Uptown Ruler explores jam bands from the 90s to the present.  Journey through the night with a good dose of eclectic, contemporary psychedelic rock music featuring extended jams.  Jam out right here with WTUL every other Friday night."),
     start = "2024-04-27",
+    end = Some("2024-08-17"),
     alert = "2023-08-31",
     occludes = Set(FriAfternoon, FriDinner)
   )
@@ -503,6 +697,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       + online("W T U L dot F M")
       > period,
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05"
   )
 
@@ -512,6 +707,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     str("Does your group work for the good of New Orleans?  WTUL's public service announcements prioritize charitable activities, human services, and volunteer opportunities.  We also announce public meetings, grassroots organizations, local issue-oriented community activities, and free public lectures and exhibits.")
       + moreWebEmail("W T U L new orleans dot com slash about slash P S A S", "W T U L hyphen P S A at gmail dot com"),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05"
   )
 
@@ -524,6 +720,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       + it("Democracy Now") > comma
       + str("with host Amy Goodman, offers award-winning journalism and fresh and progressive perspectives on national and international issues."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set(MonMorning, WedMorning, FriMorning)
   )
@@ -535,6 +732,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       > pm
       + str("on WTUL New Orleans."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set(MonDinner, TueDinner, WedDinner, ThuDinner, FriDinner)
   )
@@ -547,6 +745,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       + str("It's not just Wipe Out on repeat, it's vintage and new bands from around the world, playing wild, strange and wonderful rock-and-roll instrumentals. That's Storm Surge of Reverb, every Monday from 4 to 6")
       > pm > period,
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set(MonAfternoon)
   )
@@ -558,6 +757,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       > pm > period
       + str("Tune in for two hours of folk, blues, cowpunk, western swing, that rockabilly thing, outlaw and everything in between, right here on WTUL."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set(SunAfternoon)
   )
@@ -571,6 +771,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       + phonetic(str("20/21"), "Twenty Twenty-One")
       + str("rounds out the weekend with four hours of music from the birth of modernism to today. Each week, DJ Pennebaker explores a range of styles and sounds --- from contemporary compositions to 20th century classics --- with excursions into electronic music and the avant-garde.  A Sunday night feature for nearly forty years, 20/21 airs Sunday from 8") > pm + str("to midnight here on WTUL."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set(SunNight)
   )
@@ -582,6 +783,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       + str("for the Cheez Muzik Show.  What is Cheez, you may ask? Space Music, Ambient, Berlin School, Downtempo, New Age. This music is cheesy! Tune into the Cheez Muzik Show every Sunday morning from 6 to 10")
       > am > period,
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set()
   )
@@ -593,6 +795,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       > pm > comma
       + str("dusting off the old and bringing you new Americana, rockabilly, and alt-country music. Tune in every Saturday from noon to four for your weekly dose of down-home roots music right here on WTUL New Orleans."),
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2022-12-05",
     occludes = Set(SatAfternoon)
   )
@@ -602,6 +805,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     StandardPromo,
     str("Every Saturday morning, the Kid's Show with DJ Liz E brings you family-friendly programming to start your day off right. Join us for music and stories for kids of all ages. It's a pajama dance party right in your living room, and it's only here on WTUL, Saturdays from 8 to 10") > am > period,
     start = "2024-04-15",
+    end = Some("2024-08-17"),
     alert = "2999-12-31",
     occludes = Set(SatMorning)
   )
@@ -767,6 +971,101 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     alert = "2999-12-31",
     occludes = Set(SatMorning)
   )
+
+  // -----------------------------------------------------------------
+
+
+  Show(
+    "Antenna2024",
+    StandardPromo,
+    str(
+      "If you’ve been having a hard time catching WTUL on your stereo, fear not -- our transmission troubles are coming to an end! Our new antenna is now on top of Tidewater Building on Canal Street and it’s going to be sending out crystal clear radio goodness across New Orleans once more. Tulane University and your donations have made this happen so thank you! For more info, read the antenna story at")
+      + online("W T U L new orleans dot com")
+      > period,
+    start = "2024-03-28",
+    end = Some("2024-04-12"),
+    alert = "2024-04-15",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024BrassShow",
+    StandardPromo,
+    str("It’s Marathon time! Check out WTUL’s  ‘TULbox Show at Tipitina’s featuring Brass-A-Holics and Brass Hearts on Wednesday the third.  The show’s at 8 and tickets are available at")
+      + online("tipitinas dot com")
+      + str("or at the door."),
+    start = "2024-03-28",
+    end = Some("2024-04-03"),
+    alert = "2024-04-07",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024PunkShow",
+    StandardPromo,
+    str("At 8") > pm
+      + str("on Friday, April 5th, WTUL is hosting a Punk Show at The Goat with Sesher, BS Machine and Code Black. Come see these great bands and support WTUL!"),
+    start = "2024-03-28",
+    end = Some("2024-04-05"),
+    alert = "2024-04-05",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024Alumni",
+    StandardPromo,
+    str("The WTUL Alumni Reunion is Sunday, April 7th at Cooter Brown’s at four") > pm > period
+      + str("There’ll be food, good music, old friends and great stories! From the station’s earliest days to now, relive your best (and maybe worst) moments at WTUL!"),
+    start = "2024-03-28",
+    end = Some("2024-04-07"),
+    alert = "2024-04-08",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024Trivia",
+    StandardPromo,
+    str("Test your music knowledge with Euclid Records Owner Lefty Parker, Journalist Alison Fensterstock and Ziggy the Wonder Dog. WTUL is hosting Music Trivia at 6:30") > pm
+      + str("on Monday April 8th at Dat Dog Freret. Compete solo or with a team and win cool prizes while you support WTUL!"),
+    start = "2024-03-28",
+    end = Some("2024-04-08"),
+    alert = "2024-04-09",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024BattleOfTheBands",
+    StandardPromo,
+    str("Test your music knowledge with Euclid Records Owner Lefty Parker, Journalist Alison Fensterstock and Ziggy the Wonder Dog. WTUL is hosting Music Trivia at 6:30") > pm
+      + str("on Monday April 8th at Dat Dog Freret. Compete solo or with a team and win cool prizes while you support WTUL!"),
+    start = "2024-03-28",
+    end = Some("2024-04-08"),
+    alert = "2024-04-09",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024Main",
+    StandardPromo,
+    str("The main Marathon event starts at noon, Friday April 12th as DJ Fallah Steen takes the first shift during 24-Hour DJ Weekend. DJ Skitch takes over the airwaves at noon Saturday, followed by Laura B at noon Sunday. Listen to these amazing DJs as they fight the sleepies to bring you 24 hours each of outstanding interviews, live music and WTUL tunes."),
+    start = "2024-03-28",
+    end = Some("2024-04-12"),
+    alert = "2024-04-13",
+    occludes = Set()
+  )
+
+  Show(
+    "Marathon2024KidsShow",
+    StandardPromo,
+    str("The Kids Show will be live Saturday, April 13th on the LBC Quad! Join DJ LizE from 8-10") > am
+      + str("for a live performance by musician Johnette Downing, lots of bubbles and crafts, story time, snacks, and great music. Kids of all ages are welcome!"),
+    start = "2024-03-28",
+    end = Some("2024-04-08"),
+    alert = "2024-04-09",
+    occludes = Set()
+  )
+
+  // -----------------------------------------------------------------
 
   val noPromo = Spot(
     "NoPromo",
