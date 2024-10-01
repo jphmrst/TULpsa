@@ -211,6 +211,20 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Spot(
+    "InfoSecOct2024",
+    Volunteer,
+    str("October is Cybersecurity Awareness Month.  This month, the Tulane Informational Security team is highlighting four ideas central to your online security: recognizing and reporting phishing, using strong passwords, updating software, and enabling multi-factor authentication.")
+      + moreWebAnnounce(
+        "More information about how to protect your personal information and devices is available online at",
+        "cybersecurity dot tulane dot E D U slash awareness"),
+    start = "2024-10-01",
+    end = Some("2024-10-31"),
+    alert = "2025-06-01",
+    sourceContacts = Seq(
+      "Renee Callari <rcallari@tulane.edu>")
+  )
+
   Event(
     "HoumaSchoolBackpacksJuly2024",
     // Volunteer,
