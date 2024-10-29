@@ -212,6 +212,97 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import scala.language.implicitConversions
 
   Spot(
+    "Voting2024LocationsToday",
+    Civic,
+    str("The 2024 fall election is here!  Your vote matters at the national level, and it matters at the local level too, to help you enact the changes you want to see here in our local communities.  You can vote at your assigned polling location  from 6") > am
+      + str(" to 8") > pm > period
+      + str("You can find your polling location by calling 504/658-8300 or online at")
+      + online("voter portal dot S O S dot L A dot gov") > period
+      + str("Be sure to bring some form of photo ID with a signature, such a Louisiana driver's license or state ID.You can check your voter registration status at")
+      + online("voter portal dot S O S dot L A dot gov") > period,
+    start = "2024-11-05",
+    end = Some("2024-11-05"),
+    alert = "2025-06-01",
+    sourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
+  Event(
+    "Voting2024Locations",
+    // Volunteer,
+    str("The 2024 fall election is almost here!  You can vote at your assigned polling location on Election Day,")
+      + blank("when.")
+      + str("The polls on Election Day will be open from 6") > am
+      + str(" to 8") > pm > period
+      + str("You can find your polling location by calling 504/658-8300 or online at")
+      + online("voter portal dot S O S dot L A dot gov") > period
+      + str("Be sure to bring some form of photo ID with a signature, such a Louisiana driver's license or state ID."),
+    "2024-11-05",
+    givenStart = Some("2024-10-26"),
+    spotsSourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
+  Spot(
+    "Voting2024CheckStatus",
+    Civic,
+    str("The 2024 fall election season is here!  Your vote matters at the national level, and it matters at the local level too, to help you enact the changes you want to see here in our local communities.  You can check your voter registration status at")
+      + online("voter portal dot S O S dot L A dot gov") > period,
+    start = "2024-10-29",
+    end = Some("2024-11-04"),
+    alert = "2025-06-01",
+    sourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
+  Spot(
+    "Voting2024CheckMailedBallot",
+    Civic,
+    str("It's election time!  If you voted by mail, you can track the status of your ballot at")
+      + online("voter portal dot S O S dot L A dot gov") > period,
+    start = "2024-10-29",
+    end = Some("2024-11-04"),
+    alert = "2025-06-01",
+    sourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
+  Event(
+    "EarlyVoting2024",
+    // Volunteer,
+    str("The 2024 fall election season is here!  Your vote matters at the national level, and it matters at the local level too, to help you enact the changes you want to see here in our local communities.")
+      + blank("When")
+      + str("is the last day to vote early in Louisiana. The early voting polling stations in Orleans Parish include City Hall, at 1300 Perdido Street, and the Treme Recreation Community Center, at 900 North ") +
+      phonetic("Villere", "vill-AIR") +
+      str("Street. The early voting sites are open from 8:30") > am
+      + str(" to 6") > pm > period
+      + str("You can check your voter registration status, and find much more information, at")
+      + online("voter portal dot S O S dot L A dot gov") > period
+      + str("Be sure to bring some form of photo ID with a signature, such a Louisiana driver's license or state ID."),
+    "2024-10-29",
+    givenStart = Some("2024-10-26"),
+    spotsSourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
+  Spot(
+    "EarlyVoting2024LastDay",
+    Civic,
+    str("The 2024 fall election season is here!  Your vote matters at the national level, and it matters at the local level too, to help you enact the changes you want to see here in our local communities.  Today is the last day to vote early in Louisiana. The early voting polling stations in Orleans Parish include City Hall, at 1300 Perdido Street, and the Treme Recreation Community Center, at 900 North ") +
+      phonetic("Villere", "vill-AIR") +
+      str("Street. The early voting sites are open from 8:30") > am
+      + str(" to 6") > pm > period
+      + str("You can check your voter registration status, and find much more information, at")
+      + online("voter portal dot S O S dot L A dot gov") > period
+      + str("Be sure to bring some form of photo ID with a signature, such a Louisiana driver's license or state ID."),
+    start = "2024-10-29",
+    end = Some("2024-10-29"),
+    alert = "2025-06-01",
+    sourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
+  Spot(
     "InfoSecOct2024",
     Volunteer,
     str("October is Cybersecurity Awareness Month.  This month, the Tulane Informational Security team is highlighting four ideas central to your online security: recognizing and reporting phishing, using strong passwords, updating software, and enabling multi-factor authentication.")
