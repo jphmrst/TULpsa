@@ -234,7 +234,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
       + blank("when.")
       + str("The polls on Election Day will be open from 6") > am
       + str(" to 8") > pm > period
-      + str("You can find your polling location by calling 504/658-8300 or online at")
+      + str("Many people living by Tulane's Uptown campus will vote at either The Willow School, formerly called Lusher, 7315 Willow Street, or Audubon Charter School, 428 Broadway.  But anyone can find their exact polling location by calling 504/658-8300, or online at")
       + online("voter portal dot S O S dot L A dot gov") > period
       + str("Be sure to bring some form of photo ID with a signature, such a Louisiana driver's license or state ID."),
     "2024-11-05",
