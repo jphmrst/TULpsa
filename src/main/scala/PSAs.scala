@@ -211,6 +211,23 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event(
+    "KomenkaMay2025",
+    str("The Komenka Ethnic Dance and Music Ensemble will hold it 43rd Annual Spring Concert")
+      + blank("when")
+      + str("and Sunday, June 1, at Loyola University's") +
+      phonetic("Roussel", "rou-SELL") +
+      str("Performance Hall, 6301 Saint Charles Avenue.  The programs feature dance and sing selections from across the globe, including 1970's disco and the traditional Cowboys of Canada and the US.")
+      + moreWebPhoneEmail(
+        "ticket tailor dot com slash events slash komenka",
+        "504/529-4676",
+        "rodij@copper.net"),
+    "2025-05-31",
+    givenStart = Some("2024-10-26"),
+    spotsSourceContacts = Seq(
+      "Mary Campbell <mary.e.campbell45@gmail.com>")
+  )
+
   Spot(
     "Voting2024LocationsToday",
     Civic,

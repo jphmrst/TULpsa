@@ -329,6 +329,16 @@ object PromoShortTermSpots extends SpotBank("promo-short", PromoScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("TunnelvisionKatrina",
+    str("Listen to a special edition of Tunnelvisions at 2")
+      > pm
+      + blank("when")
+      + str("the 20th anniversary of Hurricane Katrina. DJ Dominomnom, a Katrina Kid herself, has interviewed twenty Katrina Kids about the impact of the storm on their lives and what they're looking for in our future as New Orleanians. Tune in to Tunnelvisions") +
+      blank("when") + "at 2" > pm
+      + str("to hear more."),
+    "2025-08-29"
+  )
+
   Event("BackToSchool2024",
     str("WTUL is hosting a Back 2 School Bash") +
       blank("when") +
