@@ -211,6 +211,18 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("MusaicaSept2025",
+    str("Musaica begins its 2025-26 season with a program entitled")
+      + emph("Past Reverberations") > comma
+      + str("featuring works of Saglietti, Milhaud, and Brahms.")
+      + str("Concerts will take place")
+      + blank("when")
+      + str("at Metairie Ridge Presbyterian Church on Phosphor Avenue, and on Tuesday the 30th at the Saint Charles Avenue Baptist Church in New Orleans.   Both shows are at 7:30") > pm
+      + moreWebPhone("musaica dot O R G", "504/304-8608"),
+    "2025-09-29",
+    spotsSourceContacts = Seq("musaica@musaica.org")
+  )
+
   Event(
     "KomenkaMay2025",
     str("The Komenka Ethnic Dance and Music Ensemble will hold it 43rd Annual Spring Concert")
