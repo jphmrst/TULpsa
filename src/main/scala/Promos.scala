@@ -329,6 +329,14 @@ object PromoShortTermSpots extends SpotBank("promo-short", PromoScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("MarathonMerchNovTwentyFive",
+    str("It’s time for our WTUL Marathon Merch Competition! Do you want your design to be a part of WTUL history, and worn by the coolest radio DJs and music nerds in town? Enter our Marathon merch design competition for a chance to win free entry into all of our Marathon events and a full suite of merch with your design on it! Visit")
+      + online("W T U L dot F M")
+      + str("for more information about design criteria, competition information, and submission guidelines! Deadline to submit is")
+      + blank("when."),
+    "2025-12-12"
+  )
+
   Event("TunnelvisionKatrina",
     str("Listen to a special edition of Tunnelvisions at 2")
       > pm
@@ -515,6 +523,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     str(
       "The Local show is a blend of not-so-secret herbs and spices, the holy trinity of creole cooking blended with local radio. Lettuce turnip the beets to the sweet and spicy sounds of local artists in New Orleans and Louisiana. Sometimes DJ Chef stirs the pot, other times DJ Lank takes the ladle. No matter what, it's a flavor-filled guaranteed good-taste-of-a-time. Fill up on the local show, Tuesdays 8-10") > pm + str("on WTUL New Orleans, 91.5 FM."),
     start = "2024-08-23",
+    end = Some("2025-11-22"),
     alert = "2023-08-31",
     occludes = Set(TueAfternoon, TueDinner)
   )

@@ -1940,6 +1940,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       morePhone("504/865-5255"),
     orgName = Some("Women's Health Clinic"),
     start = "2021-06-22",
+    end = Some("2025-10-17"),
     alert = "2021-12-11",
     copresent = "The Tulane Women's Health Clinic"
   )
