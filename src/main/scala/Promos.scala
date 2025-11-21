@@ -329,12 +329,29 @@ object PromoShortTermSpots extends SpotBank("promo-short", PromoScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  // Event(tag, structText, endDate,
+  //       givenStart=Some(startDate),
+  //       spotsBoost=(0 < x < 1)
+  // )
+
+  Event("PublicDomainRemixTwentySix",
+    str("WTUL and Tulane Libraries want you to reimagine and remix public domain music. The Public Domain Music Remix contest is a chance for Tulane students to create fresh new works from music that has recently entered or will soon enter the public domain. All submissions are due no later than 11:59") > pm
+      + blank("when.")
+      + str("Contest details, including how to submit music, are available at")
+      + online("library dot tulane dot E D U slash news") > comma
+      + str("under") + emph("Public Domain Music Remix Contest") > period
+      + str("The contest is only open to Tulane students, but all WTUL listeners will get to enjoy the results!"),
+    "2026-01-14",
+    givenStart = Some("2025-11-24")
+  )
+
   Event("MarathonMerchNovTwentyFive",
     str("It’s time for our WTUL Marathon Merch Competition! Do you want your design to be a part of WTUL history, and worn by the coolest radio DJs and music nerds in town? Enter our Marathon merch design competition for a chance to win free entry into all of our Marathon events and a full suite of merch with your design on it! Visit")
       + online("W T U L dot F M")
       + str("for more information about design criteria, competition information, and submission guidelines! Deadline to submit is")
       + blank("when."),
-    "2025-12-12"
+    "2025-12-12",
+    spotsBoost = 0.96
   )
 
   Event("TunnelvisionKatrina",
