@@ -616,6 +616,17 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   import scala.language.implicitConversions
 
   Spot(
+    "NOHDdui",
+    Health,
+    str("The New Orleans Health Department's Safe Rides, Big Easy Vibes reminds everyone to plan a safe and sober ride home when celebrating in New Orleans.  Drinking and driving increases the risk of crashes and injury so plan your ride before you head out.  You can use public transportation like our RTA system, take a rideshare, or designate a sober driver to protect yourself, your friends, and everyone on New Orleans streets.")
+      + moreWeb("nola dot gov slash drive sober"),
+    start = "2026-04-01",
+    end = None,
+    alert = "2028-06-01",
+    sourceContacts = Seq("Taylor L Beaudoin <Taylor.Beaudoin@nola.gov>")
+  )
+
+  Spot(
     "NovasMay2024v2",
     Volunteer,
     str("Have you or a loved one been impacted by incarceration? Do you want to make a difference in the city's criminal justice system? New Orleans Voices for Accountability, or NOVAS, is looking for new volunteer members. NOVAS is a community-led organization pursuing racial justice in the criminal legal system, and advocating for a reduction of New Orleans' jail population.")
