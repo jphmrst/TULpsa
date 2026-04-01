@@ -657,8 +657,18 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
       + str("for the Cheez Muzik Show.  What is Cheez, you may ask? Space Music, Ambient, Berlin School, Downtempo, New Age. This music is cheesy! Tune into the Cheez Muzik Show every Sunday morning from 6 to 10")
       > am > period,
     start = "2024-08-23",
+    end = Some("2026-03-31"),
     alert = "2022-12-05",
-    occludes = Set()
+    occludes = Set(SunMorning)
+  )
+
+  Show(
+    "Cheez4",
+    StandardPromo,
+    str("Tune in Sunday Mornings to the Cheez Musik Show, a mellow, meditative mainstay at WTUL for over 50 years. Allow yourself to be awash in the soothing sounds of New Age music, ambient, downtempo, Berlin School, and other sonically serene distant shores, brought to you by a dedicated, rotating cast of DJs to help you usher in a peaceful morning every Sunday from 6 to 10") > am > period,
+    start = "2026-04-01",
+    alert = "2022-12-05",
+    occludes = Set(SunMorning)
   )
 
   Show(
