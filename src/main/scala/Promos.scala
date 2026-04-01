@@ -425,6 +425,16 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
     !globs.getOrElse(spot, Set.empty).intersect(glob).isEmpty
 
   Show(
+    "JoystickJukebox2026",
+    StandardPromo,
+    str("Joystick Jukebox is WTUL's video game music specialty show. Recharge your soul with an abundance of beeps and bops written for consoles, handhelds, PCs --- you name it! For gamers and non-gamers alike, anyone can find something to bob their head to on Joystick Jukebox, every other Friday night from 8-10pm."),
+    start = "2026-04-01",
+    end = None,
+    alert = "2026-05-14",
+    occludes = Set(FriDinner, FriAfternoon, FriNight)
+  )
+
+  Show(
     "BackToSchool2024f",
     StandardPromo,
     str("WTUL is hosting a Back 2 School Bash on Thursday the 22nd at The Broadside! Doors at 5, show at 6. This funky lineup is loaded with tunes that will make you feel too cool for school, from Lady Li, Doctors, The Dewdrops, Raph and the Rotation and Planet of the Little Green Men! There's more information on our website and social media pages!"),
