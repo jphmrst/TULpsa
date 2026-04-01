@@ -211,6 +211,18 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  Event("EarthDay2026",
+    str("Tulane's Earth Day Festival will be held in Tulane's Pocket Park")
+      + blank("when")
+      + str("from 11") > am
+      + str("to 3") > pm > period
+      + str("The festival is open to the public and will feature live music, food, crafts, and interactive activities. Come celebrate and be part of the change for a more sustainable future! More information is available online at")
+      + online("tulane earth day dot com") > comma
+      + str("or at") > online("tulane earth day") + str("on Instagram."),
+    "2026-04-11",
+    spotsSourceContacts = Seq("musaica@musaica.org")
+  )
+
   Event("MusaicaSept2025",
     str("Musaica begins its 2025-26 season with a program entitled")
       + emph("Past Reverberations") > comma
