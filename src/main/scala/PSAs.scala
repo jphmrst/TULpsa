@@ -3241,6 +3241,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
       online("get a game plan dot O R G."),
     orgName = Some("GOHEP"),
     start = "2021-06-22",
+    end = Some("2026-07-05"),
     alert = "2022-03-04",
     groupGainMultiplier = 1.2
   )
