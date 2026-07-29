@@ -570,7 +570,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
   Spot(
     "SociaMedia3",
     StandardPromo,
-    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Twitter and Instagram is")
+    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Instagram is")
       + online("@WTUL") > comma
       + str("or search for our Facebook page under")
       + online("WTUL New Orleans") > period
@@ -745,7 +745,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
   Spot(
     "SociaMedia2",
     StandardPromo,
-    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Twitter and Instagram is")
+    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Instagram is")
       + online("@WTUL") > comma
       + str("or search for our Facebook page under")
       + online("WTUL New Orleans") > period
@@ -907,7 +907,7 @@ object PromoLongTermSpots extends SpotBank("promo-long", PromoScheduling) {
   Spot(
     "SociaMedia",
     StandardPromo,
-    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Twitter and Instagram is")
+    str("If you want to keep in touch with WTUL's events, playlists, and other updates, check out our social media pages! Our handle on Instagram is")
       + online("@WTUL") > comma
       + str("or search for our Facebook page under")
       + online("WTUL New Orleans") > period

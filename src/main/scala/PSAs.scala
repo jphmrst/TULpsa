@@ -881,6 +881,25 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
   )
 
   Spot(
+    "GreenLightThree",
+    Volunteer,
+    str("Green Light New Orleans is a community organization focused on providing household level tools and resources for climate adaption and resilience. Volunteers prepare artistic, upcycled rain barrels for residences in Orleans, Jefferson, and Saint Bernard Parishes.") +
+      moreWebAnnounce(
+        "For more information or to volunteer",
+        "green light new orleans dot O R G"),
+    orgName = Some("Green Light New Orleans"),
+    start = "2026-07-28",
+    alert = "2022-02-15",
+    previousAlerts = Seq("2022-02-20"),
+    sourceNote = "Updated by email from D.J. July 2026",
+    sourceContacts = Seq(
+      "Mark Twang <folkshow@gmail.com>",
+      "green@greenlightneworleans.org (Bernnel January Jr.)",
+      "Andreas Hoffmann <andreashoffmann@greenlightneworleans.org>"
+    )
+  )
+
+  Spot(
     "GreenLightVolunteersTwo",
     Volunteer,
     str("Volunteers with Green Light New Orleans install free energy-efficient light bulbs for any New Orleans resident.") +
@@ -889,6 +908,7 @@ object PsaLongTermSpots extends SpotBank("psa-long", PsaScheduling) {
         "green light new orleans dot O R G", "504/324-2429"),
     orgName = Some("Green Light New Orleans"),
     start = "2021-06-22",
+    end = Some("2026-07-27"),
     alert = "2022-02-15",
     previousAlerts = Seq("2022-02-20"),
     sourceNote = "(from Gambit) asked July 2015, asked Dec. 2012",
