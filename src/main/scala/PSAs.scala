@@ -211,6 +211,40 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   import Group.*
   import scala.language.implicitConversions
 
+  /*
+  Event("TITLE",
+    str("") > comma
+      + blank("when") > period
+      + str("")
+      + online("")
+      + str("")
+      + online("") > period,
+    "2026-09-19",
+    spotsSourceContacts = Seq("")
+  )
+   */
+
+  Event("AjaYardBenefitSept2026",
+    str("One Hundred Thousand Poets for Change will present a reading to commemorate victims of ICE, and a benefit for immigrant families.  The event will be")
+      + blank("when")
+      + str("from four to six") + pm + str("at")
+      + phonetic("Aja", "ah-jah")
+      + str("Yard, 5640 Burgundy, and will feature former Poets Laureate John Warner Smith and Mona Lisa Saloy, plus guest speakers from Immigrant Food Support and Union Migrante."),
+    "2026-09-26",
+    spotsSourceContacts = Seq("Dennis Formento <glyptodon2023@gmail.com>")
+  )
+
+  Event("CleanupDay2026",
+    str("Love Our Waterways is a month-long initiative for September to help make a dent in Louisiana's litter problem.  As part of this program, Tulane and Loyola are hosting a litter clean-up event in Uptown on World Cleanup Day") > comma
+      + blank("when") > period
+      + str("Information about the event and how to volunteer are available on instagram at")
+      + online("Green Tulane")
+      + str("or at")
+      + online("Loyola Environment") > period,
+    "2026-09-19",
+    spotsSourceContacts = Seq("Mark Twang <folkshow@gmail.com>")
+  )
+
   Event("EarthDay2026",
     str("Tulane's Earth Day Festival will be held in Tulane's Pocket Park")
       + blank("when")
@@ -602,7 +636,7 @@ object PsaShortTermSpots extends SpotBank("psa-short", PsaScheduling) {
   Event("sierraMtgJuly21",
     str("The next meeting of the Orleans Sierra Club will be") +
       blank("when") +
-      str("at 6:30") + pm > period +
+      str("at 6:30") > pm > period +
       str("Christen Steele will discuss conservation issues affecting the survival of the monarch butterfly.  Sierra Club meetings are currently online.  More information and a link to the online session are available on their website,") +
       online("sierra club dot O R G slash delta") > period,
     "2021-07-21",
