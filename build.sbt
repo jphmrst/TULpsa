@@ -1,4 +1,4 @@
-val scala3Version = "3.1.3"
+val scala3Version = "3.9.0"
 
 // library name
 name := "wtul-rosters"

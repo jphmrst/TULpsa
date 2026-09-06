@@ -53,7 +53,7 @@ object Exporter {
     val spots = {
       val buf = Set.newBuilder[Spot]
       for (roster <- exporter.rosters; spot <- roster.slots) do buf += spot
-      buf.result
+      buf.result()
     }
 
     for (spot <- spots) do {

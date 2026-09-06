@@ -160,8 +160,8 @@ abstract class RosterBuilder(
 
   def nearSameGroup(slot: Int, candidate: Spot, within: Int = 3): Boolean = {
     val group = candidate.variantGroup
-    val (lower, upper): (Option[Spot], Option[Spot]) =
-      assignedNeighbors(slot, within)
+    val (lower, upper) =
+      assignedNeighbors(slot, within): (Option[Spot], Option[Spot])
     val checker: Spot => Boolean =
       (spot) => !(spot == candidate) && spot.variantGroup == group
     lower.map(checker).getOrElse(false) || upper.map(checker).getOrElse(false)

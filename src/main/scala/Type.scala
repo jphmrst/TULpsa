@@ -8,6 +8,7 @@
 package org.maraist.wtulrosters
 import java.time.LocalDate
 import scala.collection.mutable.Builder
+import scala.math.Ordered.orderingToOrdered
 
 /** Top-level abstraction of constructing one type of rosters.  The
   * sole public API operations are for initialization, and for
@@ -65,7 +66,7 @@ abstract class RosterType(val exporterBase: String = "") {
       val fileroot = roster.fileTitle
       outBuilder += fileroot + ".pdf"
     }
-    val exporter = new Exporter(rosters.result)
+    val exporter = new Exporter(rosters.result())
     exporter.write(exporterBase + "weeks")
     outBuilder
   }

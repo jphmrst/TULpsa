@@ -9,6 +9,7 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import org.maraist.latex.LaTeXdoc
 import org.maraist.wtulrosters.Utils.{twoPlaces, fourPlaces}
+import scala.math.Ordered.orderingToOrdered
 
 /** Objects of this class are designed to hold several [[Spot]]s.
   */
@@ -68,12 +69,11 @@ class SpotBank(val tag: String, val schedule: AssortmentSchedule)
   def apply(tag: String): Option[Spot] = tags.get(tag)
 
   def getSortedList(date: LocalDate): List[Spot] = {
-    val builder = scala.collection.mutable.SortedSet.newBuilder[Spot](
-        new Ordering[Spot] {
+    given Ordering[Spot]:
           def compare(s1: Spot, s2: Spot) =
             s2.priority(date) compare s1.priority(date)
-        }
-      )
+
+    val builder = scala.collection.mutable.SortedSet.newBuilder[Spot]
 
     for(spot <- inventory; if spot.validOn(date)) { builder += spot }
     List.from(builder.result())

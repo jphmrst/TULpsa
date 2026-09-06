@@ -9,6 +9,7 @@ package org.maraist.wtulrosters
 import java.time.LocalDate
 import scala.collection.mutable.TreeSet
 import scala.math.Ordering
+import scala.math.Ordered.orderingToOrdered
 import scala.util.control.NonLocalReturns.*
 
 /** Specification of the groups and associated spot gains for a given
@@ -38,7 +39,7 @@ case class Assortment(
 object Assortment {
   given Ordering[Assortment] with
       def compare(a: Assortment, b: Assortment): Int =
-        b.start compareTo (a.start)
+        b.start `compareTo` (a.start)
 
   val always = (date: LocalDate) => true
 
@@ -91,8 +92,8 @@ class AssortmentSchedule {
 
   def apply(when: LocalDate): Assortment = returning {
     for (assortment <- assortmentSet) {
-      if (assortment.start compareTo when) <= 0 then
-      if (when compareTo (assortment.end)) <= 0 then
+      if (assortment.start `compareTo` when) <= 0 then
+      if (when `compareTo` (assortment.end)) <= 0 then
       if assortment.predicate(when) then throwReturn(assortment)
     }
 
@@ -105,17 +106,16 @@ class AssortmentSchedule {
     */
   def getSortedPairsList(date: LocalDate, bank:SpotBank):
       List[(Spot, Double)] = {
-    Output.fullln(s"getSortedPairList $date ${bank.tag}")
-
-    val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)](
-      new Ordering[(Spot, Double)] {
+    given Ordering[(Spot, Double)]:
         def compare(p1: (Spot, Double), p2: (Spot, Double)) = p1 match {
           case (_, d1) => p2 match {
             case (_, d2) => d2 compare d1
           }
         }
-      }
-    )
+
+    Output.fullln(s"getSortedPairList $date ${bank.tag}")
+
+    val acc = scala.collection.mutable.SortedSet.newBuilder[(Spot, Double)]
 
     for ((group, groupGain) <- apply(date).groups) {
       // print("\n\t*** " + groupGain.toString() + "  " + group.title)

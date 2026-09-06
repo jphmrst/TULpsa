@@ -162,7 +162,7 @@ class Spot(
     sb ++= "    </prosody>\n"
     sb ++= "  </voice>\n"
     sb ++= "</speak>\n"
-    sb.result
+    sb.result()
   }
 
   def updateSpotAudio: Unit = {
