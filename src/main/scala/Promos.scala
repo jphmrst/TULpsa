@@ -334,6 +334,17 @@ object PromoShortTermSpots extends SpotBank("promo-short", PromoScheduling) {
   //       spotsBoost=(0 < x < 1)
   // )
 
+  Event("ArchitectureGala2026",
+    str("Calling all architecture alumni, friends, and family:  Support the next generation of architects, designers, and innovators at Tulane University's School of Architecture and Built Environment Awards Gala.  Join alumni, faculty, and friends ")
+      + blank("when,")
+      + str("at The Josephine in New Orleans for an evening celebrating leaders whose work shapes cities and communities.  Proceeds from the evening will support student scholarships in the School of Architecture and Built Environment, helping talented students pursue their academic and professional aspirations.  The cocktail reception begins at six") > pm > comma
+      + str("followed by dinner and the awards ceremony at seven") > pm > comma
+      + str("with live music and a reception to follow.  To learn more, become an event sponsor, or purchase tickets, please visit ")
+      + online("alumni dot tulane dot E D U slash architecture hyphen awards hyphen gala") > period,
+    "2026-10-22",
+    givenStart = Some("2026-10-13")
+  )
+
   Event("PublicDomainRemixTwentySix",
     str("WTUL and Tulane Libraries want you to reimagine and remix public domain music. The Public Domain Music Remix contest is a chance for Tulane students to create fresh new works from music that has recently entered or will soon enter the public domain. All submissions are due no later than 11:59") > pm
       + blank("when.")
