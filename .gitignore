@@ -8,3 +8,8 @@ project/target
 target
 .bsp
 .metals
+.bloop
+project/.bloop
+project/metals.sbt
+project/project
+src/project
