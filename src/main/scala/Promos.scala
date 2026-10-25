@@ -1,4 +1,4 @@
-// Promos.scala --- (c) 2021 John Maraist
+// Promos.scala --- (c) 2021-2026 John Maraist
 // Part of the WTUL Roster Generator
 //
 // This file is made available under the GNU GPL version 3; see the
@@ -333,6 +333,15 @@ object PromoShortTermSpots extends SpotBank("promo-short", PromoScheduling) {
   //       givenStart=Some(startDate),
   //       spotsBoost=(0 < x < 1)
   // )
+
+  Event("BattleBandHalloween2026",
+    str("WTUL is hosting a Battle of the Bands at Siberia on")
+      + blank("when.")
+      + str("Six great bands will be battling it out for glory, a Song from the Basement feature, and a spot in the Crawfest Lineup. Doors are at 6, music at 7. It will be Halloween-themed, so wear a costume!"),
+    "2026-10-28",
+    givenStart=Some("2026-10-26"),
+    spotsBoost = 0.96
+  )
 
   Event("ArchitectureGala2026",
     str("Calling all architecture alumni, friends, and family:  Support the next generation of architects, designers, and innovators at Tulane University's School of Architecture and Built Environment Awards Gala.  Join alumni, faculty, and friends ")
