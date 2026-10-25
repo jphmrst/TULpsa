@@ -1,4 +1,4 @@
-// PSAs.scala --- (c) 2021 John Maraist
+// PSAs.scala --- (c) 2021-2026 John Maraist
 // Part of the WTUL Roster Generator
 //
 // This file is made available under the GNU GPL version 3; see the
